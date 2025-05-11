@@ -22,7 +22,7 @@
       }
     </style>
   </head>
-  <body class="bg-gray-50">
+  <body class="bg-[#eedbbb]">
     <!-- Botones flotantes -->
     <button
       class="scroll-top bg-blue-600 text-white p-3 rounded-full shadow-lg hover:bg-blue-700"
@@ -40,36 +40,121 @@
       </svg>
     </a>
 
-    <!-- Header -->
-    <header class="bg-white shadow-md">
+    <header class="bg-[#0c8c35] shadow-md">
       <div
         class="container mx-auto px-4 py-4 flex items-center justify-between"
       >
         <img src="./assets/logo-web.jpg" alt="Logo" class="h-20" />
-        <nav class="hidden md:flex space-x-6">
-          <a href="#inicio" class="text-gray-700 hover:text-blue-600">Inicio</a>
-          <a href="#noticias" class="text-gray-700 hover:text-blue-600"
+
+        <!-- Menú para pantallas medianas y grandes -->
+        <nav class="hidden md:flex items-center justify-center">
+          <div class="flex space-x-6">
+            <a
+              href="#inicio"
+              class="text-white font-medium hover:text-yellow-200 transition duration-300 ease-in-out"
+              >Inicio</a
+            >
+            <a
+              href="#noticias"
+              class="text-white font-medium hover:text-yellow-200 transition duration-300 ease-in-out"
+              >Noticias</a
+            >
+            <a
+              href="#contacto"
+              class="text-white font-medium hover:text-yellow-200 transition duration-300 ease-in-out"
+              >Contacto</a
+            >
+            <a
+              href="#servicios"
+              class="text-white font-medium hover:text-yellow-200 transition duration-300 ease-in-out"
+              >Servicios</a
+            >
+            <a
+              href="#hojitadomingo"
+              class="text-white font-medium hover:text-yellow-200 transition duration-300 ease-in-out"
+              >Hojita del Domingo</a
+            >
+            <a
+              href="#evangeliodia"
+              class="text-white font-medium hover:text-yellow-200 transition duration-300 ease-in-out"
+              >Evangelio del día</a
+            >
+            <a
+              href="#congregacion"
+              class="text-white font-medium hover:text-yellow-200 transition duration-300 ease-in-out"
+              >Congregación</a
+            >
+            <a
+              href="#aportes"
+              class="text-white font-medium hover:text-yellow-200 transition duration-300 ease-in-out"
+              >Aportes</a
+            >
+          </div>
+        </nav>
+
+        <!-- Botón de menú hamburguesa para móviles -->
+        <button id="menu-btn" class="md:hidden text-white focus:outline-none">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-8 w-8"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 6h16M4 12h16M4 18h16"
+            />
+          </svg>
+        </button>
+      </div>
+
+      <!-- Menú móvil desplegable -->
+      <div id="mobile-menu" class="hidden px-4 py-2 bg-[#0c8c35] md:hidden">
+        <div class="flex flex-col space-y-4">
+          <a
+            href="#inicio"
+            class="text-white font-medium hover:text-yellow-200 transition duration-300 ease-in-out py-2 border-b border-green-700"
+            >Inicio</a
+          >
+          <a
+            href="#noticias"
+            class="text-white font-medium hover:text-yellow-200 transition duration-300 ease-in-out py-2 border-b border-green-700"
             >Noticias</a
           >
-          <a href="#contacto" class="text-gray-700 hover:text-blue-600"
+          <a
+            href="#contacto"
+            class="text-white font-medium hover:text-yellow-200 transition duration-300 ease-in-out py-2 border-b border-green-700"
             >Contacto</a
           >
-          <a href="#servicios" class="text-gray-700 hover:text-blue-600"
+          <a
+            href="#servicios"
+            class="text-white font-medium hover:text-yellow-200 transition duration-300 ease-in-out py-2 border-b border-green-700"
             >Servicios</a
           >
-          <a href="#hojitadomingo" class="text-gray-700 hover:text-blue-600"
+          <a
+            href="#hojitadomingo"
+            class="text-white font-medium hover:text-yellow-200 transition duration-300 ease-in-out py-2 border-b border-green-700"
             >Hojita del Domingo</a
           >
-          <a href="#evangeliodia" class="text-gray-700 hover:text-blue-600"
+          <a
+            href="#evangeliodia"
+            class="text-white font-medium hover:text-yellow-200 transition duration-300 ease-in-out py-2 border-b border-green-700"
             >Evangelio del día</a
           >
-          <a href="#congregacion" class="text-gray-700 hover:text-blue-600"
+          <a
+            href="#congregacion"
+            class="text-white font-medium hover:text-yellow-200 transition duration-300 ease-in-out py-2 border-b border-green-700"
             >Congregación</a
           >
-          <a href="#aportes" class="text-gray-700 hover:text-blue-600"
+          <a
+            href="#aportes"
+            class="text-white font-medium hover:text-yellow-200 transition duration-300 ease-in-out py-2 border-b border-green-700"
             >Aportes</a
           >
-        </nav>
+        </div>
       </div>
     </header>
 
@@ -500,6 +585,26 @@ Sábados: 9:30 a 13:00 hrs. -->
             }
           });
         });
+      });
+    </script>
+
+    <!-- Script para el menú móvil -->
+    <script>
+      // Función para alternar la visibilidad del menú móvil
+      function toggleMobileMenu() {
+        const mobileMenu = document.getElementById("mobile-menu");
+        mobileMenu.classList.toggle("hidden");
+      }
+
+      // Event listener para el botón de menú
+      document
+        .getElementById("menu-btn")
+        .addEventListener("click", toggleMobileMenu);
+
+      // Event listeners para todos los enlaces del menú móvil
+      const mobileMenuLinks = document.querySelectorAll("#mobile-menu a");
+      mobileMenuLinks.forEach((link) => {
+        link.addEventListener("click", toggleMobileMenu);
       });
     </script>
   </body>
