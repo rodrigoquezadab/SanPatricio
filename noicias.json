@@ -1,0 +1,37 @@
+[
+  {
+    "id": 1,
+    "title": "Jóvenes de nuestra parroquia en JMJ Lisboa 2023",
+    "description": "¡Una experiencia inolvidable! Nuestros jóvenes participaron activamente en la Jornada Mundial de la Juventud, compartiendo fe y alegría con miles de personas de todo el mundo.",
+    "imageUrl": "./assets/jmj_lisboa.jpg",
+    "date": "15/08/2023"
+  },
+  {
+    "id": 2,
+    "title": "Concierto de Coro Parroquial a beneficio",
+    "description": "Invitamos a toda la comunidad a nuestro concierto benéfico anual. Fondos recaudados irán en ayuda de familias de nuestra parroquia en situación vulnerable. ¡No se lo pierdan!",
+    "imageUrl": "./assets/coro_parroquial.jpg",
+    "date": "01/09/2023"
+  },
+  {
+    "id": 3,
+    "title": "Celebración de Primeras Comuniones",
+    "description": "Con gran alegría, celebramos la Primera Comunión de nuestros niños. Agradecemos a catequistas y padres por su dedicación y apoyo en este importante paso de fe.",
+    "imageUrl": "./assets/primeras_comuniones.jpg",
+    "date": "20/07/2023"
+  },
+  {
+    "id": 4,
+    "title": "Retiro de Cuaresma 2024",
+    "description": "Un tiempo de reflexión y oración para prepararnos para la Pascua. ¡Gracias a todos los que participaron!",
+    "imageUrl": "./assets/retiro_cuaresma.jpg",
+    "date": "10/03/2024"
+  },
+  {
+    "id": 5,
+    "title": "Pascua de Resurrección: La Alegría de Cristo",
+    "description": "Celebramos con gozo la Resurrección de nuestro Señor. ¡Que la luz de Cristo ilumine sus corazones!",
+    "imageUrl": "./assets/pascua_resurreccion.jpg",
+    "date": "31/03/2024"
+  }
+]

@@ -14,16 +14,33 @@
         position: fixed;
         bottom: 80px;
         right: 20px;
+        z-index: 999; /* Ensure it's above other content */
       }
       .whatsapp {
         position: fixed;
         bottom: 20px;
         right: 20px;
+        z-index: 999; /* Ensure it's above other content */
+      }
+      .news-card {
+        display: flex;
+        flex-direction: column;
+        height: 100%; /* Make cards take full height of grid cell */
+      }
+      .news-card img {
+        width: 100%;
+        height: 200px; /* Fixed height for images */
+        object-fit: cover; /* Cover the area, cropping if necessary */
+        border-top-left-radius: 0.5rem; /* rounded-t-lg */
+        border-top-right-radius: 0.5rem; /* rounded-t-lg */
+      }
+      .news-card-content {
+        flex-grow: 1; /* Allow content to take remaining space */
+        padding: 1.5rem; /* p-6 */
       }
     </style>
   </head>
   <body class="bg-[#eedbbb]">
-    <!-- Botones flotantes -->
     <button
       class="scroll-top bg-blue-600 text-white p-3 rounded-full shadow-lg hover:bg-blue-700"
     >
@@ -44,55 +61,64 @@
       <div
         class="container mx-auto px-4 py-4 flex items-center justify-between"
       >
-        <img src="./assets/logo-web.jpg" alt="Logo" class="h-20" />
+        <img
+          src="./assets/logo-web.jpg"
+          alt="Logo"
+          class="h-12 sm:h-16 md:h-20"
+        />
 
-        <!-- Menú para pantallas medianas y grandes -->
         <nav class="hidden md:flex items-center justify-center">
-          <div class="flex space-x-6">
+          <div
+            class="flex flex-nowrap text-nowrap space-x-2 sm:space-x-4 lg:space-x-6"
+          >
             <a
               href="#inicio"
-              class="text-white font-medium hover:text-yellow-200 transition duration-300 ease-in-out"
+              class="text-white font-medium text-xs sm:text-sm lg:text-base hover:text-yellow-200 transition duration-300 ease-in-out"
               >Inicio</a
             >
             <a
               href="#noticias"
-              class="text-white font-medium hover:text-yellow-200 transition duration-300 ease-in-out"
+              class="text-white font-medium text-xs sm:text-sm lg:text-base hover:text-yellow-200 transition duration-300 ease-in-out"
               >Noticias</a
             >
             <a
               href="#contacto"
-              class="text-white font-medium hover:text-yellow-200 transition duration-300 ease-in-out"
+              class="text-white font-medium text-xs sm:text-sm lg:text-base hover:text-yellow-200 transition duration-300 ease-in-out"
               >Contacto</a
             >
             <a
               href="#servicios"
-              class="text-white font-medium hover:text-yellow-200 transition duration-300 ease-in-out"
+              class="text-white font-medium text-xs sm:text-sm lg:text-base hover:text-yellow-200 transition duration-300 ease-in-out"
               >Servicios</a
             >
             <a
               href="#hojitadomingo"
-              class="text-white font-medium hover:text-yellow-200 transition duration-300 ease-in-out"
+              class="text-white font-medium text-xs sm:text-sm lg:text-base hover:text-yellow-200 transition duration-300 ease-in-out"
               >Hojita del Domingo</a
             >
             <a
               href="#evangeliodia"
-              class="text-white font-medium hover:text-yellow-200 transition duration-300 ease-in-out"
+              class="text-white font-medium text-xs sm:text-sm lg:text-base hover:text-yellow-200 transition duration-300 ease-in-out"
               >Evangelio del día</a
             >
             <a
               href="#congregacion"
-              class="text-white font-medium hover:text-yellow-200 transition duration-300 ease-in-out"
+              class="text-white font-medium text-xs sm:text-sm lg:text-base hover:text-yellow-200 transition duration-300 ease-in-out"
               >Congregación</a
             >
             <a
               href="#aportes"
-              class="text-white font-medium hover:text-yellow-200 transition duration-300 ease-in-out"
+              class="text-white font-medium text-xs sm:text-sm lg:text-base hover:text-yellow-200 transition duration-300 ease-in-out"
               >Aportes</a
+            >
+            <a
+              href="#intenciones"
+              class="text-white font-medium text-xs sm:text-sm lg:text-base hover:text-yellow-200 transition duration-300 ease-in-out"
+              >Intenciones de Misa</a
             >
           </div>
         </nav>
 
-        <!-- Botón de menú hamburguesa para móviles -->
         <button id="menu-btn" class="md:hidden text-white focus:outline-none">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -111,7 +137,6 @@
         </button>
       </div>
 
-      <!-- Menú móvil desplegable -->
       <div id="mobile-menu" class="hidden px-4 py-2 bg-[#0c8c35] md:hidden">
         <div class="flex flex-col space-y-4">
           <a
@@ -154,81 +179,131 @@
             class="text-white font-medium hover:text-yellow-200 transition duration-300 ease-in-out py-2 border-b border-green-700"
             >Aportes</a
           >
+          <a
+            href="#intenciones"
+            class="text-white font-medium hover:text-yellow-200 transition duration-300 ease-in-out py-2 border-b border-green-700"
+            >Intenciones de Misa</a
+          >
         </div>
       </div>
     </header>
 
-    <!-- Sección Inicio -->
     <section id="inicio" class="container mx-auto px-4 py-12">
+      <h2 class="text-3xl font-bold mb-8 text-center">Inicio</h2>
       <div class="grid md:grid-cols-2 gap-8">
-        <!-- Horarios -->
         <div class="bg-white p-6 rounded-lg shadow-md">
-          <h2 class="text-2xl font-bold mb-4">Horarios Misas</h2>
-          <div class="space-y-4">
-            <div class="flex justify-between border-b pb-2">
-              <span>Lunes</span>
-              <span class="text-gray-600">19:00 hrs.</span>
-            </div>
-            <!-- Repetir para otros horarios -->
-            <div class="flex justify-between border-b pb-2">
-              <span>Martes a Viernes</span>
-              <span class="text-gray-600"> 12:00 y 19:00 hrs.</span>
-            </div>
-            <div class="flex justify-between border-b pb-2">
-              <span>Sabados</span>
-              <span class="text-gray-600"> 12:00 y 18:00 hrs.</span>
-            </div>
-            <div class="flex justify-between border-b pb-2">
-              <span>Misas Domingos</span>
-              <span class="text-gray-600">09:30, 11:00, 12:30 hrs</span>
-            </div>
-          </div>
+          <h3 class="text-2xl font-bold mb-4">Horarios Misas</h3>
+          <p class="mb-2">Lunes a viernes: <strong>19:30 hrs.</strong></p>
+          <p class="mb-2">Sábados: <strong>19:30 hrs.</strong></p>
+          <p class="mb-2">
+            Domingos: <strong>10:00, 12:00 y 19:30 hrs.</strong>
+          </p>
+          <p class="mb-2">
+            Primer viernes de mes: Misa de la Divina Misericordia:
+            <strong>19:30 hrs.</strong>
+          </p>
         </div>
-
-        <!-- Confesiones -->
         <div class="bg-white p-6 rounded-lg shadow-md">
-          <h2 class="text-2xl font-bold mb-4">Horarios Confesiones</h2>
-          <div class="space-y-4">
-            <div class="flex justify-between border-b pb-2">
-              <span>Martes a Viernes</span>
-              <span class="text-gray-600">16:00 a 18:30 hrs</span>
-            </div>
-            <!-- Repetir para otros horarios -->
-          </div>
+          <h3 class="text-2xl font-bold mb-4">Confesiones</h3>
+          <p class="mb-2">
+            Martes a viernes: <strong>19:00 a 19:30 hrs.</strong>
+          </p>
+          <p class="mb-2">Sábados: <strong>19:00 a 19:30 hrs.</strong></p>
+          <p class="mb-2">
+            Domingos:
+            <strong>09:30 a 10:00 / 11:30 a 12:00 / 19:00 a 19:30 hrs.</strong>
+          </p>
+          <p class="mb-2">
+            El sacerdote espera en el confesionario en el templo. Si lo prefiere
+            puede pedir una hora en la secretaria parroquial.
+          </p>
         </div>
-
-        <!-- Horarios ecretaria-->
         <div class="bg-white p-6 rounded-lg shadow-md">
-          <h2 class="text-2xl font-bold mb-4">Horarios Oficina Secretaría</h2>
-
-          <!-- Lunes a viernes:
-Mañana: 10:00 a 13:00 hrs.
-Tarde: 15:00 a 19:00 hrs.
-Sábados: 9:30 a 13:00 hrs. -->
-          <div class="space-y-4">
-            <div class="flex justify-between border-b pb-2">
-              <span>Lunes a Viernes</span>
-              <span class="text-gray-600">Mañana: 10:00 a 13:00 hrs</span>
-              <span class="text-gray-600">Tarde: 15:00 a 19:00 hrs</span>
-            </div>
-            <div class="flex justify-between border-b pb-2">
-              <span>Sábados</span>
-              <span class="text-gray-600">9:30 a 13:00 hrs</span>
-            </div>
-          </div>
+          <h3 class="text-2xl font-bold mb-4">Secretaría</h3>
+          <p class="mb-2">
+            Martes a viernes:
+            <strong>09:00 a 13:00 hrs. / 15:00 a 19:00 hrs.</strong>
+          </p>
+          <p class="mb-2">Sábados: <strong>09:00 a 13:00 hrs.</strong></p>
+          <p class="mb-2">Domingos y lunes: <strong>Cerrado.</strong></p>
         </div>
-
-        <!-- Contacto -->
         <div class="bg-white p-6 rounded-lg shadow-md">
-          <h2 class="text-2xl font-bold mb-4">Contacto Secretaría</h2>
-          <p class="mb-2">Teléfono: +562 2229 9060</p>
-          <p class="mb-2">Celular: +569 3348 4878</p>
-          <p>Email: secreparroquiasanpatricio@gmail.com</p>
+          <h3 class="text-2xl font-bold mb-4">Contacto General</h3>
+          <p class="mb-2">
+            Teléfono: <strong>+56222204500</strong> (Sólo en horario de oficina)
+          </p>
+          <p class="mb-2">
+            Email: <strong>secreparroquiasanpatricio@gmail.com</strong>
+          </p>
+          <p class="mb-2">
+            Dirección:
+            <strong>Isabel La Católica 6319, Las Condes, Santiago.</strong>
+          </p>
         </div>
       </div>
     </section>
 
-    <!-- Sección Servicios -->
+    <section id="noticias" class="bg-gray-100 py-12">
+      <div class="container mx-auto px-4">
+        <h2 class="text-3xl font-bold mb-8 text-center">Noticias Recientes</h2>
+        <div id="news-container" class="grid md:grid-cols-3 gap-6"></div>
+      </div>
+    </section>
+
+    <section id="contacto" class="container mx-auto px-4 py-12">
+      <h2 class="text-3xl font-bold mb-8 text-center">Contáctanos</h2>
+      <div class="bg-white p-8 rounded-lg shadow-md max-w-xl mx-auto">
+        <p class="mb-4 text-center">
+          Envíanos tus consultas, comentarios o intenciones de oración. Te
+          responderemos a la brevedad posible.
+        </p>
+        <form>
+          <div class="mb-4">
+            <label for="name" class="block text-gray-700 text-sm font-bold mb-2"
+              >Nombre:</label
+            >
+            <input
+              type="text"
+              id="name"
+              class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            />
+          </div>
+          <div class="mb-4">
+            <label
+              for="email"
+              class="block text-gray-700 text-sm font-bold mb-2"
+              >Email:</label
+            >
+            <input
+              type="email"
+              id="email"
+              class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            />
+          </div>
+          <div class="mb-6">
+            <label
+              for="message"
+              class="block text-gray-700 text-sm font-bold mb-2"
+              >Mensaje:</label
+            >
+            <textarea
+              id="message"
+              rows="5"
+              class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            ></textarea>
+          </div>
+          <div class="flex items-center justify-between">
+            <button
+              type="submit"
+              class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+            >
+              Enviar
+            </button>
+          </div>
+        </form>
+      </div>
+    </section>
+
     <section id="servicios" class="bg-gray-100 py-12">
       <div class="container mx-auto px-4">
         <h2 class="text-3xl font-bold mb-8 text-center">
@@ -236,7 +311,6 @@ Sábados: 9:30 a 13:00 hrs. -->
         </h2>
 
         <div class="max-w-3xl mx-auto">
-          <!-- Acordeón 1: Velatorio y funerales -->
           <div class="mb-4 acordeon-item">
             <div
               class="flex justify-between items-center p-4 cursor-pointer bg-white hover:bg-blue-100 rounded-t-lg shadow-md acordeon-header"
@@ -265,21 +339,23 @@ Sábados: 9:30 a 13:00 hrs. -->
               <div class="text-gray-700">
                 <p class="mb-2">
                   La parroquia dispone de un velatorio para las familias que lo
-                  soliciten. Se puede llamar al teléfono en los horarios de
-                  oficina de lunes a sábado. Sábados en la tarde y domingos se
-                  deben acercar a la parroquia en los horarios de Misa y
-                  contactarse con los sacerdotes o sacristanes.
+                  soliciten. Se puede llamar al
+                  <strong
+                    >teléfono en los horarios de oficina de lunes a
+                    sábado</strong
+                  >. Sábados en la tarde y domingos se deben acercar a la
+                  parroquia en los horarios de Misa y contactarse con los
+                  sacerdotes o sacristanes.
                 </p>
                 <p>
                   Para la misa de funeral deben ponerse en contacto con
-                  secretaría parroquial para fijar la hora y todos los
-                  pormenores que correspondan.
+                  <strong>secretaría parroquial</strong> para fijar la hora y
+                  todos los pormenores que correspondan.
                 </p>
               </div>
             </div>
           </div>
 
-          <!-- Acordeón 2: Visita y comunión a los enfermos -->
           <div class="mb-4 acordeon-item">
             <div
               class="flex justify-between items-center p-4 cursor-pointer bg-white hover:bg-blue-100 rounded-t-lg shadow-md acordeon-header"
@@ -316,13 +392,13 @@ Sábados: 9:30 a 13:00 hrs. -->
                   realiza a domicilio.
                 </p>
                 <p>
-                  Se pueden solicitar directamente en secretaria parroquial.
+                  Se pueden solicitar directamente en
+                  <strong>secretaria parroquial.</strong>
                 </p>
               </div>
             </div>
           </div>
 
-          <!-- Acordeón 3: Dirección espiritual -->
           <div class="mb-4 acordeon-item">
             <div
               class="flex justify-between items-center p-4 cursor-pointer bg-white hover:bg-blue-100 rounded-t-lg shadow-md acordeon-header"
@@ -357,12 +433,14 @@ Sábados: 9:30 a 13:00 hrs. -->
                   sobrenaturales, pero también las humanas) así como su
                   disponibilidad para cumplir la voluntad de Dios.
                 </p>
-                <p>Más información directamente en secretaria parroquial.</p>
+                <p>
+                  Más información directamente en
+                  <strong>secretaria parroquial.</strong>
+                </p>
               </div>
             </div>
           </div>
 
-          <!-- Acordeón 4: Intenciones de misa -->
           <div class="mb-4 acordeon-item">
             <div
               class="flex justify-between items-center p-4 cursor-pointer bg-white hover:bg-blue-100 rounded-t-lg shadow-md acordeon-header"
@@ -395,14 +473,13 @@ Sábados: 9:30 a 13:00 hrs. -->
                   su corazón.
                 </p>
                 <p>
-                  Se pueden solicitar directamente en secretaría parroquial en
-                  horario de oficina.
+                  Se pueden solicitar directamente en
+                  <strong>secretaría parroquial en horario de oficina.</strong>
                 </p>
               </div>
             </div>
           </div>
 
-          <!-- Acordeón 5: Bendición de hogares -->
           <div class="mb-4 acordeon-item">
             <div
               class="flex justify-between items-center p-4 cursor-pointer bg-white hover:bg-blue-100 rounded-t-lg shadow-md acordeon-header"
@@ -437,14 +514,13 @@ Sábados: 9:30 a 13:00 hrs. -->
                   hogar.
                 </p>
                 <p>
-                  Se pueden solicitar directamente en secretaría parroquial en
-                  horario de oficina.
+                  Se pueden solicitar directamente en
+                  <strong>secretaría parroquial en horario de oficina.</strong>
                 </p>
               </div>
             </div>
           </div>
 
-          <!-- Acordeón 6: Contribución a la Iglesia -->
           <div class="mb-4 acordeon-item">
             <div
               class="flex justify-between items-center p-4 cursor-pointer bg-white hover:bg-blue-100 rounded-t-lg shadow-md acordeon-header"
@@ -486,33 +562,124 @@ Sábados: 9:30 a 13:00 hrs. -->
       </div>
     </section>
 
-    <!-- Sección Aportes -->
-    <section id="aportes" class="container mx-auto px-4 py-12">
+    <section id="hojitadomingo" class="container mx-auto px-4 py-12">
+      <h2 class="text-3xl font-bold mb-8 text-center">Hojita del Domingo</h2>
       <div class="bg-white p-6 rounded-lg shadow-md">
-        <h2 class="text-2xl font-bold mb-4">Datos Bancarios</h2>
+        <p class="mb-4">
+          La Hojita del Domingo es una guía semanal que acompaña a los fieles en
+          la Liturgia de la Palabra, ofreciendo las lecturas, el salmo
+          responsarial y el evangelio del día. Además, incluye reflexiones,
+          avisos parroquiales y una oración de los fieles para enriquecer la
+          participación en la Santa Misa. Es un recurso valioso para meditar la
+          Palabra de Dios antes, durante y después de la celebración
+          eucarística.
+        </p>
+        <p>
+          Puedes descargar la última edición aquí:
+          <a
+            href="https://sanpatricio.cl/wp-content/uploads/2023/11/HOJITA-DOMINGO-26-NOVIEMBRE.pdf"
+            target="_blank"
+            class="text-blue-600 hover:underline"
+            >Descargar Hojita del Domingo (<strong>26 de Noviembre</strong>)</a
+          >
+        </p>
+      </div>
+    </section>
+
+    <section id="evangeliodia" class="bg-gray-100 py-12">
+      <div class="container mx-auto px-4">
+        <h2 class="text-3xl font-bold mb-8 text-center">Evangelio del Día</h2>
+        <div class="bg-white p-6 rounded-lg shadow-md">
+          <h3 class="text-xl font-semibold mb-2">Lectura del Evangelio</h3>
+          <p class="mb-4">
+            "En aquel tiempo, dijo Jesús a sus discípulos: “Cuando el Hijo del
+            Hombre venga en su gloria, acompañado de todos sus ángeles, se
+            sentará en su trono de gloria. Todas las naciones se reunirán
+            delante de él, y él separará a unos de otros, como el pastor separa
+            las ovejas de los cabritos. Pondrá las ovejas a su derecha y los
+            cabritos a su izquierda. Entonces el Rey dirá a los de su derecha:
+            ‘Vengan, benditos de mi Padre, y reciban en herencia el Reino
+            preparado para ustedes desde la creación del mundo. Porque tuve
+            hambre, y ustedes me dieron de comer; tuve sed, y me dieron de
+            beber; fui forastero, y me recibieron; estuve desnudo, y me
+            vistieron; enfermo, y me visitaron; en la cárcel, y vinieron a
+            verme.’ Los justos le responderán: ‘Señor, ¿cuándo te vimos
+            hambriento, y te dimos de comer; o sediento, y te dimos de beber?
+            ¿Cuándo te vimos forastero, y te recibimos; o desnudo, y te
+            vestimos? ¿Cuando te vimos enfermo, o en la cárcel, y fuimos a
+            verte?’ Y el Rey les dirá: ‘Les aseguro que, cada vez que lo
+            hicieron con el más pequeño de mis hermanos, lo hicieron conmigo.’
+            Luego dirá a los de su izquierda: ‘Apártense de mí, malditos, vayan
+            al fuego eterno preparado para el diablo y sus ángeles. Porque tuve
+            hambre, y no me dieron de comer; tuve sed, y no me dieron de beber;
+            fui forastero, y no me recibieron; estuve desnudo, y no me
+            vistieron; enfermo y en la cárcel, y no me visitaron.’ Ellos también
+            le responderán: ‘Señor, ¿cuándo te vimos hambriento, o sediento, o
+            forastero, o desnudo, o enfermo, o en la cárcel, y no te asistimos?’
+            Y él les responderá: ‘Les aseguro que, cada vez que no lo hicieron
+            con uno de estos más pequeños, tampoco lo hicieron conmigo.’ Estos
+            irán al castigo eterno, y los justos a la vida eterna.”"
+          </p>
+          <p class="italic text-right">
+            - <strong>Evangelio según San Mateo 25, 31-46</strong>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="congregacion" class="container mx-auto px-4 py-12">
+      <h2 class="text-3xl font-bold mb-8 text-center">Nuestra Congregación</h2>
+      <div class="bg-white p-6 rounded-lg shadow-md">
+        <p class="mb-4">
+          La Parroquia San Patricio es parte de la Arquidiócesis de Santiago y
+          está encomendada a la Congregación de los
+          <strong
+            >Misioneros de San Patricio (conocidos como los Padres de San
+            Patricio o Patricianos)</strong
+          >. Somos una comunidad vibrante y comprometida con la difusión del
+          Evangelio y el servicio a nuestros hermanos. Nuestro carisma se centra
+          en la oración, la formación y la acción pastoral, buscando llevar la
+          luz de Cristo a todos los rincones de nuestra comunidad.
+        </p>
+        <p>
+          Nos esforzamos por ser un hogar espiritual para todos, donde la fe se
+          vive con alegría y se comparte con generosidad. Te invitamos a unirte
+          a nuestras actividades, grupos pastorales y celebraciones para crecer
+          juntos en el amor de Dios.
+        </p>
+      </div>
+    </section>
+
+    <section id="aportes" class="container mx-auto px-4 py-12">
+      <h2 class="text-3xl font-bold mb-8 text-center">
+        Aportes a la Parroquia
+      </h2>
+
+      <div class="bg-white p-6 rounded-lg shadow-md mb-8">
+        <h3 class="text-2xl font-bold mb-4">Datos Bancarios</h3>
         <div class="space-y-2">
-          <p>Banco Santander</p>
-          <p>Cuenta: 7323574-0</p>
-          <p>RUT: 82.566.800-4</p>
-          <p>Email: secreparroquiasanpatricio@gmail.com</p>
+          <p>Banco: <strong>Santander</strong></p>
+          <p>Cuenta: <strong>7323574-0</strong></p>
+          <p>RUT: <strong>82.566.800-4</strong></p>
+          <p>Email: <strong>secreparroquiasanpatricio@gmail.com</strong></p>
         </div>
       </div>
     </section>
 
-    <!-- Sección Intenciones -->
-    <section id="aportes" class="container mx-auto px-4 py-12">
+    <section id="intenciones" class="container mx-auto px-4 py-12">
+      <h2 class="text-3xl font-bold mb-8 text-center">Intenciones de Misa</h2>
       <div class="bg-white p-6 rounded-lg shadow-md">
-        <div class="mt-8">
-          <h3 class="text-xl font-semibold mb-4">Intenciones de Misa</h3>
-          <iframe
-            src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSXoUx7KMflAeYZWfH7JE3ZNLjT2IvpHRvixrFp7ABtevnpDWxnnn9N4emuDZKXrfAElwVaWr4CKe3O/pubhtml"
-            class="w-full h-96 border rounded"
-          ></iframe>
-        </div>
+        <p class="mb-4">
+          Aquí puedes ver el listado de intenciones de misa. Si deseas agregar
+          una nueva intención, por favor contacta a la secretaría parroquial.
+        </p>
+        <iframe
+          src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSXoUx7KMflAeYZWfH7JE3ZNLjT2IvpHRvixrFp7ABtevnpDWxnnn9N4emuDZKXrfAElwVaWr4CKe3O/pubhtml"
+          class="w-full h-96 border rounded"
+        ></iframe>
       </div>
     </section>
 
-    <!-- Footer -->
     <footer class="bg-gray-800 text-white py-8">
       <div class="container mx-auto px-4 text-center">
         <p class="mb-4">
@@ -537,50 +704,40 @@ Sábados: 9:30 a 13:00 hrs. -->
         window.scrollTo({ top: 0, behavior: "smooth" });
       });
     </script>
-    <!-- Script para el acordeón -->
     <script>
       document.addEventListener("DOMContentLoaded", function () {
         const accordionHeaders = document.querySelectorAll(".acordeon-header");
 
         accordionHeaders.forEach((header) => {
           header.addEventListener("click", function () {
-            // Obtenemos el contenido correspondiente a este encabezado
             const content = this.nextElementSibling;
             const icon = this.querySelector(".acordeon-icon");
             const headerDiv = this;
 
-            // Toggle el contenido
             if (content.style.display === "none") {
-              // Cerrar todos los acordeones abiertos
               document.querySelectorAll(".acordeon-content").forEach((item) => {
                 item.style.display = "none";
               });
 
-              // Restablecer todos los encabezados
               document.querySelectorAll(".acordeon-header").forEach((head) => {
                 head.classList.remove("bg-blue-600", "text-white");
                 head.classList.add("bg-white", "hover:bg-blue-100");
 
-                // Resetear los íconos
                 const headIcon = head.querySelector(".acordeon-icon");
                 headIcon.innerHTML =
                   '<polyline points="6 9 12 15 18 9"></polyline>';
               });
 
-              // Abrir este acordeón
               content.style.display = "block";
               headerDiv.classList.remove("bg-white", "hover:bg-blue-100");
               headerDiv.classList.add("bg-blue-600", "text-white");
 
-              // Cambiar ícono a flecha arriba
               icon.innerHTML = '<polyline points="18 15 12 9 6 15"></polyline>';
             } else {
-              // Cerrar este acordeón
               content.style.display = "none";
               headerDiv.classList.remove("bg-blue-600", "text-white");
               headerDiv.classList.add("bg-white", "hover:bg-blue-100");
 
-              // Cambiar ícono a flecha abajo
               icon.innerHTML = '<polyline points="6 9 12 15 18 9"></polyline>';
             }
           });
@@ -588,7 +745,6 @@ Sábados: 9:30 a 13:00 hrs. -->
       });
     </script>
 
-    <!-- Script para el menú móvil -->
     <script>
       // Función para alternar la visibilidad del menú móvil
       function toggleMobileMenu() {
@@ -605,6 +761,32 @@ Sábados: 9:30 a 13:00 hrs. -->
       const mobileMenuLinks = document.querySelectorAll("#mobile-menu a");
       mobileMenuLinks.forEach((link) => {
         link.addEventListener("click", toggleMobileMenu);
+      });
+    </script>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        fetch("noticias.json")
+          .then((response) => response.json())
+          .then((newsData) => {
+            const newsContainer = document.getElementById("news-container");
+            newsData.forEach((newsItem) => {
+              const newsCard = `
+                <div class="bg-white rounded-lg shadow-md news-card">
+                  <img src="${newsItem.imageUrl}" alt="${newsItem.title}" class="rounded-t-lg">
+                  <div class="news-card-content">
+                    <h3 class="text-xl font-semibold mb-2">${newsItem.title}</h3>
+                    <p>${newsItem.description}</p>
+                    <p class="text-sm text-gray-500 mt-2">Publicado el <strong>${newsItem.date}</strong></p>
+                  </div>
+                </div>
+              `;
+              newsContainer.innerHTML += newsCard;
+            });
+          })
+          .catch((error) =>
+            console.error("Error al cargar las noticias:", error)
+          );
       });
     </script>
   </body>
