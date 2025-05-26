@@ -38,6 +38,14 @@
         flex-grow: 1; /* Allow content to take remaining space */
         padding: 1.5rem; /* p-6 */
       }
+      /* Estilo para la imagen principal de la parroquia */
+      .parish-main-image {
+        width: 100%;
+        /* max-height: 320px;  Eliminar o comentar esta línea */
+        /* object-fit: cover; Eliminar o comentar esta línea */
+        /* object-position: center; Si eliminas object-fit, object-position no es tan relevante pero puedes dejarlo */
+        border-radius: 0.5rem; /* rounded-lg */
+      }
     </style>
   </head>
   <body class="bg-[#eedbbb]">
@@ -72,7 +80,7 @@
             class="flex flex-nowrap text-nowrap space-x-2 sm:space-x-4 lg:space-x-6"
           >
             <a
-              href="#inicio"
+              href="./"
               class="text-white font-medium text-xs sm:text-sm lg:text-base hover:text-yellow-200 transition duration-300 ease-in-out"
               >Inicio</a
             >
@@ -140,7 +148,7 @@
       <div id="mobile-menu" class="hidden px-4 py-2 bg-[#0c8c35] md:hidden">
         <div class="flex flex-col space-y-4">
           <a
-            href="#inicio"
+            href="./"
             class="text-white font-medium hover:text-yellow-200 transition duration-300 ease-in-out py-2 border-b border-green-700"
             >Inicio</a
           >
@@ -189,7 +197,24 @@
     </header>
 
     <section id="inicio" class="container mx-auto px-4 py-12">
-      <h2 class="text-3xl font-bold mb-8 text-center">Inicio</h2>
+      <div class="mb-8 rounded-lg shadow-md overflow-hidden relative">
+        <img
+          src="./assets/parroquia_san_patricio_main.jpg"
+          alt="Vista general de la Parroquia San Patricio"
+          class="parish-main-image"
+        />
+        <div
+          class="absolute inset-0 flex items-center justify-center text-white text-center p-4"
+        >
+          <h1
+            class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold drop-shadow-lg leading-tight"
+          >
+            Parroquia San Patricio <br class="sm:hidden" />
+            de Las Condes
+          </h1>
+        </div>
+      </div>
+
       <div class="grid md:grid-cols-2 gap-8">
         <div class="bg-white p-6 rounded-lg shadow-md">
           <h3 class="text-2xl font-bold mb-4">Horarios Misas</h3>
@@ -218,28 +243,6 @@
             puede pedir una hora en la secretaria parroquial.
           </p>
         </div>
-        <div class="bg-white p-6 rounded-lg shadow-md">
-          <h3 class="text-2xl font-bold mb-4">Secretaría</h3>
-          <p class="mb-2">
-            Martes a viernes:
-            <strong>09:00 a 13:00 hrs. / 15:00 a 19:00 hrs.</strong>
-          </p>
-          <p class="mb-2">Sábados: <strong>09:00 a 13:00 hrs.</strong></p>
-          <p class="mb-2">Domingos y lunes: <strong>Cerrado.</strong></p>
-        </div>
-        <div class="bg-white p-6 rounded-lg shadow-md">
-          <h3 class="text-2xl font-bold mb-4">Contacto General</h3>
-          <p class="mb-2">
-            Teléfono: <strong>+56222204500</strong> (Sólo en horario de oficina)
-          </p>
-          <p class="mb-2">
-            Email: <strong>secreparroquiasanpatricio@gmail.com</strong>
-          </p>
-          <p class="mb-2">
-            Dirección:
-            <strong>Isabel La Católica 6319, Las Condes, Santiago.</strong>
-          </p>
-        </div>
       </div>
     </section>
 
@@ -251,56 +254,32 @@
     </section>
 
     <section id="contacto" class="container mx-auto px-4 py-12">
-      <h2 class="text-3xl font-bold mb-8 text-center">Contáctanos</h2>
-      <div class="bg-white p-8 rounded-lg shadow-md max-w-xl mx-auto">
-        <p class="mb-4 text-center">
-          Envíanos tus consultas, comentarios o intenciones de oración. Te
-          responderemos a la brevedad posible.
-        </p>
-        <form>
-          <div class="mb-4">
-            <label for="name" class="block text-gray-700 text-sm font-bold mb-2"
-              >Nombre:</label
-            >
-            <input
-              type="text"
-              id="name"
-              class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-            />
-          </div>
-          <div class="mb-4">
-            <label
-              for="email"
-              class="block text-gray-700 text-sm font-bold mb-2"
-              >Email:</label
-            >
-            <input
-              type="email"
-              id="email"
-              class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-            />
-          </div>
-          <div class="mb-6">
-            <label
-              for="message"
-              class="block text-gray-700 text-sm font-bold mb-2"
-              >Mensaje:</label
-            >
-            <textarea
-              id="message"
-              rows="5"
-              class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-            ></textarea>
-          </div>
-          <div class="flex items-center justify-between">
-            <button
-              type="submit"
-              class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-            >
-              Enviar
-            </button>
-          </div>
-        </form>
+      <h2 class="text-3xl font-bold mb-8 text-center">
+        Contacto y Horarios de Oficina
+      </h2>
+      <div class="grid md:grid-cols-2 gap-8">
+        <div class="bg-white p-6 rounded-lg shadow-md">
+          <h3 class="text-2xl font-bold mb-4">Horarios de Secretaría</h3>
+          <p class="mb-2">
+            Martes a viernes:
+            <strong>09:00 a 13:00 hrs. / 15:00 a 19:00 hrs.</strong>
+          </p>
+          <p class="mb-2">Sábados: <strong>09:00 a 13:00 hrs.</strong></p>
+          <p class="mb-2">Domingos y lunes: <strong>Cerrado.</strong></p>
+        </div>
+        <div class="bg-white p-6 rounded-lg shadow-md">
+          <h3 class="text-2xl font-bold mb-4">Datos de Contacto</h3>
+          <p class="mb-2">
+            Teléfono: <strong>+56222204500</strong> (Sólo en horario de oficina)
+          </p>
+          <p class="mb-2">
+            Email: <strong>secreparroquiasanpatricio@gmail.com</strong>
+          </p>
+          <p class="mb-2">
+            Dirección:
+            <strong>Isabel La Católica 6319, Las Condes, Santiago.</strong>
+          </p>
+        </div>
       </div>
     </section>
 
@@ -693,6 +672,10 @@
       // Script para scroll suave y funcionalidad del botón
       document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
         anchor.addEventListener("click", function (e) {
+          // El enlace de "Inicio" en el navbar ya no usa scroll suave, recarga la página
+          if (this.getAttribute("href") === "./") {
+            return; // No prevenir el comportamiento por defecto (recarga)
+          }
           e.preventDefault();
           document.querySelector(this.getAttribute("href")).scrollIntoView({
             behavior: "smooth",
@@ -715,29 +698,28 @@
             const headerDiv = this;
 
             if (content.style.display === "none") {
+              // Cerrar todos los acordeones
               document.querySelectorAll(".acordeon-content").forEach((item) => {
                 item.style.display = "none";
               });
-
               document.querySelectorAll(".acordeon-header").forEach((head) => {
                 head.classList.remove("bg-blue-600", "text-white");
                 head.classList.add("bg-white", "hover:bg-blue-100");
-
                 const headIcon = head.querySelector(".acordeon-icon");
                 headIcon.innerHTML =
                   '<polyline points="6 9 12 15 18 9"></polyline>';
               });
 
+              // Abrir el acordeón clicado
               content.style.display = "block";
               headerDiv.classList.remove("bg-white", "hover:bg-blue-100");
               headerDiv.classList.add("bg-blue-600", "text-white");
-
               icon.innerHTML = '<polyline points="18 15 12 9 6 15"></polyline>';
             } else {
+              // Cerrar este acordeón
               content.style.display = "none";
               headerDiv.classList.remove("bg-blue-600", "text-white");
               headerDiv.classList.add("bg-white", "hover:bg-blue-100");
-
               icon.innerHTML = '<polyline points="6 9 12 15 18 9"></polyline>';
             }
           });
@@ -760,14 +742,27 @@
       // Event listeners para todos los enlaces del menú móvil
       const mobileMenuLinks = document.querySelectorAll("#mobile-menu a");
       mobileMenuLinks.forEach((link) => {
-        link.addEventListener("click", toggleMobileMenu);
+        // El enlace de "Inicio" en el menú móvil también recarga la página
+        if (link.getAttribute("href") === "./") {
+          link.addEventListener("click", function () {
+            // No hacemos nada especial aquí, el href="./" se encargará de la recarga
+            toggleMobileMenu(); // Cierra el menú después de hacer clic
+          });
+        } else {
+          link.addEventListener("click", toggleMobileMenu);
+        }
       });
     </script>
 
     <script>
       document.addEventListener("DOMContentLoaded", function () {
-        fetch("noticias.json")
-          .then((response) => response.json())
+        fetch("noticias.json") // Asegúrate que tu archivo se llama 'noticias.json'
+          .then((response) => {
+            if (!response.ok) {
+              throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            return response.json();
+          })
           .then((newsData) => {
             const newsContainer = document.getElementById("news-container");
             newsData.forEach((newsItem) => {
