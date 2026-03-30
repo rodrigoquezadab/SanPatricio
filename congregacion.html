@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parroquia San Patricio - Congregación</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>tailwind.config = { theme: { extend: { colors: { arena: '#F3E5DC', verdeSanPatricio: '#16A34A', negro: '#000000' } } } }</script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body { background-color: #F3E5DC; color: #000000; font-family: sans-serif; display: flex; flex-direction: column; min-height: 100vh; }
+        main { flex-grow: 1; }
+        h1, h2, h3, h4, h5, h6 { color: #16A34A; font-weight: bold; }
+        .btn-flotante-container { position: fixed; bottom: 20px; right: 20px; display: flex; flex-direction: column; gap: 10px; z-index: 1000; }
+        .btn-flotante { width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; box-shadow: 0 4px 6px rgba(0,0,0,0.3); transition: transform 0.2s; text-decoration: none; font-size: 24px; }
+        .btn-flotante:hover { transform: scale(1.1); color: white; }
+        .btn-subir { background-color: #16A34A; cursor: pointer; border: none; }
+        .btn-whatsapp { background-color: #25D366; }
+        .card { background: white; border-radius: 0.5rem; box-shadow: 0 4px 6px rgba(0,0,0,0.1); padding: 1.5rem; height: 100%; }
+        .nav-link { color: white; padding: 0.5rem 1rem; border-radius: 0.25rem; }
+        .nav-link:hover, .nav-link.active { background-color: rgba(255,255,255,0.2); }
+    </style>
+</head>
+<body>
+<div id="menu-container"></div>
+
+<main class="container mx-auto px-4 py-8 space-y-16">
+    <section id="congregacion">
+        <h2 class="text-3xl mb-6 text-center border-b-2 border-verdeSanPatricio inline-block">Congregación</h2>
+        <div class="card space-y-4 flow-root">
+            <img src="assets/Congregación-Virgen-baja-resolucion-1010x1536-1.png" alt="Virgen Inmaculada" class="w-full sm:w-1/3 md:w-1/4 h-auto object-contain rounded-lg shadow-md float-right ml-6 mb-4">
+            <p>Somos una Congregación de derecho pontificio, llamada Hijos de Santa María Inmaculada, fundada por el Venerable P. José Frassinetti, preocupado por la disminución de las vocaciones.</p>
+            <p>A inesperada muerte (02.01.1868), tomó la dirección de la comunidad don Antonio Piccardo, inmediatamente después de haber sido ordenado sacerdote (06.06.1868).</p>
+            <p>Siguiendo la espiritualidad del Venerable P. Frassinetti, pero con gran creatividad pedagógica y organizativa, Piccardo guió la comunidad a un crecimiento constante que se expresa finalmente con la transformación de la Pía Casa en Pía Obra y después de ésta en Congregación religiosa.</p>
+            <p>En este último pasaje tuvo un rol significativo también el Papa Pío X, que después de haber beneficiado a P. Piccardo de una sincera amistad, lo animó y lo apoyó en la transformación de la Obra en Congregación y confirió casi inmediatamente (cosa más única que rara) el Decretum Laudis.</p>
+            <p>La espiritualidad eucarístico-mariana del Venerable P. Frassinetti fue, por lo tanto, recogida por una comunidad, en la que Pietro Olivari y luego Don Antonio Piccardo desempeñaron un papel decisivo.</p>
+            <p>Este último llevó el crecimiento de esta comunidad a la transformación en una congregación religiosa, para cuya creación el Papa San Pío X tuvo un papel particularmente meritorio.</p>
+        </div>
+    </section>
+</main>
+
+<div id="footer-container"></div>
+<script src="components.js"></script>
+</body>
+</html>

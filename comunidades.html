@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parroquia San Patricio - Comunidades</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>tailwind.config = { theme: { extend: { colors: { arena: '#F3E5DC', verdeSanPatricio: '#16A34A', negro: '#000000' } } } }</script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body { background-color: #F3E5DC; color: #000000; font-family: sans-serif; display: flex; flex-direction: column; min-height: 100vh; }
+        main { flex-grow: 1; }
+        h1, h2, h3, h4, h5, h6 { color: #16A34A; font-weight: bold; }
+        .btn-flotante-container { position: fixed; bottom: 20px; right: 20px; display: flex; flex-direction: column; gap: 10px; z-index: 1000; }
+        .btn-flotante { width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; box-shadow: 0 4px 6px rgba(0,0,0,0.3); transition: transform 0.2s; text-decoration: none; font-size: 24px; }
+        .btn-flotante:hover { transform: scale(1.1); color: white; }
+        .btn-subir { background-color: #16A34A; cursor: pointer; border: none; }
+        .btn-whatsapp { background-color: #25D366; }
+        .card { background: white; border-radius: 0.5rem; box-shadow: 0 4px 6px rgba(0,0,0,0.1); padding: 1.5rem; height: 100%; }
+        .nav-link { color: white; padding: 0.5rem 1rem; border-radius: 0.25rem; }
+        .nav-link:hover, .nav-link.active { background-color: rgba(255,255,255,0.2); }
+    </style>
+</head>
+<body>
+<div id="menu-container"></div>
+
+<main class="container mx-auto px-4 py-8 space-y-16">
+    <section id="comunidades">
+        <h2 class="text-3xl mb-6 text-center border-b-2 border-verdeSanPatricio inline-block">Comunidades y Equipos</h2>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="card hover:shadow-xl transition-shadow">
+                <h3 class="text-xl mb-3">Catequesis Bautismo</h3>
+                <p>Responsables de acompañar y formar a los padres y padrinos que solicitan el sacramento del Bautismo para sus hijos, guiándolos en los fundamentos de la fe antes de la celebración. Si tienes vocación pedagógica y testimonio de fe, te invitamos a ser catequista. Comunícate con la Secretaría Parroquial para obtener más información y guía.</p>
+                <p class="mt-3 text-sm font-bold bg-arena p-2 rounded">Responsable: Ana Luisa Espinosa.</p>
+            </div>
+            <div class="card hover:shadow-xl transition-shadow">
+                <h3 class="text-xl mb-3">Catequesis Matrimonios</h3>
+                <p>Esta pastoral se encarga de preparar a las parejas para recibir el sacramento del Matrimonio. Ofrecen formación, diálogo y acompañamiento para construir una vida matrimonial sólida y fundamentada en Cristo. Invitamos especialmente a matrimonios con sólida vida de fe a colaborar en esta formación. Comunícate con la Secretaría Parroquial para obtener más información y guía.</p>
+                <p class="mt-3 text-sm font-bold bg-arena p-2 rounded">Responsable: Godfrey Dawson.</p>
+            </div>
+            <div class="card hover:shadow-xl transition-shadow">
+                <h3 class="text-xl mb-3">Catequesis Confirmación Adultos</h3>
+                <p>Dirigida a los adultos de nuestra comunidad que desean sellar su fe recibiendo el sacramento de la Confirmación. Esta área ofrece la formación doctrinal y espiritual necesaria para este paso crucial. Si deseas compartir tu fe como catequista de adultos, comunícate con la Secretaría Parroquial para obtener más información y guía.</p>
+                <p class="mt-3 text-sm font-bold bg-arena p-2 rounded">Responsable: Pablo Sandoval.</p>
+            </div>
+            <div class="card hover:shadow-xl transition-shadow">
+                <h3 class="text-xl mb-3">Catequesis Primera Comunion y Confirmacion Niños</h3>
+                <p>Área vital para la iniciación cristiana de los más jóvenes. Se dedican a educar y guiar a los niños y sus familias en la preparación para la Primera Comunión y la Confirmación. Si tienes paciencia, vocación y alegría para el trabajo con niños, comunícate con la Secretaría Parroquial para obtener más información y guía.</p>
+                <p class="mt-3 text-sm font-bold bg-arena p-2 rounded">Responsable: Carmen Pirela</p>
+            </div>
+            <div class="card hover:shadow-xl transition-shadow">
+                <h3 class="text-xl mb-3">Adoradores</h3>
+                <p>Integrado por personas con profunda devoción eucarística, cuyo compromiso es asegurar la Adoración permanente al Santísimo Sacramento, cubriendo turnos fijos de oración. Si deseas comprometerte con una hora semanal de Adoración, comunícate con la Secretaría Parroquial para obtener más información y guía.</p>
+                <p class="mt-3 text-sm font-bold bg-arena p-2 rounded">Responsable: Nora Oñate.</p>
+            </div>
+            <div class="card hover:shadow-xl transition-shadow">
+                <h3 class="text-xl mb-3">Ayuda Fraterna</h3>
+                <p>La Ayuda Fraterna es el brazo de la caridad parroquial. Colabora activamente en la asistencia material y espiritual de los hermanos más necesitados, llevando consuelo y apoyo. Buscamos personas empáticas y comprometidas. Si sientes el llamado a la caridad y deseas sumarte a esta labor esencial, comunícate con la Secretaría Parroquial para obtener más información y guía.</p>
+                <p class="mt-3 text-sm font-bold bg-arena p-2 rounded">Responsable: Silvia Navarro.</p>
+            </div>
+            <div class="card hover:shadow-xl transition-shadow">
+                <h3 class="text-xl mb-3">Comunidad San Juan de Ávila</h3>
+                <p>Una comunidad que busca fomentar la vida de fe y comunión entre sus miembros a través de la oración, la formación espiritual y un apostolado específico dentro de la parroquia. Te invitamos a vivir tu fe en comunidad. Comunícate con la Secretaría Parroquial para obtener más información y guía.</p>
+                <p class="mt-3 text-sm font-bold bg-arena p-2 rounded">Responsable: Teresa Carmona.</p>
+            </div>
+            <div class="card hover:shadow-xl transition-shadow">
+                <h3 class="text-xl mb-3">Comunidad Adulto Mayor</h3>
+                <p>Una comunidad dedicada a generar espacios de integración, compañía y participación para las personas mayores, valorando su experiencia y fomentando que sigan siendo miembros activos de la vida parroquial. Si eres un adulto mayor o un voluntario con empatía que desea colaborar en este apostolado, comunícate con la Secretaría Parroquial para obtener más información y guía.</p>
+                <p class="mt-3 text-sm font-bold bg-arena p-2 rounded">Responsable: Patricia Araya.</p>
+            </div>
+            <div class="card hover:shadow-xl transition-shadow">
+                <h3 class="text-xl mb-3">Renovación Carismática Católica</h3>
+                <p>Una comunidad que promueve la apertura a la acción del Espíritu Santo y la experiencia de sus dones y carismas en la vida de los fieles, a través de una oración viva y gozosa. Si deseas vivir esta experiencia del Espíritu, comunícate con la Secretaría Parroquial para obtener más información y guía.</p>
+                <p class="mt-3 text-sm font-bold bg-arena p-2 rounded">Responsable: Lucia Nazer.</p>
+            </div>
+            <div class="card hover:shadow-xl transition-shadow">
+                <h3 class="text-xl mb-3">Pastoral Ecológica</h3>
+                <p>Pastoral de Acción Ecológica «Laudato Si'». Cuidar la creación es cuidar la obra de Dios. Inspirados por la encíclica del Papa Francisco «Laudato Si'»... nace en nuestra parroquia la Pastoral de Acción Ecológica «Laudato Si'». Este es un espacio para todos aquellos que sentimos el llamado a ser custodios de la creación... Colaborar en la protección y el cuidado del medioambiente de nuestra parroquia y nuestra localidad, traduciendo nuestra fe en acciones concretas y comunitarias. Comunícate con la Secretaría Parroquial para ser contactado.</p>
+                <p class="mt-3 text-sm font-bold bg-arena p-2 rounded">El responsable de la pastoral es Rodrigo Quezada.</p>
+            </div>
+            <div class="card hover:shadow-xl transition-shadow">
+                <h3 class="text-xl mb-3">Comunidades Neocatecumenales</h3>
+                <p>Estas comunidades viven el Itinerario Neocatecumenal, un proceso de formación cristiana post-bautismal que busca el redescubrimiento y la profundización de la fe. Están organizadas en diferentes etapas para su recorrido. Si deseas iniciar o continuar este camino de fe y conversión, te invitamos a unirte. Comunícate con la Secretaría Parroquial para obtener más información y guía.</p>
+                <p class="mt-3 text-sm font-bold bg-arena p-2 rounded">Responsable: Padre Roberto.</p>
+            </div>
+            <div class="card hover:shadow-xl transition-shadow">
+                <h3 class="text-xl mb-3">Pastoral Salud</h3>
+                <p>Este servicio pastoral tiene como finalidad llevar la Palabra de Dios y la Sagrada Comunión a los enfermos, ancianos y a todas aquellas personas que, por distintos motivos, no pueden asistir al templo. Es un puente de amor y fe entre el altar y sus hogares, así como también a residencias de adultos mayores dentro del territorio parroquial. Para más información y orientación, por favor comunícate con la Secretaría Parroquial.</p>
+                <p class="mt-3 text-sm font-bold bg-arena p-2 rounded">Responsable: Joy Gubbins.</p>
+            </div>
+            <div class="card hover:shadow-xl transition-shadow">
+                <h3 class="text-xl mb-3">Martas</h3>
+                <p>Este grupo tiene el hermoso perfil del servicio práctico y silencioso. Las Martas colaboran en el cuidado de los espacios litúrgicos y las dependencias parroquiales, asegurando que nuestro templo esté siempre listo para acoger a la comunidad. ¡Te invitamos a servir con tu tiempo y talentos! Si deseas unirte, comunícate con la Secretaría Parroquial para obtener más información y guía.</p>
+                <p class="mt-3 text-sm font-bold bg-arena p-2 rounded">Responsable: Ana María Roa.</p>
+            </div>
+            <div class="card hover:shadow-xl transition-shadow">
+                <h3 class="text-xl mb-3">Pastoral de Comunicaciones</h3>
+                <p>La Pastoral de Comunicaciones San Carlo Acutis tiene como misión difundir información relevante sobre las actividades y servicios de nuestra Parroquia San Patricio, promoviendo la participación activa de toda la comunidad. Trabajamos a través de redes sociales, página web, afiches... Nuestro servicio se realiza siempre en colaboración con el párroco... Para unirte o conocer más, comunícate con la Secretaría Parroquial.</p>
+                <p class="mt-3 text-sm font-bold bg-arena p-2 rounded">Responsable: Rodrigo Quezada.</p>
+            </div>
+            <div class="card hover:shadow-xl transition-shadow">
+                <h3 class="text-xl mb-3">Lectio Divina</h3>
+                <p>Un espacio fundamental para el crecimiento espiritual. La comunidad de Lectio Divina fomenta el encuentro personal con la Palabra de Dios a través de la lectura orante y la reflexión compartida, ayudándonos a profundizar nuestra fe. ¡Únete a la Lectio Divina! Si deseas participar, comunícate con la Secretaría Parroquial para obtener más información y guía.</p>
+                <p class="mt-3 text-sm font-bold bg-arena p-2 rounded">Responsable: Verónica Sanchez.</p>
+            </div>
+            <div class="card hover:shadow-xl transition-shadow">
+                <h3 class="text-xl mb-3">Pastoral de Funeral</h3>
+                <p>Brinda acompañamiento espiritual y apoyo humano a las familias que atraviesan el duelo por la pérdida de un ser querido, asistiendo también en las celebraciones de las exequias. Si tienes capacidad de escucha y acogida fraterna, comunícate con la Secretaría Parroquial para obtener más información y guía.</p>
+                <p class="mt-3 text-sm font-bold bg-arena p-2 rounded">Responsable: Roxana Hernandez.</p>
+            </div>
+            <div class="card hover:shadow-xl transition-shadow">
+                <h3 class="text-xl mb-3">Pastoral de Formación Permanente</h3>
+                <p>Esta área se encarga de organizar espacios, talleres y cursos para la formación continua de los agentes pastorales y de todos los laicos de la parroquia que deseen profundizar sus conocimientos teológicos y pastorales. Si tienes vocación docente o conocimientos que aportar, o si deseas participar en los cursos, comunícate con la Secretaría Parroquial para obtener más información y guía.</p>
+                <p class="mt-3 text-sm font-bold bg-arena p-2 rounded">Responsable: Ever Bustamante.</p>
+            </div>
+            <div class="card hover:shadow-xl transition-shadow">
+                <h3 class="text-xl mb-3">Coro Parroquia</h3>
+                <p>El Coro tiene la misión de animar y solemnizar nuestras celebraciones litúrgicas a través del canto y la música, ayudando a la asamblea a elevar su oración. Si posees aptitudes musicales, compromiso con el ensayo y espíritu de oración, comunícate con la Secretaría Parroquial para obtener más información y guía.</p>
+                <p class="mt-3 text-sm font-bold bg-arena p-2 rounded">Responsable: Susana Vazquez.</p>
+            </div>
+        </div>
+    </section>
+</main>
+
+<div id="footer-container"></div>
+<script src="components.js"></script>
+</body>
+</html>

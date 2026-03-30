@@ -1,835 +1,242 @@
 <!DOCTYPE html>
-<html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Parroquia San Patricio - Las Condes</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-      .post-footer,
-      .post-meta {
-        display: none !important;
-      }
-      .scroll-top {
-        position: fixed;
-        bottom: 80px;
-        right: 20px;
-        z-index: 999; /* Ensure it's above other content */
-      }
-      .whatsapp {
-        position: fixed;
-        bottom: 20px;
-        right: 20px;
-        z-index: 999; /* Ensure it's above other content */
-      }
-      .news-card {
-        display: flex;
-        flex-direction: column;
-        height: 100%; /* Make cards take full height of grid cell */
-      }
-      .news-card img {
-        width: 100%;
-        height: 200px; /* Fixed height for images */
-        object-fit: cover; /* Cover the area, cropping if necessary */
-        border-top-left-radius: 0.5rem; /* rounded-t-lg */
-        border-top-right-radius: 0.5rem; /* rounded-t-lg */
-      }
-      .news-card-content {
-        flex-grow: 1; /* Allow content to take remaining space */
-        padding: 1.5rem; /* p-6 */
-      }
-      /* Estilo para la imagen principal de la parroquia */
-      .parish-main-image {
-        width: 100%;
-        /* max-height: 320px; */
-        /* object-fit: cover; */
-        /* object-position: center; */
-        border-radius: 0.5rem; /* rounded-lg */
-      }
-    </style>
-  </head>
-  <body class="bg-[#eedbbb]">
-    <button
-      class="scroll-top bg-blue-600 text-white p-3 rounded-full shadow-lg hover:bg-blue-700"
-    >
-      ↑
-    </button>
-    <a
-      href="https://wa.me/56933484878"
-      class="whatsapp bg-green-500 text-white p-3 rounded-full shadow-lg hover:bg-green-600"
-    >
-      <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
-        <path
-          d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884"
-        />
-      </svg>
-    </a>
+<html lang="es" class="scroll-smooth">
 
-    <header class="bg-[#0c8c35] shadow-md">
-      <div
-        class="container mx-auto px-4 py-4 flex items-center justify-between"
-      >
-        <img
-          src="./assets/logo-web.jpg"
-          alt="Logo"
-          class="h-12 sm:h-16 md:h-20"
-        />
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Parroquia San Patricio - Inicio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>tailwind.config = { theme: { extend: { colors: { arena: '#F3E5DC', verdeSanPatricio: '#16A34A', negro: '#000000' } } } }</script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    body {
+      background-color: #F3E5DC;
+      color: #000000;
+      font-family: sans-serif;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
 
-        <nav class="hidden md:flex items-center justify-center">
-          <div
-            class="flex flex-wrap justify-center space-x-2 sm:space-x-4 lg:space-x-6"
-          >
-            <a
-              href="./"
-              class="text-white font-medium text-xs sm:text-sm lg:text-base hover:text-yellow-200 transition duration-300 ease-in-out py-1"
-              >Inicio</a
-            >
-            <a
-              href="#noticias"
-              class="text-white font-medium text-xs sm:text-sm lg:text-base hover:text-yellow-200 transition duration-300 ease-in-out py-1"
-              >Noticias</a
-            >
-            <a
-              href="#contacto"
-              class="text-white font-medium text-xs sm:text-sm lg:text-base hover:text-yellow-200 transition duration-300 ease-in-out py-1"
-              >Contacto</a
-            >
-            <a
-              href="#servicios"
-              class="text-white font-medium text-xs sm:text-sm lg:text-base hover:text-yellow-200 transition duration-300 ease-in-out py-1"
-              >Servicios</a
-            >
-            <a
-              href="#hojitadomingo"
-              class="text-white font-medium text-xs sm:text-sm lg:text-base hover:text-yellow-200 transition duration-300 ease-in-out py-1"
-              >Hojita del Domingo</a
-            >
-            <a
-              href="#evangeliodia"
-              class="text-white font-medium text-xs sm:text-sm lg:text-base hover:text-yellow-200 transition duration-300 ease-in-out py-1"
-              >Evangelio del día</a
-            >
-            <a
-              href="#congregacion"
-              class="text-white font-medium text-xs sm:text-sm lg:text-base hover:text-yellow-200 transition duration-300 ease-in-out py-1"
-              >Congregación</a
-            >
-            <a
-              href="#aportes"
-              class="text-white font-medium text-xs sm:text-sm lg:text-base hover:text-yellow-200 transition duration-300 ease-in-out py-1"
-              >Aportes</a
-            >
-            <a
-              href="#intenciones"
-              class="text-white font-medium text-xs sm:text-sm lg:text-base hover:text-yellow-200 transition duration-300 ease-in-out py-1"
-              >Intenciones de Misa</a
-            >
-          </div>
-        </nav>
+    main {
+      flex-grow: 1;
+    }
 
-        <button id="menu-btn" class="md:hidden text-white focus:outline-none">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            class="h-8 w-8"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M4 6h16M4 12h16M4 18h16"
-            />
-          </svg>
-        </button>
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      color: #16A34A;
+      font-weight: bold;
+    }
+
+    .btn-flotante-container {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      z-index: 1000;
+    }
+
+    .btn-flotante {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+      transition: transform 0.2s;
+      text-decoration: none;
+      font-size: 24px;
+    }
+
+    .btn-flotante:hover {
+      transform: scale(1.1);
+      color: white;
+    }
+
+    .btn-subir {
+      background-color: #16A34A;
+      cursor: pointer;
+      border: none;
+    }
+
+    .btn-whatsapp {
+      background-color: #25D366;
+    }
+
+    .card {
+      background: white;
+      border-radius: 0.5rem;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      padding: 1.5rem;
+      height: 100%;
+    }
+
+    .nav-link {
+      color: white;
+      padding: 0.5rem 1rem;
+      border-radius: 0.25rem;
+    }
+
+    .nav-link:hover,
+    .nav-link.active {
+      background-color: rgba(255, 255, 255, 0.2);
+    }
+
+    .banner-container {
+      overflow: hidden;
+      position: relative;
+      width: 100%;
+      height: 400px;
+      border-radius: 0.5rem;
+      background: #000;
+    }
+
+    .banner-slide {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+      display: flex;
+      align-items: flex-end;
+      cursor: pointer;
+    }
+
+    .banner-slide.active {
+      opacity: 1;
+      z-index: 10;
+    }
+
+    .banner-image {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      background-color: #000;
+    }
+
+    .banner-overlay {
+      background: linear-gradient(transparent, rgba(0, 0, 0, 0.9));
+      width: 100%;
+      padding: 40px 20px 20px 20px;
+      color: white;
+    }
+
+    .banner-title {
+      font-size: 1.8rem;
+      color: white !important;
+      text-shadow: 1px 1px 3px black;
+      margin-bottom: 0;
+      font-weight: bold;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="menu-container"></div>
+
+  <main class="container mx-auto px-4 py-8 space-y-16">
+    <section id="inicio">
+      <div class="mb-12">
+        <img src="assets/parroquia_san_patricio_main.jpg" alt="Parroquia San Patricio"
+          class="w-full h-auto rounded-xl shadow-lg mb-12">
+        <h2 class="text-3xl mb-4 text-center border-b-2 border-verdeSanPatricio inline-block">Noticias Destacadas</h2>
+        <div id="noticias-banner" class="banner-container shadow-lg"></div>
       </div>
 
-      <div id="mobile-menu" class="hidden px-4 py-2 bg-[#0c8c35] md:hidden">
-        <div class="flex flex-col space-y-4">
-          <a
-            href="./"
-            class="text-white font-medium hover:text-yellow-200 transition duration-300 ease-in-out py-2 border-b border-green-700"
-            >Inicio</a
-          >
-          <a
-            href="#noticias"
-            class="text-white font-medium hover:text-yellow-200 transition duration-300 ease-in-out py-2 border-b border-green-700"
-            >Noticias</a
-          >
-          <a
-            href="#contacto"
-            class="text-white font-medium hover:text-yellow-200 transition duration-300 ease-in-out py-2 border-b border-green-700"
-            >Contacto</a
-          >
-          <a
-            href="#servicios"
-            class="text-white font-medium hover:text-yellow-200 transition duration-300 ease-in-out py-2 border-b border-green-700"
-            >Servicios</a
-          >
-          <a
-            href="#hojitadomingo"
-            class="text-white font-medium hover:text-yellow-200 transition duration-300 ease-in-out py-2 border-b border-green-700"
-            >Hojita del Domingo</a
-          >
-          <a
-            href="#evangeliodia"
-            class="text-white font-medium hover:text-yellow-200 transition duration-300 ease-in-out py-2 border-b border-green-700"
-            >Evangelio del día</a
-          >
-          <a
-            href="#congregacion"
-            class="text-white font-medium hover:text-yellow-200 transition duration-300 ease-in-out py-2 border-b border-green-700"
-            >Congregación</a
-          >
-          <a
-            href="#aportes"
-            class="text-white font-medium hover:text-yellow-200 transition duration-300 ease-in-out py-2 border-b border-green-700"
-            >Aportes</a
-          >
-          <a
-            href="#intenciones"
-            class="text-white font-medium hover:text-yellow-200 transition duration-300 ease-in-out py-2 border-b border-green-700"
-            >Intenciones de Misa</a
-          >
-        </div>
-      </div>
-    </header>
-
-    <section id="inicio" class="container mx-auto px-4 py-12">
-      <div class="mb-8 rounded-lg shadow-md overflow-hidden relative">
-        <img
-          src="./assets/parroquia_san_patricio_main.jpg"
-          alt="Vista general de la Parroquia San Patricio"
-          class="parish-main-image"
-        />
-        <div
-          class="absolute inset-0 flex items-center justify-center text-white text-center p-4"
-        >
-          <h1
-            class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold drop-shadow-lg leading-tight"
-          >
-            Parroquia San Patricio <br class="sm:hidden" />
-            de Las Condes
-          </h1>
-        </div>
-      </div>
-    </section>
-    <section id="bienvenida" class="container mx-auto px-4 py-12">
-      <h2 class="text-3xl font-bold mb-8 text-center">Bienvenida</h2>
-      <div class="bg-white p-6 rounded-lg shadow-md">
-        <p class="mb-4">
-          Bienvenido a la Parroquia San Patricio, un lugar de encuentro con Dios
-          y con nuestra comunidad. Aquí encontrarás un espacio para crecer en la
-          fe, participar en la vida parroquial y recibir el apoyo espiritual que
-          necesitas. Te invitamos a unirte a nuestras celebraciones, actividades
-          y grupos pastorales.
-        </p>
-        <p>
-          Nuestro objetivo es ser un faro de luz y esperanza en Las Condes,
-          ofreciendo un ambiente acogedor y lleno de amor cristiano. ¡Te
-          esperamos con los brazos abiertos!
-        </p>
-      </div>
-    </section>
-
-    <section id="horarios" class="container mx-auto px-4 py-12">
-      <h2 class="text-3xl font-bold mb-8 text-center">
-        Horarios de Servicios y Confesiones
-      </h2>
       <div class="grid md:grid-cols-2 gap-8">
-        <div class="bg-white p-6 rounded-lg shadow-md">
-          <h3 class="text-2xl font-bold mb-4">Horarios Misas</h3>
-          <p class="mb-2">Lunes a viernes: <strong>19:30 hrs.</strong></p>
-          <p class="mb-2">Sábados: <strong>19:30 hrs.</strong></p>
-          <p class="mb-2">
-            Domingos: <strong>10:00, 12:00 y 19:30 hrs.</strong>
-          </p>
-          <p class="mb-2">
-            Primer viernes de mes: Misa de la Divina Misericordia:
-            <strong>19:30 hrs.</strong>
-          </p>
+        <div class="card">
+          <h3 class="text-2xl mb-4"><i class="fas fa-clock mr-2"></i>Horarios de Misas</h3>
+          <ul class="space-y-2">
+            <li>Lunes a viernes: 19:00 hrs.</li>
+            <li>Martes a viernes: 12:00 hrs.</li>
+            <li>Sábado: 12:00 y 18:00 hrs (Vísperas).</li>
+            <li>Domingo: 09:30, 11:00 y 12:30 hrs.</li>
+          </ul>
         </div>
-        <div class="bg-white p-6 rounded-lg shadow-md">
-          <h3 class="text-2xl font-bold mb-4">Confesiones</h3>
-          <p class="mb-2">
-            Martes a viernes: <strong>19:00 a 19:30 hrs.</strong>
-          </p>
-          <p class="mb-2">Sábados: <strong>19:00 a 19:30 hrs.</strong></p>
-          <p class="mb-2">
-            Domingos:
-            <strong>09:30 a 10:00 / 11:30 a 12:00 / 19:00 a 19:30 hrs.</strong>
-          </p>
-          <p class="mb-2">
-            El sacerdote espera en el confesionario en el templo. Si lo prefiere
-            puede pedir una hora en la secretaria parroquial.
-          </p>
+        <div class="card">
+          <h3 class="text-2xl mb-4"><i class="fas fa-pray mr-2"></i>Horarios Confesiones</h3>
+          <ul class="space-y-2">
+            <li>Martes a viernes: 16:00 a 18:30 hrs.</li>
+          </ul>
         </div>
-      </div>
-    </section>
-
-    <section id="contacto" class="container mx-auto px-4 py-12">
-      <h2 class="text-3xl font-bold mb-8 text-center">
-        Horarios de Secretaría y Datos de Contacto
-      </h2>
-      <div class="grid md:grid-cols-2 gap-8">
-        <div class="bg-white p-6 rounded-lg shadow-md">
-          <h3 class="text-2xl font-bold mb-4">Horarios de Secretaría</h3>
-          <p class="mb-2">
-            Martes a viernes:
-            <strong>09:00 a 13:00 hrs. / 15:00 a 19:00 hrs.</strong>
-          </p>
-          <p class="mb-2">Sábados: <strong>09:00 a 13:00 hrs.</strong></p>
-          <p class="mb-2">Domingos y lunes: <strong>Cerrado.</strong></p>
+        <div class="card">
+          <h3 class="text-2xl mb-4"><i class="fas fa-building mr-2"></i>Horarios de Oficina</h3>
+          <ul class="space-y-2">
+            <li>Lunes a viernes:</li>
+            <li class="pl-4">Mañana: 10:00 a 13:00 hrs.</li>
+            <li class="pl-4">Tarde: 15:00 a 18:00 hrs.</li>
+            <li>Sábados: 9:30 a 13:00 hrs.</li>
+          </ul>
         </div>
-        <div class="bg-white p-6 rounded-lg shadow-md">
-          <h3 class="text-2xl font-bold mb-4">Datos de Contacto</h3>
-          <p class="mb-2">
-            Teléfono: <strong>+56222204500</strong> (Sólo en horario de oficina)
-          </p>
-          <p class="mb-2">
-            Email: <strong>secreparroquiasanpatricio@gmail.com</strong>
-          </p>
-          <p class="mb-2">
-            Dirección:
-            <strong>Isabel La Católica 6319, Las Condes, Santiago.</strong>
-          </p>
+        <div class="card">
+          <h3 class="text-2xl mb-4"><i class="fas fa-address-card mr-2"></i>Contacto Secretaría</h3>
+          <ul class="space-y-3">
+            <li class="flex items-start"><i
+                class="fas fa-map-marker-alt text-verdeSanPatricio mt-1 w-6 text-center"></i> <a
+                href="https://www.google.com/maps/search/?api=1&query=Parroquia+San+Patricio,+Isabel+La+Catolica+6319,+Las+Condes,+Chile"
+                target="_blank" class="hover:text-verdeSanPatricio transition">Isabel La Católica 6319, Las Condes</a>
+            </li>
+            <li class="flex items-center"><i class="fas fa-phone text-verdeSanPatricio w-6 text-center"></i> <a
+                href="tel:+56222299060" class="hover:text-verdeSanPatricio transition">+562 2229 9060</a></li>
+            <li class="flex items-center"><i class="fab fa-whatsapp text-verdeSanPatricio w-6 text-center"></i> <a
+                href="https://wa.me/56933484878" target="_blank" class="hover:text-verdeSanPatricio transition">+569
+                3348 4878</a></li>
+            <li class="flex items-center"><i class="fas fa-envelope text-verdeSanPatricio w-6 text-center"></i> <a
+                href="mailto:secreparroquiasanpatricio@gmail.com"
+                class="hover:text-verdeSanPatricio transition break-all">secreparroquiasanpatricio@gmail.com</a></li>
+          </ul>
         </div>
       </div>
     </section>
+  </main>
 
-    <section id="aportes" class="container mx-auto px-4 py-12">
-      <h2 class="text-3xl font-bold mb-8 text-center">
-        Aportes a la Parroquia
-      </h2>
+  <div id="footer-container"></div>
+  <script src="components.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      fetch("noticias.json?v=" + new Date().getTime())
+        .then(response => response.json())
+        .then(newsData => {
+          const bannerContainer = document.getElementById("noticias-banner");
+          let bannerHTML = "";
+          let bannerNews = newsData.filter(n => n.isBanner === true);
+          if (bannerNews.length === 0) bannerNews = newsData.slice(0, 3);
 
-      <div class="bg-white p-6 rounded-lg shadow-md mb-8">
-        <h3 class="text-2xl font-bold mb-4">Datos Bancarios</h3>
-        <div class="space-y-2">
-          <p>Banco: <strong>Santander</strong></p>
-          <p>Cuenta: <strong>7323574-0</strong></p>
-          <p>RUT: <strong>82.566.800-4</strong></p>
-          <p>Email: <strong>secreparroquiasanpatricio@gmail.com</strong></p>
-        </div>
-      </div>
-    </section>
+          bannerNews.forEach((n, index) => {
+            bannerHTML += `
+                        <div class="banner-slide ${index === 0 ? 'active' : ''}" onclick="window.location.href='noticia.html?id=${n.id}'">
+                            <img src="${n.imageUrl}" alt="${n.title}" class="banner-image">
+                            <div class="banner-overlay">
+                                <h3 class="banner-title">${n.title}</h3>
+                            </div>
+                        </div>
+                    `;
+          });
+          bannerContainer.innerHTML = bannerHTML;
 
-    <section id="noticias" class="bg-gray-100 py-12">
-      <div class="container mx-auto px-4">
-        <h2 class="text-3xl font-bold mb-8 text-center">Noticias Recientes</h2>
-        <div id="news-container" class="grid md:grid-cols-3 gap-6"></div>
-      </div>
-    </section>
-
-    <section id="servicios" class="bg-gray-100 py-12">
-      <div class="container mx-auto px-4">
-        <h2 class="text-3xl font-bold mb-8 text-center">
-          Servicios Parroquiales
-        </h2>
-
-        <div class="max-w-3xl mx-auto">
-          <div class="mb-4 acordeon-item">
-            <div
-              class="flex justify-between items-center p-4 cursor-pointer bg-white hover:bg-blue-100 rounded-t-lg shadow-md acordeon-header"
-            >
-              <h3 class="text-xl font-semibold">Velatorio y funerales</h3>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                class="acordeon-icon"
-              >
-                <polyline points="6 9 12 15 18 9"></polyline>
-              </svg>
-            </div>
-
-            <div
-              class="bg-white p-6 rounded-b-lg shadow-md border-t acordeon-content"
-              style="display: none"
-            >
-              <div class="text-gray-700">
-                <p class="mb-2">
-                  La parroquia dispone de un velatorio para las familias que lo
-                  soliciten. Se puede llamar al
-                  <strong
-                    >teléfono en los horarios de oficina de lunes a
-                    sábado</strong
-                  >. Sábados en la tarde y domingos se deben acercar a la
-                  parroquia en los horarios de Misa y contactarse con los
-                  sacerdotes o sacristanes.
-                </p>
-                <p>
-                  Para la misa de funeral deben ponerse en contacto con
-                  <strong>secretaría parroquial</strong> para fijar la hora y
-                  todos los pormenores que correspondan.
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <div class="mb-4 acordeon-item">
-            <div
-              class="flex justify-between items-center p-4 cursor-pointer bg-white hover:bg-blue-100 rounded-t-lg shadow-md acordeon-header"
-            >
-              <h3 class="text-xl font-semibold">
-                Visita y comunión a los enfermos
-              </h3>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                class="acordeon-icon"
-              >
-                <polyline points="6 9 12 15 18 9"></polyline>
-              </svg>
-            </div>
-
-            <div
-              class="bg-white p-6 rounded-b-lg shadow-md border-t acordeon-content"
-              style="display: none"
-            >
-              <div class="text-gray-700">
-                <p class="mb-2">
-                  La Pastoral de la Salud tiene como finalidad acompañar y
-                  llevar la Eucaristía a las personas que se encuentran
-                  imposibilitadas de asistir a Misa, ya sea por razones de
-                  salud, impedimento físico o ancianidad. Este servicio se
-                  realiza a domicilio.
-                </p>
-                <p>
-                  Se pueden solicitar directamente en
-                  <strong>secretaria parroquial.</strong>
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <div class="mb-4 acordeon-item">
-            <div
-              class="flex justify-between items-center p-4 cursor-pointer bg-white hover:bg-blue-100 rounded-t-lg shadow-md acordeon-header"
-            >
-              <h3 class="text-xl font-semibold">Dirección espiritual</h3>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                class="acordeon-icon"
-              >
-                <polyline points="6 9 12 15 18 9"></polyline>
-              </svg>
-            </div>
-
-            <div
-              class="bg-white p-6 rounded-b-lg shadow-md border-t acordeon-content"
-              style="display: none"
-            >
-              <div class="text-gray-700">
-                <p class="mb-2">
-                  Nuestro párroco está disponible para ofrecer dirección
-                  espiritual que es la ayuda que un cristiano presta a otro a
-                  través de sus consejos, de cara a mejorar la vivencia de su
-                  Fe, aumentando sus virtudes (principalmente las
-                  sobrenaturales, pero también las humanas) así como su
-                  disponibilidad para cumplir la voluntad de Dios.
-                </p>
-                <p>
-                  Más información directamente en
-                  <strong>secretaria parroquial.</strong>
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <div class="mb-4 acordeon-item">
-            <div
-              class="flex justify-between items-center p-4 cursor-pointer bg-white hover:bg-blue-100 rounded-t-lg shadow-md acordeon-header"
-            >
-              <h3 class="text-xl font-semibold">Intenciones de misa</h3>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                class="acordeon-icon"
-              >
-                <polyline points="6 9 12 15 18 9"></polyline>
-              </svg>
-            </div>
-
-            <div
-              class="bg-white p-6 rounded-b-lg shadow-md border-t acordeon-content"
-              style="display: none"
-            >
-              <div class="text-gray-700">
-                <p class="mb-2">
-                  Pida oración por un ser querido fallecido, enfermo, en
-                  situación difícil o por cualquier otra intención que guarde en
-                  su corazón.
-                </p>
-                <p>
-                  Se pueden solicitar directamente en
-                  <strong>secretaría parroquial en horario de oficina.</strong>
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <div class="mb-4 acordeon-item">
-            <div
-              class="flex justify-between items-center p-4 cursor-pointer bg-white hover:bg-blue-100 rounded-t-lg shadow-md acordeon-header"
-            >
-              <h3 class="text-xl font-semibold">Bendición de hogares</h3>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                class="acordeon-icon"
-              >
-                <polyline points="6 9 12 15 18 9"></polyline>
-              </svg>
-            </div>
-
-            <div
-              class="bg-white p-6 rounded-b-lg shadow-md border-t acordeon-content"
-              style="display: none"
-            >
-              <div class="text-gray-700">
-                <p class="mb-2">
-                  Es cuando los cristianos desean inaugurar una nueva casa
-                  invocando la protección divina, o piden la bendición del Señor
-                  sobre su hogar. Junto al sacerdote y con alegría, dan gracias
-                  a Dios, de quien procede todo bien, por el don de su casa y
-                  hogar.
-                </p>
-                <p>
-                  Se pueden solicitar directamente en
-                  <strong>secretaría parroquial en horario de oficina.</strong>
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <div class="mb-4 acordeon-item">
-            <div
-              class="flex justify-between items-center p-4 cursor-pointer bg-white hover:bg-blue-100 rounded-t-lg shadow-md acordeon-header"
-            >
-              <h3 class="text-xl font-semibold">Contribución a la Iglesia</h3>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                class="acordeon-icon"
-              >
-                <polyline points="6 9 12 15 18 9"></polyline>
-              </svg>
-            </div>
-
-            <div
-              class="bg-white p-6 rounded-b-lg shadow-md border-t acordeon-content"
-              style="display: none"
-            >
-              <div class="text-gray-700">
-                <p>
-                  El 1% o CALI (Contribución a la Iglesia) es el aporte que todo
-                  católico debe hacer a partir de los ingresos mensuales que
-                  recibe, es decir, del total recibido debe comprometerse
-                  mensualmente con donar el 1% (a lo menos) de dichos ingresos a
-                  la Iglesia para que ésta continúe con su misión
-                  evangelizadora.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="hojitadomingo" class="container mx-auto px-4 py-12">
-      <h2 class="text-3xl font-bold mb-8 text-center">Hojita del Domingo</h2>
-      <div class="bg-white p-6 rounded-lg shadow-md">
-        <p class="mb-4">
-          La Hojita del Domingo es una guía semanal que acompaña a los fieles en
-          la Liturgia de la Palabra, ofreciendo las lecturas, el salmo
-          responsarial y el evangelio del día. Además, incluye reflexiones,
-          avisos parroquiales y una oración de los fieles para enriquecer la
-          participación en la Santa Misa. Es un recurso valioso para meditar la
-          Palabra de Dios antes, durante y después de la celebración
-          eucarística.
-        </p>
-        <p>
-          Puedes descargar la última edición aquí:
-          <a
-            href="https://sanpatricio.cl/wp-content/uploads/2023/11/HOJITA-DOMINGO-26-NOVIEMBRE.pdf"
-            target="_blank"
-            class="text-blue-600 hover:underline"
-            >Descargar Hojita del Domingo (<strong>26 de Noviembre</strong>)</a
-          >
-        </p>
-      </div>
-    </section>
-
-    <section id="evangeliodia" class="bg-gray-100 py-12">
-      <div class="container mx-auto px-4">
-        <h2 class="text-3xl font-bold mb-8 text-center">Evangelio del Día</h2>
-        <div class="bg-white p-6 rounded-lg shadow-md">
-          <h3 class="text-xl font-semibold mb-2">Lectura del Evangelio</h3>
-          <p class="mb-4">
-            "En aquel tiempo, dijo Jesús a sus discípulos: “Cuando el Hijo del
-            Hombre venga en su gloria, acompañado de todos sus ángeles, se
-            sentará en su trono de gloria. Todas las naciones se reunirán
-            delante de él, y él separará a unos de otros, como el pastor separa
-            las ovejas de los cabritos. Pondrá las ovejas a su derecha y los
-            cabritos a su izquierda. Entonces el Rey dirá a los de su derecha:
-            ‘Vengan, benditos de mi Padre, y reciban en herencia el Reino
-            preparado para ustedes desde la creación del mundo. Porque tuve
-            hambre, y ustedes me dieron de comer; tuve sed, y me dieron de
-            beber; fui forastero, y me recibieron; estuve desnudo, y me
-            vistieron; enfermo, y me visitaron; en la cárcel, y vinieron a
-            verme.’ Los justos le responderán: ‘Señor, ¿cuándo te vimos
-            hambriento, y te dimos de comer; o sediento, y te dimos de beber?
-            ¿Cuando te vimos forastero, y te recibimos; o desnudo, y te
-            vestimos? ¿Cuando te vimos enfermo, o en la cárcel, y fuimos a
-            verte?’ Y el Rey les dirá: ‘Les aseguro que, cada vez que lo
-            hicieron con el más pequeño de mis hermanos, lo hicieron conmigo.’
-            Luego dirá a los de su izquierda: ‘Apártense de mí, malditos, vayan
-            al fuego eterno preparado para el diablo y sus ángeles. Porque tuve
-            hambre, y no me dieron de comer; tuve sed, y no me dieron de beber;
-            fui forastero, y no me recibieron; estuve desnudo, y no me
-            vistieron; enfermo y en la cárcel, y no me visitaron.’ Ellos también
-            le responderán: ‘Señor, ¿cuándo te vimos hambriento, o sediento, o
-            forastero, o desnudo, o enfermo, o en la cárcel, y no te asistimos?’
-            Y él les responderá: ‘Les aseguro que, cada vez que no lo hicieron
-            con uno de estos más pequeños, tampoco lo hicieron conmigo.’ Estos
-            irán al castigo eterno, y los justos a la vida eterna.”"
-          </p>
-          <p class="italic text-right">
-            - <strong>Evangelio según San Mateo 25, 31-46</strong>
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <section id="congregacion" class="container mx-auto px-4 py-12">
-      <h2 class="text-3xl font-bold mb-8 text-center">Nuestra Congregación</h2>
-      <div class="bg-white p-6 rounded-lg shadow-md">
-        <p class="mb-4">
-          La Parroquia San Patricio es parte de la Arquidiócesis de Santiago y
-          está encomendada a la Congregación de los
-          <strong
-            >Misioneros de San Patricio (conocidos como los Padres de San
-            Patricio o Patricianos)</strong
-          >. Somos una comunidad vibrante y comprometida con la difusión del
-          Evangelio y el servicio a nuestros hermanos. Nuestro carisma se centra
-          en la oración, la formación y la acción pastoral, buscando llevar la
-          luz de Cristo a todos los rincones de nuestra comunidad.
-        </p>
-        <p>
-          Nos esforzamos por ser un hogar espiritual para todos, donde la fe se
-          vive con alegría y se comparte con generosidad. Te invitamos a unirte
-          a nuestras actividades, grupos pastorales y celebraciones para crecer
-          juntos en el amor de Dios.
-        </p>
-      </div>
-    </section>
-
-    <section id="intenciones" class="container mx-auto px-4 py-12">
-      <h2 class="text-3xl font-bold mb-8 text-center">Intenciones de Misa</h2>
-      <div class="bg-white p-6 rounded-lg shadow-md">
-        <p class="mb-4">
-          Aquí puedes ver el listado de intenciones de misa. Si deseas agregar
-          una nueva intención, por favor contacta a la secretaría parroquial.
-        </p>
-        <iframe
-          src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSXoUx7KMflAeYZWfH7JE3ZNLjT2IvpHRvixrFp7ABtevnpDWxnnn9N4emuDZKXrfAElwVaWr4CKe3O/pubhtml"
-          class="w-full h-96 border rounded"
-        ></iframe>
-      </div>
-    </section>
-
-    <footer class="bg-gray-800 text-white py-8">
-      <div class="container mx-auto px-4 text-center">
-        <p class="mb-4">
-          Parroquia San Patricio | Isabel La Católica 6319, Las Condes
-        </p>
-        <p class="text-sm">&copy; 2024 Todos los derechos reservados</p>
-      </div>
-    </footer>
-
-    <script>
-      // Script para scroll suave y funcionalidad del botón
-      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-        anchor.addEventListener("click", function (e) {
-          // El enlace de "Inicio" en el navbar ya no usa scroll suave, recarga la página
-          if (this.getAttribute("href") === "./") {
-            return; // No prevenir el comportamiento por defecto (recarga)
+          let currentSlide = 0;
+          const slides = document.querySelectorAll('.banner-slide');
+          if (slides.length > 1) {
+            setInterval(() => {
+              slides[currentSlide].classList.remove('active');
+              currentSlide = (currentSlide + 1) % slides.length;
+              slides[currentSlide].classList.add('active');
+            }, 5000);
           }
-          e.preventDefault();
-          document.querySelector(this.getAttribute("href")).scrollIntoView({
-            behavior: "smooth",
-          });
-        });
-      });
+        })
+        .catch(error => console.error("Error cargando noticias:", error));
+    });
+  </script>
+</body>
 
-      document.querySelector(".scroll-top").addEventListener("click", () => {
-        window.scrollTo({ top: 0, behavior: "smooth" });
-      });
-    </script>
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        const accordionHeaders = document.querySelectorAll(".acordeon-header");
-
-        accordionHeaders.forEach((header) => {
-          header.addEventListener("click", function () {
-            const content = this.nextElementSibling;
-            const icon = this.querySelector(".acordeon-icon");
-            const headerDiv = this;
-
-            if (content.style.display === "none") {
-              // Cerrar todos los acordeones
-              document.querySelectorAll(".acordeon-content").forEach((item) => {
-                item.style.display = "none";
-              });
-              document.querySelectorAll(".acordeon-header").forEach((head) => {
-                head.classList.remove("bg-blue-600", "text-white");
-                head.classList.add("bg-white", "hover:bg-blue-100");
-                const headIcon = head.querySelector(".acordeon-icon");
-                headIcon.innerHTML =
-                  '<polyline points="6 9 12 15 18 9"></polyline>';
-              });
-
-              // Abrir el acordeón clicado
-              content.style.display = "block";
-              headerDiv.classList.remove("bg-white", "hover:bg-blue-100");
-              headerDiv.classList.add("bg-blue-600", "text-white");
-              icon.innerHTML = '<polyline points="18 15 12 9 6 15"></polyline>';
-            } else {
-              // Cerrar este acordeón
-              content.style.display = "none";
-              headerDiv.classList.remove("bg-blue-600", "text-white");
-              headerDiv.classList.add("bg-white", "hover:bg-blue-100");
-              icon.innerHTML = '<polyline points="6 9 12 15 18 9"></polyline>';
-            }
-          });
-        });
-      });
-    </script>
-
-    <script>
-      // Función para alternar la visibilidad del menú móvil
-      function toggleMobileMenu() {
-        const mobileMenu = document.getElementById("mobile-menu");
-        mobileMenu.classList.toggle("hidden");
-      }
-
-      // Event listener para el botón de menú
-      document
-        .getElementById("menu-btn")
-        .addEventListener("click", toggleMobileMenu);
-
-      // Event listeners para todos los enlaces del menú móvil
-      const mobileMenuLinks = document.querySelectorAll("#mobile-menu a");
-      mobileMenuLinks.forEach((link) => {
-        // El enlace de "Inicio" en el menú móvil también recarga la página
-        if (link.getAttribute("href") === "./") {
-          link.addEventListener("click", function () {
-            // No hacemos nada especial aquí, el href="./" se encargará de la recarga
-            toggleMobileMenu(); // Cierra el menú después de hacer clic
-          });
-        } else {
-          link.addEventListener("click", toggleMobileMenu);
-        }
-      });
-    </script>
-
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        fetch("noticias.json") // Asegúrate que tu archivo se llama 'noticias.json'
-          .then((response) => {
-            if (!response.ok) {
-              throw new Error(`HTTP error! status: ${response.status}`);
-            }
-            return response.json();
-          })
-          .then((newsData) => {
-            const newsContainer = document.getElementById("news-container");
-            newsData.forEach((newsItem) => {
-              const newsCard = `
-                <div class="bg-white rounded-lg shadow-md news-card">
-                  <img src="${newsItem.imageUrl}" alt="${newsItem.title}" class="rounded-t-lg">
-                  <div class="news-card-content">
-                    <h3 class="text-xl font-semibold mb-2">${newsItem.title}</h3>
-                    <p>${newsItem.description}</p>
-                    <p class="text-sm text-gray-500 mt-2">Publicado el <strong>${newsItem.date}</strong></p>
-                  </div>
-                </div>
-              `;
-              newsContainer.innerHTML += newsCard;
-            });
-          })
-          .catch((error) =>
-            console.error("Error al cargar las noticias:", error)
-          );
-      });
-    </script>
-  </body>
 </html>
-
-Cambios clave realizados: En el div que contiene los enlaces del menú de
-escritorio: Se cambió flex-nowrap por flex-wrap. Esto permite que los elementos
-<a>
-  (los enlaces del menú) pasen a la siguiente línea si no hay suficiente espacio
-  horizontal. Se eliminó la clase text-nowrap. Aunque esta clase usualmente
-  previene que el texto dentro de un elemento se divida en múltiples líneas, en
-  este contexto, al estar en el contenedor flex, su principal efecto era
-  contribuir a que los ítems flex no se envolvieran. Al permitir flex-wrap, este
-  comportamiento ya no es deseado para el contenedor. Se añadió justify-center.
-  Si los elementos se envuelven y la última línea no está completamente llena,
-  esta clase centrará esos elementos, lo que generalmente se ve mejor. Añadí un
-  py-1 (padding vertical pequeño) a cada enlace
-  <a>
-    del menú de escritorio. Esto es para asegurar que si los ítems se envuelven
-    en una segunda línea, haya un pequeño espacio vertical entre las líneas de
-    texto, mejorando la legibilidad. Puedes ajustar este valor (ej. py-2) o
-    quitarlo si prefieres. Con estos cambios, cuando el espacio horizontal se
-    reduzca, los elementos del menú de escritorio deberían pasar a una segunda
-    (o tercera) línea en lugar de desbordar el contenedor o activar
-    prematuramente el menú sándwich. El menú sándwich seguirá apareciendo en el
-    breakpoint md (768px) como estaba originalmente. Prueba esta versión y dime
-    si se acerca más a lo que buscas.</a
-  ></a
->

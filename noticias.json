@@ -1,37 +1,33 @@
 [
   {
     "id": 1,
-    "title": "Jóvenes de nuestra parroquia en JMJ Lisboa 2023",
-    "description": "¡Una experiencia inolvidable! Nuestros jóvenes participaron activamente en la Jornada Mundial de la Juventud, compartiendo fe y alegría con miles de personas de todo el mundo.",
-    "imageUrl": "./assets/jmj_lisboa.jpg",
-    "date": "15/08/2023"
+    "title": "🌿 SEMANA SANTA 2026 🌿",
+    "description": "Querida comunidad, los invitamos de todo corazón a unirnos en oración y reflexión durante estos días santos. Es un tiempo especial para renovar nuestra fe y acompañar el camino de Jesús hacia la Pascua. 🌿🙏\n\nAcompañemos al Señor en esta semana de oración y reflexión. Conoce nuestro programa de actividades:\n\n🗓️ SÁBADO 28 DE MARZO\n18:00 h — Santa Misa con bendición de ramos\n\n🌿 DOMINGO DE RAMOS (29 de marzo)\n09:00 h — Bendición de ramos en Plaza Manquehue con Isabel la Católica (Misa 09:30 h)\n11:00 h — Santa Misa con bendición de ramos\n12:15 h — Bendición de ramos en Plaza Manquehue con Isabel la Católica (Misa 12:30 h)\n\n⛪ LUNES, MARTES Y MIÉRCOLES SANTO (30, 31 de marzo y 1 de abril)\n12:00 h — Santa Misa (excepto el lunes)\n16:00 a 19:00 h — Confesiones (excepto el lunes)\n19:00 h — Santa Misa\n\n🍞 JUEVES SANTO (2 de abril)\n19:30 h — Rezo del Santo Rosario\n20:00 h — Santa Misa de la Cena del Señor\n21:00 a 00:00 h — Adoración Eucarística\n\n✝️ VIERNES SANTO (3 de abril)\n09:30 h — Retiro espiritual\n15:00 h — Liturgia de la Pasión del Señor\n17:00 h — Vía Crucis dentro del templo\n18:30 h — Rezo del Santo Rosario\n19:00 h — Vía Crucis por las calles del sector\n\n🕯️ SÁBADO SANTO (4 de abril)\n10:00 h — Rezo de Laudes\n11:00 h — Rezo del Santo Rosario\n11:30 h — Unción de los enfermos\n20:00 h — Solemne Vigilia Pascual\n\n🎺 DOMINGO DE RESURRECCIÓN (5 de abril)\nMisas en los siguientes horarios:\n09:30 h\n11:00 h\n12:30 h\n\n✨ ¡Los esperamos para vivir juntos este tiempo de fe! ✨\n\n📍 ¿DÓNDE ESTAMOS? Parroquia San Patricio Av. Isabel La Católica 6319, Las Condes, Región Metropolitana.",
+    "imageUrl": "assets/Semana Santa.jpeg",
+    "date": "25/03/2026",
+    "isBanner": true
   },
   {
     "id": 2,
-    "title": "Concierto de Coro Parroquial a beneficio",
-    "description": "Invitamos a toda la comunidad a nuestro concierto benéfico anual. Fondos recaudados irán en ayuda de familias de nuestra parroquia en situación vulnerable. ¡No se lo pierdan!",
-    "imageUrl": "./assets/coro_parroquial.jpg",
-    "date": "01/09/2023"
+    "title": "INSCRIPCIONES PARA CATEQUESIS",
+    "description": "✨ ¡EMPEZAMOS LAS CATEQUESIS EN SAN PATRICIO! ✨\n\n¿Buscas profundizar en tu fe o recibir algún sacramento?\n¡Las inscripciones ya están abiertas!\n\nContamos con programas para todas las edades en nuestra parroquia.\n\n📖🙏👦 CATEQUESIS PRE-JUVENIL Para niños entre 6 a 15 años.\nPreparación para: Bautismo y Primera Comunión.\n📞 Contacto: Cecilia Peruzzi (Catequista)\n📱 Celular: +569 78572808\n\n🙌 CATEQUESIS JUVENIL Y ADULTOS Desde los 16 años en adelante.\nPreparación para: Bautismo, Primera Comunión y Confirmación.\n☎️ Secretaría: +56 2 2229 9060\n📱 Celular: +569 33484878\n\n📍 UBICACIÓN Y CONTACTO\nDirección: Isabel la Católica 6319, Las Condes.\n📧 Correo: secreparroquiasanpatricio@gmail.com\n\n¡Te esperamos para caminar juntos en la fe! 👣✨",
+    "imageUrl": "assets/catequesis.jpeg",
+    "date": "15/03/2026"
   },
   {
     "id": 3,
-    "title": "Celebración de Primeras Comuniones",
-    "description": "Con gran alegría, celebramos la Primera Comunión de nuestros niños. Agradecemos a catequistas y padres por su dedicación y apoyo en este importante paso de fe.",
-    "imageUrl": "./assets/primeras_comuniones.jpg",
-    "date": "20/07/2023"
+    "title": "✝️Vía Crucis en Parroquia San Patricio",
+    "description": "Te invitamos al Vía Crucis parroquial. Acompáñanos en oración.",
+    "imageUrl": "assets/pascua_resurreccion.jpg",
+    "date": "20/03/2026",
+    "isBanner": true
   },
   {
     "id": 4,
-    "title": "Retiro de Cuaresma 2024",
-    "description": "Un tiempo de reflexión y oración para prepararnos para la Pascua. ¡Gracias a todos los que participaron!",
-    "imageUrl": "./assets/retiro_cuaresma.jpg",
-    "date": "10/03/2024"
-  },
-  {
-    "id": 5,
-    "title": "Pascua de Resurrección: La Alegría de Cristo",
-    "description": "Celebramos con gozo la Resurrección de nuestro Señor. ¡Que la luz de Cristo ilumine sus corazones!",
-    "imageUrl": "./assets/pascua_resurreccion.jpg",
-    "date": "31/03/2024"
+    "title": "🌟📖 ¡Ya están disponibles las nuevas Orientaciones Pastorales! 📖🌟",
+    "description": "“Anunciemos la alegría del Evangelio en nuestra ciudad”\n\nLa Iglesia de Santiago presenta con alegría y esperanza este valioso documento fruto del discernimiento, la oración y la participación de toda la comunidad eclesial. Inspiradas por el Papa Francisco y el nuevo Papa León XIV, estas orientaciones nos invitan a:\n\n🙏 Redescubrir la vocación cristiana como un camino hacia la vida plena.\n✨ Poner en el centro de nuestra acción pastoral el primer anuncio de Jesucristo.\n🤝 Caminar juntos con espíritu de sinodalidad, como Iglesia viva y cercana.\n🏙️ Ver la ciudad como lugar teológico, donde Dios nos sale al encuentro.\n\nEstas orientaciones no son solo un plan pastoral: son una invitación a vivir nuestra fe con profundidad, alegría y compromiso con el mundo que nos rodea.\n\n📥 Descarga el documento completo aquí y súmate al camino de renovación de nuestra Iglesia:\nOrientaciones-Pastorales-2025-2029.pdf\n\n🕊️ Que la Virgen del Carmen y el Apóstol Santiago nos acompañen en esta misión.\n¡Caminemos juntos como peregrinos de la esperanza! 💒🌈\n\n#OrientacionesPastorales2025 #IglesiaDeSantiago #EvangelioEnLaCiudad #Sinodalidad #Misión #Esperanza #VocaciónCristiana",
+    "imageUrl": "assets/orientaciones pastorales.jpg",
+    "date": "10/03/2026",
+    "isBanner": true
   }
 ]

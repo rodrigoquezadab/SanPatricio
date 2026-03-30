@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parroquia San Patricio - Aportes</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>tailwind.config = { theme: { extend: { colors: { arena: '#F3E5DC', verdeSanPatricio: '#16A34A', negro: '#000000' } } } }</script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body { background-color: #F3E5DC; color: #000000; font-family: sans-serif; display: flex; flex-direction: column; min-height: 100vh; }
+        main { flex-grow: 1; }
+        h1, h2, h3, h4, h5, h6 { color: #16A34A; font-weight: bold; }
+        .btn-flotante-container { position: fixed; bottom: 20px; right: 20px; display: flex; flex-direction: column; gap: 10px; z-index: 1000; }
+        .btn-flotante { width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; box-shadow: 0 4px 6px rgba(0,0,0,0.3); transition: transform 0.2s; text-decoration: none; font-size: 24px; }
+        .btn-flotante:hover { transform: scale(1.1); color: white; }
+        .btn-subir { background-color: #16A34A; cursor: pointer; border: none; }
+        .btn-whatsapp { background-color: #25D366; }
+        .card { background: white; border-radius: 0.5rem; box-shadow: 0 4px 6px rgba(0,0,0,0.1); padding: 1.5rem; height: 100%; }
+        .nav-link { color: white; padding: 0.5rem 1rem; border-radius: 0.25rem; }
+        .nav-link:hover, .nav-link.active { background-color: rgba(255,255,255,0.2); }
+    </style>
+</head>
+<body>
+<div id="menu-container"></div>
+
+<main class="container mx-auto px-4 py-8 space-y-16">
+    <section id="aportes">
+        <h2 class="text-3xl mb-6 text-center border-b-2 border-verdeSanPatricio inline-block">Aportes y 1% a la Iglesia</h2>
+        <div class="grid md:grid-cols-2 gap-8">
+            <div class="card">
+                <h3 class="text-2xl mb-4"><i class="fas fa-university mr-2"></i>Cuenta Corriente</h3>
+                <ul class="space-y-2">
+                    <li><strong>Banco:</strong> Banco Santander</li>
+                    <li><strong>Cuenta Corriente:</strong> 73235740</li>
+                    <li><strong>Nombre:</strong> Parroquia San Patricio</li>
+                    <li><strong>Rut:</strong> 82.566.800-4</li>
+                    <li><strong>Correo:</strong> secreparroquiasanpatricio@gmail.com</li>
+                    <li><strong>Asunto:</strong> Importante Indicar el motivo</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h3 class="text-2xl mb-4"><i class="fas fa-hand-holding-heart mr-2"></i>1% a la Iglesia</h3>
+                <div class="space-y-3">
+                    <p>El 1% o CALI (Contribución a la Iglesia) es el aporte que todo católico debe hacer a partir de los ingresos mensuales que recibe, es decir, del total recibido debe comprometerse mensualmente con donar el 1% (a lo menos) de dichos ingresos a la Iglesia para que ésta continúe con su misión evangelizadora.</p>
+                    <p>Promueve la corresponsabilidad económica de los fieles. Los voluntarios de esta área buscan concientizar y motivar a la comunidad para el sostenimiento de la misión y las obras parroquiales.</p>
+                    <p class="bg-arena p-3 rounded mt-4">Si puedes aportar con tus talentos en comunicación y promoción de la generosidad, comunícate con la Secretaría Parroquial para obtener más información y guía. <strong>Responsable: Juan Campbell.</strong></p>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<div id="footer-container"></div>
+<script src="components.js"></script>
+</body>
+</html>
