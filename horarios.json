@@ -1,0 +1,37 @@
+{
+  "misas": [
+    "Lunes a viernes: 19:00 hrs.",
+    "Martes a viernes: 12:00 hrs.",
+    "Sábado: 12:00 y 18:00 hrs (Vísperas).",
+    "Domingo: 09:30, 11:00 y 12:30 hrs."
+  ],
+  "confesiones": [
+    "Martes a viernes: 16:00 a 18:30 hrs."
+  ],
+  "oficina": [
+    "Lunes a viernes: 10:00 a 13:00 hrs. y 15:00 a 18:00 hrs.",
+    "Sábados: 9:30 a 13:00 hrs."
+  ],
+  "secretaria": [
+    {
+      "icono": "fas fa-map-marker-alt",
+      "url": "https://www.google.com/maps/search/?api=1&query=Parroquia+San+Patricio,+Isabel+La+Catolica+6319,+Las+Condes,+Chile",
+      "texto": "Isabel La Católica 6319, Las Condes"
+    },
+    {
+      "icono": "fas fa-phone",
+      "url": "tel:+56222299060",
+      "texto": "+562 2229 9060"
+    },
+    {
+      "icono": "fab fa-whatsapp",
+      "url": "https://wa.me/56933484878",
+      "texto": "+569 3348 4878"
+    },
+    {
+      "icono": "fas fa-envelope",
+      "url": "mailto:secreparroquiasanpatricio@gmail.com",
+      "texto": "secreparroquiasanpatricio@gmail.com"
+    }
+  ]
+}

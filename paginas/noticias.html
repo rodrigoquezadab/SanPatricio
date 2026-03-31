@@ -34,10 +34,10 @@
 </main>
 
 <div id="footer-container"></div>
-<script src="components.js"></script>
+<script src="../components.js"></script>
 <script>
     document.addEventListener("DOMContentLoaded", function () {
-        fetch("noticias.json?v=" + new Date().getTime())
+        fetch("../noticias.json?v=" + new Date().getTime())
             .then(response => response.json())
             .then(newsData => {
                 const gridContainer = document.getElementById("noticias-grid");
@@ -45,7 +45,7 @@
                 newsData.forEach(n => {
                     gridHTML += `
                         <div class="card flex flex-col cursor-pointer hover:shadow-xl transition" onclick="window.location.href='noticia.html?id=${n.id}'">
-                            <img src="${n.imageUrl}" alt="${n.title}" class="w-full h-64 object-contain rounded-t-lg mb-4 bg-gray-100">
+                            <img src="../${n.imageUrl}" alt="${n.title}" class="w-full h-64 object-contain rounded-t-lg mb-4 bg-gray-100">
                             <h3 class="text-xl font-bold mb-2 flex-grow">${n.title}</h3>
                             <p class="text-gray-600 line-clamp-3">${n.description}</p>
                             <p class="text-sm font-bold text-verdeSanPatricio mt-3">${n.date}</p>

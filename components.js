@@ -1,6 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
     // Cargar Menú
-    fetch('menu.html')
+    const basePath = window.location.pathname.includes('/paginas/') ? './' : 'paginas/';
+    fetch(basePath + 'menu.html')
         .then(response => response.text())
         .then(data => {
             const menuContainer = document.getElementById('menu-container');
@@ -14,13 +15,37 @@ document.addEventListener("DOMContentLoaded", function () {
                     menuToggle.addEventListener('click', () => { mobileMenu.classList.toggle('hidden'); });
                 }
     
+                // Arreglar enlaces del menú dinámicamente según dónde estemos
+                const inPaginas = window.location.pathname.includes('/paginas/');
+                const links = menuContainer.querySelectorAll('a');
+                links.forEach(link => {
+                    let href = link.getAttribute('href');
+                    if (!href || href.startsWith('http') || href.startsWith('tel:') || href.startsWith('mailto:')) return;
+                    
+                    if (inPaginas) {
+                        // Estamos dentro de paginas/ (ej. adoracion.html)
+                        if (href === 'index.html') link.setAttribute('href', '../index.html');
+                        // Si es otra pagina, se mantiene igual porque ya estamos en paginas/
+                    } else {
+                        // Estamos en la raíz (ej. index.html)
+                        if (href !== 'index.html') link.setAttribute('href', 'paginas/' + href);
+                    }
+                });
+
+                // Arreglar logos/imágenes del menú dinámicamente
+                if (inPaginas) {
+                    menuContainer.querySelectorAll('img').forEach(img => {
+                        let src = img.getAttribute('src');
+                        if (src && src.startsWith('assets/')) img.setAttribute('src', '../' + src);
+                    });
+                }
+
                 // Marcar enlace activo
                 const pathInfo = window.location.pathname.split('/');
                 const currentPage = pathInfo[pathInfo.length - 1] || 'index.html';
-                const links = document.querySelectorAll('.nav-link');
                 links.forEach(link => {
-                    const href = link.getAttribute('href');
-                    if (href === currentPage || (currentPage === '' && href === 'index.html')) {
+                    const finalHref = link.getAttribute('href');
+                    if (finalHref.includes(currentPage) || (currentPage === 'index.html' && finalHref.includes('index.html'))) {
                         link.classList.add('active');
                     } else {
                         link.classList.remove('active');
@@ -31,12 +56,25 @@ document.addEventListener("DOMContentLoaded", function () {
         .catch(error => console.error('Error al cargar el menú:', error));
 
     // Cargar Footer (incluye botones flotantes)
-    fetch('footer.html')
+    fetch(basePath + 'footer.html')
         .then(response => response.text())
         .then(data => {
             const footerContainer = document.getElementById('footer-container');
             if(footerContainer) {
                 footerContainer.innerHTML = data;
+                
+                const inPaginas = window.location.pathname.includes('/paginas/');
+                const links = footerContainer.querySelectorAll('a');
+                links.forEach(link => {
+                    let href = link.getAttribute('href');
+                    if (!href || href.startsWith('http') || href.startsWith('tel:') || href.startsWith('mailto:')) return;
+                    
+                     if (inPaginas) {
+                        if (href === 'index.html') link.setAttribute('href', '../index.html');
+                    } else {
+                        if (href !== 'index.html') link.setAttribute('href', 'paginas/' + href);
+                    }
+                });
     
                 // Lógica botón subir
                 window.addEventListener('scroll', () => {

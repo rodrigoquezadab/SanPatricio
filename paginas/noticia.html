@@ -32,7 +32,7 @@
 </main>
 
 <div id="footer-container"></div>
-<script src="components.js"></script>
+<script src="../components.js"></script>
 <script>
     document.addEventListener("DOMContentLoaded", function () {
         const urlParams = new URLSearchParams(window.location.search);
@@ -43,7 +43,7 @@
             return;
         }
 
-        fetch("noticias.json?v=" + new Date().getTime())
+        fetch("../noticias.json?v=" + new Date().getTime())
             .then(response => response.json())
             .then(newsData => {
                 const article = newsData.find(n => n.id === articleId);
@@ -54,7 +54,7 @@
                     
                     document.getElementById('noticia-container').innerHTML = `
                         <article class="max-w-4xl mx-auto bg-white rounded-xl shadow-lg overflow-hidden">
-                            <img src="${article.imageUrl}" alt="${article.title}" class="w-full h-auto max-h-[500px] object-contain bg-gray-100">
+                            <img src="../${article.imageUrl}" alt="${article.title}" class="w-full h-auto max-h-[500px] object-contain bg-gray-100">
                             <div class="p-6 md:p-10">
                                 <h1 class="text-3xl md:text-5xl font-bold text-verdeSanPatricio mb-6 leading-tight">${article.title}</h1>
                                 <div class="flex items-center text-gray-500 mb-8 border-b pb-4">

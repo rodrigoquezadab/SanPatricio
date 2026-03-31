@@ -4,7 +4,33 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Parroquia San Patricio - Inicio</title>
+  <title>Parroquia San Patricio | Las Condes, Santiago | Horarios y Noticias</title>
+  <meta name="description" content="Bienvenidos a la Parroquia San Patricio en Las Condes, Santiago. Conoce nuestros horarios de misas, confesiones, actividades comunitarias y las últimas noticias parroquiales.">
+  
+  <!-- Open Graph para Redes Sociales (Facebook, WhatsApp) -->
+  <meta property="og:title" content="Parroquia San Patricio | Las Condes, Santiago">
+  <meta property="og:description" content="Información, noticias y horarios de misas en nuestra comunidad San Patricio.">
+  <meta property="og:image" content="https://rodrigoquezada.github.io/SanPatricio/assets/parroquia_san_patricio_main.jpg">
+  <meta property="og:type" content="website">
+
+  <!-- Marcado Schema.org para SEO Local (Google) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CatholicChurch",
+    "name": "Parroquia San Patricio",
+    "image": "https://rodrigoquezada.github.io/SanPatricio/assets/parroquia_san_patricio_main.jpg",
+    "description": "Iglesia Católica en Las Condes, Santiago de Chile. Encuentra nuestros horarios de Eucaristía, Adoración al Santísimo, sacramentos y actividades comunitarias.",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Isabel La Católica 6319",
+      "addressLocality": "Las Condes",
+      "addressRegion": "Región Metropolitana",
+      "addressCountry": "CL"
+    },
+    "telephone": "+56222299060"
+  }
+  </script>
   <script src="https://cdn.tailwindcss.com"></script>
   <script>tailwind.config = { theme: { extend: { colors: { arena: '#F3E5DC', verdeSanPatricio: '#16A34A', negro: '#000000' } } } }</script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -145,6 +171,7 @@
   <div id="menu-container"></div>
 
   <main class="container mx-auto px-4 py-8 space-y-16">
+    <h1 class="sr-only">Parroquia San Patricio - Iglesia Católica en Las Condes, Santiago</h1>
     <section id="inicio">
       <div class="mb-12">
         <img src="assets/parroquia_san_patricio_main.jpg" alt="Parroquia San Patricio"
@@ -156,44 +183,26 @@
       <div class="grid md:grid-cols-2 gap-8">
         <div class="card">
           <h3 class="text-2xl mb-4"><i class="fas fa-clock mr-2"></i>Horarios de Misas</h3>
-          <ul class="space-y-2">
-            <li>Lunes a viernes: 19:00 hrs.</li>
-            <li>Martes a viernes: 12:00 hrs.</li>
-            <li>Sábado: 12:00 y 18:00 hrs (Vísperas).</li>
-            <li>Domingo: 09:30, 11:00 y 12:30 hrs.</li>
+          <ul id="lista-misas" class="space-y-2">
+            <li><i class="fas fa-spinner fa-spin text-verdeSanPatricio"></i> Cargando...</li>
           </ul>
         </div>
         <div class="card">
           <h3 class="text-2xl mb-4"><i class="fas fa-pray mr-2"></i>Horarios Confesiones</h3>
-          <ul class="space-y-2">
-            <li>Martes a viernes: 16:00 a 18:30 hrs.</li>
+          <ul id="lista-confesiones" class="space-y-2">
+            <li><i class="fas fa-spinner fa-spin text-verdeSanPatricio"></i> Cargando...</li>
           </ul>
         </div>
         <div class="card">
           <h3 class="text-2xl mb-4"><i class="fas fa-building mr-2"></i>Horarios de Oficina</h3>
-          <ul class="space-y-2">
-            <li>Lunes a viernes:</li>
-            <li class="pl-4">Mañana: 10:00 a 13:00 hrs.</li>
-            <li class="pl-4">Tarde: 15:00 a 18:00 hrs.</li>
-            <li>Sábados: 9:30 a 13:00 hrs.</li>
+          <ul id="lista-oficina" class="space-y-2">
+            <li><i class="fas fa-spinner fa-spin text-verdeSanPatricio"></i> Cargando...</li>
           </ul>
         </div>
         <div class="card">
           <h3 class="text-2xl mb-4"><i class="fas fa-address-card mr-2"></i>Contacto Secretaría</h3>
-          <ul class="space-y-3">
-            <li class="flex items-start"><i
-                class="fas fa-map-marker-alt text-verdeSanPatricio mt-1 w-6 text-center"></i> <a
-                href="https://www.google.com/maps/search/?api=1&query=Parroquia+San+Patricio,+Isabel+La+Catolica+6319,+Las+Condes,+Chile"
-                target="_blank" class="hover:text-verdeSanPatricio transition">Isabel La Católica 6319, Las Condes</a>
-            </li>
-            <li class="flex items-center"><i class="fas fa-phone text-verdeSanPatricio w-6 text-center"></i> <a
-                href="tel:+56222299060" class="hover:text-verdeSanPatricio transition">+562 2229 9060</a></li>
-            <li class="flex items-center"><i class="fab fa-whatsapp text-verdeSanPatricio w-6 text-center"></i> <a
-                href="https://wa.me/56933484878" target="_blank" class="hover:text-verdeSanPatricio transition">+569
-                3348 4878</a></li>
-            <li class="flex items-center"><i class="fas fa-envelope text-verdeSanPatricio w-6 text-center"></i> <a
-                href="mailto:secreparroquiasanpatricio@gmail.com"
-                class="hover:text-verdeSanPatricio transition break-all">secreparroquiasanpatricio@gmail.com</a></li>
+          <ul id="lista-secretaria" class="space-y-3">
+            <li><i class="fas fa-spinner fa-spin text-verdeSanPatricio"></i> Cargando...</li>
           </ul>
         </div>
       </div>
@@ -214,7 +223,7 @@
 
           bannerNews.forEach((n, index) => {
             bannerHTML += `
-                        <div class="banner-slide ${index === 0 ? 'active' : ''}" onclick="window.location.href='noticia.html?id=${n.id}'">
+                        <div class="banner-slide ${index === 0 ? 'active' : ''}" onclick="window.location.href='paginas/noticia.html?id=${n.id}'">
                             <img src="${n.imageUrl}" alt="${n.title}" class="banner-image">
                             <div class="banner-overlay">
                                 <h3 class="banner-title">${n.title}</h3>
@@ -235,6 +244,24 @@
           }
         })
         .catch(error => console.error("Error cargando noticias:", error));
+
+      // Fetch horarios
+      fetch("horarios.json?v=" + new Date().getTime())
+        .then(response => response.json())
+        .then(data => {
+            if(data.misas) document.getElementById('lista-misas').innerHTML = data.misas.map(m => `<li>${m}</li>`).join('');
+            if(data.confesiones) document.getElementById('lista-confesiones').innerHTML = data.confesiones.map(c => `<li>${c}</li>`).join('');
+            if(data.oficina) document.getElementById('lista-oficina').innerHTML = data.oficina.map(o => `<li>${o}</li>`).join('');
+            if(data.secretaria) {
+                document.getElementById('lista-secretaria').innerHTML = data.secretaria.map(s => `
+                  <li class="flex items-start">
+                    <i class="${s.icono} text-verdeSanPatricio mt-1 w-6 text-center"></i>
+                    <a href="${s.url}" ${s.url.startsWith('http') ? 'target="_blank"' : ''} class="hover:text-verdeSanPatricio transition ml-2 break-all">${s.texto}</a>
+                  </li>
+                `).join('');
+            }
+        })
+        .catch(error => console.error("Error cargando horarios:", error));
     });
   </script>
 </body>
