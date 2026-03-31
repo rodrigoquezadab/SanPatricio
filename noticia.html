@@ -36,7 +36,7 @@
 <script>
     document.addEventListener("DOMContentLoaded", function () {
         const urlParams = new URLSearchParams(window.location.search);
-        const articleId = parseInt(urlParams.get('id'));
+        const articleId = urlParams.get('id');
 
         if (!articleId) {
             document.getElementById('noticia-container').innerHTML = '<div class="text-center text-red-500 py-20"><h2 class="text-3xl font-bold mb-4">Error</h2><p class="text-lg">No se ha especificado ninguna noticia para mostrar.</p><a href="noticias.html" class="inline-block bg-verdeSanPatricio text-white px-6 py-2 rounded-lg mt-6 hover:bg-green-700 transition">Volver a Noticias</a></div>';

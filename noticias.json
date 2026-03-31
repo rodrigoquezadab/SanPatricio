@@ -1,6 +1,14 @@
 [
   {
-    "id": 1,
+    "id": "concierto-stabat-mater",
+    "title": "🎼 CONCIERTO DE SEMANA SANTA: STABAT MATER 🎼",
+    "description": "Los invitamos cordialmente a vivir una tarde de profunda espiritualidad y belleza musical en la Parroquia San Patricio. En este tiempo de reflexión por Semana Santa, presentaremos la obra maestra \"STABAT MATER\", una pieza que eleva el alma y nos invita al recogimiento.\n\n🌿 Contexto de la obra:\nEl Stabat Mater es un poema medieval de inmensa carga emocional que conmemora los dolores de la Virgen María al pie de la cruz de Jesús. Para este concierto, interpretaremos el arreglo del compositor italiano Giovanni Battista Pergolesi, considerada una de las versiones más famosas y conmovedoras de esta plegaria lírica.\n\nContaremos con la participación especial de:\n✨ Coro San José de la Sierra\n✨ Coro de la Facultad de Ciencias Físicas y Matemáticas de la Universidad de Chile\n\n🎟 Entrada: Liberada (con posibilidad de realizar aportes voluntarios para nuestra comunidad).\n🗓 Fecha: 23 de abril\n⏰ Hora: 19:30 hrs.\n📍 Lugar: Parroquia San Patricio (Isabel la Católica 6319, Las Condes).\n\nUna oportunidad única para conmemorar la solemnidad de estas fechas a través del arte coral. ¡Los esperamos con alegría para compartir este encuentro de fe y cultura!",
+    "imageUrl": "assets/stabat-mater.jpeg",
+    "date": "31/03/2026",
+    "isBanner": true
+  },
+  {
+    "id": "semana-santa-2026",
     "title": "🌿 SEMANA SANTA 2026 🌿",
     "description": "Querida comunidad, los invitamos de todo corazón a unirnos en oración y reflexión durante estos días santos. Es un tiempo especial para renovar nuestra fe y acompañar el camino de Jesús hacia la Pascua. 🌿🙏\n\nAcompañemos al Señor en esta semana de oración y reflexión. Conoce nuestro programa de actividades:\n\n🗓️ SÁBADO 28 DE MARZO\n18:00 h — Santa Misa con bendición de ramos\n\n🌿 DOMINGO DE RAMOS (29 de marzo)\n09:00 h — Bendición de ramos en Plaza Manquehue con Isabel la Católica (Misa 09:30 h)\n11:00 h — Santa Misa con bendición de ramos\n12:15 h — Bendición de ramos en Plaza Manquehue con Isabel la Católica (Misa 12:30 h)\n\n⛪ LUNES, MARTES Y MIÉRCOLES SANTO (30, 31 de marzo y 1 de abril)\n12:00 h — Santa Misa (excepto el lunes)\n16:00 a 19:00 h — Confesiones (excepto el lunes)\n19:00 h — Santa Misa\n\n🍞 JUEVES SANTO (2 de abril)\n19:30 h — Rezo del Santo Rosario\n20:00 h — Santa Misa de la Cena del Señor\n21:00 a 00:00 h — Adoración Eucarística\n\n✝️ VIERNES SANTO (3 de abril)\n09:30 h — Retiro espiritual\n15:00 h — Liturgia de la Pasión del Señor\n17:00 h — Vía Crucis dentro del templo\n18:30 h — Rezo del Santo Rosario\n19:00 h — Vía Crucis por las calles del sector\n\n🕯️ SÁBADO SANTO (4 de abril)\n10:00 h — Rezo de Laudes\n11:00 h — Rezo del Santo Rosario\n11:30 h — Unción de los enfermos\n20:00 h — Solemne Vigilia Pascual\n\n🎺 DOMINGO DE RESURRECCIÓN (5 de abril)\nMisas en los siguientes horarios:\n09:30 h\n11:00 h\n12:30 h\n\n✨ ¡Los esperamos para vivir juntos este tiempo de fe! ✨\n\n📍 ¿DÓNDE ESTAMOS? Parroquia San Patricio Av. Isabel La Católica 6319, Las Condes, Región Metropolitana.",
     "imageUrl": "assets/Semana Santa.jpeg",
@@ -8,14 +16,14 @@
     "isBanner": true
   },
   {
-    "id": 2,
+    "id": "inscripciones-catequesis",
     "title": "INSCRIPCIONES PARA CATEQUESIS",
     "description": "✨ ¡EMPEZAMOS LAS CATEQUESIS EN SAN PATRICIO! ✨\n\n¿Buscas profundizar en tu fe o recibir algún sacramento?\n¡Las inscripciones ya están abiertas!\n\nContamos con programas para todas las edades en nuestra parroquia.\n\n📖🙏👦 CATEQUESIS PRE-JUVENIL Para niños entre 6 a 15 años.\nPreparación para: Bautismo y Primera Comunión.\n📞 Contacto: Cecilia Peruzzi (Catequista)\n📱 Celular: +569 78572808\n\n🙌 CATEQUESIS JUVENIL Y ADULTOS Desde los 16 años en adelante.\nPreparación para: Bautismo, Primera Comunión y Confirmación.\n☎️ Secretaría: +56 2 2229 9060\n📱 Celular: +569 33484878\n\n📍 UBICACIÓN Y CONTACTO\nDirección: Isabel la Católica 6319, Las Condes.\n📧 Correo: secreparroquiasanpatricio@gmail.com\n\n¡Te esperamos para caminar juntos en la fe! 👣✨",
     "imageUrl": "assets/catequesis.jpeg",
     "date": "15/03/2026"
   },
   {
-    "id": 3,
+    "id": "via-crucis",
     "title": "✝️Vía Crucis en Parroquia San Patricio",
     "description": "Te invitamos al Vía Crucis parroquial. Acompáñanos en oración.",
     "imageUrl": "assets/pascua_resurreccion.jpg",
@@ -23,7 +31,7 @@
     "isBanner": true
   },
   {
-    "id": 4,
+    "id": "orientaciones-pastorales",
     "title": "🌟📖 ¡Ya están disponibles las nuevas Orientaciones Pastorales! 📖🌟",
     "description": "“Anunciemos la alegría del Evangelio en nuestra ciudad”\n\nLa Iglesia de Santiago presenta con alegría y esperanza este valioso documento fruto del discernimiento, la oración y la participación de toda la comunidad eclesial. Inspiradas por el Papa Francisco y el nuevo Papa León XIV, estas orientaciones nos invitan a:\n\n🙏 Redescubrir la vocación cristiana como un camino hacia la vida plena.\n✨ Poner en el centro de nuestra acción pastoral el primer anuncio de Jesucristo.\n🤝 Caminar juntos con espíritu de sinodalidad, como Iglesia viva y cercana.\n🏙️ Ver la ciudad como lugar teológico, donde Dios nos sale al encuentro.\n\nEstas orientaciones no son solo un plan pastoral: son una invitación a vivir nuestra fe con profundidad, alegría y compromiso con el mundo que nos rodea.\n\n📥 Descarga el documento completo aquí y súmate al camino de renovación de nuestra Iglesia:\nOrientaciones-Pastorales-2025-2029.pdf\n\n🕊️ Que la Virgen del Carmen y el Apóstol Santiago nos acompañen en esta misión.\n¡Caminemos juntos como peregrinos de la esperanza! 💒🌈\n\n#OrientacionesPastorales2025 #IglesiaDeSantiago #EvangelioEnLaCiudad #Sinodalidad #Misión #Esperanza #VocaciónCristiana",
     "imageUrl": "assets/orientaciones pastorales.jpg",
