@@ -4,7 +4,7 @@ on:
   push:
     branches:
       - main  # <--- REVISA: Si tu rama se llama 'master', cambia 'main' por 'master'
-
+# <--- REVISA: Si tu rama se llama 'master', cambia 'main' por 'master'
 jobs:
   web-deploy:
     name: 🎉 Deploy
