@@ -16,19 +16,20 @@ document.addEventListener("DOMContentLoaded", function () {
                 }
     
                 // Arreglar enlaces del menú dinámicamente según dónde estemos
-                const inPaginas = window.location.pathname.includes('/paginas/');
+                const inPaginas = window.location.pathname.includes('/paginas/') || window.location.pathname.includes('\\paginas\\');
                 const links = menuContainer.querySelectorAll('a');
                 links.forEach(link => {
                     let href = link.getAttribute('href');
                     if (!href || href.startsWith('http') || href.startsWith('tel:') || href.startsWith('mailto:')) return;
                     
+                    const fileName = href.split('/').pop().split('\\').pop();
+                    
                     if (inPaginas) {
-                        // Estamos dentro de paginas/ (ej. adoracion.html)
-                        if (href === 'index.html') link.setAttribute('href', '../index.html');
-                        // Si es otra pagina, se mantiene igual porque ya estamos en paginas/
+                        if (fileName === 'index.html') link.setAttribute('href', '../index.html');
+                        else link.setAttribute('href', fileName);
                     } else {
-                        // Estamos en la raíz (ej. index.html)
-                        if (href !== 'index.html') link.setAttribute('href', 'paginas/' + href);
+                        if (fileName === 'index.html') link.setAttribute('href', 'index.html');
+                        else link.setAttribute('href', 'paginas/' + fileName);
                     }
                 });
 
@@ -63,16 +64,19 @@ document.addEventListener("DOMContentLoaded", function () {
             if(footerContainer) {
                 footerContainer.innerHTML = data;
                 
-                const inPaginas = window.location.pathname.includes('/paginas/');
+                const inPaginas = window.location.pathname.includes('/paginas/') || window.location.pathname.includes('\\paginas\\');
                 const links = footerContainer.querySelectorAll('a');
                 links.forEach(link => {
                     let href = link.getAttribute('href');
                     if (!href || href.startsWith('http') || href.startsWith('tel:') || href.startsWith('mailto:')) return;
                     
-                     if (inPaginas) {
-                        if (href === 'index.html') link.setAttribute('href', '../index.html');
+                    const fileName = href.split('/').pop().split('\\').pop();
+                    if (inPaginas) {
+                        if (fileName === 'index.html') link.setAttribute('href', '../index.html');
+                        else link.setAttribute('href', fileName);
                     } else {
-                        if (href !== 'index.html') link.setAttribute('href', 'paginas/' + href);
+                        if (fileName === 'index.html') link.setAttribute('href', 'index.html');
+                        else link.setAttribute('href', 'paginas/' + fileName);
                     }
                 });
     
