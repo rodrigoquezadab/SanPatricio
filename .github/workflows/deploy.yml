@@ -3,20 +3,23 @@ name: Despliegue Parroquia San Patricio
 on:
   push:
     branches:
-      - main  # <--- REVISA: Si tu rama se llama 'master', cambia 'main' por 'master'
+      - main  # Asegúrate de que tu rama se llame main
 
 jobs:
   web-deploy:
-    name: 🎉 Deploy
+    name: 🎉 Deploy a Hostinger
     runs-on: ubuntu-latest
     steps:
-    - name: 🚚 Get latest code
-      uses: actions/checkout@v3
+    - name: 🚚 Obtener código desde GitHub
+      uses: actions/checkout@v4
 
-    - name: 📂 Sync files
-      uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+    - name: 📂 Sincronizar archivos vía FTP
+      uses: SamKirkland/FTP-Deploy-Action@v4.3.5
       with:
         server: ${{ secrets.FTP_SERVER }}
         username: ${{ secrets.FTP_USERNAME }}
         password: ${{ secrets.FTP_PASSWORD }}
-        server-dir: public_html/
+        # Al ser './', los archivos se dejan en la raíz de la ruta del usuario FTP
+        server-dir: ./ 
+        # Si quieres que borre archivos en el servidor que ya no están en GitHub, cambia a true
+        delete-destination-after-sync: false
