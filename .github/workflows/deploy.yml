@@ -1,14 +1,16 @@
 name: Despliegue Parroquia San Patricio
 
+# El proceso se activa cada vez que haces un 'git push'
 on:
   push:
     branches:
-      - main  # Asegúrate de que tu rama se llame main
+      - main  # Verifica que tu rama principal se llame 'main'
 
 jobs:
   web-deploy:
     name: 🎉 Deploy a Hostinger
     runs-on: ubuntu-latest
+    
     steps:
     - name: 🚚 Obtener código desde GitHub
       uses: actions/checkout@v4
@@ -16,10 +18,15 @@ jobs:
     - name: 📂 Sincronizar archivos vía FTP
       uses: SamKirkland/FTP-Deploy-Action@v4.3.5
       with:
+        # Estos datos se sacan de Settings > Secrets > Actions
         server: ${{ secrets.FTP_SERVER }}
         username: ${{ secrets.FTP_USERNAME }}
         password: ${{ secrets.FTP_PASSWORD }}
-        # Apunta exactamente a la carpeta web pública de Hostinger
-        server-dir: public_html/ 
-        # Si quieres que borre archivos en el servidor que ya no están en GitHub, cambia a true
+        
+        # IMPORTANTE: Usamos './' porque el usuario FTP de Hostinger 
+        # ya está configurado para entrar directo a 'public_html'
+        server-dir: ./ 
+        
+        # Si cambias esto a 'true', borrará en Hostinger los archivos 
+        # que ya no existan en tu repositorio de GitHub
         delete-destination-after-sync: false
