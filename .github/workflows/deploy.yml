@@ -19,7 +19,7 @@ jobs:
         server: ${{ secrets.FTP_SERVER }}
         username: ${{ secrets.FTP_USERNAME }}
         password: ${{ secrets.FTP_PASSWORD }}
-        # Al ser './', los archivos se dejan en la raíz de la ruta del usuario FTP
-        server-dir: ./ 
+        # Depositar archivos directamente en la raíz donde aterriza tu usuario FTP
+        server-dir: / 
         # Si quieres que borre archivos en el servidor que ya no están en GitHub, cambia a true
         delete-destination-after-sync: false
