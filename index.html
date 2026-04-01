@@ -13,24 +13,7 @@
   <meta property="og:image" content="https://rodrigoquezada.github.io/SanPatricio/assets/parroquia_san_patricio_main.jpg">
   <meta property="og:type" content="website">
 
-  <!-- Marcado Schema.org para SEO Local (Google) -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "CatholicChurch",
-    "name": "Parroquia San Patricio",
-    "image": "https://rodrigoquezada.github.io/SanPatricio/assets/parroquia_san_patricio_main.jpg",
-    "description": "Iglesia Católica en Las Condes, Santiago de Chile. Encuentra nuestros horarios de Eucaristía, Adoración al Santísimo, sacramentos y actividades comunitarias.",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "Isabel La Católica 6319",
-      "addressLocality": "Las Condes",
-      "addressRegion": "Región Metropolitana",
-      "addressCountry": "CL"
-    },
-    "telephone": "+56222299060"
-  }
-  </script>
+  <!-- Marcado Schema.org removido por conflicto con WAF de Hostinger -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>tailwind.config = { theme: { extend: { colors: { arena: '#F3E5DC', verdeSanPatricio: '#16A34A', negro: '#000000' } } } }</script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -210,7 +193,7 @@
   </main>
 
   <div id="footer-container"></div>
-  <script src="components.js"></script>
+  <script src="components.js?v=2"></script>
   <script>
     document.addEventListener("DOMContentLoaded", function () {
       fetch("noticias.json?v=" + new Date().getTime())
