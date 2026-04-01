@@ -27,6 +27,5 @@ jobs:
         # ya está configurado para entrar directo a 'public_html'
         server-dir: ./ 
         
-        # Si cambias esto a 'true', borrará en Hostinger los archivos 
-        # que ya no existan en tu repositorio de GitHub
-        delete-destination-after-sync: false
+        # Aumentamos el tiempo límite por si la FTP de Hostinger demora en responder
+        timeout: 300000
