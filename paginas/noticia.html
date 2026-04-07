@@ -43,40 +43,61 @@
             return;
         }
 
-        fetch("../noticias.json?v=" + new Date().getTime())
-            .then(response => response.json())
-            .then(newsData => {
-                const article = newsData.find(n => n.id === articleId);
+        Promise.all([
+            fetch("../noticias.json?v=" + new Date().getTime()).then(res => res.json()).catch(() => []),
+            fetch("../assets/flyers/").then(res => res.text()).catch(() => "")
+        ]).then(([newsData, html]) => {
+            const regex = /href=["']([^"'>]+\.(?:jpg|jpeg|png|webp|gif))["']/gi;
+            let match;
+            const flyers = [];
+            while ((match = regex.exec(html)) !== null) {
+                let filename = decodeURIComponent(match[1].split('/').pop());
+                let rawName = filename.replace(/\.[^/.]+$/, "");
+                let id = rawName.replace(/[^a-zA-Z0-9\s-]/g, "").trim().replace(/\s+/g, "-").toLowerCase();
+                let title = rawName.replace(/[-_]/g, " ").toUpperCase();
+                flyers.push({
+                    id: id,
+                    title: title,
+                    description: "Revisa la información en el afiche adjunto para más detalles.",
+                    imageUrl: "assets/flyers/" + filename,
+                    date: "Nuevo",
+                    isBanner: true,
+                    isFlyer: true
+                });
+            }
+
+            const allNews = [...flyers, ...newsData];
+            const article = allNews.find(n => n.id === articleId);
+            
+            if (article) {
+                document.title = "Parroquia San Patricio - " + article.title;
+                const content = article.content ? article.content : `<p class="whitespace-pre-line text-lg leading-relaxed">${article.description}</p>`;
                 
-                if (article) {
-                    document.title = "Parroquia San Patricio - " + article.title;
-                    const content = article.content ? article.content : `<p class="whitespace-pre-line text-lg leading-relaxed">${article.description}</p>`;
-                    
-                    document.getElementById('noticia-container').innerHTML = `
-                        <article class="max-w-4xl mx-auto bg-white rounded-xl shadow-lg overflow-hidden">
-                            <img src="../${article.imageUrl}" alt="${article.title}" class="w-full h-auto max-h-[500px] object-contain bg-gray-100">
-                            <div class="p-6 md:p-10">
-                                <h1 class="text-3xl md:text-5xl font-bold text-verdeSanPatricio mb-6 leading-tight">${article.title}</h1>
-                                <div class="flex items-center text-gray-500 mb-8 border-b pb-4">
-                                    <i class="far fa-calendar-alt mr-2"></i> <span class="text-lg">${article.date}</span>
-                                </div>
-                                <div class="prose max-w-none text-gray-800">
-                                    ${content}
-                                </div>
-                                <div class="mt-12 text-center md:text-left">
-                                    <a href="noticias.html" class="inline-block bg-verdeSanPatricio text-white px-6 py-3 rounded-lg hover:bg-green-700 transition shadow-md"><i class="fas fa-arrow-left mr-2"></i>Volver a Noticias</a>
-                                </div>
+                document.getElementById('noticia-container').innerHTML = `
+                    <article class="max-w-4xl mx-auto bg-white rounded-xl shadow-lg overflow-hidden">
+                        <img src="../${article.imageUrl}" alt="${article.title}" class="w-full h-auto max-h-[500px] object-contain bg-gray-100">
+                        <div class="p-6 md:p-10">
+                            <h1 class="text-3xl md:text-5xl font-bold text-verdeSanPatricio mb-6 leading-tight">${article.title}</h1>
+                            <div class="flex items-center text-gray-500 mb-8 border-b pb-4">
+                                <i class="far fa-calendar-alt mr-2"></i> <span class="text-lg">${article.date}</span>
                             </div>
-                        </article>
-                    `;
-                } else {
-                    document.getElementById('noticia-container').innerHTML = '<div class="text-center text-red-500 py-20"><h2 class="text-3xl font-bold mb-4">Noticia no encontrada</h2><p class="text-lg">La noticia que buscas no existe o ha sido eliminada.</p><a href="noticias.html" class="inline-block bg-verdeSanPatricio text-white px-6 py-2 rounded-lg mt-6 hover:bg-green-700 transition">Volver a Noticias</a></div>';
-                }
-            })
-            .catch(error => {
-                console.error("Error cargando la noticia:", error);
-                document.getElementById('noticia-container').innerHTML = '<div class="text-center text-red-500 py-20"><h2 class="text-3xl font-bold mb-4">Error de Conexión</h2><p class="text-lg">No se pudo cargar la base de datos de noticias.</p><a href="noticias.html" class="inline-block bg-verdeSanPatricio text-white px-6 py-2 rounded-lg mt-6 hover:bg-green-700 transition">Volver a Noticias</a></div>';
-            });
+                            <div class="prose max-w-none text-gray-800">
+                                ${content}
+                            </div>
+                            <div class="mt-12 text-center md:text-left">
+                                <a href="noticias.html" class="inline-block bg-verdeSanPatricio text-white px-6 py-3 rounded-lg hover:bg-green-700 transition shadow-md"><i class="fas fa-arrow-left mr-2"></i>Volver a Noticias</a>
+                            </div>
+                        </div>
+                    </article>
+                `;
+            } else {
+                document.getElementById('noticia-container').innerHTML = '<div class="text-center text-red-500 py-20"><h2 class="text-3xl font-bold mb-4">Noticia no encontrada</h2><p class="text-lg">La noticia que buscas no existe o ha sido eliminada.</p><a href="noticias.html" class="inline-block bg-verdeSanPatricio text-white px-6 py-2 rounded-lg mt-6 hover:bg-green-700 transition">Volver a Noticias</a></div>';
+            }
+        })
+        .catch(error => {
+            console.error("Error cargando la noticia:", error);
+            document.getElementById('noticia-container').innerHTML = '<div class="text-center text-red-500 py-20"><h2 class="text-3xl font-bold mb-4">Error de Conexión</h2><p class="text-lg">No se pudo cargar la base de datos de noticias.</p><a href="noticias.html" class="inline-block bg-verdeSanPatricio text-white px-6 py-2 rounded-lg mt-6 hover:bg-green-700 transition">Volver a Noticias</a></div>';
+        });
     });
 </script>
 </body>

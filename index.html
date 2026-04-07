@@ -147,7 +147,19 @@
       position: absolute;
       inset: 0;
       z-index: -1;
-      background-color: #000;
+      background-color: transparent;
+    }
+
+    .banner-image-blur {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      position: absolute;
+      inset: 0;
+      z-index: -2;
+      filter: blur(15px);
+      opacity: 0.6;
+      transform: scale(1.1);
     }
 
     .banner-overlay {
@@ -218,17 +230,39 @@
   <script src="components.js?v=2"></script>
   <script>
     document.addEventListener("DOMContentLoaded", function () {
-      fetch("noticias.json?v=" + new Date().getTime())
-        .then(response => response.json())
-        .then(newsData => {
+      Promise.all([
+        fetch("noticias.json?v=" + new Date().getTime()).then(res => res.json()).catch(() => []),
+        fetch("assets/flyers/").then(res => res.text()).catch(() => "")
+      ]).then(([newsData, html]) => {
+          const regex = /href=["']([^"'>]+\.(?:jpg|jpeg|png|webp|gif))["']/gi;
+          let match;
+          const flyers = [];
+          while ((match = regex.exec(html)) !== null) {
+              let filename = decodeURIComponent(match[1].split('/').pop());
+              let rawName = filename.replace(/\.[^/.]+$/, "");
+              let id = rawName.replace(/[^a-zA-Z0-9\s-]/g, "").trim().replace(/\s+/g, "-").toLowerCase();
+              let title = rawName.replace(/[-_]/g, " ").toUpperCase();
+              flyers.push({
+                  id: id,
+                  title: title,
+                  description: "Revisa la información en el afiche adjunto para más detalles.",
+                  imageUrl: "assets/flyers/" + filename,
+                  date: "Nuevo", 
+                  isBanner: true,
+                  isFlyer: true
+              });
+          }
+
+          let allNews = [...flyers, ...newsData];
           const bannerContainer = document.getElementById("noticias-banner");
           let bannerHTML = "";
-          let bannerNews = newsData.filter(n => n.isBanner === true);
-          if (bannerNews.length === 0) bannerNews = newsData.slice(0, 3);
+          let bannerNews = allNews.filter(n => n.isBanner === true);
+          if (bannerNews.length === 0) bannerNews = allNews.slice(0, 3);
 
           bannerNews.forEach((n, index) => {
             bannerHTML += `
                         <div class="banner-slide ${index === 0 ? 'active' : ''}" onclick="window.location.href='paginas/noticia.html?id=${n.id}'">
+                            <img src="${n.imageUrl}" alt="" class="banner-image-blur">
                             <img src="${n.imageUrl}" alt="${n.title}" class="banner-image">
                             <div class="banner-overlay">
                                 <h3 class="banner-title">${n.title}</h3>

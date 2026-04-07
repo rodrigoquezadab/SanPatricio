@@ -37,27 +37,48 @@
 <script src="../components.js?v=2"></script>
 <script>
     document.addEventListener("DOMContentLoaded", function () {
-        fetch("../noticias.json?v=" + new Date().getTime())
-            .then(response => response.json())
-            .then(newsData => {
-                const gridContainer = document.getElementById("noticias-grid");
-                let gridHTML = "";
-                newsData.forEach(n => {
-                    gridHTML += `
-                        <div class="card flex flex-col cursor-pointer hover:shadow-xl transition" onclick="window.location.href='noticia.html?id=${n.id}'">
-                            <img src="../${n.imageUrl}" alt="${n.title}" class="w-full h-64 object-contain rounded-t-lg mb-4 bg-gray-100">
-                            <h3 class="text-xl font-bold mb-2 flex-grow">${n.title}</h3>
-                            <p class="text-gray-600 line-clamp-3">${n.description}</p>
-                            <p class="text-sm font-bold text-verdeSanPatricio mt-3">${n.date}</p>
-                        </div>
-                    `;
+        Promise.all([
+            fetch("../noticias.json?v=" + new Date().getTime()).then(res => res.json()).catch(() => []),
+            fetch("../assets/flyers/").then(res => res.text()).catch(() => "")
+        ]).then(([newsData, html]) => {
+            const regex = /href=["']([^"'>]+\.(?:jpg|jpeg|png|webp|gif))["']/gi;
+            let match;
+            const flyers = [];
+            while ((match = regex.exec(html)) !== null) {
+                let filename = decodeURIComponent(match[1].split('/').pop());
+                let rawName = filename.replace(/\.[^/.]+$/, "");
+                let id = rawName.replace(/[^a-zA-Z0-9\s-]/g, "").trim().replace(/\s+/g, "-").toLowerCase();
+                let title = rawName.replace(/[-_]/g, " ").toUpperCase();
+                flyers.push({
+                    id: id,
+                    title: title,
+                    description: "Revisa la información en el afiche adjunto para más detalles.",
+                    imageUrl: "assets/flyers/" + filename,
+                    date: "Nuevo",
+                    isBanner: true,
+                    isFlyer: true
                 });
-                gridContainer.innerHTML = gridHTML;
-            })
-            .catch(error => {
-                console.error("Error cargando noticias:", error);
-                document.getElementById('noticias-grid').innerHTML = '<p class="text-center col-span-3 text-red-500">Error al cargar las noticias.</p>';
+            }
+
+            const allNews = [...flyers, ...newsData];
+            const gridContainer = document.getElementById("noticias-grid");
+            let gridHTML = "";
+            allNews.forEach(n => {
+                gridHTML += `
+                    <div class="card flex flex-col cursor-pointer hover:shadow-xl transition" onclick="window.location.href='noticia.html?id=${n.id}'">
+                        <img src="../${n.imageUrl}" alt="${n.title}" class="w-full h-64 object-contain rounded-t-lg mb-4 bg-gray-100">
+                        <h3 class="text-xl font-bold mb-2 flex-grow">${n.title}</h3>
+                        <p class="text-gray-600 line-clamp-3">${n.description}</p>
+                        <p class="text-sm font-bold text-verdeSanPatricio mt-3">${n.date}</p>
+                    </div>
+                `;
             });
+            gridContainer.innerHTML = gridHTML;
+        })
+        .catch(error => {
+            console.error("Error cargando noticias:", error);
+            document.getElementById('noticias-grid').innerHTML = '<p class="text-center col-span-3 text-red-500">Error al cargar las noticias.</p>';
+        });
     });
 </script>
 </body>
