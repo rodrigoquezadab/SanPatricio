@@ -40,7 +40,7 @@
         Promise.all([
             fetch("../noticias.json?v=" + new Date().getTime()).then(res => res.json()).catch(() => []),
             fetch("../assets/flyers/").then(res => res.text()).catch(() => "")
-        ]).then(([newsData, html]) => {
+        ]).then(async ([newsData, html]) => {
             const regex = /href=["']([^"'>]+\.(?:jpg|jpeg|png|webp|gif))["']/gi;
             let match;
             const flyers = [];
@@ -58,6 +58,33 @@
                     isBanner: true,
                     isFlyer: true
                 });
+            }
+
+            if (flyers.length === 0 && window.location.hostname !== '127.0.0.1' && window.location.hostname !== 'localhost') {
+                try {
+                    const apiRes = await fetch("https://api.github.com/repos/rodrigoquezadab/SanPatricio/contents/assets/flyers");
+                    if (apiRes.ok) {
+                        const files = await apiRes.json();
+                        files.forEach(file => {
+                            if (file.name.match(/\.(jpg|jpeg|png|gif|webp)$/i)) {
+                                let decodedFilename = decodeURIComponent(file.name);
+                                let baseName = decodedFilename.replace(/\.[^/.]+$/, "");
+                                let title = baseName.replace(/[-_]/g, " ").toUpperCase();
+                                let safeId = "flyer-" + baseName.replace(/[^a-zA-Z0-9]/g, '-').toLowerCase();
+                                flyers.push({
+                                    id: safeId,
+                                    title: title,
+                                    description: "Revisa la información en el afiche adjunto para más detalles.",
+                                    date: new Date().toLocaleDateString('es-CL'),
+                                    imageUrl: "assets/flyers/" + file.name,
+                                    isFlyer: true
+                                });
+                            }
+                        });
+                    }
+                } catch (e) {
+                    console.error("Error cargando desde GitHub API", e);
+                }
             }
 
             const allNews = [...flyers, ...newsData];
