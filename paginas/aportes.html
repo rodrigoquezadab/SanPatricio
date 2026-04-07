@@ -30,13 +30,40 @@
         <div class="grid md:grid-cols-2 gap-8">
             <div class="card">
                 <h3 class="text-2xl mb-4"><i class="fas fa-university mr-2"></i>Cuenta Corriente</h3>
-                <ul class="space-y-2">
-                    <li><strong>Banco:</strong> Banco Santander</li>
-                    <li><strong>Cuenta Corriente:</strong> 73235740</li>
-                    <li><strong>Nombre:</strong> Parroquia San Patricio</li>
-                    <li><strong>Rut:</strong> 82.566.800-4</li>
-                    <li><strong>Correo:</strong> secreparroquiasanpatricio@gmail.com</li>
-                    <li><strong>Asunto:</strong> Importante Indicar el motivo</li>
+                <ul class="space-y-3 text-sm md:text-base">
+                    <li class="flex items-center justify-between bg-gray-50 p-2 md:p-3 rounded border border-gray-100 hover:bg-gray-100 transition-colors">
+                        <span class="break-all mr-2"><strong>Banco:</strong> Banco Santander</span>
+                        <button onclick="copiarTexto('Banco Santander', this)" class="text-gray-500 hover:text-verdeSanPatricio transition-colors flex items-center gap-2 focus:outline-none" title="Copiar Banco">
+                            <span class="text-xs font-semibold hidden md:inline">Copiar</span><i class="far fa-copy text-lg"></i>
+                        </button>
+                    </li>
+                    <li class="flex items-center justify-between bg-gray-50 p-2 md:p-3 rounded border border-gray-100 hover:bg-gray-100 transition-colors">
+                        <span class="break-all mr-2"><strong>Cuenta Corriente:</strong> 73235740</span>
+                        <button onclick="copiarTexto('73235740', this)" class="text-gray-500 hover:text-verdeSanPatricio transition-colors flex items-center gap-2 focus:outline-none" title="Copiar Cuenta">
+                            <span class="text-xs font-semibold hidden md:inline">Copiar</span><i class="far fa-copy text-lg"></i>
+                        </button>
+                    </li>
+                    <li class="flex items-center justify-between bg-gray-50 p-2 md:p-3 rounded border border-gray-100 hover:bg-gray-100 transition-colors">
+                        <span class="break-all mr-2"><strong>Nombre:</strong> Parroquia San Patricio</span>
+                        <button onclick="copiarTexto('Parroquia San Patricio', this)" class="text-gray-500 hover:text-verdeSanPatricio transition-colors flex items-center gap-2 focus:outline-none" title="Copiar Nombre">
+                            <span class="text-xs font-semibold hidden md:inline">Copiar</span><i class="far fa-copy text-lg"></i>
+                        </button>
+                    </li>
+                    <li class="flex items-center justify-between bg-gray-50 p-2 md:p-3 rounded border border-gray-100 hover:bg-gray-100 transition-colors">
+                        <span class="break-all mr-2"><strong>Rut:</strong> 82.566.800-4</span>
+                        <button onclick="copiarTexto('825668004', this)" class="text-gray-500 hover:text-verdeSanPatricio transition-colors flex items-center gap-2 focus:outline-none" title="Copiar RUT sin formato">
+                            <span class="text-xs font-semibold hidden md:inline">Copiar</span><i class="far fa-copy text-lg"></i>
+                        </button>
+                    </li>
+                    <li class="flex items-center justify-between bg-gray-50 p-2 md:p-3 rounded border border-gray-100 hover:bg-gray-100 transition-colors">
+                        <span class="break-all mr-2"><strong>Correo:</strong> secreparroquiasanpatricio@gmail.com</span>
+                        <button onclick="copiarTexto('secreparroquiasanpatricio@gmail.com', this)" class="text-gray-500 hover:text-verdeSanPatricio transition-colors flex items-center gap-2 focus:outline-none" title="Copiar Correo">
+                            <span class="text-xs font-semibold hidden md:inline">Copiar</span><i class="far fa-copy text-lg"></i>
+                        </button>
+                    </li>
+                    <li class="flex items-center justify-between bg-gray-50 p-2 md:p-3 rounded border border-gray-100">
+                        <span class="break-all mr-2"><strong>Asunto:</strong> Importante Indicar el motivo</span>
+                    </li>
                 </ul>
             </div>
             <div class="card">
@@ -53,5 +80,29 @@
 
 <div id="footer-container"></div>
 <script src="../components.js?v=2"></script>
+<script>
+function copiarTexto(texto, btn) {
+    navigator.clipboard.writeText(texto).then(() => {
+        const icon = btn.querySelector('i');
+        const textSpan = btn.querySelector('span');
+        const originalClass = icon.className;
+        const originalText = textSpan ? textSpan.innerText : '';
+        
+        icon.className = 'fas fa-check text-lg text-green-600';
+        btn.classList.add('text-green-600');
+        btn.classList.remove('text-gray-500');
+        if (textSpan) textSpan.innerText = 'Copiado';
+
+        setTimeout(() => {
+            icon.className = originalClass;
+            btn.classList.remove('text-green-600');
+            btn.classList.add('text-gray-500');
+            if (textSpan) textSpan.innerText = originalText;
+        }, 2000);
+    }).catch(err => {
+        console.error('Error al copiar: ', err);
+    });
+}
+</script>
 </body>
 </html>
