@@ -7,19 +7,19 @@
     "date": "12/04/2026",
     "isBanner": true
   },
-    "id": "inscripciones-catequesis",
-    "title": "INSCRIPCIONES PARA CATEQUESIS",
-    "description": "✨ ¡EMPEZAMOS LAS CATEQUESIS EN SAN PATRICIO! ✨\n\n¿Buscas profundizar en tu fe o recibir algún sacramento?\n¡Las inscripciones ya están abiertas!\n\nContamos con programas para todas las edades en nuestra parroquia.\n\n📖🙏👦 CATEQUESIS PRE-JUVENIL Para niños entre 6 a 15 años.\nPreparación para: Bautismo y Primera Comunión.\n📞 Contacto: Cecilia Peruzzi (Catequista)\n📱 Celular: +569 78572808\n\n🙌 CATEQUESIS JUVENIL Y ADULTOS Desde los 16 años en adelante.\nPreparación para: Bautismo, Primera Comunión y Confirmación.\n☎️ Secretaría: +56 2 2229 9060\n📱 Celular: +569 33484878\n\n📍 UBICACIÓN Y CONTACTO\nDirección: Isabel la Católica 6319, Las Condes.\n📧 Correo: secreparroquiasanpatricio@gmail.com\n\n¡Te esperamos para caminar juntos en la fe! 👣✨",
-    "imageUrl": "assets/catequesis.jpeg",
-    "date": "15/03/2026",
-    "isBanner": true
-  },
-  {
-    "id": "orientaciones-pastorales",
-    "title": "🌟📖 ¡Ya están disponibles las nuevas Orientaciones Pastorales! 📖🌟",
-    "description": "“Anunciemos la alegría del Evangelio en nuestra ciudad”\n\nLa Iglesia de Santiago presenta con alegría y esperanza este valioso documento fruto del discernimiento, la oración y la participación de toda la comunidad eclesial. Inspiradas por el Papa Francisco y el nuevo Papa León XIV, estas orientaciones nos invitan a:\n\n🙏 Redescubrir la vocación cristiana como un camino hacia la vida plena.\n✨ Poner en el centro de nuestra acción pastoral el primer anuncio de Jesucristo.\n🤝 Caminar juntos con espíritu de sinodalidad, como Iglesia viva y cercana.\n🏙️ Ver la ciudad como lugar teológico, donde Dios nos sale al encuentro.\n\nEstas orientaciones no son solo un plan pastoral: son una invitación a vivir nuestra fe con profundidad, alegría y compromiso con el mundo que nos rodea.\n\n📥 Descarga el documento completo aquí y súmate al camino de renovación de nuestra Iglesia:\nOrientaciones-Pastorales-2025-2029.pdf\n\n🕊️ Que la Virgen del Carmen y el Apóstol Santiago nos acompañen en esta misión.\n¡Caminemos juntos como peregrinos de la esperanza! 💒🌈\n\n#OrientacionesPastorales2025 #IglesiaDeSantiago #EvangelioEnLaCiudad #Sinodalidad #Misión #Esperanza #VocaciónCristiana",
-    "imageUrl": "assets/orientaciones pastorales.jpg",
-    "date": "10/03/2026",
-    "isBanner": true
-  }
+  "id": "inscripciones-catequesis",
+  "title": "INSCRIPCIONES PARA CATEQUESIS",
+  "description": "✨ ¡EMPEZAMOS LAS CATEQUESIS EN SAN PATRICIO! ✨\n\n¿Buscas profundizar en tu fe o recibir algún sacramento?\n¡Las inscripciones ya están abiertas!\n\nContamos con programas para todas las edades en nuestra parroquia.\n\n📖🙏👦 CATEQUESIS PRE-JUVENIL Para niños entre 6 a 15 años.\nPreparación para: Bautismo y Primera Comunión.\n📞 Contacto: Cecilia Peruzzi (Catequista)\n📱 Celular: +569 78572808\n\n🙌 CATEQUESIS JUVENIL Y ADULTOS Desde los 16 años en adelante.\nPreparación para: Bautismo, Primera Comunión y Confirmación.\n☎️ Secretaría: +56 2 2229 9060\n📱 Celular: +569 33484878\n\n📍 UBICACIÓN Y CONTACTO\nDirección: Isabel la Católica 6319, Las Condes.\n📧 Correo: secreparroquiasanpatricio@gmail.com\n\n¡Te esperamos para caminar juntos en la fe! 👣✨",
+  "imageUrl": "assets/catequesis.jpeg",
+  "date": "15/03/2026",
+  "isBanner": true
+},
+{
+  "id": "orientaciones-pastorales",
+  "title": "🌟📖 ¡Ya están disponibles las nuevas Orientaciones Pastorales! 📖🌟",
+  "description": "“Anunciemos la alegría del Evangelio en nuestra ciudad”\n\nLa Iglesia de Santiago presenta con alegría y esperanza este valioso documento fruto del discernimiento, la oración y la participación de toda la comunidad eclesial. Inspiradas por el Papa Francisco y el nuevo Papa León XIV, estas orientaciones nos invitan a:\n\n🙏 Redescubrir la vocación cristiana como un camino hacia la vida plena.\n✨ Poner en el centro de nuestra acción pastoral el primer anuncio de Jesucristo.\n🤝 Caminar juntos con espíritu de sinodalidad, como Iglesia viva y cercana.\n🏙️ Ver la ciudad como lugar teológico, donde Dios nos sale al encuentro.\n\nEstas orientaciones no son solo un plan pastoral: son una invitación a vivir nuestra fe con profundidad, alegría y compromiso con el mundo que nos rodea.\n\n📥 Descarga el documento completo aquí y súmate al camino de renovación de nuestra Iglesia:\nOrientaciones-Pastorales-2025-2029.pdf\n\n🕊️ Que la Virgen del Carmen y el Apóstol Santiago nos acompañen en esta misión.\n¡Caminemos juntos como peregrinos de la esperanza! 💒🌈\n\n#OrientacionesPastorales2025 #IglesiaDeSantiago #EvangelioEnLaCiudad #Sinodalidad #Misión #Esperanza #VocaciónCristiana",
+  "imageUrl": "assets/orientaciones pastorales.jpg",
+  "date": "10/03/2026",
+  "isBanner": true
+}
 ]
