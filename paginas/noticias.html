@@ -93,7 +93,10 @@
             allNews.forEach(n => {
                 gridHTML += `
                     <div class="card flex flex-col cursor-pointer hover:shadow-xl transition" onclick="window.location.href='noticia.html?id=${n.id}'">
-                        <img src="../${n.imageUrl}" alt="${n.title}" class="w-full h-64 object-contain rounded-t-lg mb-4 bg-gray-100">
+                        <div class="relative w-full h-64 mb-4 rounded-t-lg overflow-hidden bg-[#000000] z-0 flex-shrink-0">
+                            <img src="../${n.imageUrl}" alt="" class="absolute inset-0 w-full h-full object-cover blur-xl opacity-60 scale-110 -z-10">
+                            <img src="../${n.imageUrl}" alt="${n.title}" class="relative w-full h-full object-contain">
+                        </div>
                         <h3 class="text-xl font-bold mb-2 flex-grow">${n.title}</h3>
                         <p class="text-gray-600 line-clamp-3">${n.description}</p>
                         <p class="text-sm font-bold text-verdeSanPatricio mt-3">${n.date}</p>

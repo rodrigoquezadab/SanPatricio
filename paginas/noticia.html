@@ -102,7 +102,10 @@
                 
                 document.getElementById('noticia-container').innerHTML = `
                     <article class="max-w-4xl mx-auto bg-white rounded-xl shadow-lg overflow-hidden">
-                        <img src="../${article.imageUrl}" alt="${article.title}" class="w-full h-auto max-h-[500px] object-contain bg-gray-100">
+                        <div class="relative w-full h-[300px] md:h-[500px] overflow-hidden bg-[#000000] z-0">
+                            <img src="../${article.imageUrl}" alt="" class="absolute inset-0 w-full h-full object-cover blur-xl opacity-60 scale-110 -z-10">
+                            <img src="../${article.imageUrl}" alt="${article.title}" class="relative w-full h-full object-contain">
+                        </div>
                         <div class="p-6 md:p-10">
                             <h1 class="text-3xl md:text-5xl font-bold text-verdeSanPatricio mb-6 leading-tight">${article.title}</h1>
                             <div class="flex items-center text-gray-500 mb-8 border-b pb-4">
