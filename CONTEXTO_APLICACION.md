@@ -50,6 +50,10 @@ Cuando realices cambios críticos en archivos CSS o JS, utiliza el script `bust_
 
 ## 📋 Registro de Cambios (Changelog)
 
+### [2026-04-20] - Nueva Noticia: JMJ Corea 2027
+- **Contenido**: Adición de la reunión informativa para la Jornada Mundial de la Juventud Corea 2027 en `noticias.json`.
+- **Imagen**: Uso del flyer `jmj Corea.jpeg` en la carpeta de noticias manuales.
+
 ### [2026-04-19] - Gestión de Noticias y Documentación
 - **Funcionalidad**: Implementación de la noticia "Campaña de Ayuda Fraterna".
 - **Documentación**: Creación de este archivo `CONTEXTO_APLICACION.md` para la gestión del conocimiento.
