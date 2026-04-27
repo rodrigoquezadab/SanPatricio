@@ -40,6 +40,7 @@ El carrusel de la página de inicio (`index.html`) unifica ambas fuentes:
 ### 🖼️ Gestión de Assets
 - **Imágenes de Noticias Manuales**: Deben guardarse en `/assets/flyers-noticias/`. Esta carpeta contiene las imágenes vinculadas específicamente a las entradas de `noticias.json`.
 - **Flyers Automáticos**: Deben guardarse en `/assets/flyers/` para ser detectados automáticamente por el script de carga.
+- **Flyers Históricos**: Los afiches de noticias antiguas que ya no están activas se deben mover a `/assets/flyers-historicos/` para mantener un respaldo limpio y organizado.
 - **Imágenes Generales**: Logos, fotos de la parroquia y otros elementos estáticos permanecen en la raíz de `/assets`.
 
 
@@ -49,6 +50,9 @@ Cuando realices cambios críticos en archivos CSS o JS, utiliza el script `bust_
 ---
 
 ## 📋 Registro de Cambios (Changelog)
+
+### [2026-04-27] - Respaldo de Flyers Históricos
+- **Gestión de Assets**: Creación de la carpeta `assets/flyers-historicos/` para respaldar afiches de noticias pasadas, manteniendo limpias las carpetas activas de la web.
 
 ### [2026-04-20] - Nueva Noticia: JMJ Corea 2027
 - **Contenido**: Adición de la reunión informativa para la Jornada Mundial de la Juventud Corea 2027 en `noticias.json`.
