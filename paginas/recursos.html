@@ -27,25 +27,7 @@
 <main class="container mx-auto px-4 py-8 space-y-16">
     <section id="recursos">
         <h2 class="text-3xl mb-6 text-center">Recursos</h2>
-        <div id="lista-oraciones-container" class="mb-8 card transition-opacity duration-300">
-            <h3 class="text-2xl mb-4 border-b pb-2"><i class="fas fa-pray mr-2 text-verdeSanPatricio"></i>Índice de Oraciones</h3>
-            <ul id="lista-oraciones" class="list-none space-y-3 text-lg">
-                <!-- rendered by JS -->
-            </ul>
-        </div>
-        
-        <div id="detalle-oracion-container" class="mb-8 card hidden transition-opacity duration-300 text-lg leading-relaxed">
-            <button onclick="volverOraciones()" class="mb-6 inline-block bg-verdeSanPatricio text-white px-4 py-2 rounded hover:bg-green-700 transition shadow-md">
-                <i class="fas fa-arrow-left mr-2"></i>Volver al índice
-            </button>
-            <h3 id="oracion-titulo" class="text-3xl mb-6 text-verdeSanPatricio font-bold border-b pb-2"></h3>
-            <div id="oracion-contenido" class="space-y-4 text-gray-800"></div>
-        </div>
 
-        <div class="mb-8 card p-2">
-            <h3 class="text-2xl mb-4 ml-4 mt-2">Calendario</h3>
-            <iframe src="https://docs.google.com/document/d/1DKdfRcEssrobyQMikHdtir8IPtCKnADjKy31Z9WceaY/preview" width="100%" height="1030px" frameborder="0"></iframe>
-        </div>
 
         <div class="card transition-opacity duration-300">
             <h3 class="text-2xl mb-4 border-b pb-2"><i class="fas fa-external-link-alt mr-2 text-verdeSanPatricio"></i>Enlaces y Recursos Externos</h3>
@@ -64,89 +46,6 @@
 
 <div id="footer-container"></div>
 <script src="../components.js?v=2"></script>
-<script>
-    const oraciones = [
-        {
-            titulo: "Oración por las Vocaciones Sacerdotales y Religiosas",
-            contenido: `<p>Te pedimos Señor, que sigas bendiciendo y enriqueciendo a tu Iglesia,<br>
-con los dones de tus vocaciones,<br>
-te pedimos que sean muchos los que escuchen tu voz,<br>
-y sigan alegrando a tu Iglesia,<br>
-con la generosidad y fidelidad de sus respuestas.<br>
-Amén</p><br><p>℣. María, Madre de la Iglesia<br>℟. Ruega por nosotros</p><br>
-<p class="text-sm text-gray-500 italic">Esta oración es tomada del Papa Pablo VI, en la primera jornada mundial por las vocaciones.<br>No es de P. frassinetti, pero está en el cuore de nuestras comunidades.</p>`
-        },
-        {
-            titulo: "Oración para alcanzar la Santidad",
-            contenido: `<p>Padre divino, en nombre de Jesucristo, yo te pido que me concedas la gracia de hacerme santo.</p><p>No necesito otra gracia; quiero esta cueste lo que cueste, y la espero de tu bondad firmemente, ya que Jesús mismo me aseguró que Tú me escucharías.</p><p>Amén.</p>`
-        },
-        {
-            titulo: "Oración del Jubileo",
-            contenido: `<p>Padre que estás en el cielo,<br>la fe que nos has donado en<br>tu Hijo Jesucristo, nuestro hermano,<br>y la llama de caridad<br>infundida en nuestros corazones por el Espíritu Santo,<br>despierten en nosotros la bienaventurada esperanza<br>en la venida de tu Reino.</p><p>Tu gracia nos transforme<br>en dedicados cultivadores de las semillas del Evangelio<br>que fermenten la humanidad y el cosmos,<br>en espera confiada<br>de los cielos nuevos y de la tierra nueva,<br>cuando vencidas las fuerzas del mal,<br>se manifestará para siempre tu gloria.</p><p>La gracia del Jubileo<br>reavive en nosotros, Peregrinos de Esperanza,<br>el anhelo de los bienes celestiales<br>y derrame en el mundo entero<br>la alegría y la paz<br>de nuestro Redentor.</p><p>A ti, Dios bendito eternamente,<br>sea la alabanza y la gloria por los siglos.<br>Amén.</p>`
-        },
-        {
-            titulo: "Alianza de paz",
-            contenido: `<p>Tú, Señor, perdona mis pecados y borra todas mis maldades.<br>Enséñame a hacer tu voluntad.<br>Dame un espíritu bueno,<br>ponme junto a ti.<br>No permitas que me separe de ti.<br>Cuídame como la pupila de tus ojos.<br>Sin ti, polvo y ceniza como soy,<br>no puedo hacer nada.<br>Yo en tu nombre, confiando en tu gracia,<br>propongo no reservarme nada para mí,<br>sino el perfecto cumplimiento de tu ley,<br>abrazado a tu Santa Cruz.<br>Por eso nada te pido para mi,<br>ni los bienes, ni la vida, ni la muerte.<br>De esta manera que haya concordancia entre tu voluntad y la mía.<br>En mí y en todos esté presente tu misericordia,<br>ahora y por la eternidad.<br>Amén</p>`
-        },
-        {
-            titulo: "Mes de María",
-            contenido: `<h4 class="font-bold text-xl mb-2 text-verdeSanPatricio">Oración Inicial</h4><p>¡Oh María!, durante el bello mes a ti consagrado, todo resuena con tu nombre y alabanza. Tu santuario resplandece con nuevo brillo y nuestras manos te han elevado un trono de gracia y de amor, desde donde presides nuestras fiestas y escuchas nuestras oraciones y votos.</p><p>Para honrarte hemos esparcido frescas flores a tus pies, y adornado tu frente con guirnaldas y coronas. Mas ¡oh María! no te das por satisfecha con estos homenajes. Hay flores cuya frescura y lozanía jamás pasan, y coronas que no se marchitan. Estas son las que esperas de tus hijos, y la más bella corona que pueden deponer a sus pies es la de sus virtudes.</p><p>Sí, los lirios que tú nos pides son la inocencia de nuestros corazones; nos esforzaremos, pues, durante el curso de este mes consagrado a tu gloria, ¡oh Virgen Santa! en conservar nuestras almas puras y sin mancha, y en separar de nuestros pensamientos, deseos y miradas, aún la sombra misma del mal.</p><p>La rosa cuyo brillo agrada a tus ojos es la caridad, el amor a Dios y a nuestros hermanos. Nos amaremos, pues, los unos a los otros como hijos de una misma familia cuya madre eres tú, viviendo todos en la dulzura de una concordia fraternal.</p><p>En este mes bendito procuraremos cultivar en nuestros corazones la humildad, modesta flor que te es tan querida, y con tu auxilio, llegaremos a ser puros, humildes, caritativos, pacientes y esperanzados.</p><p>¡Oh María! Haz producir en nuestros corazones todas estas amables virtudes; que ellas broten, florezcan y den al fin frutos de gracia, para que podamos ser algún día dignos hijos de la más santa y la mejor de las madres. Amén.</p><br><h4 class="font-bold text-xl mb-2 text-verdeSanPatricio">Oración Final</h4><p>¡Oh María, Madre de Jesús nuestro Salvador y nuestra buena madre! Nosotros venimos a ofrecerte con estos obsequios que colocamos a tus pies, nuestros corazones deseosos de agradecerte y solicitar de tu bondad un nuevo ardor en tu santo servicio.</p><p>Dígnate presentarnos a tu Divino Hijo que, en vista de sus méritos y a nombre su Santa Madre, dirija nuestros pasos por el sendero de la virtud, que haga lucir con nuevo esplendor la luz de la fe sobre los infortunados pueblos que gimen por tanto tiempo en las tinieblas del error; que vuelvan hacia Él y cambien tantos corazones rebeldes, cuya penitencia regocijará en su corazón y el tuyo.</p><p>Que convierta a los enemigos de tu Iglesia, y que, en fin, encienda por todas partes el fuego de tu ardiente caridad; que nos colme de alegría en medio de las tribulaciones de esta vida y de esperanza para el porvenir. Amén.</p>`
-        },
-        {
-            titulo: "Coronilla de los siete dolores de María",
-            contenido: `<p>Te compadecemos, oh dolorosa María, por aquellas aflicciones por las que tu tierno Corazón sufrió por la profecía de Simeón. Querida Madre, por tu santo Corazón tan afligido, intercede para que recibamos la virtud de la humildad y el don del santo temor de Dios. Ave María.</p><p>Te compadecemos, oh, dolorosa María, por aquellas angustias que tu sensibilísimo Corazón sufrió en la fuga y estadía en Egipto. Querida Madre, por tu Corazón tan angustiado, intercede para que recibamos la virtud de la generosidad, especialmente hacia los pobres, y el don de piedad. Ave María.</p><p>Te compadecemos, oh, dolorosa María, por aquellas preocupaciones que tu solicito Corazón sufrió en la pérdida de tu querido Jesús. Querida Madre, por tu Corazón tan preocupado, intercede para que recibamos la virtud de la castidad y don de ciencia. Ave María.</p><p>Te compadecemos, oh, dolorosa María, por aquella consternación que tu materno Corazón sintió al encontrarse con Jesús cargando la Cruz. Querida Madre por tu amoroso Corazón atribulado intercede para que recibamos la virtud de la paciencia y el don de fortaleza. Ave María.</p><p>Te compadecemos, oh, dolorosa María, por aquel martirio que tu generoso Corazón sostuvo al asistir a Jesús agonizante. Querida Madre, por tu Corazón tan martirizado, intercede para que recibamos la virtud de la templanza y el don de consejo. Ave María.</p><p>Te compadecemos, oh dolorosa María, por aquella herida que tu piadoso Corazón sufrió cuando la lanza atravesó el Corazón de Jesús, hiriendo su amabilísimo Corazón. Querida Madre, por tu corazón tan traspasado, interceda para que recibamos la virtud de la caridad fraterna y el don de inteligencia. Ave María.</p><p>Te compadecemos, oh, dolorosa María, por el espasmo que tu amabilísimo Corazón experimentó durante la sepultura de Jesús. Querida Madre, por tu Corazón tan sufriente, intercede para que recibamos la virtud de la diligencia y el don de sabiduría. Ave María.</p>`
-        },
-        {
-            titulo: "Coronilla de los siete gozos de María",
-            contenido: `<p>Alégrate, oh esposa del Espíritu Santo, por la alegría que disfrutas en el Paraíso, mientras que por tu pureza y virginidad eres exaltada por sobre todos los coros celestiales. Ave María.</p><p>Alégrate, oh, verdadera Madre de Dios, por esa gloria que disfrutas en el Cielo, porque, así como el sol ilumina todo el mundo, Tú con tu esplendor adornas y haces resplandecer todo el Paraíso. Ave María.</p><p>Alégrate, oh, hija de Dios, por aquel honor que te tributa el Paraíso mientras, todas las jerarquías de los Ángeles, Arcángeles, Tronos, Dominaciones y todos los espíritus beatos te veneran y reconocen como Madre de su Creador, y son obedientes a cada mínima petición tuya. Ave María.</p><p>Alégrate oh, nobilísima Sierva de la Santísima Trinidad por aquella alegría que gozas en el Paraíso, porque, todas las gracias que pides a tu Divino Hijo te son concedidas inmediatamente, así, como dice San Bernardo, no se concede ninguna gracia aquí en la tierra, que no pase primero por tus santísimas manos. Ave María.</p><p>Alégrate, oh, serenísima princesa porque solo Tú mereciste sentarte a la derecha de tu Santísimo Hijo, el cual se sienta a la derecha del Padre Eterno. Ave María.</p><p>Alégrate, oh, esperanza de los pecadores, refugio de los atribulados, por aquella gran alegría que gozas en el Paraíso, porque todos aquellos que te alaban y te veneran, son premiados por el Padre Eterno, en este mundo con su santa gracia, y en el otro con su santísima gloria. Ave María.</p><p>Alégrate, oh, Madre y Esposa de Dios, porque todas las gracias, todos los gozosos, alegrías y favores que ahora gozas en el Paraíso, ya nunca disminuirán, sino que aumentarán hasta el día del juicio y durarán por la eternidad. Ave María.</p>`
-        },
-        {
-            titulo: "Virgen Piadosa",
-            contenido: `<p class="text-sm text-gray-500 italic mb-4">(Tomada de «Amemos a María»)</p><p>Virgen Piadosa – dulce María<br>de las creaturas – la más perfecta<br>de Dios y los Ángeles – la más preciada<br>nuestro consuelo – luz y esperanza<br>vida, salud – gozo y alegría</p><br><p>Tú la más pura – la Inmaculada<br>tú la más rica – la más hermosa<br>la Admirable – la más gloriosa<br>la más fiel – la poderosa<br>la más amable – la más clemente</p><br><p>Acoge, ruego – el corazón<br>Madre querida – del amor puro<br>Virgen piadosa – dulce María</p><br><p>Amén</p>`
-        },
-        {
-            titulo: "Por la beatificación del p. José Frassinetti",
-            contenido: `<p>Jesús, Sumo y Eterno Sacerdote,<br>que fuiste exaltado con la palabra, con los escritos,<br>y sobre todo, con una vida verdaderamente sacerdotal<br>por el Venerable Padre José Frassinetti,<br>escucha benigno nuestra oración.<br>Te pedimos insistentemente que,<br>por los méritos de la Virgen Inmaculada,<br>por quien él tuvo especial devoción,<br>por el gran amor que él demostró por ti Sacramentado,<br>por el celo laborioso que él desplegó,<br>te dignes glorificar a tu siervo con los honores de los altares,<br>si es para tu mayor gloria.<br>Mientras tanto, te pedimos humildemente por su intercesión,<br>la gracia que tanto necesitamos (pídase)</p><br><p class="italic">(Padre Nuestro, Ave María y Gloria)</p>`
-        },
-        {
-            titulo: "Acto de ofrecimiento",
-            contenido: `<p class="text-sm text-gray-500 italic mb-4">(Tomada de «El religioso en el Siglo»)</p><p>Señor, Tú quieres que voluntariamente me ofrezca a ti<br>para hacerme todo de ti.<br>Yo te ofrezco a mi mismo<br>con todas mis potencialidades,<br>inteligencia, memoria y voluntad,<br>ofrezco mi cuerpo con todas sus fuerzas,<br>y con todos sus sentimientos;<br>te ofrezco mi salud y mi vida.<br>Te ofrezco todo lo que poseo en este mundo,<br>para que hagas de mí y de mis cosas lo que te parezca mejor,<br>en cambio te pido me concedas la gracia<br>de que mi existencia y todas mis cosas<br>sirvan solamente para darte alegría, honor y gloria.<br>Amén.</p>`
-        },
-        {
-            titulo: "Ofrenda de sí mismo a Dios",
-            contenido: `<p>Señor, yo pongo en tus manos todo mi ser:<br>alma, cuerpo, salud y vida;<br>y cuanto me has dado en este mundo,<br>sin reservar nada para mí.<br>De mí y de mis cosas haz Tú lo que quieras,<br>yo no quiero otra cosa que tu amor, tu gracia y tu voluntad.<br>Amén.</p>`
-        }
-    ];
 
-    document.addEventListener("DOMContentLoaded", function () {
-        const listaEl = document.getElementById("lista-oraciones");
-        
-        oraciones.forEach((oracion, index) => {
-            const li = document.createElement("li");
-            li.className = "hover:text-verdeSanPatricio cursor-pointer flex items-center p-3 rounded hover:bg-green-50 transition border-l-4 border-transparent hover:border-verdeSanPatricio shadow-sm bg-white";
-            li.innerHTML = '<i class="fas fa-chevron-right text-sm text-verdeSanPatricio mr-3"></i> ' + oracion.titulo;
-            li.onclick = () => mostrarOracion(index);
-            listaEl.appendChild(li);
-        });
-    });
-
-    function mostrarOracion(index) {
-        const oracion = oraciones[index];
-        document.getElementById("oracion-titulo").innerHTML = oracion.titulo;
-        document.getElementById("oracion-contenido").innerHTML = oracion.contenido;
-        
-        document.getElementById("lista-oraciones-container").classList.add("hidden");
-        document.getElementById("detalle-oracion-container").classList.remove("hidden");
-        
-        window.scrollTo({ top: document.getElementById("detalle-oracion-container").offsetTop - 100, behavior: 'smooth' });
-    }
-
-    function volverOraciones() {
-        document.getElementById("detalle-oracion-container").classList.add("hidden");
-        document.getElementById("lista-oraciones-container").classList.remove("hidden");
-        
-        window.scrollTo({ top: document.getElementById("lista-oraciones-container").offsetTop - 100, behavior: 'smooth' });
-    }
-</script>
 </body>
 </html>
