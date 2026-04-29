@@ -47,9 +47,39 @@ El carrusel de la página de inicio (`index.html`) unifica ambas fuentes:
 ### 🧹 Romper Caché
 Cuando realices cambios críticos en archivos CSS o JS, utiliza el script `bust_cache.js` para actualizar las versiones (`?v=X`) en los archivos HTML y asegurar que los usuarios vean la versión más reciente.
 
+### 🎵 Sistema del Cancionero (`paginas/cantos.html`)
+El cancionero es una página generada automáticamente que contiene **880 canciones litúrgicas** con acordes, letras y clasificación por categorías.
+
+#### Pipeline de Datos
+1. **Scraping** (`scrape_cancionero.js`): Extrae canciones desde [cancionerocatolico.cl](https://cancionerocatolico.cl), mapeando cada canción a sus categorías (Momentos de la Misa, Tiempos Litúrgicos, Misa a la Chilena). Genera `cancionero_data.json`.
+2. **Build** (`build_cantos.js`): Lee `cancionero_data.json`, convierte acordes de texto plano a etiquetas `<c>`, y genera el archivo final `paginas/cantos.html`.
+3. **⚠️ REGLA DE ORO**: La canción "Abre tu jardín" está protegida y NUNCA debe ser sobrescrita por el scraping. Su contenido se preserva manualmente en `build_cantos.js`.
+
+#### Para regenerar el cancionero:
+```bash
+node scrape_cancionero.js   # Solo si se necesita re-escrapear (genera cancionero_data.json)
+node build_cantos.js        # Genera paginas/cantos.html desde los datos
+```
+
+#### Funcionalidades del Frontend
+- **Búsqueda**: Barra de texto que filtra el índice de canciones en tiempo real.
+- **Filtros por categoría**: Botones pill para Momentos de la Misa (Entrada, Perdón, Gloria, etc.), Tiempos Litúrgicos (Adviento, Cuaresma, Pascua, Navidad) y Misa a la Chilena. Los filtros son **mutuamente excluyentes** (solo uno activo a la vez).
+- **Comportamiento de carga**: Las canciones están **ocultas por defecto**. Los filtros y la búsqueda solo actualizan el **índice**. Las letras/acordes se muestran únicamente al hacer clic en una canción del índice.
+- **Herramientas por canción**:
+  - Ocultar/Mostrar acordes.
+  - Cambiar notación latina ↔ anglosajona (Do ↔ C).
+  - Transportar tono (+/-) con indicador de semitonos y botón de reset al tono original.
+  - Acordes clickeables para escuchar el sonido (Web Audio API).
+- **Etiquetas de categoría**: Badges de color en cada canción (verde = Momento, azul = Tiempo Litúrgico, amarillo = Misa a la Chilena).
+
 ---
 
 ## 📋 Registro de Cambios (Changelog)
+
+### [2026-04-29] - Cancionero Integrado con Scraping y Filtros
+- **Funcionalidad**: Implementación completa del cancionero litúrgico con 880 canciones escrapeadas desde cancionerocatolico.cl.
+- **Pipeline**: Creación de `scrape_cancionero.js` (scraping), `cancionero_data.json` (datos), y `build_cantos.js` (generador HTML).
+- **UI**: Sistema de filtrado por categorías, búsqueda en tiempo real, transposición de tonos con contador, y renderizado bajo demanda de canciones.
 
 ### [2026-04-27] - Respaldo de Flyers Históricos
 - **Gestión de Assets**: Creación de la carpeta `assets/flyers-historicos/` para respaldar afiches de noticias pasadas, manteniendo limpias las carpetas activas de la web.
