@@ -142,9 +142,27 @@ for (const song of rest) {
 
 console.log(`Total songs for cantos.html: ${finalSongs.length}`);
 
-// Collect all unique category values
-const allMomentos = [...new Set(finalSongs.flatMap(s => s.momentos))].sort((a,b) => a.localeCompare(b,'es'));
-const allTiempos = [...new Set(finalSongs.flatMap(s => s.tiempos))].sort((a,b) => a.localeCompare(b,'es'));
+// Collect all unique category values, ordered by liturgical sequence
+const ordenMisa = [
+  'Entrada', 'Perdón', 'Gloria', 'Salmos', 'Aleluya', 'Leccionales',
+  'Ofertorio', 'Santo', 'Padrenuestro', 'Paz', 'Cordero', 'Comunión',
+  'Espíritu Santo', 'Salida',
+  // Non-Mass categories at the end
+  'Marianos', 'Rosario', 'Matrimonio', 'Liturgias Especiales',
+  'Agustinianos', 'Villancicos', 'Varios'
+];
+const rawMomentos = [...new Set(finalSongs.flatMap(s => s.momentos))];
+const allMomentos = rawMomentos.sort((a, b) => {
+  const ia = ordenMisa.indexOf(a), ib = ordenMisa.indexOf(b);
+  return (ia === -1 ? 999 : ia) - (ib === -1 ? 999 : ib);
+});
+
+const ordenTiempos = ['Adviento', 'Navidad', 'Cuaresma', 'Pascua'];
+const rawTiempos = [...new Set(finalSongs.flatMap(s => s.tiempos))];
+const allTiempos = rawTiempos.sort((a, b) => {
+  const ia = ordenTiempos.indexOf(a), ib = ordenTiempos.indexOf(b);
+  return (ia === -1 ? 999 : ia) - (ib === -1 ? 999 : ib);
+});
 
 // Build the JSON data to embed (compact: only metadata, content stored separately)
 const songIndex = finalSongs.map((s, i) => ({
