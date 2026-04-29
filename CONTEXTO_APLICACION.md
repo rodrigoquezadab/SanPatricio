@@ -62,14 +62,16 @@ node build_cantos.js        # Genera paginas/cantos.html desde los datos
 ```
 
 #### Funcionalidades del Frontend
-- **Búsqueda**: Barra de texto que filtra el índice de canciones en tiempo real.
+- **Búsqueda**: Barra de texto que filtra el índice en tiempo real. Es **insensible a acentos y mayúsculas** (ej. "comunion" encuentra "Comunión", "JESUS" encuentra "Jesús").
 - **Filtros por categoría**: Botones pill para Momentos de la Misa (Entrada, Perdón, Gloria, etc.), Tiempos Litúrgicos (Adviento, Cuaresma, Pascua, Navidad) y Misa a la Chilena. Los filtros son **mutuamente excluyentes** (solo uno activo a la vez).
 - **Comportamiento de carga**: Las canciones están **ocultas por defecto**. Los filtros y la búsqueda solo actualizan el **índice**. Las letras/acordes se muestran únicamente al hacer clic en una canción del índice.
+- **Tipografía compacta**: Las letras usan fuente monoespaciada condensada (`Cascadia Mono`/`Consolas`), `pre-wrap` para evitar scroll horizontal en móvil, y `letter-spacing` negativo para mayor densidad.
 - **Herramientas por canción**:
   - Ocultar/Mostrar acordes.
   - Cambiar notación latina ↔ anglosajona (Do ↔ C).
-  - Transportar tono (+/-) con indicador de semitonos y botón de reset al tono original.
-  - Acordes clickeables para escuchar el sonido (Web Audio API).
+  - Transportar tono (+/-) con indicador de semitonos y clic en el número para resetear al tono original.
+  - Acordes clickeables para escuchar el sonido (Web Audio API). El sonido **siempre corresponde a la nota transpuesta actual**, no a la original.
+  - Soporte completo de **slash chords** (ej. `FA/LA` → `SOL/SI` al transponer +2): ambas notas se transponen correctamente.
 - **Etiquetas de categoría**: Badges de color en cada canción (verde = Momento, azul = Tiempo Litúrgico, amarillo = Misa a la Chilena).
 
 ---
@@ -79,7 +81,7 @@ node build_cantos.js        # Genera paginas/cantos.html desde los datos
 ### [2026-04-29] - Cancionero Integrado con Scraping y Filtros
 - **Funcionalidad**: Implementación completa del cancionero litúrgico con 880 canciones escrapeadas desde cancionerocatolico.cl.
 - **Pipeline**: Creación de `scrape_cancionero.js` (scraping), `cancionero_data.json` (datos), y `build_cantos.js` (generador HTML).
-- **UI**: Sistema de filtrado por categorías, búsqueda en tiempo real, transposición de tonos con contador, y renderizado bajo demanda de canciones.
+- **UI**: Sistema de filtrado por categorías (mutuamente excluyentes), búsqueda insensible a acentos, transposición de tonos con contador y reset, slash chords, tipografía compacta mobile-first, y renderizado bajo demanda de canciones.
 
 ### [2026-04-27] - Respaldo de Flyers Históricos
 - **Gestión de Assets**: Creación de la carpeta `assets/flyers-historicos/` para respaldar afiches de noticias pasadas, manteniendo limpias las carpetas activas de la web.

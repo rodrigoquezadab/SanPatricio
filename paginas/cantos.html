@@ -20,9 +20,9 @@
         .card { background: white; border-radius: 0.5rem; box-shadow: 0 4px 6px rgba(0,0,0,0.1); padding: 1.5rem; }
         .nav-link { color: white; padding: 0.5rem 1rem; border-radius: 0.25rem; }
         .nav-link:hover, .nav-link.active { background-color: rgba(255,255,255,0.2); }
-        c { color: #dc2626; font-weight: bold; }
-        pre.song-pre { font-family: 'Courier New', Courier, monospace; font-size: 0.85rem; white-space: pre; overflow-x: auto; margin: 0; line-height: 1.5; padding: 0.5rem; background: #fafaf8; border-radius: 0.25rem; }
-        @media (max-width: 640px) { pre.song-pre { font-size: 0.75rem; } }
+        c { color: #dc2626; font-weight: bold; font-size: 0.8em; }
+        pre.song-pre { font-family: 'Cascadia Mono', 'SF Mono', 'Consolas', 'Liberation Mono', monospace; font-size: 0.82rem; white-space: pre-wrap; word-break: break-word; margin: 0; line-height: 1.4; padding: 0.5rem; background: #fafaf8; border-radius: 0.25rem; letter-spacing: -0.03em; font-weight: 500; }
+        @media (max-width: 640px) { pre.song-pre { font-size: 0.7rem; letter-spacing: -0.04em; } }
         .index-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 6px; }
         .index-link { color: #16A34A; text-decoration: none; padding: 4px 0; display: block; font-size: 0.9rem; }
         .index-link:hover { text-decoration: underline; }
@@ -53616,21 +53616,54 @@ para cocer el puchero.
 // ── Audio ──
 let audioCtx;
 function initAudio(){if(!audioCtx)audioCtx=new(window.AudioContext||window.webkitAudioContext)();if(audioCtx.state==='suspended')audioCtx.resume();}
-function playChord(cs){initAudio();let m=cs.match(/^(Do|Re|Mi|Fa|Sol|La|Si)(#|b)?(.*)/i);if(!m)return;let nn=m[1].toLowerCase(),ac=m[2]||'',mo=m[3]||'';const ns={'do':60,'re':62,'mi':64,'fa':65,'sol':67,'la':69,'si':71};let mi=ns[nn];if(ac==='#')mi+=1;if(ac==='b')mi-=1;let iv=[0,4,7];let md=mo.toLowerCase();if(md.includes('m')&&!md.includes('maj'))iv[1]=3;if(md.includes('dim')){iv[1]=3;iv[2]=6;}else if(md.includes('aug'))iv[2]=8;if(md.includes('maj7'))iv.push(11);else if(md.includes('7'))iv.push(10);const t=audioCtx.currentTime;iv.forEach((interval,idx)=>{let f=Math.pow(2,(mi+interval-69)/12)*440;let o1=audioCtx.createOscillator(),o2=audioCtx.createOscillator(),g=audioCtx.createGain();o1.type='triangle';o2.type='sine';o1.frequency.setValueAtTime(f,t);o2.frequency.setValueAtTime(f*1.002,t);g.gain.setValueAtTime(0,t);g.gain.linearRampToValueAtTime(0.12,t+0.05);g.gain.exponentialRampToValueAtTime(0.001,t+2);o1.connect(g);o2.connect(g);g.connect(audioCtx.destination);let d=idx*0.03;o1.start(t+d);o2.start(t+d);o1.stop(t+d+2);o2.stop(t+d+2);});}
+function playChord(cs){initAudio();let m=cs.match(/^(Do|Re|Mi|Fa|Sol|La|Si|C|D|E|F|G|A|B)(#|b)?(.*)/i);if(!m)return;let nn=m[1],ac=m[2]||'',mo=m[3]||'';const nsL={'do':60,'re':62,'mi':64,'fa':65,'sol':67,'la':69,'si':71};const nsA={'c':60,'d':62,'e':64,'f':65,'g':67,'a':69,'b':71};let mi=nsL[nn.toLowerCase()]||nsA[nn.toLowerCase()];if(!mi)return;if(ac==='#')mi+=1;if(ac==='b')mi-=1;let iv=[0,4,7];let md=mo.toLowerCase();if(md.includes('m')&&!md.includes('maj'))iv[1]=3;if(md.includes('dim')){iv[1]=3;iv[2]=6;}else if(md.includes('aug'))iv[2]=8;if(md.includes('maj7'))iv.push(11);else if(md.includes('7'))iv.push(10);const t=audioCtx.currentTime;iv.forEach((interval,idx)=>{let f=Math.pow(2,(mi+interval-69)/12)*440;let o1=audioCtx.createOscillator(),o2=audioCtx.createOscillator(),g=audioCtx.createGain();o1.type='triangle';o2.type='sine';o1.frequency.setValueAtTime(f,t);o2.frequency.setValueAtTime(f*1.002,t);g.gain.setValueAtTime(0,t);g.gain.linearRampToValueAtTime(0.12,t+0.05);g.gain.exponentialRampToValueAtTime(0.001,t+2);o1.connect(g);o2.connect(g);g.connect(audioCtx.destination);let d=idx*0.03;o1.start(t+d);o2.start(t+d);o1.stop(t+d+2);o2.stop(t+d+2);});}
 
 // ── Process <c> tags for click-to-play ──
-document.addEventListener('DOMContentLoaded',()=>{document.querySelectorAll('c').forEach(ct=>{if(ct.dataset.p)return;ct.dataset.p="1";const ws=ct.textContent.split(/(\s+)/);ct.innerHTML='';ws.forEach(w=>{if(!w.trim()){ct.appendChild(document.createTextNode(w));}else{const sp=document.createElement('span');sp.textContent=w;sp.style.cursor='pointer';sp.title='Toca para escuchar';sp.className='hover:text-red-400 hover:underline transition-colors';sp.onclick=()=>playChord(w);ct.appendChild(sp);}});});});
+document.addEventListener('DOMContentLoaded',()=>{document.querySelectorAll('c').forEach(ct=>{if(ct.dataset.p)return;ct.dataset.p="1";const ws=ct.textContent.split(/(\s+)/);ct.innerHTML='';ws.forEach(w=>{if(!w.trim()){ct.appendChild(document.createTextNode(w));}else{const sp=document.createElement('span');sp.textContent=w;sp.style.cursor='pointer';sp.title='Toca para escuchar';sp.className='hover:text-red-400 hover:underline transition-colors';sp.onclick=function(){playChord(this.innerText)};ct.appendChild(sp);}});});});
 
 // ── Notation ──
 const nL=['Do','Do#','Re','Re#','Mi','Fa','Fa#','Sol','Sol#','La','La#','Si'];
 const nA=['C','C#','D','D#','E','F','F#','G','G#','A','A#','B'];
 const eq={'Dob':'Si','Reb':'Do#','Mib':'Re#','Fab':'Mi','Solb':'Fa#','Lab':'Sol#','Sib':'La#','Cb':'B','Db':'C#','Eb':'D#','Fb':'E','Gb':'F#','Ab':'G#','Bb':'A#'};
-function pN(s){let m=s.match(/^(Do|Re|Mi|Fa|Sol|La|Si|C|D|E|F|G|A|B)(#|b)?(.*)/i);if(!m)return null;let b=m[1].charAt(0).toUpperCase()+m[1].slice(1).toLowerCase(),fn=b+(m[2]||'');if(eq[fn])fn=eq[fn];let i=nL.indexOf(fn),tp='lat';if(i===-1){i=nA.indexOf(fn);tp='ang';}return{idx:i,type:tp,mod:m[3]||''};}
-function fN(i,tp,mo){i=(i%12+12)%12;return(tp==='ang'?nA[i]:nL[i])+mo;}
+function pN(s){
+  // Handle slash chords: split at / to get root and bass
+  let slashIdx = s.indexOf('/');
+  let main = slashIdx > 0 ? s.substring(0, slashIdx) : s;
+  let bass = slashIdx > 0 ? s.substring(slashIdx + 1) : null;
+  let m = main.match(/^(Do|Re|Mi|Fa|Sol|La|Si|C|D|E|F|G|A|B)(#|b)?(.*)/i);
+  if(!m) return null;
+  let b = m[1].charAt(0).toUpperCase() + m[1].slice(1).toLowerCase();
+  let fn = b + (m[2]||'');
+  if(eq[fn]) fn = eq[fn];
+  let i = nL.indexOf(fn), tp = 'lat';
+  if(i === -1){ i = nA.indexOf(fn); tp = 'ang'; }
+  // Parse bass note if present
+  let bassIdx = -1;
+  if(bass){
+    let bm = bass.match(/^(Do|Re|Mi|Fa|Sol|La|Si|C|D|E|F|G|A|B)(#|b)?/i);
+    if(bm){
+      let bb = bm[1].charAt(0).toUpperCase() + bm[1].slice(1).toLowerCase();
+      let bfn = bb + (bm[2]||'');
+      if(eq[bfn]) bfn = eq[bfn];
+      bassIdx = nL.indexOf(bfn);
+      if(bassIdx === -1) bassIdx = nA.indexOf(bfn);
+    }
+  }
+  return {idx: i, type: tp, mod: m[3]||'', bassIdx: bassIdx, hasBass: bass !== null};
+}
+function fN(i, tp, mo, bassIdx){
+  i = (i % 12 + 12) % 12;
+  let result = (tp === 'ang' ? nA[i] : nL[i]) + mo;
+  if(bassIdx !== undefined && bassIdx !== -1){
+    bassIdx = (bassIdx % 12 + 12) % 12;
+    result += '/' + (tp === 'ang' ? nA[bassIdx] : nL[bassIdx]);
+  }
+  return result;
+}
 function toggleChords(b){let c=b.closest('.card'),p=c.querySelector('pre'),bt=b.querySelector('.btn-text'),ic=b.querySelector('i');if(p.classList.contains('acordes-ocultos')){p.classList.remove('acordes-ocultos');bt.innerText='Ocultar Acordes';ic.className='fas fa-eye-slash mr-1';c.querySelectorAll('c').forEach(x=>x.style.display='');}else{p.classList.add('acordes-ocultos');bt.innerText='Mostrar Acordes';ic.className='fas fa-eye mr-1';c.querySelectorAll('c').forEach(x=>x.style.display='none');}}
-function toggleNotation(b){let c=b.closest('.card'),sp=c.querySelectorAll('c span'),isA=c.dataset.notation==='anglo',tt=isA?'lat':'ang';c.dataset.notation=tt==='ang'?'anglo':'latina';b.querySelector('.btn-text').innerText=isA?'Do / C':'C / Do';sp.forEach(s=>{let p=pN(s.innerText);if(p&&p.idx!==-1)s.innerText=fN(p.idx,tt,p.mod);});}
-function transpose(b,st){let c=b.closest('.card');let cur=parseInt(c.dataset.transSteps||'0');cur+=st;c.dataset.transSteps=cur;let disp=c.querySelector('.tono-display');if(disp){if(cur===0){disp.textContent='Tono';disp.style.color='';}else{disp.textContent=(cur>0?'+':'')+cur;disp.style.color=cur!==0?'#dc2626':'';}}c.querySelectorAll('c span').forEach(s=>{let p=pN(s.innerText);if(p&&p.idx!==-1)s.innerText=fN(p.idx+st,p.type,p.mod);});}
-function resetTranspose(b){let c=b.closest('.card');let cur=parseInt(c.dataset.transSteps||'0');if(cur===0)return;let rev=-cur;c.dataset.transSteps='0';b.textContent='Tono';b.style.color='';c.querySelectorAll('c span').forEach(s=>{let p=pN(s.innerText);if(p&&p.idx!==-1)s.innerText=fN(p.idx+rev,p.type,p.mod);});}
+function toggleNotation(b){let c=b.closest('.card'),sp=c.querySelectorAll('c span'),isA=c.dataset.notation==='anglo',tt=isA?'lat':'ang';c.dataset.notation=tt==='ang'?'anglo':'latina';b.querySelector('.btn-text').innerText=isA?'Do / C':'C / Do';sp.forEach(s=>{let p=pN(s.innerText);if(p&&p.idx!==-1)s.innerText=fN(p.idx,tt,p.mod,p.hasBass?p.bassIdx:undefined);});}
+function transpose(b,st){let c=b.closest('.card');let cur=parseInt(c.dataset.transSteps||'0');cur+=st;c.dataset.transSteps=cur;let disp=c.querySelector('.tono-display');if(disp){if(cur===0){disp.textContent='Tono';disp.style.color='';}else{disp.textContent=(cur>0?'+':'')+cur;disp.style.color=cur!==0?'#dc2626':'';}}c.querySelectorAll('c span').forEach(s=>{let p=pN(s.innerText);if(p&&p.idx!==-1)s.innerText=fN(p.idx+st,p.type,p.mod,p.hasBass?p.bassIdx+st:undefined);});}
+function resetTranspose(b){let c=b.closest('.card');let cur=parseInt(c.dataset.transSteps||'0');if(cur===0)return;let rev=-cur;c.dataset.transSteps='0';b.textContent='Tono';b.style.color='';c.querySelectorAll('c span').forEach(s=>{let p=pN(s.innerText);if(p&&p.idx!==-1)s.innerText=fN(p.idx+rev,p.type,p.mod,p.hasBass?p.bassIdx+rev:undefined);});}
 
 // ── Filtering ──
 let activeFilters = { momento: null, tiempo: null, chilena: null };
@@ -53665,7 +53698,8 @@ function hasActiveFilter() {
 }
 
 function applyFilters() {
-    const search = document.getElementById('search-input').value.toLowerCase().trim();
+    const rawSearch = document.getElementById('search-input').value.trim();
+    const search = rawSearch.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
     const welcomeMsg = document.getElementById('welcome-msg');
     const filtersActive = hasActiveFilter();
     let visible = 0;
@@ -53684,7 +53718,7 @@ function applyFilters() {
         
         let matchesFilter = true;
         if (filtersActive) {
-            const title = card.dataset.title || '';
+            const title = (card.dataset.title || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '');
             let cats;
             try { cats = JSON.parse(card.dataset.cats); } catch(e) { cats = {m:[],l:[],ch:0}; }
             
