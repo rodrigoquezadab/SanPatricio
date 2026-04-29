@@ -63,7 +63,7 @@ node build_cantos.js        # Genera paginas/cantos.html desde los datos
 
 #### Funcionalidades del Frontend
 - **Búsqueda**: Barra de texto que filtra el índice en tiempo real. Es **insensible a acentos y mayúsculas** (ej. "comunion" encuentra "Comunión", "JESUS" encuentra "Jesús").
-- **Filtros por categoría**: Botones pill para Momentos de la Misa (Entrada, Perdón, Gloria, etc.), Tiempos Litúrgicos (Adviento, Cuaresma, Pascua, Navidad) y Misa a la Chilena. Los filtros son **mutuamente excluyentes** (solo uno activo a la vez).
+- **Filtros por categoría**: Botones pill **ordenados según la secuencia litúrgica** (Entrada → Perdón → Gloria → … → Comunión → Salida, luego Marianos, Villancicos, etc.). Tiempos Litúrgicos en orden calendario (Adviento → Navidad → Cuaresma → Pascua). Los filtros son **mutuamente excluyentes** (solo uno activo a la vez).
 - **Comportamiento de carga**: Las canciones están **ocultas por defecto**. Los filtros y la búsqueda solo actualizan el **índice**. Las letras/acordes se muestran únicamente al hacer clic en una canción del índice.
 - **Tipografía compacta**: Las letras usan fuente monoespaciada condensada (`Cascadia Mono`/`Consolas`), `pre-wrap` para evitar scroll horizontal en móvil, y `letter-spacing` negativo para mayor densidad.
 - **Herramientas por canción**:
