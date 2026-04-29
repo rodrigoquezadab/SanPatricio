@@ -1,0 +1,1232 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parroquia San Patricio - Cantos</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>tailwind.config = { theme: { extend: { colors: { arena: '#F3E5DC', verdeSanPatricio: '#16A34A', negro: '#000000' } } } }</script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body { background-color: #F3E5DC; color: #000000; font-family: sans-serif; display: flex; flex-direction: column; min-height: 100vh; }
+        main { flex-grow: 1; }
+        h1, h2, h3, h4, h5, h6 { color: #16A34A; font-weight: bold; }
+        .btn-flotante-container { position: fixed; bottom: 20px; right: 20px; display: flex; flex-direction: column; gap: 10px; z-index: 1000; }
+        .btn-flotante { width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; box-shadow: 0 4px 6px rgba(0,0,0,0.3); transition: transform 0.2s; text-decoration: none; font-size: 24px; }
+        .btn-flotante:hover { transform: scale(1.1); color: white; }
+        .btn-subir { background-color: #16A34A; cursor: pointer; border: none; }
+        .btn-whatsapp { background-color: #25D366; }
+        .card { background: white; border-radius: 0.5rem; box-shadow: 0 4px 6px rgba(0,0,0,0.1); padding: 1.5rem; height: 100%; }
+        .nav-link { color: white; padding: 0.5rem 1rem; border-radius: 0.25rem; }
+        .nav-link:hover, .nav-link.active { background-color: rgba(255,255,255,0.2); }
+        c { color: #dc2626; font-weight: bold; }
+        pre { font-family: monospace; font-size: 1rem; white-space: pre-wrap; margin: 0; line-height: 1.5; }
+        .index-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px; }
+        .index-link { color: #16A34A; text-decoration: none; padding: 4px 0; display: block; }
+        .index-link:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+<div id="menu-container"></div>
+
+<main class="container mx-auto px-4 py-8 space-y-8">
+    <h2 class="text-3xl mb-6 text-center">Cancionero</h2>
+    
+    <div id="indice" class="card mb-8">
+        <h3 class="text-2xl mb-4 border-b pb-2"><i class="fas fa-music mr-2 text-verdeSanPatricio"></i>Índice de Canciones</h3>
+        <div class="index-grid">
+            <a href="#abre-tu-jardin" class="index-link">Abre tu jardín</a>
+            <a href="#aclaro" class="index-link">Aclaró</a>
+            <a href="#al-amparo" class="index-link">Al amparo del Altísimo</a>
+            <a href="#alabare" class="index-link">Alabaré</a>
+            <a href="#alabe-todo" class="index-link">Alabe todo el mundo (Taizé)</a>
+            <a href="#alegre-la-manana" class="index-link">Alegre la mañana</a>
+            <a href="#aleluya-carismatico" class="index-link">Aleluya (carismático)</a>
+            <a href="#aleluya-taize" class="index-link">Aleluya (Taizé)</a>
+            <a href="#aleluya-busca" class="index-link">Aleluya, busca primero</a>
+            <a href="#aleluya-cante" class="index-link">Aleluya, cante la tierra entera</a>
+            <a href="#aleluya-padre-enviado" class="index-link">Aleluya, el Padre me ha enviado</a>
+            <a href="#aleluya-padre-hijo" class="index-link">Aleluya, Padre, Hijo y Espíritu</a>
+            <a href="#aleluya-por-esa-gente" class="index-link">Aleluya, por esa gente</a>
+            <a href="#aleluya-toda" class="index-link">Aleluya, toda la tierra</a>
+            <a href="#aleluya-vivo" class="index-link">Aleluya, vivo estás</a>
+            <a href="#alma-cristo" class="index-link">Alma de Cristo</a>
+            <a href="#amar-es-entregarse" class="index-link">Amar es entregarse</a>
+            <a href="#amarte-a-ti" class="index-link">Amarte a Tí, Señor</a>
+            <a href="#amor-amor" class="index-link">Amor, amor</a>
+            <a href="#anunciamos-muerte" class="index-link">Anunciamos Tu Muerte</a>
+            <a href="#anunciare" class="index-link">Anunciaré</a>
+            <a href="#apura-paso" class="index-link">Apura el paso</a>
+            <a href="#ave-maria" class="index-link">Ave María, llena de gracia</a>
+            <a href="#bendecid" class="index-link">Bendecid a Dios</a>
+            <a href="#bendito-seas" class="index-link">Bendito seas</a>
+        </div>
+    </div>
+    <div class="card mb-8" id="abre-tu-jardin">
+        <h3 class="text-2xl mb-4 border-b pb-2">Abre tu jardín</h3>
+        <div class="flex flex-wrap gap-2 mb-4 text-sm text-gray-700 toolbar-cancion">
+            <button onclick="toggleChords(this)" class="bg-arena hover:bg-gray-200 px-3 py-1 rounded border border-gray-300 transition-colors flex items-center">
+                <i class="fas fa-eye-slash mr-1"></i> <span class="btn-text">Ocultar Acordes</span>
+            </button>
+            <button onclick="toggleNotation(this)" class="bg-arena hover:bg-gray-200 px-3 py-1 rounded border border-gray-300 transition-colors flex items-center">
+                <i class="fas fa-music mr-1"></i> <span class="btn-text">Do / C</span>
+            </button>
+            <div class="flex items-center bg-arena rounded border border-gray-300 overflow-hidden">
+                <button onclick="transpose(this, -1)" class="hover:bg-gray-200 px-3 py-1 font-bold border-r border-gray-300">-</button>
+                <span class="px-2 font-semibold" title="Transportar tono">Tono</span>
+                <button onclick="transpose(this, 1)" class="hover:bg-gray-200 px-3 py-1 font-bold border-l border-gray-300">+</button>
+            </div>
+        </div>
+        <pre>
+<c>MI</c>         <c>FA#m</c> <c>SOL#m</c>         <c>FA#m</c>
+Abre tu jardín, traigo una buena noticia;
+<c>MI</c>          <c>FA#m</c> <c>SOL#m</c>      <c>FA#m</c>
+Novedad sin fin, corramos a recibirla,
+<c>LA</c>      <c>SI7</c>  <c>MI</c>
+¡ven, levántate!
+
+<c>MI7</c>        <c>LA</c>
+Abre tu jardín,
+<c>MI</c>                  <c>LA</c> 
+pon flores en tu ventana,
+<c>MI</c>           <c>LA</c>
+Canta una canción,
+<c>MI</c>                  <c>LA</c> 
+hoy día se murió la muerte;
+<c>FA#m</c>       <c>SOL#m</c>   <c>FA#m</c>      <c>SI7</c>
+¡es día de fiesta, es día de vida!
+
+<c>MI</c>           <c>LA</c>
+No te quedes hoy
+<c>MI</c>                  <c>LA</c>
+encerrado en tus costumbres,
+<c>MI</c>           <c>LA</c>
+como en el sillón
+<c>MI</c>                 <c>LA</c>
+de las antiguas verdades;
+<c>FA#m</c>      <c>SOL#m</c>  <c>FA#m</c>      <c>SI7</c>
+vive la palabra, luego vivirás.
+
+<c>MI</c>         <c>LA</c>
+Vamos por ahí
+<c>MI</c>                <c>LA</c>
+cantando la buena nueva:
+<c>MI</c>        <c>LA</c>
+ama de verdad
+<c>MI</c>                  <c>LA</c>
+como a ti te están amando; 
+<c>FA#m</c>          <c>SOL#m</c> <c>FA#m</c>      <c>SI7</c>
+nace un nuevo día, ¡ven a renacer!.</pre>
+    </div>
+    <div class="card mb-8" id="aclaro">
+        <h3 class="text-2xl mb-4 border-b pb-2">Aclaró</h3>
+        <div class="flex flex-wrap gap-2 mb-4 text-sm text-gray-700 toolbar-cancion">
+            <button onclick="toggleChords(this)" class="bg-arena hover:bg-gray-200 px-3 py-1 rounded border border-gray-300 transition-colors flex items-center">
+                <i class="fas fa-eye-slash mr-1"></i> <span class="btn-text">Ocultar Acordes</span>
+            </button>
+            <button onclick="toggleNotation(this)" class="bg-arena hover:bg-gray-200 px-3 py-1 rounded border border-gray-300 transition-colors flex items-center">
+                <i class="fas fa-music mr-1"></i> <span class="btn-text">Do / C</span>
+            </button>
+            <div class="flex items-center bg-arena rounded border border-gray-300 overflow-hidden">
+                <button onclick="transpose(this, -1)" class="hover:bg-gray-200 px-3 py-1 font-bold border-r border-gray-300">-</button>
+                <span class="px-2 font-semibold" title="Transportar tono">Tono</span>
+                <button onclick="transpose(this, 1)" class="hover:bg-gray-200 px-3 py-1 font-bold border-l border-gray-300">+</button>
+            </div>
+        </div>
+        <pre>
+<c>Fa Sib Do Sib</c>
+Mira como aclara en la cordillera,
+<c>Fa Sib Do Sib</c>
+como florece el resplandor del sol,
+<c>Fa Sib Do Sib</c>
+como la fría mañana se entibia,
+<c>Fa Sib Do</c>
+como Dios nos da un día más de amor,
+<c>Sol Do RE Do</c>
+y su luz recorre campos y florestas,
+<c>Sol Do RE Do</c>
+abarcando hasta el último rincón,
+<c>Sol Do RE Do</c>
+penetrando por tinieblas, dando vida,
+<c>Sol Do RE7</c>
+y jamás detiene su calor.
+
+<c>Sol</c>
+Y aclaró
+<c>Mim Do RE</c>
+en el último rincón de mi pieza,
+<c>Sol</c>
+aclaró
+<c>Mim Do RE</c>
+en el último rincón de mi corazón,
+<c>Mim</c>
+aclaró
+<c>Do RE</c>
+la eterna oscuridad del camino
+<c>Sol</c>
+aclaró,
+<c>Mim Do RE Sol</c>
+un día más de vida nos ofrece Dios.
+
+Y de nuevo despertamos a la vida,
+a entregarnos por entero a la labor.
+Si pudiera detener esta rutina
+y dar gracias porque existo hoy;
+cambiaría, como todo cambiaría
+nuestra posición de egoísmos
+y de falsas apariencias,
+cambiaría nuestro falso amor.</pre>
+    </div>
+    <div class="card mb-8" id="al-amparo">
+        <h3 class="text-2xl mb-4 border-b pb-2">Al amparo del Altísimo</h3>
+        <div class="flex flex-wrap gap-2 mb-4 text-sm text-gray-700 toolbar-cancion">
+            <button onclick="toggleChords(this)" class="bg-arena hover:bg-gray-200 px-3 py-1 rounded border border-gray-300 transition-colors flex items-center">
+                <i class="fas fa-eye-slash mr-1"></i> <span class="btn-text">Ocultar Acordes</span>
+            </button>
+            <button onclick="toggleNotation(this)" class="bg-arena hover:bg-gray-200 px-3 py-1 rounded border border-gray-300 transition-colors flex items-center">
+                <i class="fas fa-music mr-1"></i> <span class="btn-text">Do / C</span>
+            </button>
+            <div class="flex items-center bg-arena rounded border border-gray-300 overflow-hidden">
+                <button onclick="transpose(this, -1)" class="hover:bg-gray-200 px-3 py-1 font-bold border-r border-gray-300">-</button>
+                <span class="px-2 font-semibold" title="Transportar tono">Tono</span>
+                <button onclick="transpose(this, 1)" class="hover:bg-gray-200 px-3 py-1 font-bold border-l border-gray-300">+</button>
+            </div>
+        </div>
+        <pre>
+<c>Mi Si7</c>
+Tú que habitas al amparo del Altísimo
+<c>Mi Si7</c>
+a la sombra del Todopoderoso
+<c>LA Fa#m</c>
+dile al Señor mi amparo y mi refugio
+<c>Fa#7 Si7</c>
+en Ti mi Dios, yo pongo mi confianza.
+
+<c>Sol RE</c>
+Él te libra del lazo
+<c>Lam RE</c>
+del cazador que busca destruirte
+<c>Sol RE</c>
+y te cubre, con Sus alas
+<c>Lam Si7</c>
+y será Su plumaje tu refugio.
+
+No temerás los miedos de la noche
+ni la flecha disparada de día
+ni la peste que avanza en las tinieblas
+ni la plaga que azota a pleno sol.
+
+No podrá la desgracia dominarte
+ni la plaga acercarse a tu morada
+pues ha dado a Sus ángeles la orden
+de protegerte en todos tus caminos.
+
+En Sus manos te habrá de sostener
+para que no tropiece tu pié en alguna piedra
+andarás sobre víboras y leones
+y pisarás cachorros y dragones.
+
+<c>Mi Si7</c>
+Pues si a Mí se acogió lo libraré
+<c>Mi Si7</c>
+lo cuidaré pues Mi nombre conoció
+<c>LA Fa#m</c>
+me llamará Yo le responderé
+<c>Fa#7 Si7</c>
+y estaré con él en la desgracia.
+
+Lo salvaré y lo enalteceré
+lo saciaré de días numerosos
+y haré que siempre pueda ver
+Mi salvación, Mi salvación.</pre>
+    </div>
+    <div class="card mb-8" id="alabare">
+        <h3 class="text-2xl mb-4 border-b pb-2">Alabaré</h3>
+        <div class="flex flex-wrap gap-2 mb-4 text-sm text-gray-700 toolbar-cancion">
+            <button onclick="toggleChords(this)" class="bg-arena hover:bg-gray-200 px-3 py-1 rounded border border-gray-300 transition-colors flex items-center">
+                <i class="fas fa-eye-slash mr-1"></i> <span class="btn-text">Ocultar Acordes</span>
+            </button>
+            <button onclick="toggleNotation(this)" class="bg-arena hover:bg-gray-200 px-3 py-1 rounded border border-gray-300 transition-colors flex items-center">
+                <i class="fas fa-music mr-1"></i> <span class="btn-text">Do / C</span>
+            </button>
+            <div class="flex items-center bg-arena rounded border border-gray-300 overflow-hidden">
+                <button onclick="transpose(this, -1)" class="hover:bg-gray-200 px-3 py-1 font-bold border-r border-gray-300">-</button>
+                <span class="px-2 font-semibold" title="Transportar tono">Tono</span>
+                <button onclick="transpose(this, 1)" class="hover:bg-gray-200 px-3 py-1 font-bold border-l border-gray-300">+</button>
+            </div>
+        </div>
+        <pre>
+<c>MI DO#m</c>
+Alabaré, alabaré, alabaré, alabaré.
+<c>Fa#m SI7 MI</c>
+Alabaré a mi Señor. (bis)
+
+<c>MI DO#m MI DO#m</c>
+Juan vio el número de los redimidos
+<c>MI FA# SI7</c>
+y todos alababan al Señor:
+<c>Fa#m SI7 Fa#m SI7</c>
+unos cantaban, otros oraban
+<c>Fa#m SI7 MI</c>
+y todos alababan al Señor.
+
+Gloria al Padre, gloria al Hijo,
+gloria al Espíritu de amor,
+te alabamos, te bendecimos,
+juntos cantamos en tu honor.</pre>
+    </div>
+    <div class="card mb-8" id="alabe-todo">
+        <h3 class="text-2xl mb-4 border-b pb-2">Alabe todo el mundo (Taizé)</h3>
+        <div class="flex flex-wrap gap-2 mb-4 text-sm text-gray-700 toolbar-cancion">
+            <button onclick="toggleChords(this)" class="bg-arena hover:bg-gray-200 px-3 py-1 rounded border border-gray-300 transition-colors flex items-center">
+                <i class="fas fa-eye-slash mr-1"></i> <span class="btn-text">Ocultar Acordes</span>
+            </button>
+            <button onclick="toggleNotation(this)" class="bg-arena hover:bg-gray-200 px-3 py-1 rounded border border-gray-300 transition-colors flex items-center">
+                <i class="fas fa-music mr-1"></i> <span class="btn-text">Do / C</span>
+            </button>
+            <div class="flex items-center bg-arena rounded border border-gray-300 overflow-hidden">
+                <button onclick="transpose(this, -1)" class="hover:bg-gray-200 px-3 py-1 font-bold border-r border-gray-300">-</button>
+                <span class="px-2 font-semibold" title="Transportar tono">Tono</span>
+                <button onclick="transpose(this, 1)" class="hover:bg-gray-200 px-3 py-1 font-bold border-l border-gray-300">+</button>
+            </div>
+        </div>
+        <pre>
+<c>Do Lam</c>
+Alabe todo el mundo,
+<c>Fa Sol</c>
+Alabe al Señor,
+<c>Do Lam</c>
+Alabe todo el mundo,
+<c>Fa Sol Do</c>
+Alabe a nuestro Dios.</pre>
+    </div>
+    <div class="card mb-8" id="alegre-la-manana">
+        <h3 class="text-2xl mb-4 border-b pb-2">Alegre la mañana</h3>
+        <div class="flex flex-wrap gap-2 mb-4 text-sm text-gray-700 toolbar-cancion">
+            <button onclick="toggleChords(this)" class="bg-arena hover:bg-gray-200 px-3 py-1 rounded border border-gray-300 transition-colors flex items-center">
+                <i class="fas fa-eye-slash mr-1"></i> <span class="btn-text">Ocultar Acordes</span>
+            </button>
+            <button onclick="toggleNotation(this)" class="bg-arena hover:bg-gray-200 px-3 py-1 rounded border border-gray-300 transition-colors flex items-center">
+                <i class="fas fa-music mr-1"></i> <span class="btn-text">Do / C</span>
+            </button>
+            <div class="flex items-center bg-arena rounded border border-gray-300 overflow-hidden">
+                <button onclick="transpose(this, -1)" class="hover:bg-gray-200 px-3 py-1 font-bold border-r border-gray-300">-</button>
+                <span class="px-2 font-semibold" title="Transportar tono">Tono</span>
+                <button onclick="transpose(this, 1)" class="hover:bg-gray-200 px-3 py-1 font-bold border-l border-gray-300">+</button>
+            </div>
+        </div>
+        <pre>
+<c>Do</c>
+Alegre la mañana
+<c>Fa Do</c>
+que nos habla de ti,
+<c>Sol7 Do</c>
+alegre la mañana.
+
+En nombre de Dios Padre,
+del Hijo y del Espíritu,
+salimos de la noche
+y estrenamos la aurora;
+saludamos el gozo
+de la luz que nos llega,
+resucitada y resucitadora.
+
+Tu mano acerca el fuego
+a la tierra sombría
+y el rostro de las cosas
+se alegra en tu presencia:
+silabea el alba
+igual que una palabra;
+tú pronuncias el mar
+como sentencia.
+
+Regresa desde el sueño
+el hombre a su memoria,
+acude a su trabajo,
+madruga a sus dolores;
+le confías la tierra
+y a la tarde la encuentras
+rica de pan
+y amarga de sudores.
+
+Y tú te regocijas, oh Dios,
+y tú prolongas
+en sus pequeñas manos
+tus manos poderosas
+y estáis de cuerpo entero
+los dos así creando,
+los dos así velando
+por las cosas.
+
+¡Bendita la mañana
+que trae la gran noticia
+de tu presencia joven,
+en gloria y poderío;
+la serena certeza
+con que el día proclama
+que el sepulcro de Cristo
+está vacío!</pre>
+    </div>
+    <div class="card mb-8" id="aleluya-carismatico">
+        <h3 class="text-2xl mb-4 border-b pb-2">Aleluya (carismático)</h3>
+        <div class="flex flex-wrap gap-2 mb-4 text-sm text-gray-700 toolbar-cancion">
+            <button onclick="toggleChords(this)" class="bg-arena hover:bg-gray-200 px-3 py-1 rounded border border-gray-300 transition-colors flex items-center">
+                <i class="fas fa-eye-slash mr-1"></i> <span class="btn-text">Ocultar Acordes</span>
+            </button>
+            <button onclick="toggleNotation(this)" class="bg-arena hover:bg-gray-200 px-3 py-1 rounded border border-gray-300 transition-colors flex items-center">
+                <i class="fas fa-music mr-1"></i> <span class="btn-text">Do / C</span>
+            </button>
+            <div class="flex items-center bg-arena rounded border border-gray-300 overflow-hidden">
+                <button onclick="transpose(this, -1)" class="hover:bg-gray-200 px-3 py-1 font-bold border-r border-gray-300">-</button>
+                <span class="px-2 font-semibold" title="Transportar tono">Tono</span>
+                <button onclick="transpose(this, 1)" class="hover:bg-gray-200 px-3 py-1 font-bold border-l border-gray-300">+</button>
+            </div>
+        </div>
+        <pre>
+<c>Sol Fa Sol</c>
+Aleluya, aleluya,
+<c>Fa Sol</c>
+aleluya. (bis)
+
+Aleluya, alelu (63 – 30 – 32 – 20…)
+<c>Sol Do Sol</c>
+Aleluya, alelú, aleluya
+<c>Do Sol RE Sol</c>
+Aleluya, aleluya.</pre>
+    </div>
+    <div class="card mb-8" id="aleluya-taize">
+        <h3 class="text-2xl mb-4 border-b pb-2">Aleluya (Taizé)</h3>
+        <div class="flex flex-wrap gap-2 mb-4 text-sm text-gray-700 toolbar-cancion">
+            <button onclick="toggleChords(this)" class="bg-arena hover:bg-gray-200 px-3 py-1 rounded border border-gray-300 transition-colors flex items-center">
+                <i class="fas fa-eye-slash mr-1"></i> <span class="btn-text">Ocultar Acordes</span>
+            </button>
+            <button onclick="toggleNotation(this)" class="bg-arena hover:bg-gray-200 px-3 py-1 rounded border border-gray-300 transition-colors flex items-center">
+                <i class="fas fa-music mr-1"></i> <span class="btn-text">Do / C</span>
+            </button>
+            <div class="flex items-center bg-arena rounded border border-gray-300 overflow-hidden">
+                <button onclick="transpose(this, -1)" class="hover:bg-gray-200 px-3 py-1 font-bold border-r border-gray-300">-</button>
+                <span class="px-2 font-semibold" title="Transportar tono">Tono</span>
+                <button onclick="transpose(this, 1)" class="hover:bg-gray-200 px-3 py-1 font-bold border-l border-gray-300">+</button>
+            </div>
+        </div>
+        <pre>
+<c>Mim SOL DO Mim</c>
+Aleluya, aleluya, aleluya
+<c>Mim SOL DO Mim</c>
+Aleluya, aleluya, aleluya</pre>
+    </div>
+    <div class="card mb-8" id="aleluya-busca">
+        <h3 class="text-2xl mb-4 border-b pb-2">Aleluya, busca primero</h3>
+        <div class="flex flex-wrap gap-2 mb-4 text-sm text-gray-700 toolbar-cancion">
+            <button onclick="toggleChords(this)" class="bg-arena hover:bg-gray-200 px-3 py-1 rounded border border-gray-300 transition-colors flex items-center">
+                <i class="fas fa-eye-slash mr-1"></i> <span class="btn-text">Ocultar Acordes</span>
+            </button>
+            <button onclick="toggleNotation(this)" class="bg-arena hover:bg-gray-200 px-3 py-1 rounded border border-gray-300 transition-colors flex items-center">
+                <i class="fas fa-music mr-1"></i> <span class="btn-text">Do / C</span>
+            </button>
+            <div class="flex items-center bg-arena rounded border border-gray-300 overflow-hidden">
+                <button onclick="transpose(this, -1)" class="hover:bg-gray-200 px-3 py-1 font-bold border-r border-gray-300">-</button>
+                <span class="px-2 font-semibold" title="Transportar tono">Tono</span>
+                <button onclick="transpose(this, 1)" class="hover:bg-gray-200 px-3 py-1 font-bold border-l border-gray-300">+</button>
+            </div>
+        </div>
+        <pre>
+<c>LA MI Fa#m Do#m</c>
+Busca primero el reino de Dios
+<c>RE LA MI</c>
+y su perfecta justicia,
+<c>LA MI Fa#m Do#m</c>
+y lo demás añadido será,
+<c>RE LA MI LA</c>
+aleluya, aleluya.
+
+<c>LA MI Fa#m Do#m</c>
+Aleluya, alelu, aleluya,
+<c>RE LA MI LA</c>
+aleluya, aleluya. (bis)
+
+Canto a la vida que Cristo regaló
+cambiando al hombre su historia.
+Cuando en la Cruz se entregó por nuestro amor,
+aleluya, aleluya.
+
+Canto por Cristo que nos liberará,
+cuando Él venga en su gloria;
+cuando la vida por Él renacerá,
+aleluya, aleluya.</pre>
+    </div>
+    <div class="card mb-8" id="aleluya-cante">
+        <h3 class="text-2xl mb-4 border-b pb-2">Aleluya, cante la tierra entera</h3>
+        <div class="flex flex-wrap gap-2 mb-4 text-sm text-gray-700 toolbar-cancion">
+            <button onclick="toggleChords(this)" class="bg-arena hover:bg-gray-200 px-3 py-1 rounded border border-gray-300 transition-colors flex items-center">
+                <i class="fas fa-eye-slash mr-1"></i> <span class="btn-text">Ocultar Acordes</span>
+            </button>
+            <button onclick="toggleNotation(this)" class="bg-arena hover:bg-gray-200 px-3 py-1 rounded border border-gray-300 transition-colors flex items-center">
+                <i class="fas fa-music mr-1"></i> <span class="btn-text">Do / C</span>
+            </button>
+            <div class="flex items-center bg-arena rounded border border-gray-300 overflow-hidden">
+                <button onclick="transpose(this, -1)" class="hover:bg-gray-200 px-3 py-1 font-bold border-r border-gray-300">-</button>
+                <span class="px-2 font-semibold" title="Transportar tono">Tono</span>
+                <button onclick="transpose(this, 1)" class="hover:bg-gray-200 px-3 py-1 font-bold border-l border-gray-300">+</button>
+            </div>
+        </div>
+        <pre>
+<c>LA MI RE MI LA MI RE9</c>
+Aleluya, aleluya, aleluya (bis).
+
+<c>LA MI Fa#m</c>
+Cante la tierra entera
+<c>RE LA MI</c>
+a nuestro Dios y Señor;
+<c>LA MI RE</c>
+canten con himnos de gozo
+<c>LA MI RE9</c>
+que trae la Salvación.</pre>
+    </div>
+    <div class="card mb-8" id="aleluya-padre-enviado">
+        <h3 class="text-2xl mb-4 border-b pb-2">Aleluya, el Padre me ha enviado</h3>
+        <div class="flex flex-wrap gap-2 mb-4 text-sm text-gray-700 toolbar-cancion">
+            <button onclick="toggleChords(this)" class="bg-arena hover:bg-gray-200 px-3 py-1 rounded border border-gray-300 transition-colors flex items-center">
+                <i class="fas fa-eye-slash mr-1"></i> <span class="btn-text">Ocultar Acordes</span>
+            </button>
+            <button onclick="toggleNotation(this)" class="bg-arena hover:bg-gray-200 px-3 py-1 rounded border border-gray-300 transition-colors flex items-center">
+                <i class="fas fa-music mr-1"></i> <span class="btn-text">Do / C</span>
+            </button>
+            <div class="flex items-center bg-arena rounded border border-gray-300 overflow-hidden">
+                <button onclick="transpose(this, -1)" class="hover:bg-gray-200 px-3 py-1 font-bold border-r border-gray-300">-</button>
+                <span class="px-2 font-semibold" title="Transportar tono">Tono</span>
+                <button onclick="transpose(this, 1)" class="hover:bg-gray-200 px-3 py-1 font-bold border-l border-gray-300">+</button>
+            </div>
+        </div>
+        <pre>
+<c>LA RE MI</c>
+Aleluya
+<c>LA RE MI RE MI LA</c>
+Aleluya, aleluya (bis).
+
+<c>LA RE</c>
+El Padre me ha enviado
+<c>MI</c>
+Para anunciar
+<c>LA RE MI</c>
+La Buena nueva a los pobres, aleluya.</pre>
+    </div>
+    <div class="card mb-8" id="aleluya-padre-hijo">
+        <h3 class="text-2xl mb-4 border-b pb-2">Aleluya, Padre, Hijo y Espíritu</h3>
+        <div class="flex flex-wrap gap-2 mb-4 text-sm text-gray-700 toolbar-cancion">
+            <button onclick="toggleChords(this)" class="bg-arena hover:bg-gray-200 px-3 py-1 rounded border border-gray-300 transition-colors flex items-center">
+                <i class="fas fa-eye-slash mr-1"></i> <span class="btn-text">Ocultar Acordes</span>
+            </button>
+            <button onclick="toggleNotation(this)" class="bg-arena hover:bg-gray-200 px-3 py-1 rounded border border-gray-300 transition-colors flex items-center">
+                <i class="fas fa-music mr-1"></i> <span class="btn-text">Do / C</span>
+            </button>
+            <div class="flex items-center bg-arena rounded border border-gray-300 overflow-hidden">
+                <button onclick="transpose(this, -1)" class="hover:bg-gray-200 px-3 py-1 font-bold border-r border-gray-300">-</button>
+                <span class="px-2 font-semibold" title="Transportar tono">Tono</span>
+                <button onclick="transpose(this, 1)" class="hover:bg-gray-200 px-3 py-1 font-bold border-l border-gray-300">+</button>
+            </div>
+        </div>
+        <pre>
+<c>Do Sol FA Do Rem Sol</c>
+Aleluya, aleluya
+<c>Do Sol FA Do Rem Sol</c>
+Aleluya, aleluya.
+
+<c>Do Solm7 Do</c>
+Padre, Hijo y Espíritu
+<c>FA Rem7 Sol</c>
+Toda la creación te alaba
+<c>Do Fam</c>
+Porque tu amor
+<c>LA RE Fam Solsus4 Sol</c>
+Llena el cielo y la tierra.</pre>
+    </div>
+    <div class="card mb-8" id="aleluya-por-esa-gente">
+        <h3 class="text-2xl mb-4 border-b pb-2">Aleluya, por esa gente</h3>
+        <div class="flex flex-wrap gap-2 mb-4 text-sm text-gray-700 toolbar-cancion">
+            <button onclick="toggleChords(this)" class="bg-arena hover:bg-gray-200 px-3 py-1 rounded border border-gray-300 transition-colors flex items-center">
+                <i class="fas fa-eye-slash mr-1"></i> <span class="btn-text">Ocultar Acordes</span>
+            </button>
+            <button onclick="toggleNotation(this)" class="bg-arena hover:bg-gray-200 px-3 py-1 rounded border border-gray-300 transition-colors flex items-center">
+                <i class="fas fa-music mr-1"></i> <span class="btn-text">Do / C</span>
+            </button>
+            <div class="flex items-center bg-arena rounded border border-gray-300 overflow-hidden">
+                <button onclick="transpose(this, -1)" class="hover:bg-gray-200 px-3 py-1 font-bold border-r border-gray-300">-</button>
+                <span class="px-2 font-semibold" title="Transportar tono">Tono</span>
+                <button onclick="transpose(this, 1)" class="hover:bg-gray-200 px-3 py-1 font-bold border-l border-gray-300">+</button>
+            </div>
+        </div>
+        <pre>
+<c>DO FA</c>
+Los que tienen y nunca se olvidan
+<c>DO</c>
+que a otros les falta;
+los que nunca usaron la fuerza
+<c>SOL7</c>
+sino la razón;
+<c>DO DO7</c>
+los que dan una mano y ayudan
+<c>FA Fam</c>
+a los que han caído:
+<c>DO SOL7</c>
+esa gente es feliz porque vive
+<c>DO FA DO</c>
+muy cerca de Dios.
+
+<c>SOL7 DO</c>
+Aleluya, aleluya,
+<c>FA SOL7</c>
+por esa gente que vive y que siente
+<c>DO FA DO</c>
+en su vida el amor. (bis)
+
+Los que ponen en todas las cosas
+amor y justicia;
+los que nunca sembraron el odio,
+tampoco el dolor;
+los que dan y no piensan jamás
+en su recompensa:
+esa gente es feliz porque vive
+muy cerca de Dios.</pre>
+    </div>
+    <div class="card mb-8" id="aleluya-toda">
+        <h3 class="text-2xl mb-4 border-b pb-2">Aleluya, toda la tierra</h3>
+        <div class="flex flex-wrap gap-2 mb-4 text-sm text-gray-700 toolbar-cancion">
+            <button onclick="toggleChords(this)" class="bg-arena hover:bg-gray-200 px-3 py-1 rounded border border-gray-300 transition-colors flex items-center">
+                <i class="fas fa-eye-slash mr-1"></i> <span class="btn-text">Ocultar Acordes</span>
+            </button>
+            <button onclick="toggleNotation(this)" class="bg-arena hover:bg-gray-200 px-3 py-1 rounded border border-gray-300 transition-colors flex items-center">
+                <i class="fas fa-music mr-1"></i> <span class="btn-text">Do / C</span>
+            </button>
+            <div class="flex items-center bg-arena rounded border border-gray-300 overflow-hidden">
+                <button onclick="transpose(this, -1)" class="hover:bg-gray-200 px-3 py-1 font-bold border-r border-gray-300">-</button>
+                <span class="px-2 font-semibold" title="Transportar tono">Tono</span>
+                <button onclick="transpose(this, 1)" class="hover:bg-gray-200 px-3 py-1 font-bold border-l border-gray-300">+</button>
+            </div>
+        </div>
+        <pre>
+<c>Sim LA SOL FA# LA SIm</c>
+Aleluya, aleluya, aleluya. (bis)
+
+<c>Sim RE LA Sim</c>
+Toda la tierra levante su voz
+<c>Sim RE LA Sim</c>
+cante la gloria del liberador
+<c>LA SOL FA# LA Sim</c>
+Cristo Jesús resucitó, aleluya.</pre>
+    </div>
+    <div class="card mb-8" id="aleluya-vivo">
+        <h3 class="text-2xl mb-4 border-b pb-2">Aleluya, vivo estás</h3>
+        <div class="flex flex-wrap gap-2 mb-4 text-sm text-gray-700 toolbar-cancion">
+            <button onclick="toggleChords(this)" class="bg-arena hover:bg-gray-200 px-3 py-1 rounded border border-gray-300 transition-colors flex items-center">
+                <i class="fas fa-eye-slash mr-1"></i> <span class="btn-text">Ocultar Acordes</span>
+            </button>
+            <button onclick="toggleNotation(this)" class="bg-arena hover:bg-gray-200 px-3 py-1 rounded border border-gray-300 transition-colors flex items-center">
+                <i class="fas fa-music mr-1"></i> <span class="btn-text">Do / C</span>
+            </button>
+            <div class="flex items-center bg-arena rounded border border-gray-300 overflow-hidden">
+                <button onclick="transpose(this, -1)" class="hover:bg-gray-200 px-3 py-1 font-bold border-r border-gray-300">-</button>
+                <span class="px-2 font-semibold" title="Transportar tono">Tono</span>
+                <button onclick="transpose(this, 1)" class="hover:bg-gray-200 px-3 py-1 font-bold border-l border-gray-300">+</button>
+            </div>
+        </div>
+        <pre>
+<c>LA Fa#m</c>
+Aleluya, aleluya,
+<c>Sim7 MI</c>
+vivo estás Señor Jesús.
+<c>LA Fa#m</c>
+Aleluya, aleluya,
+<c>Sim7 Mi LA</c>
+para siempre eres la Luz.
+
+<c>LA Fa#m Sim7 MI</c>
+Resucitado y vivo estás
+<c>LA Fa#m Sim7 MI LA</c>
+entre nosotros, Dios de la paz.</pre>
+    </div>
+    <div class="card mb-8" id="alma-cristo">
+        <h3 class="text-2xl mb-4 border-b pb-2">Alma de Cristo</h3>
+        <div class="flex flex-wrap gap-2 mb-4 text-sm text-gray-700 toolbar-cancion">
+            <button onclick="toggleChords(this)" class="bg-arena hover:bg-gray-200 px-3 py-1 rounded border border-gray-300 transition-colors flex items-center">
+                <i class="fas fa-eye-slash mr-1"></i> <span class="btn-text">Ocultar Acordes</span>
+            </button>
+            <button onclick="toggleNotation(this)" class="bg-arena hover:bg-gray-200 px-3 py-1 rounded border border-gray-300 transition-colors flex items-center">
+                <i class="fas fa-music mr-1"></i> <span class="btn-text">Do / C</span>
+            </button>
+            <div class="flex items-center bg-arena rounded border border-gray-300 overflow-hidden">
+                <button onclick="transpose(this, -1)" class="hover:bg-gray-200 px-3 py-1 font-bold border-r border-gray-300">-</button>
+                <span class="px-2 font-semibold" title="Transportar tono">Tono</span>
+                <button onclick="transpose(this, 1)" class="hover:bg-gray-200 px-3 py-1 font-bold border-l border-gray-300">+</button>
+            </div>
+        </div>
+        <pre>
+<c>DO Lam FA DO</c>
+Alma de Cristo, santifícame;
+<c>SOL Lam FA DO</c>
+Cuerpo de Cristo, sálvame;
+<c>SOL Lam</c>
+Sangre de Cristo, embriágame;
+<c>FA DO SOL7 DO</c>
+agua del costado de Cristo, lávame;
+<c>Rem DO Rem DO</c>
+Pasión de Cristo, confórtame;
+<c>Rem DO Rem DO</c>
+oh, buen Jesús, óyeme
+<c>FA Do SOL Lam</c>
+y dentro de tus Llagas, escóndeme;
+<c>FA DO SOL</c>
+no permitas que me aparte de Tí;
+<c>Rem DO Rem DO</c>
+del enemigo, defiéndeme;
+<c>Rem DO Rem DO</c>
+en la hora de mi muerte, llámame
+<c>FA DO</c>
+y mándame ir a Ti
+<c>SOL Lam FA</c>
+para con tus santos te alabe
+<c>DO SOL7 DO FA DO</c>
+por los siglos de los siglos, amén. Amén.</pre>
+    </div>
+    <div class="card mb-8" id="amar-es-entregarse">
+        <h3 class="text-2xl mb-4 border-b pb-2">Amar es entregarse</h3>
+        <div class="flex flex-wrap gap-2 mb-4 text-sm text-gray-700 toolbar-cancion">
+            <button onclick="toggleChords(this)" class="bg-arena hover:bg-gray-200 px-3 py-1 rounded border border-gray-300 transition-colors flex items-center">
+                <i class="fas fa-eye-slash mr-1"></i> <span class="btn-text">Ocultar Acordes</span>
+            </button>
+            <button onclick="toggleNotation(this)" class="bg-arena hover:bg-gray-200 px-3 py-1 rounded border border-gray-300 transition-colors flex items-center">
+                <i class="fas fa-music mr-1"></i> <span class="btn-text">Do / C</span>
+            </button>
+            <div class="flex items-center bg-arena rounded border border-gray-300 overflow-hidden">
+                <button onclick="transpose(this, -1)" class="hover:bg-gray-200 px-3 py-1 font-bold border-r border-gray-300">-</button>
+                <span class="px-2 font-semibold" title="Transportar tono">Tono</span>
+                <button onclick="transpose(this, 1)" class="hover:bg-gray-200 px-3 py-1 font-bold border-l border-gray-300">+</button>
+            </div>
+        </div>
+        <pre>
+<c>LA Mi LA</c>
+¡Que lindo es vivir para amar!
+<c>MI LA LA7</c>
+¡Que grande es tener para dar!
+<c>RE LA</c>
+Dar alegría, felicidad,
+<c>Mi LA (LA7)</c>
+Darse uno mismo, eso es amar. (bis)
+
+<c>LA Mi LA</c>
+Amar es entregarse,
+<c>Mi LA LA7</c>
+Olvidándose de sí;
+<c>RE LA</c>
+/:Buscando lo que a otro
+<c>Mi LA (LA7)</c>
+Pueda hacerle feliz:\
+
+Amar como a sí mismo,
+Entregarse a los demás;
+Así no habrá egoísmo
+Que no puedas superar. (bis)</pre>
+    </div>
+    <div class="card mb-8" id="amarte-a-ti">
+        <h3 class="text-2xl mb-4 border-b pb-2">Amarte a Tí, Señor</h3>
+        <div class="flex flex-wrap gap-2 mb-4 text-sm text-gray-700 toolbar-cancion">
+            <button onclick="toggleChords(this)" class="bg-arena hover:bg-gray-200 px-3 py-1 rounded border border-gray-300 transition-colors flex items-center">
+                <i class="fas fa-eye-slash mr-1"></i> <span class="btn-text">Ocultar Acordes</span>
+            </button>
+            <button onclick="toggleNotation(this)" class="bg-arena hover:bg-gray-200 px-3 py-1 rounded border border-gray-300 transition-colors flex items-center">
+                <i class="fas fa-music mr-1"></i> <span class="btn-text">Do / C</span>
+            </button>
+            <div class="flex items-center bg-arena rounded border border-gray-300 overflow-hidden">
+                <button onclick="transpose(this, -1)" class="hover:bg-gray-200 px-3 py-1 font-bold border-r border-gray-300">-</button>
+                <span class="px-2 font-semibold" title="Transportar tono">Tono</span>
+                <button onclick="transpose(this, 1)" class="hover:bg-gray-200 px-3 py-1 font-bold border-l border-gray-300">+</button>
+            </div>
+        </div>
+        <pre>
+<c>LA Fa#m RE Sim LA</c>
+Amarte a Ti Señor en todas las cosas.
+<c>LA Si7 Mi</c>
+Y a todas en Ti.
+<c>LA RE Fa#m</c>
+En todo amar y servir,
+<c>Sim Mi LA</c>
+en todo amar y servir.
+
+<c>LA Fa#m</c>
+Tu amor me ha dado vida,
+<c>RE Mi</c>
+tu amor me ha dado ser.
+De ti me viene todo y a Ti debe volver.
+Gustoso pues te ofrezco,
+mi haber, mi poseer,
+tu amor y gracia dame,
+demás no es menester.
+
+Presente en las creaturas y activo en todo estás,
+en mí como en un templo te dignas habitar.
+De Ti bondad y gracia, me mueven sin cesar,
+mi oficio ya no es otro, sino servir y amar.</pre>
+    </div>
+    <div class="card mb-8" id="amor-amor">
+        <h3 class="text-2xl mb-4 border-b pb-2">Amor, amor</h3>
+        <div class="flex flex-wrap gap-2 mb-4 text-sm text-gray-700 toolbar-cancion">
+            <button onclick="toggleChords(this)" class="bg-arena hover:bg-gray-200 px-3 py-1 rounded border border-gray-300 transition-colors flex items-center">
+                <i class="fas fa-eye-slash mr-1"></i> <span class="btn-text">Ocultar Acordes</span>
+            </button>
+            <button onclick="toggleNotation(this)" class="bg-arena hover:bg-gray-200 px-3 py-1 rounded border border-gray-300 transition-colors flex items-center">
+                <i class="fas fa-music mr-1"></i> <span class="btn-text">Do / C</span>
+            </button>
+            <div class="flex items-center bg-arena rounded border border-gray-300 overflow-hidden">
+                <button onclick="transpose(this, -1)" class="hover:bg-gray-200 px-3 py-1 font-bold border-r border-gray-300">-</button>
+                <span class="px-2 font-semibold" title="Transportar tono">Tono</span>
+                <button onclick="transpose(this, 1)" class="hover:bg-gray-200 px-3 py-1 font-bold border-l border-gray-300">+</button>
+            </div>
+        </div>
+        <pre>
+<c>Lam Sol Fa Mi</c>
+Amor, amor, amor, amor;
+<c>Lam Sol Fa Mi</c>
+hermanos míos Dios es amor.
+<c>Lam Sol Fa Mi</c>
+Ama a todos como hermanos,
+<c>Lam Sol Lam</c>
+Dios es amor.</pre>
+    </div>
+    <div class="card mb-8" id="anunciamos-muerte">
+        <h3 class="text-2xl mb-4 border-b pb-2">Anunciamos Tu Muerte</h3>
+        <div class="flex flex-wrap gap-2 mb-4 text-sm text-gray-700 toolbar-cancion">
+            <button onclick="toggleChords(this)" class="bg-arena hover:bg-gray-200 px-3 py-1 rounded border border-gray-300 transition-colors flex items-center">
+                <i class="fas fa-eye-slash mr-1"></i> <span class="btn-text">Ocultar Acordes</span>
+            </button>
+            <button onclick="toggleNotation(this)" class="bg-arena hover:bg-gray-200 px-3 py-1 rounded border border-gray-300 transition-colors flex items-center">
+                <i class="fas fa-music mr-1"></i> <span class="btn-text">Do / C</span>
+            </button>
+            <div class="flex items-center bg-arena rounded border border-gray-300 overflow-hidden">
+                <button onclick="transpose(this, -1)" class="hover:bg-gray-200 px-3 py-1 font-bold border-r border-gray-300">-</button>
+                <span class="px-2 font-semibold" title="Transportar tono">Tono</span>
+                <button onclick="transpose(this, 1)" class="hover:bg-gray-200 px-3 py-1 font-bold border-l border-gray-300">+</button>
+            </div>
+        </div>
+        <pre>
+<c>RE LA</c>
+Anunciamos tu muerte
+<c>Sim LA</c>
+proclamamos tu resurrección
+<c>RE LA Sim</c>
+ven Señor Jesús.</pre>
+    </div>
+    <div class="card mb-8" id="anunciare">
+        <h3 class="text-2xl mb-4 border-b pb-2">Anunciaré</h3>
+        <div class="flex flex-wrap gap-2 mb-4 text-sm text-gray-700 toolbar-cancion">
+            <button onclick="toggleChords(this)" class="bg-arena hover:bg-gray-200 px-3 py-1 rounded border border-gray-300 transition-colors flex items-center">
+                <i class="fas fa-eye-slash mr-1"></i> <span class="btn-text">Ocultar Acordes</span>
+            </button>
+            <button onclick="toggleNotation(this)" class="bg-arena hover:bg-gray-200 px-3 py-1 rounded border border-gray-300 transition-colors flex items-center">
+                <i class="fas fa-music mr-1"></i> <span class="btn-text">Do / C</span>
+            </button>
+            <div class="flex items-center bg-arena rounded border border-gray-300 overflow-hidden">
+                <button onclick="transpose(this, -1)" class="hover:bg-gray-200 px-3 py-1 font-bold border-r border-gray-300">-</button>
+                <span class="px-2 font-semibold" title="Transportar tono">Tono</span>
+                <button onclick="transpose(this, 1)" class="hover:bg-gray-200 px-3 py-1 font-bold border-l border-gray-300">+</button>
+            </div>
+        </div>
+        <pre>
+<c>Sol RE Sol</c>
+Anunciaré
+<c>Do Sol</c>
+Tu reino de vida y paz
+<c>Sim Mim</c>
+A todo el mundo entero
+<c>Do RE Sol</c>
+Anunciaré.
+
+<c>Sol Mim Do RE Sol</c>
+Somos peregrinos del universo
+<c>Sol Mim Do RE Sol</c>
+Y anunciaremos tu reino, Señor.
+Junto con María caminaremos
+Y a Jesucristo juntos llegaremos.
+Somos de la Iglesia misioneros
+Y proclamaremos tu reino, Señor.
+En la Asunción nos consagraremos
+Y por tu reino trabajaremos.</pre>
+    </div>
+    <div class="card mb-8" id="apura-paso">
+        <h3 class="text-2xl mb-4 border-b pb-2">Apura el paso</h3>
+        <div class="flex flex-wrap gap-2 mb-4 text-sm text-gray-700 toolbar-cancion">
+            <button onclick="toggleChords(this)" class="bg-arena hover:bg-gray-200 px-3 py-1 rounded border border-gray-300 transition-colors flex items-center">
+                <i class="fas fa-eye-slash mr-1"></i> <span class="btn-text">Ocultar Acordes</span>
+            </button>
+            <button onclick="toggleNotation(this)" class="bg-arena hover:bg-gray-200 px-3 py-1 rounded border border-gray-300 transition-colors flex items-center">
+                <i class="fas fa-music mr-1"></i> <span class="btn-text">Do / C</span>
+            </button>
+            <div class="flex items-center bg-arena rounded border border-gray-300 overflow-hidden">
+                <button onclick="transpose(this, -1)" class="hover:bg-gray-200 px-3 py-1 font-bold border-r border-gray-300">-</button>
+                <span class="px-2 font-semibold" title="Transportar tono">Tono</span>
+                <button onclick="transpose(this, 1)" class="hover:bg-gray-200 px-3 py-1 font-bold border-l border-gray-300">+</button>
+            </div>
+        </div>
+        <pre>
+<c>Sol RE Mim</c>
+Apura el paso y entra a ofrecer
+<c>Do RE</c>
+tu destino y tu tiempo,
+<c>Sol RE Mim</c>
+el corazón cubierto de paz
+<c>Do RE</c>
+de lo que llevas dentro.
+
+<c>Do RE Sol</c>
+Ven, todo es fiesta, está abierta ya
+<c>Mim</c>
+la ventana al mar
+<c>Do RE</c>
+para ver las mañanas
+<c>Do Sol Mim</c>
+y vivir todo lo que vendrá
+<c>Do Re Sol</c>
+ven, todo es fiesta.
+
+Apura el paso que tengo en la voz
+cantos para el futuro
+y la esperanza puesta en Jesús
+y en el Buen Peregrino.</pre>
+    </div>
+    <div class="card mb-8" id="ave-maria">
+        <h3 class="text-2xl mb-4 border-b pb-2">Ave María, llena de gracia</h3>
+        <div class="flex flex-wrap gap-2 mb-4 text-sm text-gray-700 toolbar-cancion">
+            <button onclick="toggleChords(this)" class="bg-arena hover:bg-gray-200 px-3 py-1 rounded border border-gray-300 transition-colors flex items-center">
+                <i class="fas fa-eye-slash mr-1"></i> <span class="btn-text">Ocultar Acordes</span>
+            </button>
+            <button onclick="toggleNotation(this)" class="bg-arena hover:bg-gray-200 px-3 py-1 rounded border border-gray-300 transition-colors flex items-center">
+                <i class="fas fa-music mr-1"></i> <span class="btn-text">Do / C</span>
+            </button>
+            <div class="flex items-center bg-arena rounded border border-gray-300 overflow-hidden">
+                <button onclick="transpose(this, -1)" class="hover:bg-gray-200 px-3 py-1 font-bold border-r border-gray-300">-</button>
+                <span class="px-2 font-semibold" title="Transportar tono">Tono</span>
+                <button onclick="transpose(this, 1)" class="hover:bg-gray-200 px-3 py-1 font-bold border-l border-gray-300">+</button>
+            </div>
+        </div>
+        <pre>
+<c>Mi Fa#m Sol#m Fa#m</c>
+Ave María, llena de gracia,
+<c>Mi Fa#m Sol#m</c>
+El cielo te cubre con su voz;
+<c>Do#m LA</c>
+Niña canta tu Magníficat,
+<c>Fa# Si</c>
+El beso de Dios te hizo mujer.
+
+Ave María llena de gracia
+Al mediodía se ocultó el sol
+Del árbol brotó agua y vino
+Bajo la Cruz te hiciste mujer.
+
+<c>Mi Fa#m Sol#m Fa#m LA Si Mi Do#m</c>
+María, Ave María te canta Dios,
+<c>Fa#m Si Mi</c>
+Mi viña guardada ya floreció.
+<c>LA Si Sol#m Do#m</c>
+Tú eres María, mi esposa y mi niña,
+<c>Fa#m Si Mi</c>
+Mi compañera, mi Madre y mi amiga.
+
+Ave María llena de gracia
+Madre y casa de la unidad
+Tú eres fiesta del espíritu
+El fuego de Dios te hizo mujer.
+
+Madre, María llena de gracia
+Vestida de sol y de estrellas
+Tienes la luna a tus pies
+Toda hermosa eres mujer.
+
+Ave María, te canta Dios
+Y en este canto te canto yo.</pre>
+    </div>
+    <div class="card mb-8" id="bendecid">
+        <h3 class="text-2xl mb-4 border-b pb-2">Bendecid a Dios</h3>
+        <div class="flex flex-wrap gap-2 mb-4 text-sm text-gray-700 toolbar-cancion">
+            <button onclick="toggleChords(this)" class="bg-arena hover:bg-gray-200 px-3 py-1 rounded border border-gray-300 transition-colors flex items-center">
+                <i class="fas fa-eye-slash mr-1"></i> <span class="btn-text">Ocultar Acordes</span>
+            </button>
+            <button onclick="toggleNotation(this)" class="bg-arena hover:bg-gray-200 px-3 py-1 rounded border border-gray-300 transition-colors flex items-center">
+                <i class="fas fa-music mr-1"></i> <span class="btn-text">Do / C</span>
+            </button>
+            <div class="flex items-center bg-arena rounded border border-gray-300 overflow-hidden">
+                <button onclick="transpose(this, -1)" class="hover:bg-gray-200 px-3 py-1 font-bold border-r border-gray-300">-</button>
+                <span class="px-2 font-semibold" title="Transportar tono">Tono</span>
+                <button onclick="transpose(this, 1)" class="hover:bg-gray-200 px-3 py-1 font-bold border-l border-gray-300">+</button>
+            </div>
+        </div>
+        <pre>
+<c>LA</c>
+Bendecid a Dios
+<c>Mi</c>
+todos los siervos de Dios
+<c>LA</c>
+que permanecen en la casa de Dios;
+<c>LA7</c>
+levantad las manos
+<c>RE Rem</c>
+hacia el santo lugar.
+<c>LA Mi</c>
+Bendecid a Dios,
+<c>LA RE LA</c>
+el Señor Dios.</pre>
+    </div>
+    <div class="card mb-8" id="bendito-seas">
+        <h3 class="text-2xl mb-4 border-b pb-2">Bendito seas</h3>
+        <div class="flex flex-wrap gap-2 mb-4 text-sm text-gray-700 toolbar-cancion">
+            <button onclick="toggleChords(this)" class="bg-arena hover:bg-gray-200 px-3 py-1 rounded border border-gray-300 transition-colors flex items-center">
+                <i class="fas fa-eye-slash mr-1"></i> <span class="btn-text">Ocultar Acordes</span>
+            </button>
+            <button onclick="toggleNotation(this)" class="bg-arena hover:bg-gray-200 px-3 py-1 rounded border border-gray-300 transition-colors flex items-center">
+                <i class="fas fa-music mr-1"></i> <span class="btn-text">Do / C</span>
+            </button>
+            <div class="flex items-center bg-arena rounded border border-gray-300 overflow-hidden">
+                <button onclick="transpose(this, -1)" class="hover:bg-gray-200 px-3 py-1 font-bold border-r border-gray-300">-</button>
+                <span class="px-2 font-semibold" title="Transportar tono">Tono</span>
+                <button onclick="transpose(this, 1)" class="hover:bg-gray-200 px-3 py-1 font-bold border-l border-gray-300">+</button>
+            </div>
+        </div>
+        <pre>
+<c>LA Sim</c>
+Bendito seas Señor
+<c>MI LA</c>
+Dios del universo
+<c>Fa#m RE DO#</c>
+Por este pan, fruto de la tierra
+<c>Fa#m Sim MI</c>
+Y del trabajo del hombre.
+
+<c>LA Sim MI LA</c>
+Que recibimos de tu generosidad
+<c>Fa#m RE</c>
+Y aquí te presentamos
+<c>MI LA DO#</c>
+Él será para nosotros
+<c>FA#</c>
+Pan de vida.
+
+<c>MI LA DO# FA#</c>
+Bendito seas por siempre Señor.
+
+Bendito seas Señor
+Dios del universo
+Por este vino, fruto de la vid
+Y del trabajo del hombre.
+Que recibimos de tu generosidad
+Y aquí te presentamos
+Él será para nosotros
+Bebida de salvación.
+
+Bendito seas por siempre Señor.</pre>
+    </div>
+</main>
+
+
+
+<div id="footer-container"></div>
+<script src="../components.js?v=2"></script>
+<script>
+    let audioCtx;
+
+    function initAudio() {
+        if (!audioCtx) {
+            audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        }
+        if (audioCtx.state === 'suspended') {
+            audioCtx.resume();
+        }
+    }
+
+    function playChord(chordStr) {
+        initAudio();
+        
+        let match = chordStr.match(/^(Do|Re|Mi|Fa|Sol|La|Si)(#|b)?(.*)/i);
+        if (!match) return; // Ignore if not a recognized chord
+        
+        let noteName = match[1].toLowerCase();
+        let accidental = match[2] || '';
+        let modifier = match[3] || '';
+        
+        const notes = { 'do': 60, 're': 62, 'mi': 64, 'fa': 65, 'sol': 67, 'la': 69, 'si': 71 };
+        let midi = notes[noteName];
+        if (accidental === '#') midi += 1;
+        if (accidental === 'b') midi -= 1;
+        
+        let intervals = [0, 4, 7]; // Major
+        let mod = modifier.toLowerCase();
+        
+        if (mod.includes('-') || mod.includes('m')) {
+            intervals[1] = 3; // minor 3rd
+        }
+        if (mod.includes('dim') || mod.includes('º')) {
+            intervals[1] = 3; // minor 3rd
+            intervals[2] = 6; // diminished 5th
+        } else if (mod.includes('aug') || mod.includes('+')) {
+            intervals[2] = 8; // augmented 5th
+        }
+        
+        if (mod.includes('maj7')) {
+            intervals.push(11); // major 7th
+        } else if (mod.includes('7')) {
+            intervals.push(10); // minor 7th
+        } else if (mod.includes('9')) {
+            intervals.push(10); // minor 7th
+            intervals.push(14); // 9th
+        }
+
+        const t = audioCtx.currentTime;
+        
+        intervals.forEach((interval, index) => {
+            let f = Math.pow(2, (midi + interval - 69) / 12) * 440;
+            
+            let osc1 = audioCtx.createOscillator();
+            let osc2 = audioCtx.createOscillator();
+            let gain = audioCtx.createGain();
+            
+            osc1.type = 'triangle';
+            osc2.type = 'sine';
+            
+            osc1.frequency.setValueAtTime(f, t);
+            osc2.frequency.setValueAtTime(f * 1.002, t);
+            
+            gain.gain.setValueAtTime(0, t);
+            gain.gain.linearRampToValueAtTime(0.15, t + 0.05); 
+            gain.gain.exponentialRampToValueAtTime(0.001, t + 2.5);
+            
+            osc1.connect(gain);
+            osc2.connect(gain);
+            gain.connect(audioCtx.destination);
+            
+            // Strum effect
+            let startDelay = index * 0.03;
+            osc1.start(t + startDelay);
+            osc2.start(t + startDelay);
+            osc1.stop(t + startDelay + 2.5);
+            osc2.stop(t + startDelay + 2.5);
+        });
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        document.querySelectorAll('c').forEach(cTag => {
+            if(cTag.dataset.processed) return;
+            cTag.dataset.processed = "true";
+
+            const words = cTag.textContent.split(/(\s+)/);
+            cTag.innerHTML = '';
+            words.forEach(word => {
+                if (word.trim() === '') {
+                    cTag.appendChild(document.createTextNode(word));
+                } else {
+                    const span = document.createElement('span');
+                    span.textContent = word;
+                    span.style.cursor = 'pointer';
+                    span.title = "Toca para escuchar";
+                    span.className = 'hover:text-red-400 hover:underline transition-colors';
+                    span.onclick = () => playChord(word);
+                    cTag.appendChild(span);
+                }
+            });
+        });
+    });
+</script>
+
+<script>
+    const notasLat = ['Do', 'Do#', 'Re', 'Re#', 'Mi', 'Fa', 'Fa#', 'Sol', 'Sol#', 'La', 'La#', 'Si'];
+    const notasAng = ['C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B'];
+    const equivalencias = {'Dob':'Si', 'Reb':'Do#', 'Mib':'Re#', 'Fab':'Mi', 'Solb':'Fa#', 'Lab':'Sol#', 'Sib':'La#',
+                           'Cb':'B', 'Db':'C#', 'Eb':'D#', 'Fb':'E', 'Gb':'F#', 'Ab':'G#', 'Bb':'A#'};
+
+    function parseNota(notaStr) {
+        let regex = /^(Do|Re|Mi|Fa|Sol|La|Si|C|D|E|F|G|A|B)(#|b)?(.*)/i;
+        let match = notaStr.match(regex);
+        if (!match) return null;
+        
+        let raiz = match[1];
+        let acc = match[2] || '';
+        let mod = match[3] || '';
+        
+        // Normalizar raiz
+        let base = raiz.charAt(0).toUpperCase() + raiz.slice(1).toLowerCase();
+        let fullNota = base + acc;
+        
+        // Convertir bemoles a sostenidos
+        if (equivalencias[fullNota]) fullNota = equivalencias[fullNota];
+        
+        // Buscar indice
+        let idx = notasLat.indexOf(fullNota);
+        let type = 'lat';
+        if (idx === -1) {
+            idx = notasAng.indexOf(fullNota);
+            type = 'ang';
+        }
+        
+        return { idx, type, mod };
+    }
+
+    function formatNota(idx, type, mod) {
+        // Wrap idx
+        idx = (idx % 12 + 12) % 12;
+        let base = (type === 'ang') ? notasAng[idx] : notasLat[idx];
+        return base + mod;
+    }
+
+    function toggleChords(btn) {
+        let card = btn.closest('.card');
+        let pre = card.querySelector('pre');
+        let btnText = btn.querySelector('.btn-text');
+        let icon = btn.querySelector('i');
+        
+        if (pre.classList.contains('acordes-ocultos')) {
+            pre.classList.remove('acordes-ocultos');
+            btnText.innerText = 'Ocultar Acordes';
+            icon.className = 'fas fa-eye-slash mr-1';
+            card.querySelectorAll('c').forEach(c => c.style.display = '');
+            // Also need to handle blank lines that only had chords? 
+            // A simple CSS approach is better. Let's do that.
+        } else {
+            pre.classList.add('acordes-ocultos');
+            btnText.innerText = 'Mostrar Acordes';
+            icon.className = 'fas fa-eye mr-1';
+            card.querySelectorAll('c').forEach(c => c.style.display = 'none');
+        }
+    }
+
+    function toggleNotation(btn) {
+        let card = btn.closest('.card');
+        let spans = card.querySelectorAll('c span');
+        let isAnglo = card.dataset.notation === 'anglo';
+        
+        let targetType = isAnglo ? 'lat' : 'ang';
+        card.dataset.notation = targetType === 'ang' ? 'anglo' : 'latina';
+        
+        // Update button text
+        let btnText = btn.querySelector('.btn-text');
+        btnText.innerText = isAnglo ? 'Do / C' : 'C / Do';
+        
+        spans.forEach(span => {
+            let parsed = parseNota(span.innerText);
+            if (parsed && parsed.idx !== -1) {
+                span.innerText = formatNota(parsed.idx, targetType, parsed.mod);
+            }
+        });
+    }
+
+    function transpose(btn, steps) {
+        let card = btn.closest('.card');
+        let spans = card.querySelectorAll('c span');
+        
+        spans.forEach(span => {
+            let parsed = parseNota(span.innerText);
+            if (parsed && parsed.idx !== -1) {
+                span.innerText = formatNota(parsed.idx + steps, parsed.type, parsed.mod);
+            }
+        });
+    }
+</script>
+
+</body>
+</html>
