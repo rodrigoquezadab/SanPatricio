@@ -78,6 +78,11 @@ node build_cantos.js        # Genera paginas/cantos.html desde los datos
 
 ## 📋 Registro de Cambios (Changelog)
 
+### [2026-05-01] - Consolidación de Aportes y 1%
+- **Estructura**: Unificación de las secciones "Aportes" y "1% a la Iglesia" en una sola página principal (`paginas/aportes.html`), eliminando el menú secundario y mejorando el flujo de navegación.
+- **Contenido**: Actualización y reestructuración de la sección "¿Sabías qué?..." (datos sobre la parroquia). Se transformó en una lista con viñetas ordenada narrativamente desde el impacto espiritual/social hasta los costos de infraestructura para hacer más persuasivo el llamado a contribuir.
+- **UI**: Mejoras de legibilidad y espaciado, reubicación de la imagen explicativa del 1% y alineación del diseño general.
+
 ### [2026-04-29] - Cancionero Integrado con Scraping y Filtros
 - **Funcionalidad**: Implementación completa del cancionero litúrgico con 880 canciones escrapeadas desde cancionerocatolico.cl.
 - **Pipeline**: Creación de `scrape_cancionero.js` (scraping), `cancionero_data.json` (datos), y `build_cantos.js` (generador HTML).
