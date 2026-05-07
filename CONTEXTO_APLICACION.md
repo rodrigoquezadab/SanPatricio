@@ -78,6 +78,10 @@ node build_cantos.js        # Genera paginas/cantos.html desde los datos
 
 ## 📋 Registro de Cambios (Changelog)
 
+### [2026-05-07] - Reorganización de Oraciones y Calendario
+- **Contenido**: Se integró la "Novena al Venerable Padre José Frassinetti". Se actualizó la versión en español del "Regina Caeli" y se añadió la fecha a la "Novena a San José". Se reorganizó el orden de la lista de oraciones destacando Regina Caeli al inicio.
+- **Calendario**: Se actualizó el iframe de la página de Calendario apuntando a un nuevo documento de Google Docs incrustado en modo preview.
+
 ### [2026-05-01] - Consolidación de Aportes y 1%
 - **Estructura**: Unificación de las secciones "Aportes" y "1% a la Iglesia" en una sola página principal (`paginas/aportes.html`), eliminando el menú secundario y mejorando el flujo de navegación.
 - **Contenido**: Actualización y reestructuración de la sección "¿Sabías qué?..." (datos sobre la parroquia). Se transformó en una lista con viñetas ordenada narrativamente desde el impacto espiritual/social hasta los costos de infraestructura para hacer más persuasivo el llamado a contribuir.
