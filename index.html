@@ -155,8 +155,7 @@
                   description: "Revisa la información en el afiche adjunto para más detalles.",
                   imageUrl: "assets/flyers/" + filename,
                   date: "Nuevo", 
-                  isBanner: true,
-                  isFlyer: true
+                  isBanner: false, isFlyer: true
               });
           }
 
@@ -177,8 +176,7 @@
                                   description: "Revisa la información en el afiche adjunto para más detalles.",
                                   date: new Date().toLocaleDateString('es-CL'),
                                   imageUrl: "assets/flyers/" + file.name,
-                                  isFlyer: true,
-                                  isBanner: true
+                                  isFlyer: true, isBanner: false
                               });
                           }
                       });
