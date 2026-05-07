@@ -27,9 +27,18 @@ function processFile(file) {
         let content = fs.readFileSync(file, 'utf8');
         
         // Inject menu
-        content = content.replace(/<div id="menu-container"><\/div>/g, `<div id="menu-container">\n${menuHtml}\n</div>`);
+        if (content.includes('<nav class="bg-verdeSanPatricio')) {
+            content = content.replace(/<div id="menu-container">[\s\S]*?<\/nav>\s*<\/div>/g, `<div id="menu-container">\n${menuHtml}\n</div>`);
+        } else {
+            content = content.replace(/<div id="menu-container"><\/div>/g, `<div id="menu-container">\n${menuHtml}\n</div>`);
+        }
+        
         // Inject footer
-        content = content.replace(/<div id="footer-container"><\/div>/g, `<div id="footer-container">\n${footerHtml}\n</div>`);
+        if (content.includes('<footer class="bg-gray-800')) {
+            content = content.replace(/<div id="footer-container">[\s\S]*?<\/footer>\s*<\/div>/g, `<div id="footer-container">\n${footerHtml}\n</div>`);
+        } else {
+            content = content.replace(/<div id="footer-container"><\/div>/g, `<div id="footer-container">\n${footerHtml}\n</div>`);
+        }
         
         // Clean up paths if it was moved (index was already in root, but just in case)
         if(file !== 'index.html') {
@@ -51,8 +60,17 @@ function processFile(file) {
     let content = fs.readFileSync(file, 'utf8');
     
     // Inject menu & footer
-    content = content.replace(/<div id="menu-container"><\/div>/g, `<div id="menu-container">\n${menuHtml}\n</div>`);
-    content = content.replace(/<div id="footer-container"><\/div>/g, `<div id="footer-container">\n${footerHtml}\n</div>`);
+    if (content.includes('<nav class="bg-verdeSanPatricio')) {
+        content = content.replace(/<div id="menu-container">[\s\S]*?<\/nav>\s*<\/div>/g, `<div id="menu-container">\n${menuHtml}\n</div>`);
+    } else {
+        content = content.replace(/<div id="menu-container"><\/div>/g, `<div id="menu-container">\n${menuHtml}\n</div>`);
+    }
+
+    if (content.includes('<footer class="bg-gray-800')) {
+        content = content.replace(/<div id="footer-container">[\s\S]*?<\/footer>\s*<\/div>/g, `<div id="footer-container">\n${footerHtml}\n</div>`);
+    } else {
+        content = content.replace(/<div id="footer-container"><\/div>/g, `<div id="footer-container">\n${footerHtml}\n</div>`);
+    }
 
     // Clean up paths since files are now in root
     content = content.replace(/\.\.\/assets\//g, 'assets/');
