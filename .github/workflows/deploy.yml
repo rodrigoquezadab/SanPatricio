@@ -10,6 +10,8 @@ jobs:
   web-deploy:
     name: 🎉 Deploy a Hostinger
     runs-on: ubuntu-latest
+    env:
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
     
     steps:
     - name: 🚚 Obtener código desde GitHub
@@ -28,5 +30,11 @@ jobs:
         # ya está configurado para entrar directo a 'public_html'
         server-dir: ./ 
         
+        # Ignorar la carpeta paginas ya que fue eliminada
+        exclude: |
+          **/.git*
+          **/.git*/**
+          paginas/**
+          
         # Aumentamos el tiempo límite por si la FTP de Hostinger demora en responder
         timeout: 300000
