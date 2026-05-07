@@ -6,7 +6,9 @@ Este documento sirve como guía técnica para entender el funcionamiento del sit
 
 ## ⚠️ Reglas de Trabajo Críticas
 
-*   **PROHIBIDO EL PUSH AUTOMÁTICO**: Bajo ninguna circunstancia el asistente de IA debe ejecutar comandos `git push` de forma automática o como parte de un flujo de trabajo derivado de otra petición. Un push a repositorios remotos **solo debe ejecutarse si el usuario lo solicita explícitamente y de manera aislada**. Todo trabajo debe terminar en el entorno local (o como commit local).
+*   **PROHIBIDO EL PUSH AUTOMÁTICO**: Bajo ninguna circunstancia el asistente de IA debe ejecutar comandos `git push` de forma automática o como parte de un flujo de trabajo derivado de otra petición. 
+*   **PERMISOS EXPLÍCITOS**: Un push a repositorios remotos **solo debe ejecutarse si el usuario lo solicita explícitamente en ese mismo turno (escribiendo "push")**. No se debe asumir que un permiso de push anterior se extiende a nuevas modificaciones (como actualizaciones de documentación).
+*   Todo trabajo debe terminar en el entorno local (o como commit local) a la espera de la orden explícita del usuario para subir los cambios al servidor.
 
 ---
 
