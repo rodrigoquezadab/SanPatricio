@@ -4,11 +4,11 @@ Este documento sirve como guía técnica para entender el funcionamiento del sit
 
 ---
 
-## ⚠️ Reglas de Trabajo Críticas
+## ⚠️ Reglas de Trabajo Críticas (Gestión de Versiones)
 
-*   **PROHIBIDO EL PUSH AUTOMÁTICO**: Bajo ninguna circunstancia el asistente de IA debe ejecutar comandos `git push` de forma automática o como parte de un flujo de trabajo derivado de otra petición. 
-*   **PERMISOS EXPLÍCITOS**: Un push a repositorios remotos **solo debe ejecutarse si el usuario lo solicita explícitamente en ese mismo turno (escribiendo "push")**. No se debe asumir que un permiso de push anterior se extiende a nuevas modificaciones (como actualizaciones de documentación).
-*   Todo trabajo debe terminar en el entorno local (o como commit local) a la espera de la orden explícita del usuario para subir los cambios al servidor.
+*   **PROHIBICIÓN DE COMMITS AUTOMÁTICOS**: El asistente de IA NUNCA debe ejecutar `git add` ni `git commit` por su cuenta tras finalizar una tarea. El `commit` representa la aprobación explícita de los cambios por parte del usuario, no del asistente.
+*   **PROHIBIDO EL PUSH AUTOMÁTICO**: Bajo ninguna circunstancia se debe ejecutar `git push` de forma automática.
+*   **FLUJO DE APROBACIÓN**: Todas las modificaciones deben permanecer en el entorno de trabajo (working directory) sin staging ni commit. Solo cuando el usuario da su aprobación explícita (por ejemplo, diciendo "push" o "haz commit"), el asistente debe agrupar los comandos (`git add`, `git commit` y, si corresponde, `git push`). No se asumen permisos de un turno anterior.
 
 ---
 
