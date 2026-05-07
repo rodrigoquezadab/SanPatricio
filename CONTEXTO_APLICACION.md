@@ -84,9 +84,12 @@ node build_cantos.js        # Genera paginas/cantos.html desde los datos
 
 ## 📋 Registro de Cambios (Changelog)
 
-### [2026-05-07] - Reorganización de Oraciones y Calendario
-- **Contenido**: Se integró la "Novena al Venerable Padre José Frassinetti". Se actualizó la versión en español del "Regina Caeli" y se añadió la fecha a la "Novena a San José". Se reorganizó el orden de la lista de oraciones destacando Regina Caeli al inicio.
-- **Calendario**: Se actualizó el iframe de la página de Calendario apuntando a un nuevo documento de Google Docs incrustado en modo preview.
+### [2026-05-07] - SEO, Flat Routing y Mejoras de Navegación
+- **Arquitectura**: Migración completa del sitio a una estructura de URL plana (archivos en la raíz en lugar de la subcarpeta `/paginas/`) para facilitar la indexabilidad por los motores de búsqueda. Implementación de redirecciones en `404.html`.
+- **SEO & Build**: Creación de `build_components.js` para inyección estática del menú de navegación, footers y meta tags (eliminando la dependencia de carga dinámica por JS).
+- **UI & Navegación**: Reparación del archivo `styles.css` (corrupción UTF-16) que afectaba al cancionero. Reordenamiento estratégico del menú principal basándose en la prioridad de uso parroquiano, posicionando "Inicio", "Oraciones" y "Adoración" en los primeros lugares.
+- **Contenido Oraciones**: Se integró la "Novena al Venerable Padre José Frassinetti". Se actualizó la versión en español del "Regina Caeli" y se añadió la fecha a la "Novena a San José". Se reorganizó la lista destacando Regina Caeli al inicio.
+- **Calendario**: Se actualizó el iframe de la página apuntando a un nuevo documento de Google Docs.
 
 ### [2026-05-01] - Consolidación de Aportes y 1%
 - **Estructura**: Unificación de las secciones "Aportes" y "1% a la Iglesia" en una sola página principal (`paginas/aportes.html`), eliminando el menú secundario y mejorando el flujo de navegación.
