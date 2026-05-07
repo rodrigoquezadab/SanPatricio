@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parroquia San Patricio - Página no encontrada</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>tailwind.config = { theme: { extend: { colors: { arena: '#F3E5DC', verdeSanPatricio: '#16A34A', negro: '#000000' } } } }</script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="/SanPatricio/styles.css">
+    <script>
+        // Redirection logic for old /paginas/ URLs
+        document.addEventListener("DOMContentLoaded", function() {
+            const url = window.location.href;
+            if (url.includes('/paginas/')) {
+                const newUrl = url.replace('/paginas/', '/');
+                window.location.replace(newUrl);
+            }
+        });
+    </script>
+
+    <meta name="description" content="Parroquia San Patricio, Las Condes, Santiago.">
+    <link rel="canonical" href="https://rodrigoquezadab.github.io/SanPatricio/404.html">
+    <meta property="og:title" content="Parroquia San Patricio - 404">
+    <meta property="og:description" content="Parroquia San Patricio, Las Condes, Santiago.">
+    <meta property="og:type" content="website">
+</head>
+<body>
+    <main class="container mx-auto px-4 py-20 text-center flex flex-col justify-center min-h-screen">
+        <i class="fas fa-exclamation-triangle text-6xl text-verdeSanPatricio mb-6"></i>
+        <h1 class="text-4xl font-bold mb-4">Página no encontrada (404)</h1>
+        <p class="text-xl mb-8">Lo sentimos, la página que estás buscando no existe o ha sido movida.</p>
+        <a href="/SanPatricio/index.html" class="inline-block bg-verdeSanPatricio text-white px-8 py-3 rounded-lg hover:bg-green-700 transition shadow-md mx-auto">
+            <i class="fas fa-home mr-2"></i> Volver al Inicio
+        </a>
+    </main>
+</body>
+</html>

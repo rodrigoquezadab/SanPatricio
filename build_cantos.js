@@ -164,11 +164,9 @@ const allTiempos = rawTiempos.sort((a, b) => {
   return (ia === -1 ? 999 : ia) - (ib === -1 ? 999 : ib);
 });
 
-// Build the JSON data to embed (compact: only metadata, content stored separately)
-const songIndex = finalSongs.map((s, i) => ({
-  i, t: s.title, s: s.slug,
-  m: s.momentos, l: s.tiempos, ch: s.misaChilena ? 1 : 0
-}));
+// Read components
+const menuHtml = fs.readFileSync(path.join(__dirname, 'components', 'menu.html'), 'utf8');
+const footerHtml = fs.readFileSync(path.join(__dirname, 'components', 'footer.html'), 'utf8');
 
 // Build HTML
 const html = `<!DOCTYPE html>
@@ -178,40 +176,19 @@ const html = `<!DOCTYPE html>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Parroquia San Patricio - Cancionero</title>
     <meta name="description" content="Cancionero litúrgico de la Parroquia San Patricio con acordes y letras. Filtrado por momentos de la misa y tiempos litúrgicos.">
+    <link rel="canonical" href="https://rodrigoquezadab.github.io/SanPatricio/cantos.html">
+    <meta property="og:title" content="Parroquia San Patricio - Cancionero">
+    <meta property="og:description" content="Cancionero litúrgico de la Parroquia San Patricio con acordes y letras. Filtrado por momentos de la misa y tiempos litúrgicos.">
+    <meta property="og:type" content="website">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>tailwind.config = { theme: { extend: { colors: { arena: '#F3E5DC', verdeSanPatricio: '#16A34A', negro: '#000000' } } } }</script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        body { background-color: #F3E5DC; color: #000000; font-family: sans-serif; display: flex; flex-direction: column; min-height: 100vh; }
-        main { flex-grow: 1; }
-        h1, h2, h3, h4, h5, h6 { color: #16A34A; font-weight: bold; }
-        .btn-flotante-container { position: fixed; bottom: 20px; right: 20px; display: flex; flex-direction: column; gap: 10px; z-index: 1000; }
-        .btn-flotante { width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; box-shadow: 0 4px 6px rgba(0,0,0,0.3); transition: transform 0.2s; text-decoration: none; font-size: 24px; }
-        .btn-flotante:hover { transform: scale(1.1); color: white; }
-        .btn-subir { background-color: #16A34A; cursor: pointer; border: none; }
-        .btn-whatsapp { background-color: #25D366; }
-        .card { background: white; border-radius: 0.5rem; box-shadow: 0 4px 6px rgba(0,0,0,0.1); padding: 1.5rem; }
-        .nav-link { color: white; padding: 0.5rem 1rem; border-radius: 0.25rem; }
-        .nav-link:hover, .nav-link.active { background-color: rgba(255,255,255,0.2); }
-        c { color: #dc2626; font-weight: bold; font-size: 0.8em; }
-        pre.song-pre { font-family: 'Cascadia Mono', 'SF Mono', 'Consolas', 'Liberation Mono', monospace; font-size: 0.82rem; white-space: pre-wrap; word-break: break-word; margin: 0; line-height: 1.4; padding: 0.5rem; background: #fafaf8; border-radius: 0.25rem; letter-spacing: -0.03em; font-weight: 500; }
-        @media (max-width: 640px) { pre.song-pre { font-size: 0.7rem; letter-spacing: -0.04em; } }
-        .index-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 6px; }
-        .index-link { color: #16A34A; text-decoration: none; padding: 4px 0; display: block; font-size: 0.9rem; }
-        .index-link:hover { text-decoration: underline; }
-        .filter-btn { padding: 0.35rem 0.75rem; border-radius: 9999px; font-size: 0.8rem; border: 1px solid #d1d5db; background: white; cursor: pointer; transition: all 0.2s; white-space: nowrap; }
-        .filter-btn:hover { border-color: #16A34A; color: #16A34A; }
-        .filter-btn.active { background: #16A34A; color: white; border-color: #16A34A; }
-        .filter-section { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
-        .filter-label { font-weight: 600; font-size: 0.8rem; color: #555; margin-right: 4px; }
-        .song-card { transition: opacity 0.2s; }
-        .song-card.hidden-filter { display: none; }
-        #search-input { background: white; border: 1px solid #d1d5db; border-radius: 0.5rem; padding: 0.5rem 1rem 0.5rem 2.5rem; width: 100%; font-size: 0.95rem; }
-        #search-input:focus { outline: none; border-color: #16A34A; box-shadow: 0 0 0 2px rgba(22,163,74,0.2); }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<div id="menu-container"></div>
+<div id="menu-container">
+${menuHtml}
+</div>
 
 <main class="container mx-auto px-4 py-8 space-y-6">
     <h2 class="text-3xl mb-2 text-center"><i class="fas fa-music mr-2"></i>Cancionero</h2>
@@ -288,8 +265,10 @@ ${s.momentos.length || s.tiempos.length || s.misaChilena ? `        <div class="
 }).join('\n')}
 </main>
 
-<div id="footer-container"></div>
-<script src="../components.js?v=3"></script>
+<div id="footer-container">
+${footerHtml}
+</div>
+<script src="components.js?v=4"></script>
 <script>
 // ── Audio ──
 let audioCtx;
@@ -410,7 +389,7 @@ function applyFilters() {
         if (!filtersActive || matchesFilter) visible++;
     });
     
-    document.getElementById('song-count').textContent = filtersActive ? \`(\${visible} de ${finalSongs.length})\` : \`(${finalSongs.length})\`;
+    document.getElementById('song-count').textContent = filtersActive ? \`(\${visible} de \${finalSongs.length})\` : \`(\${finalSongs.length})\`;
 }
 
 function showSingleSong(event, slug) {
@@ -433,5 +412,6 @@ applyFilters();
 </body>
 </html>`;
 
-fs.writeFileSync(path.join(__dirname, 'paginas', 'cantos.html'), html, 'utf8');
+const outputHtmlPath = path.join(__dirname, 'cantos.html');
+fs.writeFileSync(outputHtmlPath, html, 'utf8');
 console.log(`✅ cantos.html generado: ${(html.length/1024).toFixed(0)} KB, ${finalSongs.length} canciones`);

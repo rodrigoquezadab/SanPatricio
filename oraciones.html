@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parroquia San Patricio - Oraciones</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>tailwind.config = { theme: { extend: { colors: { arena: '#F3E5DC', verdeSanPatricio: '#16A34A', negro: '#000000' } } } }</script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+
+    <meta name="description" content="Colección de oraciones: Regina Caeli, Novena al P. Frassinetti, Novena a San José, y más oraciones de la comunidad.">
+    <link rel="canonical" href="https://rodrigoquezadab.github.io/SanPatricio/oraciones.html">
+    <meta property="og:title" content="Parroquia San Patricio - Oraciones">
+    <meta property="og:description" content="Colección de oraciones: Regina Caeli, Novena al P. Frassinetti, Novena a San José, y más oraciones de la comunidad.">
+    <meta property="og:type" content="website">
+</head>
+<body>
+<div id="menu-container">
+<nav class="bg-verdeSanPatricio sticky top-0 z-50 shadow-md">
+    <div class="container mx-auto px-4 flex flex-wrap justify-between items-center py-3">
+        <a href="index.html" class="text-white text-xl font-bold flex items-center">
+            <img src="assets/logo-san-patricio.jpg" alt="Logo Parroquia San Patricio" class="h-10 w-auto mr-3 rounded-full object-cover">
+            Parroquia San Patricio
+        </a>
+        <button id="menu-toggle" class="lg:hidden text-white focus:outline-none"><i class="fas fa-bars fa-xl"></i></button>
+        <div id="mobile-menu" class="hidden w-full lg:flex lg:w-auto mt-4 lg:mt-0 pb-4 lg:pb-0">
+            <ul id="nav-list" class="flex flex-col lg:flex-row flex-wrap justify-center space-y-2 lg:space-y-0 text-center text-sm lg:text-base lg:space-x-2">
+                <li><a href="index.html" class="nav-link block">Inicio</a></li>
+                <li><a href="adoracion.html" class="nav-link block">Adoración</a></li>
+                <li><a href="aportes.html" class="nav-link block">Aportes</a></li>
+                <li><a href="congregacion.html" class="nav-link block">Congregación</a></li>
+                <li><a href="evangelio.html" class="nav-link block">Evangelio</a></li>
+                <li><a href="noticias.html" class="nav-link block">Noticias</a></li>
+                <li><a href="servicios.html" class="nav-link block">Servicios</a></li>
+                <li><a href="contacto.html" class="nav-link block">Contacto</a></li>
+                <li><a href="recursos.html" class="nav-link block">Recursos</a></li>
+                <li><a href="cantos.html" class="nav-link block">Cantos</a></li>
+                <li><a href="oraciones.html" class="nav-link block">Oraciones</a></li>
+                <li><a href="calendario.html" class="nav-link block">Calendario</a></li>
+                <li><a href="comunidades.html" class="nav-link block">Comunidades</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+</div>
+
+<main class="container mx-auto px-4 py-8 space-y-16">
+    <section id="oraciones">
+        <h2 class="text-3xl mb-6 text-center">Oraciones</h2>
+        <div id="lista-oraciones-container" class="mb-8 card transition-opacity duration-300">
+            <h3 class="text-2xl mb-4 border-b pb-2"><i class="fas fa-pray mr-2 text-verdeSanPatricio"></i>Índice de Oraciones</h3>
+            <ul id="lista-oraciones" class="list-none space-y-3 text-lg">
+                <li class="hover:text-verdeSanPatricio cursor-pointer flex items-center p-3 rounded hover:bg-green-50 transition border-l-4 border-transparent hover:border-verdeSanPatricio shadow-sm bg-white" onclick="mostrarOracion('oracion-0')">
+                    <i class="fas fa-chevron-right text-sm text-verdeSanPatricio mr-3"></i> Regina Caeli (Reina del Cielo)
+                </li>
+                <li class="hover:text-verdeSanPatricio cursor-pointer flex items-center p-3 rounded hover:bg-green-50 transition border-l-4 border-transparent hover:border-verdeSanPatricio shadow-sm bg-white" onclick="mostrarOracion('oracion-1')">
+                    <i class="fas fa-chevron-right text-sm text-verdeSanPatricio mr-3"></i> Novena al Venerable Padre José Frassinetti (6 de Mayo)
+                </li>
+                <li class="hover:text-verdeSanPatricio cursor-pointer flex items-center p-3 rounded hover:bg-green-50 transition border-l-4 border-transparent hover:border-verdeSanPatricio shadow-sm bg-white" onclick="mostrarOracion('oracion-2')">
+                    <i class="fas fa-chevron-right text-sm text-verdeSanPatricio mr-3"></i> Oración para alcanzar la Santidad
+                </li>
+                <li class="hover:text-verdeSanPatricio cursor-pointer flex items-center p-3 rounded hover:bg-green-50 transition border-l-4 border-transparent hover:border-verdeSanPatricio shadow-sm bg-white" onclick="mostrarOracion('oracion-3')">
+                    <i class="fas fa-chevron-right text-sm text-verdeSanPatricio mr-3"></i> Oración por las Vocaciones Sacerdotales y Religiosas
+                </li>
+                <li class="hover:text-verdeSanPatricio cursor-pointer flex items-center p-3 rounded hover:bg-green-50 transition border-l-4 border-transparent hover:border-verdeSanPatricio shadow-sm bg-white" onclick="mostrarOracion('oracion-4')">
+                    <i class="fas fa-chevron-right text-sm text-verdeSanPatricio mr-3"></i> Alianza de paz
+                </li>
+                <li class="hover:text-verdeSanPatricio cursor-pointer flex items-center p-3 rounded hover:bg-green-50 transition border-l-4 border-transparent hover:border-verdeSanPatricio shadow-sm bg-white" onclick="mostrarOracion('oracion-5')">
+                    <i class="fas fa-chevron-right text-sm text-verdeSanPatricio mr-3"></i> Mes de María
+                </li>
+                <li class="hover:text-verdeSanPatricio cursor-pointer flex items-center p-3 rounded hover:bg-green-50 transition border-l-4 border-transparent hover:border-verdeSanPatricio shadow-sm bg-white" onclick="mostrarOracion('oracion-6')">
+                    <i class="fas fa-chevron-right text-sm text-verdeSanPatricio mr-3"></i> Coronilla de los siete dolores de María
+                </li>
+                <li class="hover:text-verdeSanPatricio cursor-pointer flex items-center p-3 rounded hover:bg-green-50 transition border-l-4 border-transparent hover:border-verdeSanPatricio shadow-sm bg-white" onclick="mostrarOracion('oracion-7')">
+                    <i class="fas fa-chevron-right text-sm text-verdeSanPatricio mr-3"></i> Coronilla de los siete gozos de María
+                </li>
+                <li class="hover:text-verdeSanPatricio cursor-pointer flex items-center p-3 rounded hover:bg-green-50 transition border-l-4 border-transparent hover:border-verdeSanPatricio shadow-sm bg-white" onclick="mostrarOracion('oracion-8')">
+                    <i class="fas fa-chevron-right text-sm text-verdeSanPatricio mr-3"></i> Virgen Piadosa
+                </li>
+                <li class="hover:text-verdeSanPatricio cursor-pointer flex items-center p-3 rounded hover:bg-green-50 transition border-l-4 border-transparent hover:border-verdeSanPatricio shadow-sm bg-white" onclick="mostrarOracion('oracion-9')">
+                    <i class="fas fa-chevron-right text-sm text-verdeSanPatricio mr-3"></i> Por la beatificación del P. José Frassinetti
+                </li>
+                <li class="hover:text-verdeSanPatricio cursor-pointer flex items-center p-3 rounded hover:bg-green-50 transition border-l-4 border-transparent hover:border-verdeSanPatricio shadow-sm bg-white" onclick="mostrarOracion('oracion-10')">
+                    <i class="fas fa-chevron-right text-sm text-verdeSanPatricio mr-3"></i> Acto de ofrecimiento
+                </li>
+                <li class="hover:text-verdeSanPatricio cursor-pointer flex items-center p-3 rounded hover:bg-green-50 transition border-l-4 border-transparent hover:border-verdeSanPatricio shadow-sm bg-white" onclick="mostrarOracion('oracion-11')">
+                    <i class="fas fa-chevron-right text-sm text-verdeSanPatricio mr-3"></i> Ofrenda de sí mismo a Dios
+                </li>
+                <li class="hover:text-verdeSanPatricio cursor-pointer flex items-center p-3 rounded hover:bg-green-50 transition border-l-4 border-transparent hover:border-verdeSanPatricio shadow-sm bg-white" onclick="mostrarOracion('oracion-12')">
+                    <i class="fas fa-chevron-right text-sm text-verdeSanPatricio mr-3"></i> Novena a San José (22 de abril)
+                </li>
+                <li class="hover:text-verdeSanPatricio cursor-pointer flex items-center p-3 rounded hover:bg-green-50 transition border-l-4 border-transparent hover:border-verdeSanPatricio shadow-sm bg-white" onclick="mostrarOracion('oracion-13')">
+                    <i class="fas fa-chevron-right text-sm text-verdeSanPatricio mr-3"></i> Oración del Jubileo
+                </li>
+            </ul>
+        </div>
+        
+        <div id="detalle-oraciones-container">
+
+        <article id="oracion-0" class="oracion-article card mb-8 hidden transition-opacity duration-300 text-lg leading-relaxed">
+            <button onclick="volverOraciones()" class="mb-6 inline-block bg-verdeSanPatricio text-white px-4 py-2 rounded hover:bg-green-700 transition shadow-md">
+                <i class="fas fa-arrow-left mr-2"></i>Volver al índice
+            </button>
+            <h3 class="text-3xl mb-6 text-verdeSanPatricio font-bold border-b pb-2">Regina Caeli (Reina del Cielo)</h3>
+            <div class="space-y-4 text-gray-800">
+                <h4 class="font-bold text-xl mb-2 text-verdeSanPatricio">Latín</h4>
+<p>Regina caeli, laetare, alleluia.<br>
+Quia quem meruisti portare, alleluia.<br>
+Resurrexit, sicut dixit, alleluia.<br>
+Ora pro nobis Deum, alleluia.</p><br>
+<p>℣. Gaude et laetare, Virgo Maria, alleluia.<br>
+℟. Quia surrexit Dominus vere, alleluia.</p><br>
+<p>Oremus.<br>
+Deus, qui per resurrectionem Filii tui, Domini nostri Iesu Christi, mundum laetificare dignatus es: praesta, quaesumus, ut per eius Genetricem Virginem Mariam, perpetuae capiamus gaudia vitae. Per eundem Christum Dominum nostrum. Amen.</p>
+<br>
+<h4 class="font-bold text-xl mb-2 text-verdeSanPatricio">Español</h4>
+<p>℣. Reina del Cielo, alégrate, aleluya.<br>
+℟. Porque Cristo a quien llevaste en tu seno, aleluya.</p><br>
+<p>℣. Ha resucitado según su palabra, aleluya.<br>
+℟. Ruega a Dios por nosotros, aleluya.</p><br>
+<p>℣. Alégrate y regocíjate, Virgen María, aleluya.<br>
+℟. Porque ha resucitado el Señor verdaderamente, aleluya.</p><br>
+<p>Oremos:<br>
+Dios todopoderoso que has alegrado al mundo con la resurrección de tu Hijo, Nuestro Señor Jesucristo, concédenos que, por la intercesión de su Madre, la Bienaventurada Virgen María, alcancemos los gozos de la vida eterna. Por Cristo Nuestro Señor. Amén.</p>
+            </div>
+        </article>
+        <article id="oracion-1" class="oracion-article card mb-8 hidden transition-opacity duration-300 text-lg leading-relaxed">
+            <button onclick="volverOraciones()" class="mb-6 inline-block bg-verdeSanPatricio text-white px-4 py-2 rounded hover:bg-green-700 transition shadow-md">
+                <i class="fas fa-arrow-left mr-2"></i>Volver al índice
+            </button>
+            <h3 class="text-3xl mb-6 text-verdeSanPatricio font-bold border-b pb-2">Novena al Venerable Padre José Frassinetti (6 de Mayo)</h3>
+            <div class="space-y-4 text-gray-800">
+                <p class="italic text-gray-700 mb-4">Fundador de la Congregación Hijos de Santa María Inmaculada</p><h4 class="font-bold text-xl mb-2 text-verdeSanPatricio">Oración para Todos los Días</h4><p>Señor Dios, que en tu gran amor nos diste la figura del Padre José Frassinetti, como ejemplo claro de amor y entrega a ti y a la iglesia.<br>Concédenos por su intercesión, en esta novena, la gracia de ........(Pedir la gracia personal)...., y junto a ella, una fiel devoción a la Virgen Inmaculada, de modo que, podamos vivir la santidad que es posible para todos, y contribuir así a la renovación espiritual de nuestras familias, comunidades y del mundo entero.<br>Amén.</p><br><h4 class="font-bold text-xl mb-2 text-verdeSanPatricio">Oraciones del Día</h4><p><strong>Primer día (6 de Mayo)</strong><br>"Si quieres llegar a tener a Jesucristo, no lo busques nunca separado de la Cruz... Jesús que nos ama no nos dejará jamás privado de algo que en sí es tan querido, esa es la Cruz".</p><br><p><strong>Segundo día (7 de Mayo)</strong><br>"No hay en la tierra ni libro, ni maestro, que pueda enseñar al alma la verdadera humildad; necesitamos que nos lo enseñe el Espíritu Santo, más bien, que sea Él quien la infunda en nuestros corazones. Solamente entonces, el alma está encaminada a la humildad".</p><br><p><strong>Tercer día (8 de Mayo)</strong><br>"El Banquete del divino Amor es la Eucaristía, la Santísima Comunión; el Santísimo Sacramento que contiene el Cuerpo, la Sangre, el Alma y la Divinidad de Nuestro Señor Jesucristo, el cual se nos da como alimento a nuestras almas".</p><br><p><strong>Cuarto día (9 de Mayo)</strong><br>"El Santísimo Sacramento es el pan bajado del cielo, es el Maná del desierto que contiene cada sabor delicioso; Es la dulzura misma del corazón de Jesús, puesta al contacto de nuestros corazones a través de la santísima Comunión".</p><br><p><strong>Quinto día (10 de Mayo)</strong><br>"La disposición necesaria para acercarse a la Mesa Eucarística es solo una: que el alma esté en estado de gracia, inmune o purificada de cada pecado mortal. Entonces el alma tendrá la vestidura nupcial, entonces tendrá derecho al Banquete".</p><br><p><strong>Sexto día (11 de Mayo)</strong><br>"Teman al pecado, y témanlo sobre todos los males. Más bien, teman únicamente al pecado, porque en verdad es el único y verdadero mal. Donde no está el pecado, no existe nada contra la santa voluntad de Dios".</p><br><p><strong>Séptimo día (12 de Mayo)</strong><br>"No hagas el bien tú solo. Cada vez que puedas hacer el bien, procura que otros te ayuden y concurran a realizarlo contigo. Quien trabaja solo está sujeto a realizar muchos errores".</p><br><p><strong>Octavo día (13 de Mayo)</strong><br>"Una sola virtud nos hace amar a Dios y al prójimo. Esta es la caridad cristiana. Entonces, en nuestras almas el amor al prójimo corresponde al amor a Dios, de modo que donde es perfecto el amor de Dios, también es perfecto el amor al prójimo".</p><br><p><strong>Noveno día (14 de Mayo)</strong><br>"Ama a María; dulce es además, el amor de María. La dulzura del amor no se prueba con argumentos y razones, se experimenta con el gusto interior".<br><em>(Jaculatoria final: "Muéstrate Madre, y dános un camino seguro")</em></p><br><h4 class="font-bold text-xl mb-2 text-verdeSanPatricio">Oración Final: Alianza de Paz</h4><p>Tú, Señor, perdona mis pecados y borra todas mis maldades.<br>Enséñame a hacer tu voluntad.<br>Dame un espíritu bueno.<br>Ponme junto a ti.<br>No permitas que me separe de ti.<br>Cuídame como la pupila de los ojos.<br>Sin ti, polvo y ceniza como soy, no puedo hacer nada.<br>Yo en tu nombre, confiando en tu gracia, propongo no reservarme nada para mi, sino el perfecto cumplimiento de tu ley abrazado a tu santa Cruz.<br>Por eso nada te pido para mi, ni los bienes, ni la vida, ni la muerte.<br>De esta manera que haya concordancia entre tu voluntad y la mía.<br>En mí y en todos, esté presente tu misericordia, ahora y por la eternidad.<br>Amén.</p><br><p class="text-sm text-gray-500 italic">(Oración escrita por José Frassinetti)</p>
+            </div>
+        </article>
+        <article id="oracion-2" class="oracion-article card mb-8 hidden transition-opacity duration-300 text-lg leading-relaxed">
+            <button onclick="volverOraciones()" class="mb-6 inline-block bg-verdeSanPatricio text-white px-4 py-2 rounded hover:bg-green-700 transition shadow-md">
+                <i class="fas fa-arrow-left mr-2"></i>Volver al índice
+            </button>
+            <h3 class="text-3xl mb-6 text-verdeSanPatricio font-bold border-b pb-2">Oración para alcanzar la Santidad</h3>
+            <div class="space-y-4 text-gray-800">
+                <p>Padre divino, en nombre de Jesucristo, yo te pido que me concedas la gracia de hacerme santo.</p><p>No necesito otra gracia; quiero esta cueste lo que cueste, y la espero de tu bondad firmemente, ya que Jesús mismo me aseguró que Tú me escucharías.</p><p>Amén.</p>
+            </div>
+        </article>
+        <article id="oracion-3" class="oracion-article card mb-8 hidden transition-opacity duration-300 text-lg leading-relaxed">
+            <button onclick="volverOraciones()" class="mb-6 inline-block bg-verdeSanPatricio text-white px-4 py-2 rounded hover:bg-green-700 transition shadow-md">
+                <i class="fas fa-arrow-left mr-2"></i>Volver al índice
+            </button>
+            <h3 class="text-3xl mb-6 text-verdeSanPatricio font-bold border-b pb-2">Oración por las Vocaciones Sacerdotales y Religiosas</h3>
+            <div class="space-y-4 text-gray-800">
+                <p>Te pedimos, Señor, que sigas bendiciendo y enriqueciendo a tu Iglesia,<br>
+con los dones de tus vocaciones;<br>
+te pedimos que sean muchos los que escuchen tu voz,<br>
+y sigan alegrando a tu Iglesia,<br>
+con la generosidad y fidelidad de sus respuestas.<br>
+Amén.</p><br><p>℣. María, Madre de la Iglesia.<br>℟. Ruega por nosotros.</p><br>
+<p class="text-sm text-gray-500 italic">Esta oración es tomada del Papa Pablo VI, en la Primera Jornada Mundial por las Vocaciones.<br>No es del P. Frassinetti, pero está en el corazón de nuestras comunidades.</p>
+            </div>
+        </article>
+        <article id="oracion-4" class="oracion-article card mb-8 hidden transition-opacity duration-300 text-lg leading-relaxed">
+            <button onclick="volverOraciones()" class="mb-6 inline-block bg-verdeSanPatricio text-white px-4 py-2 rounded hover:bg-green-700 transition shadow-md">
+                <i class="fas fa-arrow-left mr-2"></i>Volver al índice
+            </button>
+            <h3 class="text-3xl mb-6 text-verdeSanPatricio font-bold border-b pb-2">Alianza de paz</h3>
+            <div class="space-y-4 text-gray-800">
+                <p>Tú, Señor, perdona mis pecados y borra todas mis maldades.<br>Enséñame a hacer tu voluntad.<br>Dame un espíritu bueno,<br>ponme junto a ti.<br>No permitas que me separe de ti.<br>Cuídame como la pupila de tus ojos.<br>Sin ti, polvo y ceniza como soy,<br>no puedo hacer nada.<br>Yo en tu nombre, confiando en tu gracia,<br>propongo no reservarme nada para mí,<br>sino el perfecto cumplimiento de tu ley,<br>abrazado a tu Santa Cruz.<br>Por eso nada te pido para mí,<br>ni los bienes, ni la vida, ni la muerte.<br>De esta manera que haya concordancia entre tu voluntad y la mía.<br>En mí y en todos esté presente tu misericordia,<br>ahora y por la eternidad.<br>Amén.</p>
+            </div>
+        </article>
+        <article id="oracion-5" class="oracion-article card mb-8 hidden transition-opacity duration-300 text-lg leading-relaxed">
+            <button onclick="volverOraciones()" class="mb-6 inline-block bg-verdeSanPatricio text-white px-4 py-2 rounded hover:bg-green-700 transition shadow-md">
+                <i class="fas fa-arrow-left mr-2"></i>Volver al índice
+            </button>
+            <h3 class="text-3xl mb-6 text-verdeSanPatricio font-bold border-b pb-2">Mes de María</h3>
+            <div class="space-y-4 text-gray-800">
+                <h4 class="font-bold text-xl mb-2 text-verdeSanPatricio">Oración Inicial</h4><p>¡Oh María!, durante el bello mes a ti consagrado, todo resuena con tu nombre y alabanza. Tu santuario resplandece con nuevo brillo y nuestras manos te han elevado un trono de gracia y de amor, desde donde presides nuestras fiestas y escuchas nuestras oraciones y votos.</p><p>Para honrarte hemos esparcido frescas flores a tus pies, y adornado tu frente con guirnaldas y coronas. Mas ¡oh María! no te das por satisfecha con estos homenajes. Hay flores cuya frescura y lozanía jamás pasan, y coronas que no se marchitan. Estas son las que esperas de tus hijos, y la más bella corona que pueden deponer a sus pies es la de sus virtudes.</p><p>Sí, los lirios que tú nos pides son la inocencia de nuestros corazones; nos esforzaremos, pues, durante el curso de este mes consagrado a tu gloria, ¡oh Virgen Santa!, en conservar nuestras almas puras y sin mancha, y en separar de nuestros pensamientos, deseos y miradas, aun la sombra misma del mal.</p><p>La rosa cuyo brillo agrada a tus ojos es la caridad, el amor a Dios y a nuestros hermanos. Nos amaremos, pues, los unos a los otros como hijos de una misma familia cuya madre eres tú, viviendo todos en la dulzura de una concordia fraternal.</p><p>En este mes bendito procuraremos cultivar en nuestros corazones la humildad, modesta flor que te es tan querida, y con tu auxilio, llegaremos a ser puros, humildes, caritativos, pacientes y esperanzados.</p><p>¡Oh María! Haz producir en nuestros corazones todas estas amables virtudes; que ellas broten, florezcan y den al fin frutos de gracia, para que podamos ser algún día dignos hijos de la más santa y la mejor de las madres. Amén.</p><br><h4 class="font-bold text-xl mb-2 text-verdeSanPatricio">Oración Final</h4><p>¡Oh María, Madre de Jesús nuestro Salvador y nuestra buena Madre! Nosotros venimos a ofrecerte con estos obsequios que colocamos a tus pies, nuestros corazones deseosos de agradecerte y solicitar de tu bondad un nuevo ardor en tu santo servicio.</p><p>Dígnate presentarnos a tu Divino Hijo que, en vista de sus méritos y a nombre de su Santa Madre, dirija nuestros pasos por el sendero de la virtud, que haga lucir con nuevo esplendor la luz de la fe sobre los infortunados pueblos que gimen por tanto tiempo en las tinieblas del error; que vuelvan hacia Él y cambien tantos corazones rebeldes, cuya penitencia regocijará su corazón y el tuyo.</p><p>Que convierta a los enemigos de tu Iglesia, y que, en fin, encienda por todas partes el fuego de tu ardiente caridad; que nos colme de alegría en medio de las tribulaciones de esta vida y de esperanza para el porvenir. Amén.</p>
+            </div>
+        </article>
+        <article id="oracion-6" class="oracion-article card mb-8 hidden transition-opacity duration-300 text-lg leading-relaxed">
+            <button onclick="volverOraciones()" class="mb-6 inline-block bg-verdeSanPatricio text-white px-4 py-2 rounded hover:bg-green-700 transition shadow-md">
+                <i class="fas fa-arrow-left mr-2"></i>Volver al índice
+            </button>
+            <h3 class="text-3xl mb-6 text-verdeSanPatricio font-bold border-b pb-2">Coronilla de los siete dolores de María</h3>
+            <div class="space-y-4 text-gray-800">
+                <p>Te compadecemos, oh, dolorosa María, por aquellas aflicciones por las que tu tierno Corazón sufrió por la profecía de Simeón. Querida Madre, por tu santo Corazón tan afligido, intercede para que recibamos la virtud de la humildad y el don del santo temor de Dios. Ave María.</p><p>Te compadecemos, oh, dolorosa María, por aquellas angustias que tu sensibilísimo Corazón sufrió en la fuga y estadía en Egipto. Querida Madre, por tu Corazón tan angustiado, intercede para que recibamos la virtud de la generosidad, especialmente hacia los pobres, y el don de piedad. Ave María.</p><p>Te compadecemos, oh, dolorosa María, por aquellas preocupaciones que tu solícito Corazón sufrió en la pérdida de tu querido Jesús. Querida Madre, por tu Corazón tan preocupado, intercede para que recibamos la virtud de la castidad y don de ciencia. Ave María.</p><p>Te compadecemos, oh, dolorosa María, por aquella consternación que tu materno Corazón sintió al encontrarse con Jesús cargando la Cruz. Querida Madre, por tu amoroso Corazón atribulado, intercede para que recibamos la virtud de la paciencia y el don de fortaleza. Ave María.</p><p>Te compadecemos, oh, dolorosa María, por aquel martirio que tu generoso Corazón sostuvo al asistir a Jesús agonizante. Querida Madre, por tu Corazón tan martirizado, intercede para que recibamos la virtud de la templanza y el don de consejo. Ave María.</p><p>Te compadecemos, oh, dolorosa María, por aquella herida que tu piadoso Corazón sufrió cuando la lanza atravesó el Corazón de Jesús, hiriendo su amabilísimo Corazón. Querida Madre, por tu Corazón tan traspasado, intercede para que recibamos la virtud de la caridad fraterna y el don de inteligencia. Ave María.</p><p>Te compadecemos, oh, dolorosa María, por el espasmo que tu amabilísimo Corazón experimentó durante la sepultura de Jesús. Querida Madre, por tu Corazón tan sufriente, intercede para que recibamos la virtud de la diligencia y el don de sabiduría. Ave María.</p>
+            </div>
+        </article>
+        <article id="oracion-7" class="oracion-article card mb-8 hidden transition-opacity duration-300 text-lg leading-relaxed">
+            <button onclick="volverOraciones()" class="mb-6 inline-block bg-verdeSanPatricio text-white px-4 py-2 rounded hover:bg-green-700 transition shadow-md">
+                <i class="fas fa-arrow-left mr-2"></i>Volver al índice
+            </button>
+            <h3 class="text-3xl mb-6 text-verdeSanPatricio font-bold border-b pb-2">Coronilla de los siete gozos de María</h3>
+            <div class="space-y-4 text-gray-800">
+                <p>Alégrate, oh, esposa del Espíritu Santo, por la alegría que disfrutas en el Paraíso, mientras que por tu pureza y virginidad eres exaltada por sobre todos los coros celestiales. Ave María.</p><p>Alégrate, oh, verdadera Madre de Dios, por esa gloria que disfrutas en el Cielo, porque, así como el sol ilumina todo el mundo, Tú con tu esplendor adornas y haces resplandecer todo el Paraíso. Ave María.</p><p>Alégrate, oh, hija de Dios, por aquel honor que te tributa el Paraíso mientras, todas las jerarquías de los Ángeles, Arcángeles, Tronos, Dominaciones y todos los espíritus beatos te veneran y reconocen como Madre de su Creador, y son obedientes a cada mínima petición tuya. Ave María.</p><p>Alégrate, oh, nobilísima Sierva de la Santísima Trinidad, por aquella alegría que gozas en el Paraíso, porque, todas las gracias que pides a tu Divino Hijo te son concedidas inmediatamente, así, como dice San Bernardo, no se concede ninguna gracia aquí en la tierra, que no pase primero por tus santísimas manos. Ave María.</p><p>Alégrate, oh, serenísima princesa, porque solo Tú mereciste sentarte a la derecha de tu Santísimo Hijo, el cual se sienta a la derecha del Padre Eterno. Ave María.</p><p>Alégrate, oh, esperanza de los pecadores, refugio de los atribulados, por aquella gran alegría que gozas en el Paraíso, porque todos aquellos que te alaban y te veneran, son premiados por el Padre Eterno, en este mundo con su santa gracia, y en el otro con su santísima gloria. Ave María.</p><p>Alégrate, oh, Madre y Esposa de Dios, porque todas las gracias, todos los gozos, alegrías y favores que ahora gozas en el Paraíso, ya nunca disminuirán, sino que aumentarán hasta el día del juicio y durarán por la eternidad. Ave María.</p>
+            </div>
+        </article>
+        <article id="oracion-8" class="oracion-article card mb-8 hidden transition-opacity duration-300 text-lg leading-relaxed">
+            <button onclick="volverOraciones()" class="mb-6 inline-block bg-verdeSanPatricio text-white px-4 py-2 rounded hover:bg-green-700 transition shadow-md">
+                <i class="fas fa-arrow-left mr-2"></i>Volver al índice
+            </button>
+            <h3 class="text-3xl mb-6 text-verdeSanPatricio font-bold border-b pb-2">Virgen Piadosa</h3>
+            <div class="space-y-4 text-gray-800">
+                <p class="text-sm text-gray-500 italic mb-4">(Tomada de «Amemos a María»)</p><p>Virgen Piadosa – dulce María<br>de las creaturas – la más perfecta<br>de Dios y los Ángeles – la más preciada<br>nuestro consuelo – luz y esperanza<br>vida, salud – gozo y alegría</p><br><p>Tú la más pura – la Inmaculada<br>Tú la más rica – la más hermosa<br>la Admirable – la más gloriosa<br>la más fiel – la poderosa<br>la más amable – la más clemente</p><br><p>Acoge, ruego – el corazón<br>Madre querida – del amor puro<br>Virgen piadosa – dulce María</p><br><p>Amén.</p>
+            </div>
+        </article>
+        <article id="oracion-9" class="oracion-article card mb-8 hidden transition-opacity duration-300 text-lg leading-relaxed">
+            <button onclick="volverOraciones()" class="mb-6 inline-block bg-verdeSanPatricio text-white px-4 py-2 rounded hover:bg-green-700 transition shadow-md">
+                <i class="fas fa-arrow-left mr-2"></i>Volver al índice
+            </button>
+            <h3 class="text-3xl mb-6 text-verdeSanPatricio font-bold border-b pb-2">Por la beatificación del P. José Frassinetti</h3>
+            <div class="space-y-4 text-gray-800">
+                <p>Jesús, Sumo y Eterno Sacerdote,<br>que fuiste exaltado con la palabra, con los escritos,<br>y sobre todo, con una vida verdaderamente sacerdotal<br>por el Venerable Padre José Frassinetti,<br>escucha benigno nuestra oración.<br>Te pedimos insistentemente que,<br>por los méritos de la Virgen Inmaculada,<br>por quien él tuvo especial devoción,<br>por el gran amor que él demostró por ti Sacramentado,<br>por el celo laborioso que él desplegó,<br>te dignes glorificar a tu siervo con los honores de los altares,<br>si es para tu mayor gloria.<br>Mientras tanto, te pedimos humildemente por su intercesión,<br>la gracia que tanto necesitamos (pídase).</p><br><p class="italic">(Padre Nuestro, Ave María y Gloria)</p>
+            </div>
+        </article>
+        <article id="oracion-10" class="oracion-article card mb-8 hidden transition-opacity duration-300 text-lg leading-relaxed">
+            <button onclick="volverOraciones()" class="mb-6 inline-block bg-verdeSanPatricio text-white px-4 py-2 rounded hover:bg-green-700 transition shadow-md">
+                <i class="fas fa-arrow-left mr-2"></i>Volver al índice
+            </button>
+            <h3 class="text-3xl mb-6 text-verdeSanPatricio font-bold border-b pb-2">Acto de ofrecimiento</h3>
+            <div class="space-y-4 text-gray-800">
+                <p class="text-sm text-gray-500 italic mb-4">(Tomada de «El religioso en el Siglo»)</p><p>Señor, Tú quieres que voluntariamente me ofrezca a ti<br>para hacerme todo de ti.<br>Yo te ofrezco a mí mismo<br>con todas mis potencialidades,<br>inteligencia, memoria y voluntad,<br>ofrezco mi cuerpo con todas sus fuerzas,<br>y con todos sus sentimientos;<br>te ofrezco mi salud y mi vida.<br>Te ofrezco todo lo que poseo en este mundo,<br>para que hagas de mí y de mis cosas lo que te parezca mejor,<br>en cambio te pido me concedas la gracia<br>de que mi existencia y todas mis cosas<br>sirvan solamente para darte alegría, honor y gloria.<br>Amén.</p>
+            </div>
+        </article>
+        <article id="oracion-11" class="oracion-article card mb-8 hidden transition-opacity duration-300 text-lg leading-relaxed">
+            <button onclick="volverOraciones()" class="mb-6 inline-block bg-verdeSanPatricio text-white px-4 py-2 rounded hover:bg-green-700 transition shadow-md">
+                <i class="fas fa-arrow-left mr-2"></i>Volver al índice
+            </button>
+            <h3 class="text-3xl mb-6 text-verdeSanPatricio font-bold border-b pb-2">Ofrenda de sí mismo a Dios</h3>
+            <div class="space-y-4 text-gray-800">
+                <p>Señor, yo pongo en tus manos todo mi ser:<br>alma, cuerpo, salud y vida;<br>y cuanto me has dado en este mundo,<br>sin reservar nada para mí.<br>De mí y de mis cosas haz Tú lo que quieras,<br>yo no quiero otra cosa que tu amor, tu gracia y tu voluntad.<br>Amén.</p>
+            </div>
+        </article>
+        <article id="oracion-12" class="oracion-article card mb-8 hidden transition-opacity duration-300 text-lg leading-relaxed">
+            <button onclick="volverOraciones()" class="mb-6 inline-block bg-verdeSanPatricio text-white px-4 py-2 rounded hover:bg-green-700 transition shadow-md">
+                <i class="fas fa-arrow-left mr-2"></i>Volver al índice
+            </button>
+            <h3 class="text-3xl mb-6 text-verdeSanPatricio font-bold border-b pb-2">Novena a San José (22 de abril)</h3>
+            <div class="space-y-4 text-gray-800">
+                <p class="italic text-gray-700 mb-4">(22 de abril)</p>
+<h4 class="font-bold text-xl mb-2 text-verdeSanPatricio">Saludo a San José</h4>
+<p>¡Dios te salve José, esposo de María, lleno de gracia!<br>
+Jesús y su Madre están contigo;<br>
+bendito tú eres entre todos los hombres<br>
+y bendito es Jesús, el Hijo de María.</p><br>
+<p>San José: ruega por nosotros pecadores, ahora y en la hora de nuestra muerte.</p><br>
+<h4 class="font-bold text-xl mb-2 text-verdeSanPatricio">Responsorio para todos los días</h4>
+<p>℣. Ruega por nosotros, San José.<br>
+℟. Para que seamos dignos de las promesas de Cristo.</p><br>
+<h4 class="font-bold text-xl mb-2 text-verdeSanPatricio">Oración Final</h4>
+<p>Oh glorioso Patriarca San José, heme aquí, postrado de rodillas ante tu presencia,<br>
+para pedirte tu protección. Desde ya te elijo como mi padre, protector y guía.<br>
+Bajo tu amparo pongo mi cuerpo y mi alma, propiedad, vida y salud. Acéptame como hijo tuyo. Presérvame de todos los peligros, asechanzas y lazos enemigos. Asísteme en todo momento<br>
+y sobre todo en la hora de mi muerte.</p><br>
+<p>Amén.</p>
+            </div>
+        </article>
+        <article id="oracion-13" class="oracion-article card mb-8 hidden transition-opacity duration-300 text-lg leading-relaxed">
+            <button onclick="volverOraciones()" class="mb-6 inline-block bg-verdeSanPatricio text-white px-4 py-2 rounded hover:bg-green-700 transition shadow-md">
+                <i class="fas fa-arrow-left mr-2"></i>Volver al índice
+            </button>
+            <h3 class="text-3xl mb-6 text-verdeSanPatricio font-bold border-b pb-2">Oración del Jubileo</h3>
+            <div class="space-y-4 text-gray-800">
+                <p>Padre que estás en el cielo,<br>la fe que nos has donado en<br>tu Hijo Jesucristo, nuestro hermano,<br>y la llama de caridad<br>infundida en nuestros corazones por el Espíritu Santo,<br>despierten en nosotros la bienaventurada esperanza<br>en la venida de tu Reino.</p><p>Tu gracia nos transforme<br>en dedicados cultivadores de las semillas del Evangelio<br>que fermenten la humanidad y el cosmos,<br>en espera confiada<br>de los cielos nuevos y de la tierra nueva,<br>cuando vencidas las fuerzas del mal,<br>se manifestará para siempre tu gloria.</p><p>La gracia del Jubileo<br>reavive en nosotros, Peregrinos de Esperanza,<br>el anhelo de los bienes celestiales<br>y derrame en el mundo entero<br>la alegría y la paz<br>de nuestro Redentor.</p><p>A ti, Dios bendito eternamente,<br>sea la alabanza y la gloria por los siglos.<br>Amén.</p>
+            </div>
+        </article>
+        </div>
+    </section>
+</main>
+
+<div id="footer-container">
+<div class="btn-flotante-container">
+    <button id="btnSubir" class="btn-flotante btn-subir hidden" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" title="Subir"><i class="fas fa-chevron-up"></i></button>
+    <a href="https://wa.me/56933484878" class="btn-flotante btn-whatsapp" target="_blank" title="Contáctanos por WhatsApp"><i class="fab fa-whatsapp"></i></a>
+</div>
+
+<footer class="bg-gray-800 text-white py-6 mt-12 w-full">
+    <div class="container mx-auto px-4 flex flex-col items-center">
+        <div class="flex space-x-6 mb-4">
+            <a href="https://www.facebook.com/psp.hsmi" target="_blank" class="hover:text-verdeSanPatricio transition text-2xl" title="Facebook">
+                <i class="fab fa-facebook"></i>
+            </a>
+            <a href="https://www.youtube.com/@parroquiasanpatricio5184" target="_blank" class="hover:text-verdeSanPatricio transition text-2xl" title="YouTube">
+                <i class="fab fa-youtube"></i>
+            </a>
+        </div>
+        <p class="text-center mb-2"><i class="fas fa-map-marker-alt mr-2"></i> Isabel La Católica 6319, Las Condes, Santiago</p>
+        <p class="text-center">&copy; 2026 Parroquia San Patricio. Todos los derechos reservados.</p>
+    </div>
+</footer>
+
+</div>
+<script src="components.js?v=2"></script>
+<script>
+
+    // Progressive enhancement
+    function mostrarOracion(id) {
+        document.getElementById("lista-oraciones-container").style.display = 'none';
+        document.querySelectorAll('.oracion-article').forEach(el => el.style.display = 'none');
+        
+        const target = document.getElementById(id);
+        if(target) {
+            target.style.display = 'block';
+            target.classList.remove('hidden');
+            window.scrollTo({ top: target.offsetTop - 100, behavior: 'smooth' });
+        }
+    }
+
+    function volverOraciones() {
+        document.querySelectorAll('.oracion-article').forEach(el => el.style.display = 'none');
+        document.getElementById("lista-oraciones-container").style.display = 'block';
+        window.scrollTo({ top: document.getElementById("lista-oraciones-container").offsetTop - 100, behavior: 'smooth' });
+    }
+    
+    // Si hay un hash en la URL, intentar abrirla (ej: #oracion-0)
+    document.addEventListener("DOMContentLoaded", function () {
+        if(window.location.hash && window.location.hash.startsWith('#oracion-')) {
+            mostrarOracion(window.location.hash.substring(1));
+        } else {
+            // Ensure index is shown and articles are hidden
+            document.getElementById("lista-oraciones-container").style.display = 'block';
+        }
+    });
+
+</script>
+</body>
+</html>

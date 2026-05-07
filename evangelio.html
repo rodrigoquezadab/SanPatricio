@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parroquia San Patricio - Evangelio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>tailwind.config = { theme: { extend: { colors: { arena: '#F3E5DC', verdeSanPatricio: '#16A34A', negro: '#000000' } } } }</script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+
+    <meta name="description" content="Evangelio del día y Santo del día. Lectura bíblica diaria desde la Parroquia San Patricio.">
+    <link rel="canonical" href="https://rodrigoquezadab.github.io/SanPatricio/evangelio.html">
+    <meta property="og:title" content="Parroquia San Patricio - Evangelio">
+    <meta property="og:description" content="Evangelio del día y Santo del día. Lectura bíblica diaria desde la Parroquia San Patricio.">
+    <meta property="og:type" content="website">
+</head>
+<body>
+<div id="menu-container">
+<nav class="bg-verdeSanPatricio sticky top-0 z-50 shadow-md">
+    <div class="container mx-auto px-4 flex flex-wrap justify-between items-center py-3">
+        <a href="index.html" class="text-white text-xl font-bold flex items-center">
+            <img src="assets/logo-san-patricio.jpg" alt="Logo Parroquia San Patricio" class="h-10 w-auto mr-3 rounded-full object-cover">
+            Parroquia San Patricio
+        </a>
+        <button id="menu-toggle" class="lg:hidden text-white focus:outline-none"><i class="fas fa-bars fa-xl"></i></button>
+        <div id="mobile-menu" class="hidden w-full lg:flex lg:w-auto mt-4 lg:mt-0 pb-4 lg:pb-0">
+            <ul id="nav-list" class="flex flex-col lg:flex-row flex-wrap justify-center space-y-2 lg:space-y-0 text-center text-sm lg:text-base lg:space-x-2">
+                <li><a href="index.html" class="nav-link block">Inicio</a></li>
+                <li><a href="adoracion.html" class="nav-link block">Adoración</a></li>
+                <li><a href="aportes.html" class="nav-link block">Aportes</a></li>
+                <li><a href="congregacion.html" class="nav-link block">Congregación</a></li>
+                <li><a href="evangelio.html" class="nav-link block">Evangelio</a></li>
+                <li><a href="noticias.html" class="nav-link block">Noticias</a></li>
+                <li><a href="servicios.html" class="nav-link block">Servicios</a></li>
+                <li><a href="contacto.html" class="nav-link block">Contacto</a></li>
+                <li><a href="recursos.html" class="nav-link block">Recursos</a></li>
+                <li><a href="cantos.html" class="nav-link block">Cantos</a></li>
+                <li><a href="oraciones.html" class="nav-link block">Oraciones</a></li>
+                <li><a href="calendario.html" class="nav-link block">Calendario</a></li>
+                <li><a href="comunidades.html" class="nav-link block">Comunidades</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+</div>
+
+<main class="container mx-auto px-4 py-8 space-y-16">
+    <section id="evangelio">
+        <h2 class="text-3xl mb-6 text-center">Evangelio y Santo del día</h2>
+        <div class="card p-2 overflow-x-auto flex justify-center w-full">
+            <iframe id="datamain" scrolling="auto" align="top" marginwidth="0" marginheight="0" src="https://www.eucaristiadiaria.cl/compartir.php" frameborder="0" width="1060" height="1500" valign="middle" class="max-w-full"></iframe>
+        </div>
+    </section>
+</main>
+
+<div id="footer-container">
+<div class="btn-flotante-container">
+    <button id="btnSubir" class="btn-flotante btn-subir hidden" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" title="Subir"><i class="fas fa-chevron-up"></i></button>
+    <a href="https://wa.me/56933484878" class="btn-flotante btn-whatsapp" target="_blank" title="Contáctanos por WhatsApp"><i class="fab fa-whatsapp"></i></a>
+</div>
+
+<footer class="bg-gray-800 text-white py-6 mt-12 w-full">
+    <div class="container mx-auto px-4 flex flex-col items-center">
+        <div class="flex space-x-6 mb-4">
+            <a href="https://www.facebook.com/psp.hsmi" target="_blank" class="hover:text-verdeSanPatricio transition text-2xl" title="Facebook">
+                <i class="fab fa-facebook"></i>
+            </a>
+            <a href="https://www.youtube.com/@parroquiasanpatricio5184" target="_blank" class="hover:text-verdeSanPatricio transition text-2xl" title="YouTube">
+                <i class="fab fa-youtube"></i>
+            </a>
+        </div>
+        <p class="text-center mb-2"><i class="fas fa-map-marker-alt mr-2"></i> Isabel La Católica 6319, Las Condes, Santiago</p>
+        <p class="text-center">&copy; 2026 Parroquia San Patricio. Todos los derechos reservados.</p>
+    </div>
+</footer>
+
+</div>
+<script src="components.js?v=2"></script>
+</body>
+</html>
