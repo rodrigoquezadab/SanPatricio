@@ -19,7 +19,7 @@ Todas las páginas fueron migradas de `/paginas/` a la raíz del proyecto. La na
 /calendario.html
 /cantos.html
 /comunidades.html
-/congregacion.html
+/parroquia.html
 /contacto.html
 /evangelio.html
 /noticias.html

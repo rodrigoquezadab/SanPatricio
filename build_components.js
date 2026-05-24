@@ -9,7 +9,7 @@ const metaDescriptions = {
     'aportes.html': 'Datos bancarios y formas de contribuir a la Parroquia San Patricio. Información sobre el 1% CALI (Contribución a la Iglesia).',
     'calendario.html': 'Calendario parroquial de la Parroquia San Patricio con actividades, celebraciones y eventos de la comunidad.',
     'comunidades.html': 'Conoce las comunidades, equipos pastorales y grupos de la Parroquia San Patricio: catequesis, adoradores, coro, y más.',
-    'congregacion.html': 'Historia de la Congregación Hijos de Santa María Inmaculada, fundada por el Venerable P. José Frassinetti.',
+    'parroquia.html': 'Conoce la historia de la Parroquia San Patricio en Las Condes y la Congregación de los Hijos de Santa María Inmaculada.',
     'contacto.html': 'Contacto, dirección, teléfono, WhatsApp y redes sociales de la Parroquia San Patricio en Las Condes, Santiago.',
     'evangelio.html': 'Evangelio del día y Santo del día. Lectura bíblica diaria desde la Parroquia San Patricio.',
     'noticias.html': 'Noticias y actividades recientes de la Parroquia San Patricio en Las Condes, Santiago de Chile.',
