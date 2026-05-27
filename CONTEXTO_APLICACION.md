@@ -86,10 +86,11 @@ node build_cantos.js        # Genera paginas/cantos.html desde los datos
 
 ## 📋 Registro de Cambios (Changelog)
 
-### [2026-05-27] - Remoción de Noticia de Pentecostés, Archivo de Flyer y Limpieza de Deploy
+### [2026-05-27] - Remoción de Noticia de Pentecostés, Archivo de Flyer, Limpieza de Deploy e Incorporación del Ángelus
 - **Contenido**: Se eliminó la noticia de Pentecostés y aniversario del Templo de `noticias.json`.
 - **Gestión de Assets**: Se trasladó el flyer `Pentecostes.png` de `assets/flyers-noticias/` a `assets/flyers-historicos/`.
 - **Despliegue**: Se eliminó el flujo de trabajo de GitHub Actions (`.github/workflows/deploy.yml`) tras conectar el repositorio directamente a Hostinger.
+- **Contenido Oraciones**: Se agregó la oración "El Ángelus" en latín y español a `oraciones.html` (ubicada en el índice y contenido justo después de Regina Caeli).
 
 ### [2026-05-07] - SEO, Flat Routing y Mejoras de Navegación
 - **Arquitectura**: Migración completa del sitio a una estructura de URL plana (archivos en la raíz en lugar de la subcarpeta `/paginas/`) para facilitar la indexabilidad por los motores de búsqueda. Implementación de redirecciones en `404.html`.
