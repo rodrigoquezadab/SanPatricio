@@ -49,6 +49,95 @@
 <main class="container mx-auto px-4 py-8 space-y-16">
     <section id="calendario">
         <h2 class="text-3xl mb-6 text-center">Calendario Parroquial</h2>
+
+        <!-- Calendario Litúrgico Interactivo -->
+        <div class="mb-12 card p-6" id="calendario-liturgico-section">
+            <h3 class="text-2xl mb-4 text-center md:text-left text-verdeSanPatricio">Calendario Litúrgico 2026</h3>
+            
+            <!-- Loading State -->
+            <div id="calendar-loading" class="flex flex-col items-center justify-center py-16 space-y-4">
+                <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-verdeSanPatricio"></div>
+                <p class="text-gray-600 font-medium">Cargando eventos litúrgicos...</p>
+            </div>
+            
+            <!-- Error State -->
+            <div id="calendar-error" class="hidden text-center py-12 text-red-600">
+                <i class="fas fa-exclamation-triangle fa-3x mb-3 text-red-500"></i>
+                <p class="font-semibold text-lg">Error al cargar el calendario</p>
+                <p class="text-gray-600 text-sm mt-1">No se pudo cargar la información del calendario litúrgico en este momento.</p>
+            </div>
+            
+            <!-- Calendar Content (Initially Hidden) -->
+            <div id="calendar-content" class="hidden space-y-6">
+                <!-- Navigation & Legend -->
+                <div class="flex flex-col xl:flex-row justify-between items-center gap-4 border-b pb-4 border-gray-100">
+                    <div class="flex items-center space-x-4">
+                        <button id="prev-month-btn" class="p-2 hover:bg-gray-100 rounded-full transition text-verdeSanPatricio focus:outline-none" title="Mes anterior">
+                            <i class="fas fa-chevron-left fa-lg"></i>
+                        </button>
+                        <h4 id="current-month-label" class="text-xl font-bold text-gray-800 min-w-[180px] text-center capitalize">Mayo 2026</h4>
+                        <button id="next-month-btn" class="p-2 hover:bg-gray-100 rounded-full transition text-verdeSanPatricio focus:outline-none" title="Mes siguiente">
+                            <i class="fas fa-chevron-right fa-lg"></i>
+                        </button>
+                    </div>
+                    
+                    <!-- Legend -->
+                    <div class="flex flex-wrap gap-2 justify-center text-xs">
+                        <span class="flex items-center gap-1.5 px-2.5 py-1 rounded bg-amber-50 border border-amber-200 text-amber-800 font-medium">
+                            <span class="w-2.5 h-2.5 rounded-full bg-amber-400"></span> Blanco/Oro (Fiesta/Solem.)
+                        </span>
+                        <span class="flex items-center gap-1.5 px-2.5 py-1 rounded bg-emerald-50 border border-emerald-200 text-emerald-800 font-medium">
+                            <span class="w-2.5 h-2.5 rounded-full bg-emerald-500"></span> Verde (T. Ordinario)
+                        </span>
+                        <span class="flex items-center gap-1.5 px-2.5 py-1 rounded bg-rose-50 border border-rose-200 text-rose-800 font-medium">
+                            <span class="w-2.5 h-2.5 rounded-full bg-rose-500"></span> Rojo (Mártires/Pasión)
+                        </span>
+                        <span class="flex items-center gap-1.5 px-2.5 py-1 rounded bg-purple-50 border border-purple-200 text-purple-800 font-medium">
+                            <span class="w-2.5 h-2.5 rounded-full bg-purple-500"></span> Morado (Cuaresma/Adv.)
+                        </span>
+                        <span class="flex items-center gap-1.5 px-2.5 py-1 rounded bg-sky-50 border border-sky-200 text-sky-800 font-medium">
+                            <span class="w-2.5 h-2.5 rounded-full bg-sky-500"></span> Azul (Act. Parroquial)
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Grid & Details Wrapper -->
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+                    <!-- Grid Calendar -->
+                    <div class="lg:col-span-7 space-y-4">
+                        <!-- Days of Week Header -->
+                        <div class="grid grid-cols-7 gap-1 text-center font-bold text-xs text-gray-500 uppercase tracking-wider">
+                            <div>Lun</div>
+                            <div>Mar</div>
+                            <div>Mié</div>
+                            <div>Jue</div>
+                            <div>Vie</div>
+                            <div>Sáb</div>
+                            <div>Dom</div>
+                        </div>
+                        
+                        <!-- Grid cells -->
+                        <div id="calendar-days-grid" class="grid grid-cols-7 gap-2">
+                            <!-- Injected dynamically -->
+                        </div>
+                    </div>
+                    
+                    <!-- Selected Day Detail Panel -->
+                    <div class="lg:col-span-5 flex flex-col">
+                        <div id="day-details-panel" class="bg-gray-50 border border-gray-100 rounded-xl p-5 flex-grow flex flex-col justify-start transition-all duration-300">
+                            <h4 id="details-date-label" class="font-bold text-gray-800 mb-4 flex items-center gap-2 text-md border-b pb-2 border-gray-200">
+                                <i class="far fa-calendar-alt text-verdeSanPatricio fa-lg"></i>
+                                <span>Selecciona un día</span>
+                            </h4>
+                            <div id="details-events-list" class="space-y-4 flex-grow">
+                                <p class="text-gray-500 text-sm italic">Haz clic en un día del calendario para ver el detalle de sus celebraciones litúrgicas.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <div class="mb-8 card p-2">
             <iframe src="https://docs.google.com/document/d/1Np71ZqxUKYmCVVK44FsPdxcU564ZgOtz5N2DuAdEjEc/preview" width="100%" height="1030px" frameborder="0"></iframe>
         </div>
@@ -78,5 +167,610 @@
 
 </div>
 <script src="components.js?v=2"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const eventsByDate = {};
+    let currentYear = 2026;
+    let currentMonth = 4; // May by default (or current month if in 2026)
+    let selectedDateStr = null;
+
+    const MONTH_NAMES = [
+        "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio",
+        "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"
+    ];
+
+    const CELEBRATION_TYPES = {
+        'S': { label: 'Solemnidad', class: 'font-extrabold uppercase tracking-wide' },
+        'F': { label: 'Fiesta', class: 'font-bold' },
+        'M': { label: 'Memoria Obligatoria', class: 'font-semibold' },
+        'm': { label: 'Memoria Libre', class: 'font-normal italic' },
+        'P': { label: 'Actividad Parroquial', class: 'font-bold text-sky-800' }
+    };
+
+    function getColorName(emoji) {
+        switch (emoji) {
+            case '⚪': return 'Blanco';
+            case '🟢': return 'Verde';
+            case '🔴': return 'Rojo';
+            case '🟣': return 'Morado';
+            case '🔵': return 'Parroquial';
+            default: return 'Verde';
+        }
+    }
+
+    function parseSummary(summary) {
+        let cleanSummary = summary.replace(/\\,/g, ',').replace(/\\;/g, ';').replace(/\\\\/g, '\\').trim();
+        
+        // Corregir errores de traducción en el feed (ej: Paolo -> Pablo)
+        cleanSummary = cleanSummary.replace(/Paolo/g, 'Pablo');
+        
+        // Find leading emoji
+        const emojiRegex = /^([⚪🟢🔴🟣🟡🔵⚫])\s*/u;
+        const matchEmoji = cleanSummary.match(emojiRegex);
+        let emoji = '🟢';
+        if (matchEmoji) {
+            emoji = matchEmoji[1];
+            cleanSummary = cleanSummary.substring(matchEmoji[0].length);
+        }
+        
+        // Find celebration type in brackets e.g. [S], [F], [M], [m], [P]
+        const typeRegex = /^\[([SFMmP])\]\s*/;
+        const matchType = cleanSummary.match(typeRegex);
+        let type = null;
+        if (matchType) {
+            type = matchType[1];
+            cleanSummary = cleanSummary.substring(matchType[0].length);
+        }
+        
+        return { emoji, type, title: cleanSummary };
+    }
+
+    // List of local parish-specific events from Google Doc
+    const localEvents = [
+        // Mayo 2026
+        {
+            start: "20260504",
+            summary: "🔵 [P] Despedida de Pablo Sandoval",
+            description: "20:30 hrs: Despedida de Pablo Sandoval (Parroquia de las Nieves)."
+        },
+        {
+            start: "20260506",
+            summary: "🔵 [P] Novena al Padre José Frassinetti - Día 1",
+            description: "Día 1 de la Novena al Venerable Padre José Frassinetti."
+        },
+        {
+            start: "20260507",
+            summary: "🔵 [P] Novena al Padre José Frassinetti - Día 2",
+            description: "Día 2 de la Novena al Venerable Padre José Frassinetti."
+        },
+        {
+            start: "20260508",
+            summary: "🔵 [P] Novena al Padre José Frassinetti - Día 3",
+            description: "Día 3 de la Novena al Venerable Padre José Frassinetti."
+        },
+        {
+            start: "20260509",
+            summary: "🔵 [P] Novena al Padre José Frassinetti - Día 4",
+            description: "Día 4 de la Novena al Venerable Padre José Frassinetti."
+        },
+        {
+            start: "20260509",
+            summary: "🔵 [P] Asamblea Zonal de la Vicaría",
+            description: "09:00 a 12:00 hrs: Asamblea Zonal de la Vicaría Cordillera en el Colegio Seminario Pontificio Menor (Av. Padre Errázuriz 7001, metro Hernando de Magallanes). Participan ministros ordenados, consejos parroquiales, colegios, movimientos y agrupaciones eclesiales. Contaremos con la visita del Padre Rodrigo Cordero, nuevo Vicario para la Pastoral en Santiago. El tema será trabajar en una de las 4 orientaciones 2025-2029."
+        },
+        {
+            start: "20260510",
+            summary: "🔵 [P] Novena al Padre José Frassinetti - Día 5",
+            description: "Día 5 de la Novena al Venerable Padre José Frassinetti."
+        },
+        {
+            start: "20260511",
+            summary: "🔵 [P] Consejo Pastoral Parroquial",
+            description: "Reunión mensual del Consejo Pastoral de la Parroquia San Patricio."
+        },
+        {
+            start: "20260511",
+            summary: "🔵 [P] Novena al Padre José Frassinetti - Día 6",
+            description: "Día 6 de la Novena al Venerable Padre José Frassinetti."
+        },
+        {
+            start: "20260512",
+            summary: "🔵 [P] Novena al Padre José Frassinetti - Día 7",
+            description: "Día 7 de la Novena al Venerable Padre José Frassinetti."
+        },
+        {
+            start: "20260513",
+            summary: "🔵 [P] Rosario Mundial de Familias & Misa",
+            description: "11:00 hrs: Rosario Mundial de Familias (Nuestra Señora de Fátima).\n12:00 hrs: Santa Misa."
+        },
+        {
+            start: "20260513",
+            summary: "🔵 [P] Novena al Padre José Frassinetti - Día 8",
+            description: "Día 8 de la Novena al Venerable Padre José Frassinetti."
+        },
+        {
+            start: "20260514",
+            summary: "🔵 [P] Novena al Padre José Frassinetti - Día 9",
+            description: "Día 9 de la Novena al Venerable Padre José Frassinetti."
+        },
+        {
+            start: "20260516",
+            summary: "🔵 [P] Misa con Adoradores Eucarísticos",
+            description: "18:00 hrs: Santa Misa con presencia y participación activa de los adoradores de la capilla de adoración."
+        },
+        {
+            start: "20260517",
+            summary: "🔵 [P] Procesión Comunitaria de Pascua",
+            description: "Después de la Misa de las 09:30: Procesión comunitaria. Momento de oración y testimonio pascual. Recorrido desde el Templo parroquial hacia la Plaza Isabel La Católica."
+        },
+        {
+            start: "20260523",
+            summary: "🔵 [P] Vigilia de Pentecostés",
+            description: "18:00 hrs: Vigilia de Pentecostés. Santa Misa y adoración al Santísimo, con música sacra, hasta las 20:00 hrs."
+        },
+        {
+            start: "20260524",
+            summary: "🔵 [P] Misas de Pentecostés",
+            description: "Misas del Domingo de Pentecostés en horarios parroquiales: 09:30, 11:00 y 12:30 hrs."
+        },
+        {
+            start: "20260515",
+            summary: "🔵 [P] Novena al Padre José Frassinetti - Día de la Fiesta (Término)",
+            description: "Fiesta y término de la Novena al Venerable Padre José Frassinetti."
+        }
+    ];
+
+    // Eventos Recurrentes de 2026 (Todos los Jueves)
+    for (let month = 0; month < 12; month++) {
+        const daysInMonth = new Date(2026, month + 1, 0).getDate();
+        for (let day = 1; day <= daysInMonth; day++) {
+            const dObj = new Date(2026, month, day);
+            if (dObj.getDay() === 4) { // 4 es Jueves
+                const yKey = "2026";
+                const mKey = (month + 1).toString().padStart(2, '0');
+                const dKey = day.toString().padStart(2, '0');
+                const dateKey = `${yKey}${mKey}${dKey}`;
+                
+                localEvents.push({
+                    start: dateKey,
+                    summary: "🔵 [P] Adoración al Santísimo",
+                    description: "18:30 hrs: Adoración al Santísimo."
+                });
+                localEvents.push({
+                    start: dateKey,
+                    summary: "🔵 [P] Taller TAOS: 'Adorar para Sanar'",
+                    description: "19:30 hrs: Talleres de Adoración, Oración y Sanación Interior (TAOS 2026) / Fraternidad Eucarística Belén. Tema: 'Adorar para Sanar' (trabajo de sanación interior, perdón, discernimiento, etc.). Contacto: Christian Huenchun."
+                });
+            }
+        }
+    }
+
+    // Ausencia del Padre Roberto: del 30 de mayo al 13 de junio
+    const absenceStartDate = new Date(2026, 4, 30); // 30 de mayo
+    const absenceEndDate = new Date(2026, 5, 13); // 13 de junio
+    for (let d = new Date(absenceStartDate); d <= absenceEndDate; d.setDate(d.getDate() + 1)) {
+        const yKey = d.getFullYear().toString();
+        const mKey = (d.getMonth() + 1).toString().padStart(2, '0');
+        const dKey = d.getDate().toString().padStart(2, '0');
+        localEvents.push({
+            start: `${yKey}${mKey}${dKey}`,
+            summary: "🔵 [P] Ausencia del Padre Roberto",
+            description: "El Padre Roberto estará ausente de la parroquia desde el 30 de mayo hasta el 13 de junio."
+        });
+    }
+
+    // Curso para Ministros Extraordinarios de Comunión en Junio (Jueves 4, 11, 18, 25)
+    const juneThursdays = ["20260604", "20260611", "20260618", "20260625"];
+    juneThursdays.forEach(date => {
+        localEvents.push({
+            start: date,
+            summary: "🔵 [P] Curso de Formación para Ministros de Comunión",
+            description: "17:00 hrs: Curso de Formación para Ministros Extraordinarios de la Comunión (Vicaría Cordillera).\nLugar: Capilla Parroquial (Isabel La Católica 6319, Las Condes).\nProfesor: Padre Javier Barros.\nInscripción presencial al llegar."
+        });
+    });
+
+    // Lunes 15 de Junio
+    localEvents.push({
+        start: "20260615",
+        summary: "🔵 [P] Consejo Pastoral Parroquial",
+        description: "Reunión del Consejo Pastoral de la Parroquia San Patricio."
+    });
+
+    // Domingo 7 de Junio - Corpus Christi
+    localEvents.push({
+        start: "20260607",
+        summary: "🔵 [P] Presentación de nuevos Ministros (Corpus Christi)",
+        description: "Presentación oficial de los nuevos Ministros de Comunión: Susana, Vicente y Roxana en la fiesta de Corpus Christi."
+    });
+
+    // Lunes 22 de Junio
+    localEvents.push({
+        start: "20260622",
+        summary: "🔵 [P] Conmemoración de la Consagración del Altar",
+        description: "En 1997, siendo Cura Párroco José Sozzi, por el Cardenal Carlos Oviedo Cavada. Misas solemnes a las 12:00 hrs y a las 19:00 hrs."
+    });
+
+    // Agosto (13 o 16 de Agosto: Conmemoración del 70° Aniversario)
+    localEvents.push({
+        start: "20260813",
+        summary: "🔵 [P] Conmemoración del 70° Aniversario de la Parroquia",
+        description: "70° Aniversario de la Constitución Canónica de la Parroquia San Patricio. Se celebrará la conmemoración el día 13 o el 16 de agosto con una invitación y visita del Obispo."
+    });
+    localEvents.push({
+        start: "20260816",
+        summary: "🔵 [P] Conmemoración del 70° Aniversario de la Parroquia",
+        description: "70° Aniversario de la Constitución Canónica de la Parroquia San Patricio. Se celebrará la conmemoración el día 13 o el 16 de agosto con una invitación y visita del Obispo."
+    });
+
+    function parseICS(icsText) {
+        const unfoldedText = icsText.replace(/\r?\n[ \t]/g, '');
+        const lines = unfoldedText.split(/\r?\n/);
+        let currentEvent = null;
+
+        for (let line of lines) {
+            if (line.startsWith('BEGIN:VEVENT')) {
+                currentEvent = {};
+            } else if (line.startsWith('END:VEVENT')) {
+                if (currentEvent && currentEvent.start) {
+                    const dateKey = currentEvent.start;
+                    if (!eventsByDate[dateKey]) {
+                        eventsByDate[dateKey] = [];
+                    }
+                    eventsByDate[dateKey].push(currentEvent);
+                }
+                currentEvent = null;
+            } else if (currentEvent) {
+                const colonIndex = line.indexOf(':');
+                if (colonIndex !== -1) {
+                    const keyPart = line.substring(0, colonIndex);
+                    const value = line.substring(colonIndex + 1);
+                    const key = keyPart.split(';')[0];
+                    
+                    if (key === 'DTSTART') {
+                        currentEvent.start = value.trim();
+                    } else if (key === 'DTEND') {
+                        currentEvent.end = value.trim();
+                    } else if (key === 'SUMMARY') {
+                        currentEvent.rawSummary = value;
+                        const parsed = parseSummary(value);
+                        currentEvent.summary = parsed.title;
+                        currentEvent.emoji = parsed.emoji;
+                        currentEvent.type = parsed.type;
+                    } else if (key === 'DESCRIPTION') {
+                        currentEvent.description = value.replace(/\\n/g, '\n').replace(/\\,/g, ',').replace(/\\;/g, ';').replace(/\\\\/g, '\\').trim();
+                    }
+                }
+            }
+        }
+
+        // Inyectar eventos parroquiales locales desde el Google Doc
+        localEvents.forEach(event => {
+            const dateKey = event.start;
+            if (!eventsByDate[dateKey]) {
+                eventsByDate[dateKey] = [];
+            }
+            event.rawSummary = event.summary;
+            const parsed = parseSummary(event.summary);
+            event.summary = parsed.title;
+            event.emoji = parsed.emoji;
+            event.type = parsed.type;
+            
+            // Añadir al inicio para que las actividades locales resalten primero
+            eventsByDate[dateKey].unshift(event);
+        });
+    }
+
+    function formatDateKey(year, month, day) {
+        const y = year.toString();
+        const m = (month + 1).toString().padStart(2, '0');
+        const d = day.toString().padStart(2, '0');
+        return `${y}${m}${d}`;
+    }
+
+    function getGridDayOfWeek(date) {
+        const day = date.getDay();
+        return day === 0 ? 6 : day - 1; // Mon = 0, ..., Sun = 6
+    }
+
+    function getDotColorClass(emoji) {
+        switch (emoji) {
+            case '⚪': return 'bg-amber-400';
+            case '🟢': return 'bg-emerald-500';
+            case '🔴': return 'bg-rose-500';
+            case '🟣': return 'bg-purple-500';
+            case '🔵': return 'bg-sky-500';
+            default: return 'bg-emerald-500';
+        }
+    }
+
+    function getCardBorderClass(emoji) {
+        switch (emoji) {
+            case '⚪': return 'border-amber-400 bg-amber-50/20';
+            case '🟢': return 'border-emerald-500 bg-emerald-50/20';
+            case '🔴': return 'border-rose-500 bg-rose-50/20';
+            case '🟣': return 'border-purple-500 bg-purple-50/20';
+            case '🔵': return 'border-sky-500 bg-sky-50/20';
+            default: return 'border-emerald-500 bg-emerald-50/20';
+        }
+    }
+
+    function getBadgeClass(emoji, type) {
+        switch (emoji) {
+            case '⚪': return 'bg-amber-50 border-amber-200 text-amber-800';
+            case '🟢': return 'bg-emerald-50 border-emerald-200 text-emerald-800';
+            case '🔴': return 'bg-rose-50 border-rose-200 text-rose-800';
+            case '🟣': return 'bg-purple-50 border-purple-200 text-purple-800';
+            case '🔵': return 'bg-sky-50 border-sky-200 text-sky-800';
+            default: return 'bg-gray-50 border-gray-200 text-gray-800';
+        }
+    }
+
+    function renderCalendar(year, month) {
+        const gridContainer = document.getElementById('calendar-days-grid');
+        const monthLabel = document.getElementById('current-month-label');
+        
+        gridContainer.innerHTML = '';
+        monthLabel.textContent = `${MONTH_NAMES[month]} ${year}`;
+        
+        const firstDay = new Date(year, month, 1);
+        const startGridIdx = getGridDayOfWeek(firstDay);
+        const totalDays = new Date(year, month + 1, 0).getDate();
+        const prevMonthTotalDays = new Date(year, month, 0).getDate();
+        
+        const totalCells = startGridIdx + totalDays > 35 ? 42 : 35;
+        
+        for (let i = 0; i < totalCells; i++) {
+            const cell = document.createElement('button');
+            cell.className = 'aspect-square p-1.5 md:p-2 border border-gray-100 rounded-lg flex flex-col justify-between items-start transition-all duration-200 focus:outline-none';
+            
+            let dayNum;
+            let cellDateStr;
+            let isCurrentMonth = true;
+            
+            if (i < startGridIdx) {
+                dayNum = prevMonthTotalDays - startGridIdx + i + 1;
+                const prevMonth = month === 0 ? 11 : month - 1;
+                const prevYear = month === 0 ? year - 1 : year;
+                cellDateStr = formatDateKey(prevYear, prevMonth, dayNum);
+                isCurrentMonth = false;
+                cell.className += ' bg-gray-50/50 text-gray-300 cursor-not-allowed opacity-40';
+                cell.disabled = true;
+            } else if (i < startGridIdx + totalDays) {
+                dayNum = i - startGridIdx + 1;
+                cellDateStr = formatDateKey(year, month, dayNum);
+                cell.className += ' bg-white text-gray-800 hover:shadow-md hover:scale-[1.02] cursor-pointer';
+            } else {
+                dayNum = i - startGridIdx - totalDays + 1;
+                const nextMonth = month === 11 ? 0 : month + 1;
+                const nextYear = month === 11 ? year + 1 : year;
+                cellDateStr = formatDateKey(nextYear, nextMonth, dayNum);
+                isCurrentMonth = false;
+                cell.className += ' bg-gray-50/50 text-gray-300 cursor-not-allowed opacity-40';
+                cell.disabled = true;
+            }
+            
+            // Day number label
+            const numElem = document.createElement('span');
+            numElem.className = 'text-xs md:text-sm font-semibold pointer-events-none';
+            numElem.textContent = dayNum;
+            
+            const today = new Date();
+            if (isCurrentMonth && today.getFullYear() === year && today.getMonth() === month && today.getDate() === dayNum) {
+                numElem.className = 'text-xs md:text-sm font-extrabold text-white bg-verdeSanPatricio rounded-full w-5 h-5 md:w-6 md:h-6 flex items-center justify-center pointer-events-none';
+            }
+            
+            cell.appendChild(numElem);
+            
+            if (isCurrentMonth) {
+                cell.addEventListener('click', () => selectDay(cellDateStr));
+                
+                const events = eventsByDate[cellDateStr] || [];
+                if (events.length > 0) {
+                    cell.title = events.map(e => `${e.summary} (${getColorName(e.emoji)})`).join(', ');
+                    const dotsContainer = document.createElement('div');
+                    dotsContainer.className = 'flex flex-wrap gap-1 mt-auto w-full justify-start pointer-events-none';
+                    
+                    events.slice(0, 3).forEach(event => {
+                        const dot = document.createElement('span');
+                        dot.className = `w-1.5 h-1.5 md:w-2 md:h-2 rounded-full ${getDotColorClass(event.emoji)}`;
+                        dotsContainer.appendChild(dot);
+                    });
+                    
+                    cell.appendChild(dotsContainer);
+                }
+                
+                if (selectedDateStr === cellDateStr) {
+                    cell.classList.remove('border-gray-100');
+                    cell.classList.add('border-2', 'border-verdeSanPatricio', 'shadow-md', 'ring-2', 'ring-emerald-100');
+                }
+            }
+            
+            gridContainer.appendChild(cell);
+        }
+    }
+
+    function selectDay(dateStr) {
+        selectedDateStr = dateStr;
+        
+        renderCalendar(currentYear, currentMonth);
+        
+        const detailsDateLabel = document.getElementById('details-date-label');
+        const detailsEventsList = document.getElementById('details-events-list');
+        
+        const y = parseInt(dateStr.substring(0, 4));
+        const m = parseInt(dateStr.substring(4, 6)) - 1;
+        const d = parseInt(dateStr.substring(6, 8));
+        
+        const dateObj = new Date(y, m, d);
+        const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+        const formattedDate = dateObj.toLocaleDateString('es-ES', options);
+        
+        detailsDateLabel.innerHTML = `<i class="far fa-calendar-alt text-verdeSanPatricio fa-lg"></i> <span class="capitalize">${formattedDate}</span>`;
+        
+        const events = eventsByDate[dateStr] || [];
+        
+        if (events.length === 0) {
+            detailsEventsList.innerHTML = `<p class="text-gray-500 text-sm italic py-4">No hay celebraciones ni actividades registradas para este día.</p>`;
+            return;
+        }
+        
+        detailsEventsList.innerHTML = '';
+        
+        events.forEach(event => {
+            const eventCard = document.createElement('div');
+            eventCard.className = `p-4 border-l-4 rounded-r-lg shadow-sm bg-white ${getCardBorderClass(event.emoji)}`;
+            
+            const header = document.createElement('div');
+            header.className = 'flex flex-wrap items-center justify-between gap-2 mb-2';
+            
+            const titleContainer = document.createElement('div');
+            titleContainer.className = 'flex items-center gap-2';
+            
+            const dot = document.createElement('span');
+            dot.className = `w-2.5 h-2.5 rounded-full flex-shrink-0 ${getDotColorClass(event.emoji)}`;
+            titleContainer.appendChild(dot);
+            
+            const title = document.createElement('h5');
+            title.className = 'font-bold text-gray-800 text-sm md:text-base';
+            title.textContent = event.summary;
+            titleContainer.appendChild(title);
+            
+            header.appendChild(titleContainer);
+            
+            // Contenedor de badges (tipo de celebración + color litúrgico en texto)
+            const badgesContainer = document.createElement('div');
+            badgesContainer.className = 'flex gap-1.5 flex-wrap justify-end';
+            
+            if (event.type && CELEBRATION_TYPES[event.type]) {
+                const badgeInfo = CELEBRATION_TYPES[event.type];
+                const badge = document.createElement('span');
+                badge.className = `px-2 py-0.5 text-[10px] md:text-xs rounded border font-semibold ${getBadgeClass(event.emoji, event.type)}`;
+                badge.textContent = badgeInfo.label;
+                badgesContainer.appendChild(badge);
+            } else {
+                const badge = document.createElement('span');
+                badge.className = `px-2 py-0.5 text-[10px] md:text-xs rounded border bg-gray-100 border-gray-200 text-gray-600 font-semibold`;
+                badge.textContent = 'Feria';
+                badgesContainer.appendChild(badge);
+            }
+            
+            // Badge de color litúrgico en texto
+            const colorBadge = document.createElement('span');
+            colorBadge.className = `px-2 py-0.5 text-[10px] md:text-xs rounded border font-semibold ${getBadgeClass(event.emoji, '')}`;
+            colorBadge.textContent = `Color: ${getColorName(event.emoji)}`;
+            badgesContainer.appendChild(colorBadge);
+            
+            header.appendChild(badgesContainer);
+            
+            eventCard.appendChild(header);
+            
+            if (event.description) {
+                let cleanDesc = event.description;
+                const providerIdx = cleanDesc.indexOf('𝘗𝘳𝘰𝘷𝘪𝘥𝘦𝘥');
+                if (providerIdx !== -1) {
+                    cleanDesc = cleanDesc.substring(0, providerIdx).trim();
+                }
+                
+                // Quitar el título en inglés entre paréntesis del inicio
+                if (cleanDesc.startsWith('(')) {
+                    let depth = 0;
+                    let matchIdx = -1;
+                    for (let i = 0; i < cleanDesc.length; i++) {
+                        if (cleanDesc[i] === '(') {
+                            depth++;
+                        } else if (cleanDesc[i] === ')') {
+                            depth--;
+                            if (depth === 0) {
+                                matchIdx = i;
+                                break;
+                            }
+                        }
+                    }
+                    if (matchIdx !== -1) {
+                        cleanDesc = cleanDesc.substring(matchIdx + 1).trim();
+                    }
+                }
+                
+                // Traducir "Psalter Week" al español
+                cleanDesc = cleanDesc.replace(/Psalter Week I/g, 'Semana I del Salterio');
+                cleanDesc = cleanDesc.replace(/Psalter Week II/g, 'Semana II del Salterio');
+                cleanDesc = cleanDesc.replace(/Psalter Week III/g, 'Semana III del Salterio');
+                cleanDesc = cleanDesc.replace(/Psalter Week IV/g, 'Semana IV del Salterio');
+                cleanDesc = cleanDesc.replace(/Psalter Week/g, 'Semana del Salterio');
+                
+                if (cleanDesc) {
+                    const desc = document.createElement('p');
+                    desc.className = 'text-gray-600 text-xs md:text-sm whitespace-pre-line border-t pt-2 mt-2 leading-relaxed';
+                    desc.textContent = cleanDesc;
+                    eventCard.appendChild(desc);
+                }
+            }
+            
+            detailsEventsList.appendChild(eventCard);
+        });
+    }
+
+    function updateNavButtons() {
+        const prevBtn = document.getElementById('prev-month-btn');
+        const nextBtn = document.getElementById('next-month-btn');
+        
+        prevBtn.disabled = currentMonth === 0;
+        prevBtn.style.opacity = currentMonth === 0 ? '0.3' : '1';
+        prevBtn.style.cursor = currentMonth === 0 ? 'not-allowed' : 'pointer';
+        
+        nextBtn.disabled = currentMonth === 11;
+        nextBtn.style.opacity = currentMonth === 11 ? '0.3' : '1';
+        nextBtn.style.cursor = currentMonth === 11 ? 'not-allowed' : 'pointer';
+    }
+
+    const today = new Date();
+    currentYear = 2026;
+    currentMonth = today.getFullYear() === 2026 ? today.getMonth() : 4; // May as default for 2026
+
+    fetch('assets/calendar-2026.ics')
+        .then(response => {
+            if (!response.ok) throw new Error('Failed to fetch calendar file');
+            return response.text();
+        })
+        .then(icsText => {
+            parseICS(icsText);
+            
+            document.getElementById('calendar-loading').classList.add('hidden');
+            document.getElementById('calendar-content').classList.remove('hidden');
+            
+            updateNavButtons();
+            
+            const initialDay = today.getFullYear() === 2026 ? today.getDate() : 1;
+            const initialDateStr = formatDateKey(currentYear, currentMonth, initialDay);
+            
+            selectDay(initialDateStr);
+            
+            document.getElementById('prev-month-btn').addEventListener('click', () => {
+                if (currentMonth > 0) {
+                    currentMonth--;
+                    selectedDateStr = formatDateKey(currentYear, currentMonth, 1);
+                    renderCalendar(currentYear, currentMonth);
+                    selectDay(selectedDateStr);
+                    updateNavButtons();
+                }
+            });
+
+            document.getElementById('next-month-btn').addEventListener('click', () => {
+                if (currentMonth < 11) {
+                    currentMonth++;
+                    selectedDateStr = formatDateKey(currentYear, currentMonth, 1);
+                    renderCalendar(currentYear, currentMonth);
+                    selectDay(selectedDateStr);
+                    updateNavButtons();
+                }
+            });
+        })
+        .catch(err => {
+            console.error(err);
+            document.getElementById('calendar-loading').classList.add('hidden');
+            document.getElementById('calendar-error').classList.remove('hidden');
+        });
+});
+</script>
 </body>
 </html>
