@@ -368,6 +368,22 @@ y sobre todo en la hora de mi muerte.</p><br>
 <script src="components.js?v=2"></script>
 <script>
 
+    let currentScale = 1.0;
+    const minScale = 0.8;
+    const maxScale = 1.8;
+
+    function cambiarTamanioTexto(direccion) {
+        currentScale = Math.min(maxScale, Math.max(minScale, currentScale + (direccion * 0.1)));
+        
+        // Update font scale CSS variable for all prayer articles
+        document.querySelectorAll('.oracion-article .space-y-4').forEach(container => {
+            container.style.setProperty('--font-scale', currentScale);
+        });
+        
+        // Save preference
+        localStorage.setItem('oraciones-font-scale', currentScale);
+    }
+
     // Progressive enhancement
     function mostrarOracion(id) {
         document.getElementById("lista-oraciones-container").style.display = 'none';
@@ -389,6 +405,43 @@ y sobre todo en la hora de mi muerte.</p><br>
     
     // Si hay un hash en la URL, intentar abrirla (ej: #oracion-0)
     document.addEventListener("DOMContentLoaded", function () {
+        // Restore font size preference
+        const savedScale = localStorage.getItem('oraciones-font-scale');
+        if (savedScale) {
+            currentScale = parseFloat(savedScale);
+        }
+
+        // Dynamically inject text-size controls in each article
+        document.querySelectorAll('.oracion-article').forEach(article => {
+            const volverBtn = article.querySelector('button[onclick="volverOraciones()"]');
+            if (volverBtn) {
+                // Apply current scale to container
+                const container = article.querySelector('.space-y-4');
+                if (container) {
+                    container.style.setProperty('--font-scale', currentScale);
+                }
+
+                // Create flex container to replace the standalone return button's block space
+                const wrapper = document.createElement('div');
+                wrapper.className = "flex flex-wrap justify-between items-center mb-6 gap-4";
+                
+                volverBtn.parentNode.insertBefore(wrapper, volverBtn);
+                
+                volverBtn.classList.remove('mb-6');
+                volverBtn.classList.add('flex', 'items-center');
+                wrapper.appendChild(volverBtn);
+                
+                const sizeControls = document.createElement('div');
+                sizeControls.className = "flex items-center space-x-2 bg-gray-100 p-1 rounded-lg border shadow-sm select-none";
+                sizeControls.innerHTML = `
+                    <span class="text-sm font-medium text-gray-600 px-2 flex items-center"><i class="fas fa-font mr-1 text-xs"></i>Tamaño:</span>
+                    <button onclick="cambiarTamanioTexto(-1)" class="bg-white hover:bg-gray-200 text-gray-700 px-3 py-1.5 rounded-md border text-xs font-bold shadow-sm transition active:scale-95" title="Texto más pequeño">A-</button>
+                    <button onclick="cambiarTamanioTexto(1)" class="bg-white hover:bg-gray-200 text-gray-700 px-3 py-1.5 rounded-md border text-xs font-bold shadow-sm transition active:scale-95" title="Texto más grande">A+</button>
+                `;
+                wrapper.appendChild(sizeControls);
+            }
+        });
+
         if(window.location.hash && window.location.hash.startsWith('#oracion-')) {
             mostrarOracion(window.location.hash.substring(1));
         } else {

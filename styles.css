@@ -57,3 +57,17 @@ pre.song-pre {
 .banner-image-blur { width: 100%; height: 100%; object-fit: cover; position: absolute; inset: 0; z-index: -2; filter: blur(15px); opacity: 0.6; transform: scale(1.1); }
 .banner-overlay { background: linear-gradient(transparent, rgba(0, 0, 0, 0.9)); width: 100%; padding: 40px 20px 20px 20px; color: white; }
 .banner-title { font-size: 1.8rem; color: white !important; text-shadow: 1px 1px 3px black; margin-bottom: 0; font-weight: bold; }
+
+/* Estilos para el ajuste de tamaño de texto en oraciones */
+.oracion-article .space-y-4 {
+  font-size: calc(1.125rem * var(--font-scale, 1.0)) !important;
+  line-height: calc(1.75rem * var(--font-scale, 1.0)) !important;
+}
+.oracion-article .space-y-4 .text-sm {
+  font-size: calc(0.875rem * var(--font-scale, 1.0)) !important;
+  line-height: calc(1.25rem * var(--font-scale, 1.0)) !important;
+}
+.oracion-article .space-y-4 .text-xl {
+  font-size: calc(1.25rem * var(--font-scale, 1.0)) !important;
+  line-height: calc(1.75rem * var(--font-scale, 1.0)) !important;
+}

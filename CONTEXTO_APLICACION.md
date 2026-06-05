@@ -86,8 +86,9 @@ node build_cantos.js        # Genera paginas/cantos.html desde los datos
 
 ## 📋 Registro de Cambios (Changelog)
 
-### [2026-06-04] - Incorporación de la Oración del Sagrado Corazón de Jesús
+### [2026-06-04] - Incorporación de la Oración del Sagrado Corazón de Jesús y Control de Tamaño de Texto
 - **Contenido Oraciones**: Se agregó la "Oración del Sagrado Corazón de Jesús" en primer lugar del índice y del contenedor de detalles en `oraciones.html`.
+- **Funcionalidad**: Se implementó un control dinámico de tamaño de texto (botones A- y A+) en cada artículo de oración. La preferencia de tamaño se almacena en `localStorage` y escala de manera proporcional todos los elementos del texto (párrafos, notas, subencabezados) utilizando variables CSS en `styles.css`.
 
 ### [2026-05-27] - Remoción de Noticia de Pentecostés, Archivo de Flyer, Limpieza de Deploy e Incorporación del Ángelus
 - **Contenido**: Se eliminó la noticia de Pentecostés y aniversario del Templo de `noticias.json`.
