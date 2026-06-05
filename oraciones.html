@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
@@ -52,6 +52,9 @@
         <div id="lista-oraciones-container" class="mb-8 card transition-opacity duration-300">
             <h3 class="text-2xl mb-4 border-b pb-2"><i class="fas fa-pray mr-2 text-verdeSanPatricio"></i>Índice de Oraciones</h3>
             <ul id="lista-oraciones" class="list-none space-y-3 text-lg">
+                <li class="hover:text-verdeSanPatricio cursor-pointer flex items-center p-3 rounded hover:bg-green-50 transition border-l-4 border-transparent hover:border-verdeSanPatricio shadow-sm bg-white" onclick="mostrarOracion('oracion-15')">
+                    <i class="fas fa-chevron-right text-sm text-verdeSanPatricio mr-3"></i> Oración del Sagrado Corazón de Jesús
+                </li>
                 <li class="hover:text-verdeSanPatricio cursor-pointer flex items-center p-3 rounded hover:bg-green-50 transition border-l-4 border-transparent hover:border-verdeSanPatricio shadow-sm bg-white" onclick="mostrarOracion('oracion-0')">
                     <i class="fas fa-chevron-right text-sm text-verdeSanPatricio mr-3"></i> Regina Caeli (Reina del Cielo)
                 </li>
@@ -101,6 +104,33 @@
         </div>
         
         <div id="detalle-oraciones-container">
+
+        <article id="oracion-15" class="oracion-article card mb-8 hidden transition-opacity duration-300 text-lg leading-relaxed">
+            <button onclick="volverOraciones()" class="mb-6 inline-block bg-verdeSanPatricio text-white px-4 py-2 rounded hover:bg-green-700 transition shadow-md">
+                <i class="fas fa-arrow-left mr-2"></i>Volver al índice
+            </button>
+            <h3 class="text-3xl mb-6 text-verdeSanPatricio font-bold border-b pb-2">Oración del Sagrado Corazón de Jesús</h3>
+            <div class="space-y-4 text-gray-800">
+                <h4 class="font-bold text-xl mb-2 text-verdeSanPatricio">Oración inicial</h4>
+                <p>Rendido a vuestros pies, ¡oh Jesús mío!, considerando las inefables muestras de amor que me habéis dado y las sublimes lecciones que me enseña de continuo vuestro adorabilísimo Corazón, os pido humildemente la gracia de conoceros, amaros y serviros como fiel discípulo vuestro para hacerme digno de las mercedes y bendiciones que, generoso, concedéis a los que de veras os conocen, aman y sirven.</p>
+                <p>¡Mirad que soy muy pobre, dulcísimo Jesús, y necesito de Vos como el mendigo de la limosna que el rico le ha de dar! ¡Mirad que soy muy rudo, ¡oh soberano Maestro!, y necesito de vuestras divinas enseñanzas, para luz y guía de mi ignorancia! ¡Mirad que soy muy débil, ¡oh poderosísimo amparo de los frágiles!, y caigo a cada paso y necesito apoyarme en Vos, para no desfallecer.</p>
+                <p>Sedlo todo para mí, Sagrado Corazón; socorro de miseria, lumbre de mis ojos, báculo de mis pasos, remedio de mis males, auxilio en toda necesidad. De Vos lo espera todo mi pobre corazón. Vos lo alentasteis y convidasteis, cuando con tan tiernos acentos dijisteis repetidas veces en vuestro Evangelio: "Venid a mí, aprended de mí, pedid, llamad..." A las puertas de vuestro Corazón vengo, pues hoy, y llamo y pido y espero. Del mío os hago, ¡oh Señor!, firme, formal, y decidida entrega. Tomadlo Vos, y dadme en cambio lo que sabéis me ha de hacer bueno en la tierra y dichoso en la eternidad.</p>
+                <p>Amén.</p>
+                <br>
+                <h4 class="font-bold text-xl mb-2 text-verdeSanPatricio">Oración final</h4>
+                <p>¡Oh Jesús! Yo consagro mi corazón, colocadle en el Vuestro, pues sólo en Él quiero vivir y sólo a Él quiero amar; en vuestro Corazón quiero vivir desconocido del mundo y conocido de Vos solo, en este Corazón beberé los ardores del amor que consumirán el mío; en Él encontraré la fuerza, la luz, el calor y el verdadero consuelo. Cuando el mío esté desfallecido, Él me reanimará, cuando inquieto y turbado, Él me tranquilizará.</p>
+                <p>¡Oh Corazón de Jesús!, haced que mi corazón sea el altar de vuestro amor; que mi lengua publique vuestra bondad, que mis ojos estén siempre clavados en vuestra llaga; que mi espíritu medite vuestras adorables perfecciones; que mi memoria conserve siempre el precioso recuerdo de vuestras misericordias; que todo en mí exprese mi amor a vuestro Corazón ¡oh Jesús!, y que mi corazón esté siempre pronto a sacrificarlo todo por Vos.</p>
+                <p>¡Oh Corazón de María!, el más amable después del de Jesús, el más compasivo, el más misericordioso de todos los corazones, presentad a vuestro Hijo nuestra consagración, nuestro amor, nuestras resoluciones. Él se enternecerá a la vista de tantas miserias y nos librará de ellas; y después de haber sido nuestro refugio y nuestra protectora sobre la tierra, ¡oh Madre de Jesús!, seréis nuestra Reina en el cielo.</p>
+                <p>Amén.</p>
+                <br>
+                <p><span class="text-red-600">℣.</span> ¡Sagrado Corazón de Jesús!<br>
+                <span class="text-red-600">℟.</span> ¡En Vos confío!</p>
+                <p><span class="text-red-600">℣.</span> ¡Oh dulce Corazón de María!<br>
+                <span class="text-red-600">℟.</span> ¡Sed la salvación mía!</p>
+                <p><span class="text-red-600">℣.</span> ¡Glorioso Patriarca San José!<br>
+                <span class="text-red-600">℟.</span> ¡Rogad por nosotros!</p>
+            </div>
+        </article>
 
         <article id="oracion-0" class="oracion-article card mb-8 hidden transition-opacity duration-300 text-lg leading-relaxed">
             <button onclick="volverOraciones()" class="mb-6 inline-block bg-verdeSanPatricio text-white px-4 py-2 rounded hover:bg-green-700 transition shadow-md">
