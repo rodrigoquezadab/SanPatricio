@@ -75,7 +75,7 @@
                         <button id="prev-month-btn" class="p-2 hover:bg-gray-100 rounded-full transition text-verdeSanPatricio focus:outline-none" title="Mes anterior">
                             <i class="fas fa-chevron-left fa-lg"></i>
                         </button>
-                        <h4 id="current-month-label" class="text-xl font-bold text-gray-800 min-w-[180px] text-center capitalize">Mayo 2026</h4>
+                        <h4 id="current-month-label" class="text-xl font-bold text-gray-800 min-w-[180px] text-center capitalize">Julio 2026</h4>
                         <button id="next-month-btn" class="p-2 hover:bg-gray-100 rounded-full transition text-verdeSanPatricio focus:outline-none" title="Mes siguiente">
                             <i class="fas fa-chevron-right fa-lg"></i>
                         </button>
@@ -139,7 +139,7 @@
         </div>
 
         <div class="mb-8 card p-2">
-            <iframe src="https://docs.google.com/document/d/1Np71ZqxUKYmCVVK44FsPdxcU564ZgOtz5N2DuAdEjEc/preview" width="100%" height="1030px" frameborder="0"></iframe>
+            <iframe src="https://docs.google.com/document/d/1mkCvd3pxUw3PN7y014w-w6TqUChEjbYnhqo590Z3fkQ/preview" width="100%" height="1030px" frameborder="0"></iframe>
         </div>
     </section>
 </main>
@@ -171,7 +171,7 @@
 document.addEventListener("DOMContentLoaded", function () {
     const eventsByDate = {};
     let currentYear = 2026;
-    let currentMonth = 4; // May by default (or current month if in 2026)
+    let currentMonth = 6; // July by default (or current month if in 2026)
     let selectedDateStr = null;
 
     const MONTH_NAMES = [
@@ -317,6 +317,37 @@ document.addEventListener("DOMContentLoaded", function () {
             start: "20260515",
             summary: "🔵 [P] Novena al Padre José Frassinetti - Día de la Fiesta (Término)",
             description: "Fiesta y término de la Novena al Venerable Padre José Frassinetti."
+        },
+        // Julio 2026
+        {
+            start: "20260707",
+            summary: "🔵 [P] Novena a la Virgen del Carmen",
+            description: "Misas a las 12:00 y 19:00 hrs."
+        },
+        {
+            start: "20260715",
+            summary: "🔵 [P] 11° Aniversario Ordenación Padre Samuel",
+            description: "Misa a las 19:00 hrs, seguida de un ágape (se invita a la comunidad a traer algo para compartir)."
+        },
+        {
+            start: "20260716",
+            summary: "🔵 [P] Misas de la Virgen del Carmen",
+            description: "Misa solemne a las 12:00 y 19:00 hrs."
+        },
+        {
+            start: "20260721",
+            summary: "🔵 [P] Inicio de Catequesis",
+            description: "Inicio de catequesis para jóvenes y adultos."
+        },
+        {
+            start: "20260722",
+            summary: "🔵 [P] Presentación de la Orquesta de Cámara",
+            description: "Presentación de la orquesta de cámara en el templo a las 19:00 hrs (preguntar a Claudia)."
+        },
+        {
+            start: "20260723",
+            summary: "🔵 [P] Visita Pastoral del Vicario Zona Cordillera",
+            description: "Visita pastoral del Vicario Zona Cordillera (horario por definir)."
         }
     ];
 
@@ -335,6 +366,11 @@ document.addEventListener("DOMContentLoaded", function () {
                     start: dateKey,
                     summary: "🔵 [P] Adoración al Santísimo",
                     description: "18:30 hrs: Adoración al Santísimo."
+                });
+                localEvents.push({
+                    start: dateKey,
+                    summary: "🔵 [P] Santa Misa",
+                    description: "19:00 hrs: Santa Misa."
                 });
                 localEvents.push({
                     start: dateKey,
@@ -607,16 +643,29 @@ document.addEventListener("DOMContentLoaded", function () {
         
         detailsDateLabel.innerHTML = `<i class="far fa-calendar-alt text-verdeSanPatricio fa-lg"></i> <span class="capitalize">${formattedDate}</span>`;
         
-        const events = eventsByDate[dateStr] || [];
+        const rawEvents = eventsByDate[dateStr] || [];
         
-        if (events.length === 0) {
+        if (rawEvents.length === 0) {
             detailsEventsList.innerHTML = `<p class="text-gray-500 text-sm italic py-4">No hay celebraciones ni actividades registradas para este día.</p>`;
             return;
         }
         
         detailsEventsList.innerHTML = '';
+
+        // Separar eventos litúrgicos y parroquiales
+        const liturgicalEvents = [];
+        const parishEvents = [];
         
-        events.forEach(event => {
+        rawEvents.forEach(event => {
+            if (event.type === 'P' || event.emoji === '🔵') {
+                parishEvents.push(event);
+            } else {
+                liturgicalEvents.push(event);
+            }
+        });
+
+        // Renderizar eventos litúrgicos ordinarios
+        liturgicalEvents.forEach(event => {
             const eventCard = document.createElement('div');
             eventCard.className = `p-4 border-l-4 rounded-r-lg shadow-sm bg-white ${getCardBorderClass(event.emoji)}`;
             
@@ -637,7 +686,7 @@ document.addEventListener("DOMContentLoaded", function () {
             
             header.appendChild(titleContainer);
             
-            // Contenedor de badges (tipo de celebración + color litúrgico en texto)
+            // Contenedor de badges
             const badgesContainer = document.createElement('div');
             badgesContainer.className = 'flex gap-1.5 flex-wrap justify-end';
             
@@ -654,14 +703,13 @@ document.addEventListener("DOMContentLoaded", function () {
                 badgesContainer.appendChild(badge);
             }
             
-            // Badge de color litúrgico en texto
+            // Badge de color litúrgico
             const colorBadge = document.createElement('span');
             colorBadge.className = `px-2 py-0.5 text-[10px] md:text-xs rounded border font-semibold ${getBadgeClass(event.emoji, '')}`;
             colorBadge.textContent = `Color: ${getColorName(event.emoji)}`;
             badgesContainer.appendChild(colorBadge);
             
             header.appendChild(badgesContainer);
-            
             eventCard.appendChild(header);
             
             if (event.description) {
@@ -691,7 +739,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     }
                 }
                 
-                // Traducir "Psalter Week" al español
+                // Traducir "Psalter Week"
                 cleanDesc = cleanDesc.replace(/Psalter Week I/g, 'Semana I del Salterio');
                 cleanDesc = cleanDesc.replace(/Psalter Week II/g, 'Semana II del Salterio');
                 cleanDesc = cleanDesc.replace(/Psalter Week III/g, 'Semana III del Salterio');
@@ -708,6 +756,78 @@ document.addEventListener("DOMContentLoaded", function () {
             
             detailsEventsList.appendChild(eventCard);
         });
+
+        // Renderizar eventos parroquiales aunados en una sola tarjeta
+        if (parishEvents.length > 0) {
+            const eventCard = document.createElement('div');
+            eventCard.className = `p-4 border-l-4 rounded-r-lg shadow-sm bg-white border-sky-500 bg-sky-50/20`;
+            
+            const header = document.createElement('div');
+            header.className = 'flex flex-wrap items-center justify-between gap-2 mb-3';
+            
+            const titleContainer = document.createElement('div');
+            titleContainer.className = 'flex items-center gap-2';
+            
+            const dot = document.createElement('span');
+            dot.className = 'w-2.5 h-2.5 rounded-full flex-shrink-0 bg-sky-500';
+            titleContainer.appendChild(dot);
+            
+            const title = document.createElement('h5');
+            title.className = 'font-bold text-gray-800 text-sm md:text-base';
+            title.textContent = parishEvents.length === 1 ? 'Actividad Parroquial' : 'Actividades Parroquiales';
+            titleContainer.appendChild(title);
+            
+            header.appendChild(titleContainer);
+            
+            const badgesContainer = document.createElement('div');
+            badgesContainer.className = 'flex gap-1.5 flex-wrap justify-end';
+            
+            const badge = document.createElement('span');
+            badge.className = 'px-2 py-0.5 text-[10px] md:text-xs rounded border font-semibold bg-sky-50 border-sky-200 text-sky-800';
+            badge.textContent = 'Actividad Parroquial';
+            badgesContainer.appendChild(badge);
+            
+            const colorBadge = document.createElement('span');
+            colorBadge.className = 'px-2 py-0.5 text-[10px] md:text-xs rounded border font-semibold bg-sky-50 border-sky-200 text-sky-800';
+            colorBadge.textContent = 'Color: Parroquial';
+            badgesContainer.appendChild(colorBadge);
+            
+            header.appendChild(badgesContainer);
+            eventCard.appendChild(header);
+            
+            const listContainer = document.createElement('ul');
+            listContainer.className = 'space-y-3 border-t pt-3 mt-1';
+            
+            parishEvents.forEach(pEv => {
+                const listItem = document.createElement('li');
+                listItem.className = 'flex items-start gap-2.5 text-xs md:text-sm text-gray-700 leading-relaxed';
+                
+                const bullet = document.createElement('span');
+                bullet.className = 'w-1.5 h-1.5 rounded-full bg-sky-500 mt-1.5 flex-shrink-0';
+                listItem.appendChild(bullet);
+                
+                const itemContent = document.createElement('div');
+                itemContent.className = 'flex-grow';
+                
+                const itemTitle = document.createElement('div');
+                itemTitle.className = 'font-semibold text-gray-900';
+                itemTitle.textContent = pEv.summary;
+                itemContent.appendChild(itemTitle);
+                
+                if (pEv.description) {
+                    const itemDesc = document.createElement('div');
+                    itemDesc.className = 'text-gray-600 text-xs md:text-sm mt-0.5 whitespace-pre-line';
+                    itemDesc.textContent = pEv.description;
+                    itemContent.appendChild(itemDesc);
+                }
+                
+                listItem.appendChild(itemContent);
+                listContainer.appendChild(listItem);
+            });
+            
+            eventCard.appendChild(listContainer);
+            detailsEventsList.appendChild(eventCard);
+        }
     }
 
     function updateNavButtons() {
@@ -725,7 +845,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const today = new Date();
     currentYear = 2026;
-    currentMonth = today.getFullYear() === 2026 ? today.getMonth() : 4; // May as default for 2026
+    currentMonth = today.getFullYear() === 2026 ? today.getMonth() : 6; // July as default for 2026
 
     fetch('assets/calendar-2026.ics')
         .then(response => {
