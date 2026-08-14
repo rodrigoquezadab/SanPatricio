@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es" class="scroll-smooth">
 
 <head>
@@ -37,7 +37,7 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <script>tailwind.config = { theme: { extend: { colors: { arena: '#F3E5DC', verdeSanPatricio: '#16A34A', negro: '#000000' } } } }</script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link rel="stylesheet" href="styles.css?v=5">
+  <link rel="stylesheet" href="styles.css?v=6">
 </head>
 
 <body>
@@ -138,7 +138,7 @@
 </footer>
 
 </div>
-  <script src="components.js?v=5"></script>
+  <script src="components.js?v=6"></script>
   <script>
     document.addEventListener("DOMContentLoaded", function () {
       Promise.all([
@@ -193,7 +193,7 @@
         let allNews = [...flyers, ...newsData];
         const bannerContainer = document.getElementById("noticias-banner");
         let bannerHTML = "";
-        let bannerNews = allNews.filter(n => n.isBanner === true);
+        let bannerNews = allNews.filter(n => n.isBanner === true && !n.isArchived);
         if (bannerNews.length === 0) bannerNews = allNews.slice(0, 3);
 
         bannerNews.forEach((n, index) => {

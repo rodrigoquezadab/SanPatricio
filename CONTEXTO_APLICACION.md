@@ -86,10 +86,10 @@ node build_cantos.js        # Genera paginas/cantos.html desde los datos
 
 ## 📋 Registro de Cambios (Changelog)
 
-### [2026-08-14] - Nueva Noticia: 70 Años de la Parroquia San Patricio
-- **Contenido**: Se agregó la publicación especial por los 70 Años de la Parroquia San Patricio a `noticias.json` con `isBanner: true` para su destacación en el banner principal y portal de noticias.
-- **Gestión de Assets**: Se incorporó la imagen conmemorativa oficial en `assets/flyers-noticias/70-anos-parroquia-san-patricio.jpg`.
-- **Rutas de Imágenes**: Se removió el prefijo relativo `../` residual en los templates de `noticias.html` y `noticia.html` para asegurar la carga correcta de imágenes desde la raíz.
+### [2026-08-14] - Nueva Noticia 70 Años y Reorganización de Noticias Archivadas
+- **Contenido**: Se agregó la publicación especial por los 70 Años de la Parroquia San Patricio a `noticias.json` con `isBanner: true` para su destacación principal.
+- **Gestión de Archivo y Noticias Pasadas**: Se clasificaron las noticias pasadas (Misa por Venezuela, Orquesta de Cámara, Taller TAOS) como `isArchived: true` y `isBanner: false`. Sus afiches se trasladaron a `assets/flyers-historicos/`.
+- **UI Portal de Noticias**: Se reestructuró `noticias.html` dividiéndola en dos secciones: **Noticias Recientes y Destacadas** (relevantes al tiempo actual) y **Archivo de Noticias** (histórico con distintivos visuales). El banner de `index.html` ahora excluye automáticamente las noticias archivadas.
 
 ### [2026-06-04] - Incorporación de la Oración del Sagrado Corazón de Jesús y Control de Tamaño de Texto
 - **Contenido Oraciones**: Se agregó la "Oración del Sagrado Corazón de Jesús" en primer lugar del índice y del contenedor de detalles en `oraciones.html`.
