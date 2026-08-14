@@ -81,74 +81,11 @@
     "isArchived": false
   },
   {
-    "id": "concierto-sacro",
-    "title": "🎼 Concierto Sacro de Música Coral",
-    "description": "Presentación especial de música sacra en nuestro templo parroquial, un espacio de contemplación, arte y oración comunitaria a través del canto coral.",
-    "imageUrl": "assets/flyers-historicos/Concierto-Sacro.jpeg",
-    "date": "20/05/2026",
-    "isBanner": false,
-    "isArchived": true
-  },
-  {
-    "id": "vigilia-pentecostes",
-    "title": "🔥🕊️ Solemnidad y Vigilia de Pentecostés",
-    "description": "Gran Vigilia parroquial de Pentecostés. Nos unimos en oración comunitaria para impetrar los dones del Espíritu Santo y renovar nuestra fe eclesial.",
-    "imageUrl": "assets/flyers-historicos/Pentecostes.png",
-    "date": "18/05/2026",
-    "isBanner": false,
-    "isArchived": true
-  },
-  {
-    "id": "concierto-15-abril",
-    "title": "🎵 Concierto de Música Sacra",
-    "description": "Concierto musical abierto a toda la comunidad realizado en el templo parroquial.",
-    "imageUrl": "assets/flyers-historicos/concierto-15-de-abril.jpg",
-    "date": "15/04/2026",
-    "isBanner": false,
-    "isArchived": true
-  },
-  {
-    "id": "fiesta-cuasimodo",
-    "title": "🐎✝️ Fiesta de Cuasimodo: El Cristo Corre",
-    "description": "Tradicional celebración de Cuasimodo en nuestra parroquia, acompañando la entrega de la Santa Comunión a los enfermos y ancianos del sector.",
-    "imageUrl": "assets/flyers-historicos/Cuasimodo.png",
-    "date": "12/04/2026",
-    "isBanner": false,
-    "isArchived": true
-  },
-  {
-    "id": "pascua-resurreccion",
-    "title": "🕯️🌅 Solemne Vigilia Pascual y Misa de Resurrección",
-    "description": "¡El Señor ha Resucitado, Aleluya! Celebración del Lucernario, Pregón Pascual y Misa de Resurrección del Señor.",
-    "imageUrl": "assets/flyers-historicos/pascua_resurreccion.jpg",
-    "date": "04/04/2026",
-    "isBanner": false,
-    "isArchived": true
-  },
-  {
-    "id": "viernes-santo",
-    "title": "✝️ Vía Crucis y Pasión del Señor - Viernes Santo",
-    "description": "Vía Crucis por las calles del barrio y Solemne Liturgia de la Pasión y Adoración de la Santa Cruz en el templo parroquial.",
-    "imageUrl": "assets/flyers-historicos/viernes-santo.jpeg",
-    "date": "03/04/2026",
-    "isBanner": false,
-    "isArchived": true
-  },
-  {
-    "id": "jueves-santo",
-    "title": "🍞🍷 Misa de la Cena del Señor - Jueves Santo",
-    "description": "Celebración del Lavatorio de los Pies, Institución de la Eucaristía y la Sagrada Reserva del Santísimo Sacramento.",
-    "imageUrl": "assets/flyers-historicos/jueves-santo.jpeg",
-    "date": "02/04/2026",
-    "isBanner": false,
-    "isArchived": true
-  },
-  {
-    "id": "semana-santa",
-    "title": "🌿✝️ Programación de Semana Santa",
-    "description": "Horarios y guía de las celebraciones del Triduo Pascual y Domingo de Ramos en la Parroquia San Patricio.",
-    "imageUrl": "assets/flyers-historicos/Semana Santa.jpeg",
-    "date": "29/03/2026",
+    "id": "curso-provida",
+    "title": "👶🌱 Curso de Formación y Pastoral Provida",
+    "description": "Jornada de reflexión, formación y testimonio en defensa de la vida y la dignidad humana desde la concepción.",
+    "imageUrl": "assets/flyers-historicos/Curso Provida.jpeg",
+    "date": "25/03/2026",
     "isBanner": false,
     "isArchived": true
   },
@@ -162,11 +99,74 @@
     "isArchived": true
   },
   {
-    "id": "curso-provida",
-    "title": "👶🌱 Curso de Formación y Pastoral Provida",
-    "description": "Jornada de reflexión, formación y testimonio en defensa de la vida y la dignidad humana desde la concepción.",
-    "imageUrl": "assets/flyers-historicos/Curso Provida.jpeg",
-    "date": "25/03/2026",
+    "id": "semana-santa",
+    "title": "🌿✝️ Programación de Semana Santa",
+    "description": "Horarios y guía de las celebraciones del Triduo Pascual y Domingo de Ramos en la Parroquia San Patricio.",
+    "imageUrl": "assets/flyers-historicos/Semana Santa.jpeg",
+    "date": "29/03/2026",
+    "isBanner": false,
+    "isArchived": true
+  },
+  {
+    "id": "jueves-santo",
+    "title": "🍞🍷 Misa de la Cena del Señor - Jueves Santo",
+    "description": "Celebración del Lavatorio de los Pies, Institución de la Eucaristía y la Sagrada Reserva del Santísimo Sacramento.",
+    "imageUrl": "assets/flyers-historicos/jueves-santo.jpeg",
+    "date": "02/04/2026",
+    "isBanner": false,
+    "isArchived": true
+  },
+  {
+    "id": "viernes-santo",
+    "title": "✝️ Vía Crucis y Pasión del Señor - Viernes Santo",
+    "description": "Vía Crucis por las calles del barrio y Solemne Liturgia de la Pasión y Adoración de la Santa Cruz en el templo parroquial.",
+    "imageUrl": "assets/flyers-historicos/viernes-santo.jpeg",
+    "date": "03/04/2026",
+    "isBanner": false,
+    "isArchived": true
+  },
+  {
+    "id": "pascua-resurreccion",
+    "title": "🕯️🌅 Solemne Vigilia Pascual y Misa de Resurrección",
+    "description": "¡El Señor ha Resucitado, Aleluya! Celebración del Lucernario, Pregón Pascual y Misa de Resurrección del Señor.",
+    "imageUrl": "assets/flyers-historicos/pascua_resurreccion.jpg",
+    "date": "04/04/2026",
+    "isBanner": false,
+    "isArchived": true
+  },
+  {
+    "id": "fiesta-cuasimodo",
+    "title": "🐎✝️ Fiesta de Cuasimodo: El Cristo Corre",
+    "description": "Tradicional celebración de Cuasimodo en nuestra parroquia, acompañando la entrega de la Santa Comunión a los enfermos y ancianos del sector.",
+    "imageUrl": "assets/flyers-historicos/Cuasimodo.png",
+    "date": "12/04/2026",
+    "isBanner": false,
+    "isArchived": true
+  },
+  {
+    "id": "concierto-15-abril",
+    "title": "🎵 Concierto de Música Sacra",
+    "description": "Concierto musical abierto a toda la comunidad realizado en el templo parroquial.",
+    "imageUrl": "assets/flyers-historicos/concierto-15-de-abril.jpg",
+    "date": "15/04/2026",
+    "isBanner": false,
+    "isArchived": true
+  },
+  {
+    "id": "vigilia-pentecostes",
+    "title": "🔥🕊️ Solemnidad y Vigilia de Pentecostés",
+    "description": "Gran Vigilia parroquial de Pentecostés. Nos unimos en oración comunitaria para impetrar los dones del Espíritu Santo y renovar nuestra fe eclesial.",
+    "imageUrl": "assets/flyers-historicos/Pentecostes.png",
+    "date": "18/05/2026",
+    "isBanner": false,
+    "isArchived": true
+  },
+  {
+    "id": "concierto-sacro",
+    "title": "🎼 Concierto Sacro de Música Coral",
+    "description": "Presentación especial de música sacra en nuestro templo parroquial, un espacio de contemplación, arte y oración comunitaria a través del canto coral.",
+    "imageUrl": "assets/flyers-historicos/Concierto-Sacro.jpeg",
+    "date": "20/05/2026",
     "isBanner": false,
     "isArchived": true
   },
