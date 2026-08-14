@@ -45,9 +45,27 @@
     "isArchived": false
   },
   {
+    "id": "taller-liturgia",
+    "title": "📖✨ Taller de Liturgia Parroquial ✨📖",
+    "description": "Invitación abierta a toda la comunidad parroquial a participar del Taller de Liturgia. Un espacio de formación para lectores, acólitos, ministros y todos quienes colaboran en la animación de las celebraciones litúrgicas.\n\n📍 Parroquia San Patricio\n¡Los esperamos!",
+    "imageUrl": "assets/flyers-noticias/taller-liturgia.jpg",
+    "date": "05/03/2026",
+    "isBanner": true,
+    "isArchived": false
+  },
+  {
+    "id": "jmj-corea-2027",
+    "title": "🌏✝️ Rumbo a la Jornada Mundial de la Juventud Seúl 2027 ✝️🌏",
+    "description": "¡Jóvenes de San Patricio! Iniciamos el camino de preparación para la JMJ Seúl 2027 en Corea del Sur. Súmate a las actividades, encuentros de oración y beneficios comunitarios que realizaremos como pastoral juvenil.",
+    "imageUrl": "assets/flyers-noticias/jmj Corea.jpeg",
+    "date": "01/03/2026",
+    "isBanner": true,
+    "isArchived": false
+  },
+  {
     "id": "campana-ayuda-fraterna",
     "title": "🌟🤝 ¡Súmate a nuestra campaña de ayuda fraterna! 🤝🌟",
-    "description": "Invitamos a toda la comunidad a colaborar con alimentos y artículos de primera necesidad para apoyar a familias que lo necesitan.\n\nEs muy importante que las donaciones sean productos nuevos, sin uso, en buen estado y de larga duración, idealmente no perecederos. De esta forma, aseguramos una ayuda digna, segura y adecuada para cada hogar.\n\nNo se recibirán alimentos abiertos, sobras, productos vencidos ni artículos usados.\n\nPuedes aportar con alimentos básicos, productos de aseo personal y otros elementos esenciales que marcan una gran diferencia en el día a day.\n\n---\n\n### 🥖 ALIMENTOS\n\nAvena\nArroz\nLegumbres\nLeche líquida larga vida y en polvo\nTé, café, infusiones\nAzúcar\nFideos\nSalsa de tomate\nSopa en sobre\nPuré en caja\nQueso rallado\nAceite\nHarina\nSal\nAtún o jurel en conserva\nLentejas\nPorotos\nGarbanzos\nChocolate en polvo\nCubos de caldo / consomé\nMermelada\nConservas (carne, pescado, guisos)\nGalletas dulces o saladas\nPan envasado o tostadas\n\n---\n\n### 🧴 UTENSILIOS DE ASEO\n\nDesodorante\nPapel higiénico\nCepillo de dientes\nPasta de dientes\nJabón líquido\nJabón en barra\nShampoo\nAcondicionador\nDetergente\nCloro o desinfectante\nEsponjas\nToallas higiénicas\nPañales (niños y adultos)\nToallas húmedas\nBolsas de basura\nGuantes de aseo\nEscobilla de baño\nPaños de limpieza\n\n---\n\n### 🧺 OTROS APORTES\n\nRopa en buen estado\nFrazadas\nÚtiles escolares\nUtensilios de cocina básicos\n\n---\n\n💛 Cada gesto cuenta. Tu ayuda puede llevar alivio y esperanza a muchas familias.\n\n#AyudaFraterna #Solidaridad #ComparteConAmor #Comunidad #ApoyoSocial",
+    "description": "Invitamos a toda la comunidad a colaborar con alimentos y artículos de primera necesidad para apoyar a familias que lo necesitan.\n\nEs muy importante que las donaciones sean productos nuevos, sin uso, en buen estado y de larga duración, idealmente no perecederos. De esta forma, aseguramos una ayuda digna, segura y adecuada para cada hogar.\n\nNo se recibirán alimentos abiertos, sobras, productos vencidos ni artículos usados.\n\nPuedes aportar con alimentos básicos, productos de aseo personal y otros elementos esenciales que marcan una gran diferencia en el día a día.\n\n---\n\n### 🥖 ALIMENTOS\n\nAvena\nArroz\nLegumbres\nLeche líquida larga vida y en polvo\nTé, café, infusiones\nAzúcar\nFideos\nSalsa de tomate\nSopa en sobre\nPuré en caja\nQueso rallado\nAceite\nHarina\nSal\nAtún o jurel en conserva\nLentejas\nPorotos\nGarbanzos\nChocolate en polvo\nCubos de caldo / consomé\nMermelada\nConservas (carne, pescado, guisos)\nGalletas dulces o saladas\nPan envasado o tostadas\n\n---\n\n### 🧴 UTENSILIOS DE ASEO\n\nDesodorante\nPapel higiénico\nCepillo de dientes\nPasta de dientes\nJabón líquido\nJabón en barra\nShampoo\nAcondicionador\nDetergente\nCloro o desinfectante\nEsponjas\nToallas higiénicas\nPañales (niños y adultos)\nToallas húmedas\nBolsas de basura\nGuantes de aseo\nEscobilla de baño\nPaños de limpieza\n\n---\n\n### 🧺 OTROS APORTES\n\nRopa en buen estado\nFrazadas\nÚtiles escolares\nUtensilios de cocina básicos\n\n---\n\n💛 Cada gesto cuenta. Tu ayuda puede llevar alivio y esperanza a muchas familias.\n\n#AyudaFraterna #Solidaridad #ComparteConAmor #Comunidad #ApoyoSocial",
     "imageUrl": "assets/flyers-noticias/alimentos-ayuda-fraterna-hd.jpeg",
     "date": "19/04/2026",
     "isBanner": false,
@@ -61,6 +79,96 @@
     "date": "10/03/2026",
     "isBanner": false,
     "isArchived": false
+  },
+  {
+    "id": "concierto-sacro",
+    "title": "🎼 Concierto Sacro de Música Coral",
+    "description": "Presentación especial de música sacra en nuestro templo parroquial, un espacio de contemplación, arte y oración comunitaria a través del canto coral.",
+    "imageUrl": "assets/flyers-historicos/Concierto-Sacro.jpeg",
+    "date": "20/05/2026",
+    "isBanner": false,
+    "isArchived": true
+  },
+  {
+    "id": "vigilia-pentecostes",
+    "title": "🔥🕊️ Solemnidad y Vigilia de Pentecostés",
+    "description": "Gran Vigilia parroquial de Pentecostés. Nos unimos en oración comunitaria para impetrar los dones del Espíritu Santo y renovar nuestra fe eclesial.",
+    "imageUrl": "assets/flyers-historicos/Pentecostes.png",
+    "date": "18/05/2026",
+    "isBanner": false,
+    "isArchived": true
+  },
+  {
+    "id": "concierto-15-abril",
+    "title": "🎵 Concierto de Música Sacra",
+    "description": "Concierto musical abierto a toda la comunidad realizado en el templo parroquial.",
+    "imageUrl": "assets/flyers-historicos/concierto-15-de-abril.jpg",
+    "date": "15/04/2026",
+    "isBanner": false,
+    "isArchived": true
+  },
+  {
+    "id": "fiesta-cuasimodo",
+    "title": "🐎✝️ Fiesta de Cuasimodo: El Cristo Corre",
+    "description": "Tradicional celebración de Cuasimodo en nuestra parroquia, acompañando la entrega de la Santa Comunión a los enfermos y ancianos del sector.",
+    "imageUrl": "assets/flyers-historicos/Cuasimodo.png",
+    "date": "12/04/2026",
+    "isBanner": false,
+    "isArchived": true
+  },
+  {
+    "id": "pascua-resurreccion",
+    "title": "🕯️🌅 Solemne Vigilia Pascual y Misa de Resurrección",
+    "description": "¡El Señor ha Resucitado, Aleluya! Celebración del Lucernario, Pregón Pascual y Misa de Resurrección del Señor.",
+    "imageUrl": "assets/flyers-historicos/pascua_resurreccion.jpg",
+    "date": "04/04/2026",
+    "isBanner": false,
+    "isArchived": true
+  },
+  {
+    "id": "viernes-santo",
+    "title": "✝️ Vía Crucis y Pasión del Señor - Viernes Santo",
+    "description": "Vía Crucis por las calles del barrio y Solemne Liturgia de la Pasión y Adoración de la Santa Cruz en el templo parroquial.",
+    "imageUrl": "assets/flyers-historicos/viernes-santo.jpeg",
+    "date": "03/04/2026",
+    "isBanner": false,
+    "isArchived": true
+  },
+  {
+    "id": "jueves-santo",
+    "title": "🍞🍷 Misa de la Cena del Señor - Jueves Santo",
+    "description": "Celebración del Lavatorio de los Pies, Institución de la Eucaristía y la Sagrada Reserva del Santísimo Sacramento.",
+    "imageUrl": "assets/flyers-historicos/jueves-santo.jpeg",
+    "date": "02/04/2026",
+    "isBanner": false,
+    "isArchived": true
+  },
+  {
+    "id": "semana-santa",
+    "title": "🌿✝️ Programación de Semana Santa",
+    "description": "Horarios y guía de las celebraciones del Triduo Pascual y Domingo de Ramos en la Parroquia San Patricio.",
+    "imageUrl": "assets/flyers-historicos/Semana Santa.jpeg",
+    "date": "29/03/2026",
+    "isBanner": false,
+    "isArchived": true
+  },
+  {
+    "id": "curso-ministros-comunion",
+    "title": "🍞🍷 Curso de Formación para Ministros Extraordinarios de la Comunión",
+    "description": "Formación e instrucción litúrgica para los nuevos Ministros Extraordinarios de la Sagrada Comunión de la Parroquia San Patricio.",
+    "imageUrl": "assets/flyers-historicos/Curso Ministros Comunion.jpg",
+    "date": "27/03/2026",
+    "isBanner": false,
+    "isArchived": true
+  },
+  {
+    "id": "curso-provida",
+    "title": "👶🌱 Curso de Formación y Pastoral Provida",
+    "description": "Jornada de reflexión, formación y testimonio en defensa de la vida y la dignidad humana desde la concepción.",
+    "imageUrl": "assets/flyers-historicos/Curso Provida.jpeg",
+    "date": "25/03/2026",
+    "isBanner": false,
+    "isArchived": true
   },
   {
     "id": "orquesta-camara-chile",

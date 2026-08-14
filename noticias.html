@@ -94,34 +94,36 @@
     document.addEventListener("DOMContentLoaded", function () {
         Promise.all([
             fetch("noticias.json?v=" + new Date().getTime()).then(res => res.json()).catch(() => []),
-            fetch("assets/flyers/").then(res => res.text()).catch(() => "")
+            fetch("assets/flyers-historicos/").then(res => res.text()).catch(() => "")
         ]).then(async ([newsData, html]) => {
             const regex = /href=["']([^"'>]+\.(?:jpg|jpeg|png|webp|gif))["']/gi;
             let match;
             const flyers = [];
             while ((match = regex.exec(html)) !== null) {
                 let filename = decodeURIComponent(match[1].split('/').pop());
+                if (newsData.some(n => n.imageUrl && (n.imageUrl.includes(filename) || n.imageUrl.includes(encodeURIComponent(filename))))) continue;
                 let rawName = filename.replace(/\.[^/.]+$/, "");
                 let id = rawName.replace(/[^a-zA-Z0-9\s-]/g, "").trim().replace(/\s+/g, "-").toLowerCase();
                 let title = rawName.replace(/[-_]/g, " ").toUpperCase();
                 flyers.push({
                     id: id,
                     title: title,
-                    description: "Revisa la información en el afiche adjunto para más detalles.",
-                    imageUrl: "assets/flyers/" + filename,
-                    date: "Nuevo",
-                    isBanner: true,
-                    isFlyer: true
+                    description: "Revisa la información en el afiche histórico adjunto para más detalles.",
+                    imageUrl: "assets/flyers-historicos/" + filename,
+                    date: "Histórico",
+                    isBanner: false,
+                    isArchived: true
                 });
             }
 
             if (flyers.length === 0 && window.location.hostname !== '127.0.0.1' && window.location.hostname !== 'localhost') {
                 try {
-                    const apiRes = await fetch("https://api.github.com/repos/rodrigoquezadab/SanPatricio/contents/assets/flyers");
+                    const apiRes = await fetch("https://api.github.com/repos/rodrigoquezadab/SanPatricio/contents/assets/flyers-historicos");
                     if (apiRes.ok) {
                         const files = await apiRes.json();
                         files.forEach(file => {
                             if (file.name.match(/\.(jpg|jpeg|png|gif|webp)$/i)) {
+                                if (newsData.some(n => n.imageUrl && n.imageUrl.includes(file.name))) return;
                                 let decodedFilename = decodeURIComponent(file.name);
                                 let baseName = decodedFilename.replace(/\.[^/.]+$/, "");
                                 let title = baseName.replace(/[-_]/g, " ").toUpperCase();
@@ -129,10 +131,10 @@
                                 flyers.push({
                                     id: safeId,
                                     title: title,
-                                    description: "Revisa la información en el afiche adjunto para más detalles.",
-                                    date: new Date().toLocaleDateString('es-CL'),
-                                    imageUrl: "assets/flyers/" + file.name,
-                                    isFlyer: true
+                                    description: "Revisa la información en el afiche histórico adjunto para más detalles.",
+                                    date: "Histórico",
+                                    imageUrl: "assets/flyers-historicos/" + file.name,
+                                    isArchived: true
                                 });
                             }
                         });
