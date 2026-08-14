@@ -147,8 +147,8 @@
             }
 
             const allNews = [...newsData, ...flyers];
-            const activeNews = allNews.filter(n => !n.isArchived);
-            const archivedNews = allNews.filter(n => n.isArchived === true);
+            const activeNews = allNews.filter(n => n.activo !== false && n.isArchived !== true);
+            const archivedNews = allNews.filter(n => n.activo === false || n.isArchived === true);
 
             function parseChileanDate(dateStr) {
                 if (!dateStr) return Infinity;
