@@ -27,15 +27,6 @@
     "isArchived": false
   },
   {
-    "id": "taller-taos-sanacion",
-    "title": "🌟 ¡INVITACIÓN ESPECIAL AL TALLER TAOS! 🌟",
-    "description": "¿Sientes la necesidad de sanar el corazón, encontrar paz profunda o fortalecer tu fe? Te invitamos de manera muy especial a participar de los Talleres de Adoración, Oración y Sanación Interior (TAOS) en la Parroquia San Patricio.\n\nEs una oportunidad única para experimentar la restauración del alma a través de la oración y la vida en comunidad. ¡Ven a descubrir las herramientas para salir adelante y vivir con alegría! 🙏✨\n\n📌 ¿CUÁNDO?\nEste jueves 16 de abril.\n\n🕗 ¿A QUÉ HORA?\nA las 20:00 horas (justo después de la misa de las 19:00).\n\n📍 ¿LUGAR?\nParroquia San Patricio.\n🏠 DIRECCIÓN:\nAv. Isabel La Católica 6390, Las Condes.\n\n¡Te esperamos con el corazón abierto para caminar juntos hacia la sanación que solo Dios puede dar! ❤️🙌\n\n📞 CONTACTO E INSCRIPCIONES:\nHablar con Christian Huenchun al +56 9 9822 8792\nInvita: Fraternidad Eucarística Belén",
-    "imageUrl": "assets/flyers-noticias/taos01.jpg",
-    "date": "13/04/2026",
-    "isBanner": true,
-    "isArchived": false
-  },
-  {
     "id": "inscripciones-catequesis",
     "title": "INSCRIPCIONES PARA CATEQUESIS",
     "description": "✨ ¡EMPEZAMOS LAS CATEQUESIS EN SAN PATRICIO! ✨\n\n¿Buscas profundizar en tu fe o recibir algún sacramento?\n¡Las inscripciones ya están abiertas!\n\nContamos con programas para todas las edades en nuestra parroquia.\n\n📖🙏👦 CATEQUESIS PRE-JUVENIL Para niños entre 6 a 15 años.\nPreparación para: Bautismo y Primera Comunión.\n📞 Contacto: Cecilia Peruzzi (Catequista)\n📱 Celular: +569 78572808\n\n🙌 CATEQUESIS JUVENIL Y ADULTOS Desde los 16 años en adelante.\nPreparación para: Bautismo, Primera Comunión y Confirmación.\n☎️ Secretaría: +56 2 2229 9060\n📱 Celular: +569 33484878\n\n📍 UBICACIÓN Y CONTACTO\nDirección: Isabel la Católica 6319, Las Condes.\n📧 Correo: secreparroquiasanpatricio@gmail.com\n\n¡Te esperamos para caminar juntos en la fe! 👣✨",
@@ -47,7 +38,7 @@
   {
     "id": "campana-ayuda-fraterna",
     "title": "🌟🤝 ¡Súmate a nuestra campaña de ayuda fraterna! 🤝🌟",
-    "description": "Invitamos a toda la comunidad a colaborar con alimentos y artículos de primera necesidad para apoyar a familias que lo necesitan.\n\nEs muy importante que las donaciones sean productos nuevos, sin uso, en buen estado y de larga duración, idealmente no perecederos. De esta forma, aseguramos una ayuda digna, segura y adecuada para cada hogar.\n\nNo se recibirán alimentos abiertos, sobras, productos vencidos ni artículos usados.\n\nPuedes aportar con alimentos básicos, productos de aseo personal y otros elementos esenciales que marcan una gran diferencia en el día a día.\n\n---\n\n### 🥖 ALIMENTOS\n\nAvena\nArroz\nLegumbres\nLeche líquida larga vida y en polvo\nTé, café, infusiones\nAzúcar\nFideos\nSalsa de tomate\nSopa en sobre\nPuré en caja\nQueso rallado\nAceite\nHarina\nSal\nAtún o jurel en conserva\nLentejas\nPorotos\nGarbanzos\nChocolate en polvo\nCubos de caldo / consomé\nMermelada\nConservas (carne, pescado, guisos)\nGalletas dulces o saladas\nPan envasado o tostadas\n\n---\n\n### 🧴 UTENSILIOS DE ASEO\n\nDesodorante\nPapel higiénico\nCepillo de dientes\nPasta de dientes\nJabón líquido\nJabón en barra\nShampoo\nAcondicionador\nDetergente\nCloro o desinfectante\nEsponjas\nToallas higiénicas\nPañales (niños y adultos)\nToallas húmedas\nBolsas de basura\nGuantes de aseo\nEscobilla de baño\nPaños de limpieza\n\n---\n\n### 🧺 OTROS APORTES\n\nRopa en buen estado\nFrazadas\nÚtiles escolares\nUtensilios de cocina básicos\n\n---\n\n💛 Cada gesto cuenta. Tu ayuda puede llevar alivio y esperanza a muchas familias.\n\n#AyudaFraterna #Solidaridad #ComparteConAmor #Comunidad #ApoyoSocial",
+    "description": "Invitamos a toda la comunidad a colaborar con alimentos y artículos de primera necesidad para apoyar a familias que lo necesitan.\n\nEs muy importante que las donaciones sean productos nuevos, sin uso, en buen estado y de larga duración, idealmente no perecederos. De esta forma, aseguramos una ayuda digna, segura y adecuada para cada hogar.\n\nNo se recibirán alimentos abiertos, sobras, productos vencidos ni artículos usados.\n\nPuedes aportar con alimentos básicos, productos de aseo personal y otros elementos esenciales que marcan una gran diferencia en el día a day.\n\n---\n\n### 🥖 ALIMENTOS\n\nAvena\nArroz\nLegumbres\nLeche líquida larga vida y en polvo\nTé, café, infusiones\nAzúcar\nFideos\nSalsa de tomate\nSopa en sobre\nPuré en caja\nQueso rallado\nAceite\nHarina\nSal\nAtún o jurel en conserva\nLentejas\nPorotos\nGarbanzos\nChocolate en polvo\nCubos de caldo / consomé\nMermelada\nConservas (carne, pescado, guisos)\nGalletas dulces o saladas\nPan envasado o tostadas\n\n---\n\n### 🧴 UTENSILIOS DE ASEO\n\nDesodorante\nPapel higiénico\nCepillo de dientes\nPasta de dientes\nJabón líquido\nJabón en barra\nShampoo\nAcondicionador\nDetergente\nCloro o desinfectante\nEsponjas\nToallas higiénicas\nPañales (niños y adultos)\nToallas húmedas\nBolsas de basura\nGuantes de aseo\nEscobilla de baño\nPaños de limpieza\n\n---\n\n### 🧺 OTROS APORTES\n\nRopa en buen estado\nFrazadas\nÚtiles escolares\nUtensilios de cocina básicos\n\n---\n\n💛 Cada gesto cuenta. Tu ayuda puede llevar alivio y esperanza a muchas familias.\n\n#AyudaFraterna #Solidaridad #ComparteConAmor #Comunidad #ApoyoSocial",
     "imageUrl": "assets/flyers-noticias/alimentos-ayuda-fraterna-hd.jpeg",
     "date": "19/04/2026",
     "isBanner": false,
@@ -77,6 +68,15 @@
     "description": "Santa Misa por las víctimas del terremoto en Venezuela.\n\nUnidos en la oración, pidamos por quienes han sufrido esta tragedia y por la pronta reconstrucción del país.\n\nTe esperamos este sábado 4 de julio, a las 12:30 horas, en la Catedral Metropolitana de Santiago, en la Eucaristía presidida por el Cardenal Fernando Chomali.",
     "imageUrl": "assets/flyers-historicos/misa venezuela categral santiago.jpg",
     "date": "02/07/2026",
+    "isBanner": false,
+    "isArchived": true
+  },
+  {
+    "id": "taller-taos-sanacion",
+    "title": "🌟 ¡INVITACIÓN ESPECIAL AL TALLER TAOS! 🌟",
+    "description": "¿Sientes la necesidad de sanar el corazón, encontrar paz profunda o fortalecer tu fe? Te invitamos de manera muy especial a participar de los Talleres de Adoración, Oración y Sanación Interior (TAOS) en la Parroquia San Patricio.\n\nEs una oportunidad única para experimentar la restauración del alma a través de la oración y la vida en comunidad. ¡Ven a descubrir las herramientas para salir adelante y vivir con alegría! 🙏✨\n\n📌 ¿CUÁNDO?\nEste jueves 16 de abril.\n\n🕗 ¿A QUÉ HORA?\nA las 20:00 horas (justo después de la misa de las 19:00).\n\n📍 ¿LUGAR?\nParroquia San Patricio.\n🏠 DIRECCIÓN:\nAv. Isabel La Católica 6390, Las Condes.\n\n¡Te esperamos con el corazón abierto para caminar juntos hacia la sanación que solo Dios puede dar! ❤️🙌\n\n📞 CONTACTO E INSCRIPCIONES:\nHablar con Christian Huenchun al +56 9 9822 8792\nInvita: Fraternidad Eucarística Belén",
+    "imageUrl": "assets/flyers-historicos/taos01.jpg",
+    "date": "13/04/2026",
     "isBanner": false,
     "isArchived": true
   }
