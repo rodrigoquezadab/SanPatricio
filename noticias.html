@@ -164,7 +164,7 @@
                 return Infinity;
             }
 
-            archivedNews.sort((a, b) => parseChileanDate(a.date) - parseChileanDate(b.date));
+            archivedNews.sort((a, b) => parseChileanDate(b.date) - parseChileanDate(a.date));
 
             const gridContainer = document.getElementById("noticias-grid");
             let gridHTML = "";
