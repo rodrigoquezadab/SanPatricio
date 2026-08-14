@@ -148,6 +148,20 @@
             const activeNews = allNews.filter(n => !n.isArchived);
             const archivedNews = allNews.filter(n => n.isArchived === true);
 
+            function parseChileanDate(dateStr) {
+                if (!dateStr) return 0;
+                const parts = dateStr.split('/');
+                if (parts.length === 3) {
+                    const day = parseInt(parts[0], 10);
+                    const month = parseInt(parts[1], 10) - 1;
+                    const year = parseInt(parts[2], 10);
+                    return new Date(year, month, day).getTime();
+                }
+                return 0;
+            }
+
+            archivedNews.sort((a, b) => parseChileanDate(a.date) - parseChileanDate(b.date));
+
             const gridContainer = document.getElementById("noticias-grid");
             let gridHTML = "";
             activeNews.forEach(n => {

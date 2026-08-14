@@ -171,20 +171,20 @@
     "isArchived": true
   },
   {
-    "id": "orquesta-camara-chile",
-    "title": "Presentación de la Orquesta de Cámara de Chile",
-    "description": "Te invitamos a disfrutar de la música en comunidad. La Orquesta de Cámara de Chile se presentará en nuestro templo parroquial.\n\n📅 Fecha: Miércoles 22 de julio\n\n🕖 Horario: 19:00 horas\n\n📍 Lugar: Templo Parroquial (Isabel La Católica 6319, Las Condes)\n\n¡Te esperamos con toda tu familia!",
-    "imageUrl": "assets/flyers-historicos/orquesa camara de chile.jpg",
-    "date": "02/07/2026",
-    "isBanner": false,
-    "isArchived": true
-  },
-  {
     "id": "misa-venezuela-catedral",
     "title": "Santa Misa por Venezuela en la Catedral Metropolitana",
     "description": "Santa Misa por las víctimas del terremoto en Venezuela.\n\nUnidos en la oración, pidamos por quienes han sufrido esta tragedia y por la pronta reconstrucción del país.\n\nTe esperamos este sábado 4 de julio, a las 12:30 horas, en la Catedral Metropolitana de Santiago, en la Eucaristía presidida por el Cardenal Fernando Chomali.",
     "imageUrl": "assets/flyers-historicos/misa venezuela categral santiago.jpg",
-    "date": "02/07/2026",
+    "date": "04/07/2026",
+    "isBanner": false,
+    "isArchived": true
+  },
+  {
+    "id": "orquesta-camara-chile",
+    "title": "Presentación de la Orquesta de Cámara de Chile",
+    "description": "Te invitamos a disfrutar de la música en comunidad. La Orquesta de Cámara de Chile se presentará en nuestro templo parroquial.\n\n📅 Fecha: Miércoles 22 de julio\n\n🕖 Horario: 19:00 horas\n\n📍 Lugar: Templo Parroquial (Isabel La Católica 6319, Las Condes)\n\n¡Te esperamos con toda tu familia!",
+    "imageUrl": "assets/flyers-historicos/orquesa camara de chile.jpg",
+    "date": "22/07/2026",
     "isBanner": false,
     "isArchived": true
   }
