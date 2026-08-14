@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
@@ -69,7 +69,7 @@
 </footer>
 
 </div>
-<script src="components.js?v=2"></script>
+<script src="components.js?v=5"></script>
 <script>
     document.addEventListener("DOMContentLoaded", function () {
         const urlParams = new URLSearchParams(window.location.search);
@@ -140,8 +140,8 @@
                 document.getElementById('noticia-container').innerHTML = `
                     <article class="max-w-4xl mx-auto bg-white rounded-xl shadow-lg overflow-hidden">
                         <div class="relative w-full h-[300px] md:h-[500px] overflow-hidden bg-[#000000] z-0">
-                            <img src="../${article.imageUrl}" alt="" class="absolute inset-0 w-full h-full object-cover blur-xl opacity-60 scale-110 -z-10">
-                            <img src="../${article.imageUrl}" alt="${article.title}" class="relative w-full h-full object-contain">
+                            <img src="${article.imageUrl}" alt="" class="absolute inset-0 w-full h-full object-cover blur-xl opacity-60 scale-110 -z-10">
+                            <img src="${article.imageUrl}" alt="${article.title}" class="relative w-full h-full object-contain">
                         </div>
                         <div class="p-6 md:p-10">
                             <h1 class="text-3xl md:text-5xl font-bold text-verdeSanPatricio mb-6 leading-tight">${article.title}</h1>

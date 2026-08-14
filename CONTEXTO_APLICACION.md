@@ -86,6 +86,11 @@ node build_cantos.js        # Genera paginas/cantos.html desde los datos
 
 ## 📋 Registro de Cambios (Changelog)
 
+### [2026-08-14] - Nueva Noticia: 70 Años de la Parroquia San Patricio
+- **Contenido**: Se agregó la publicación especial por los 70 Años de la Parroquia San Patricio a `noticias.json` con `isBanner: true` para su destacación en el banner principal y portal de noticias.
+- **Gestión de Assets**: Se incorporó la imagen conmemorativa oficial en `assets/flyers-noticias/70-anos-parroquia-san-patricio.jpg`.
+- **Rutas de Imágenes**: Se removió el prefijo relativo `../` residual en los templates de `noticias.html` y `noticia.html` para asegurar la carga correcta de imágenes desde la raíz.
+
 ### [2026-06-04] - Incorporación de la Oración del Sagrado Corazón de Jesús y Control de Tamaño de Texto
 - **Contenido Oraciones**: Se agregó la "Oración del Sagrado Corazón de Jesús" en primer lugar del índice y del contenedor de detalles en `oraciones.html`.
 - **Funcionalidad**: Se implementó un control dinámico de tamaño de texto (botones A- y A+) en cada artículo de oración. La preferencia de tamaño se almacena en `localStorage` y escala de manera proporcional todos los elementos del texto (párrafos, notas, subencabezados) utilizando variables CSS en `styles.css`.

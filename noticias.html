@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
@@ -77,7 +77,7 @@
 </footer>
 
 </div>
-<script src="components.js?v=2"></script>
+<script src="components.js?v=5"></script>
 <script>
     document.addEventListener("DOMContentLoaded", function () {
         Promise.all([
@@ -137,8 +137,8 @@
                 gridHTML += `
                     <div class="card flex flex-col cursor-pointer hover:shadow-xl transition" onclick="window.location.href='noticia.html?id=${n.id}'">
                         <div class="relative w-full h-64 mb-4 rounded-t-lg overflow-hidden bg-[#000000] z-0 flex-shrink-0">
-                            <img src="../${n.imageUrl}" alt="" class="absolute inset-0 w-full h-full object-cover blur-xl opacity-60 scale-110 -z-10">
-                            <img src="../${n.imageUrl}" alt="${n.title}" class="relative w-full h-full object-contain">
+                            <img src="${n.imageUrl}" alt="" class="absolute inset-0 w-full h-full object-cover blur-xl opacity-60 scale-110 -z-10">
+                            <img src="${n.imageUrl}" alt="${n.title}" class="relative w-full h-full object-contain">
                         </div>
                         <h3 class="text-xl font-bold mb-2 flex-grow">${n.title}</h3>
                         <p class="text-gray-600 line-clamp-3">${n.description}</p>
