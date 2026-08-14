@@ -96,12 +96,14 @@
             fetch("noticias.json?v=" + new Date().getTime()).then(res => res.json()).catch(() => []),
             fetch("assets/flyers-historicos/").then(res => res.text()).catch(() => "")
         ]).then(async ([newsData, html]) => {
+            const normalizePath = (p) => (p || "").toLowerCase().replace(/%20/g, ' ').replace(/[-_]/g, ' ').replace(/\s+/g, ' ').trim();
+
             const regex = /href=["']([^"'>]+\.(?:jpg|jpeg|png|webp|gif))["']/gi;
             let match;
             const flyers = [];
             while ((match = regex.exec(html)) !== null) {
                 let filename = decodeURIComponent(match[1].split('/').pop());
-                if (newsData.some(n => n.imageUrl && (n.imageUrl.includes(filename) || n.imageUrl.includes(encodeURIComponent(filename))))) continue;
+                if (newsData.some(n => n.imageUrl && normalizePath(n.imageUrl).includes(normalizePath(filename)))) continue;
                 let rawName = filename.replace(/\.[^/.]+$/, "");
                 let id = rawName.replace(/[^a-zA-Z0-9\s-]/g, "").trim().replace(/\s+/g, "-").toLowerCase();
                 let title = rawName.replace(/[-_]/g, " ").toUpperCase();
@@ -123,7 +125,7 @@
                         const files = await apiRes.json();
                         files.forEach(file => {
                             if (file.name.match(/\.(jpg|jpeg|png|gif|webp)$/i)) {
-                                if (newsData.some(n => n.imageUrl && n.imageUrl.includes(file.name))) return;
+                                if (newsData.some(n => n.imageUrl && normalizePath(n.imageUrl).includes(normalizePath(file.name)))) return;
                                 let decodedFilename = decodeURIComponent(file.name);
                                 let baseName = decodedFilename.replace(/\.[^/.]+$/, "");
                                 let title = baseName.replace(/[-_]/g, " ").toUpperCase();
@@ -144,20 +146,22 @@
                 }
             }
 
-            const allNews = [...flyers, ...newsData];
+            const allNews = [...newsData, ...flyers];
             const activeNews = allNews.filter(n => !n.isArchived);
             const archivedNews = allNews.filter(n => n.isArchived === true);
 
             function parseChileanDate(dateStr) {
-                if (!dateStr) return 0;
+                if (!dateStr) return Infinity;
                 const parts = dateStr.split('/');
                 if (parts.length === 3) {
                     const day = parseInt(parts[0], 10);
                     const month = parseInt(parts[1], 10) - 1;
                     const year = parseInt(parts[2], 10);
-                    return new Date(year, month, day).getTime();
+                    if (!isNaN(day) && !isNaN(month) && !isNaN(year)) {
+                        return new Date(year, month, day).getTime();
+                    }
                 }
-                return 0;
+                return Infinity;
             }
 
             archivedNews.sort((a, b) => parseChileanDate(a.date) - parseChileanDate(b.date));
