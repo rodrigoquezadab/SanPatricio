@@ -194,10 +194,15 @@ ${menuHtml}
     <h2 class="text-3xl mb-2 text-center"><i class="fas fa-music mr-2"></i>Cancionero</h2>
     <p class="text-center text-gray-600 text-sm mb-4">${finalSongs.length} canciones disponibles</p>
 
-    <!-- Search Bar -->
-    <div class="relative max-w-lg mx-auto mb-4">
-        <i class="fas fa-search absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"></i>
-        <input type="text" id="search-input" placeholder="Buscar canción..." autocomplete="off">
+    <!-- Sticky Search Bar -->
+    <div id="sticky-search-container" class="sticky top-[58px] z-40 bg-[#F3E5DC]/95 backdrop-blur-md py-3 -mx-4 px-4 shadow-sm border-b border-stone-300 mb-4 transition-all">
+        <div class="relative max-w-xl mx-auto">
+            <i class="fas fa-search absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 text-base pointer-events-none"></i>
+            <input type="text" id="search-input" class="w-full pl-11 pr-10 py-2.5 rounded-xl border border-gray-300 bg-white shadow-sm focus:outline-none focus:ring-2 focus:ring-verdeSanPatricio focus:border-transparent text-base" placeholder="Buscar por título o frase dentro de la canción..." autocomplete="off">
+            <button id="clear-search-btn" onclick="clearSearchInput()" class="hidden absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-700 p-1 transition-colors" title="Borrar búsqueda">
+                <i class="fas fa-times-circle text-lg"></i>
+            </button>
+        </div>
     </div>
 
     <!-- Filters -->
@@ -342,21 +347,63 @@ document.querySelectorAll('.filter-btn').forEach(btn => {
     });
 });
 
+let songIndexCache = [];
+
+function initSearchIndex() {
+    songIndexCache = [];
+    document.querySelectorAll('.song-card').forEach(card => {
+        const slug = card.id;
+        const rawTitle = card.dataset.title || '';
+        const titleNorm = rawTitle.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+        const pre = card.querySelector('.song-pre');
+        const rawLyrics = pre ? pre.textContent : '';
+        const lyricsNorm = rawLyrics.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+        let cats = { m: [], l: [], ch: 0 };
+        try { cats = JSON.parse(card.dataset.cats); } catch(e) {}
+        
+        songIndexCache.push({
+            slug: slug,
+            title: titleNorm,
+            lyrics: lyricsNorm,
+            cats: cats
+        });
+    });
+}
+
+function clearSearchInput() {
+    const input = document.getElementById('search-input');
+    input.value = '';
+    const clearBtn = document.getElementById('clear-search-btn');
+    if (clearBtn) clearBtn.classList.add('hidden');
+    input.focus();
+    applyFilters();
+}
+
 function clearFilters() {
     activeFilters = { momento: null, tiempo: null, chilena: null };
     document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-    document.getElementById('search-input').value = '';
+    const input = document.getElementById('search-input');
+    input.value = '';
+    const clearBtn = document.getElementById('clear-search-btn');
+    if (clearBtn) clearBtn.classList.add('hidden');
     applyFilters();
 }
 
 function hasActiveFilter() {
-    const search = document.getElementById('search-input').value.trim();
+    const input = document.getElementById('search-input');
+    const search = input ? input.value.trim() : '';
     return search.length > 0 || activeFilters.momento || activeFilters.tiempo || activeFilters.chilena;
 }
 
 function applyFilters() {
     const rawSearch = document.getElementById('search-input').value.trim();
-    const search = rawSearch.toLowerCase().normalize('NFD').replace(/[\\u0300-\\u036f]/g, '');
+    const clearBtn = document.getElementById('clear-search-btn');
+    if (clearBtn) {
+        if (rawSearch.length > 0) clearBtn.classList.remove('hidden');
+        else clearBtn.classList.add('hidden');
+    }
+
+    const search = rawSearch.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
     const welcomeMsg = document.getElementById('welcome-msg');
     const filtersActive = hasActiveFilter();
     let visible = 0;
@@ -367,45 +414,61 @@ function applyFilters() {
     // Always hide ALL song cards — they only appear via index click
     document.querySelectorAll('.song-card').forEach((card) => card.classList.add('hidden-filter'));
     
-    // Filter the INDEX links only
-    document.querySelectorAll('.index-link').forEach((link) => {
-        const slug = link.dataset.slug;
-        const card = document.getElementById(slug);
-        if (!card) return;
+    // Lookup matching slugs from cached index
+    const matchingSlugs = new Set();
+    
+    for (let i = 0; i < songIndexCache.length; i++) {
+        const item = songIndexCache[i];
+        let matches = true;
         
-        let matchesFilter = true;
         if (filtersActive) {
-            const title = (card.dataset.title || '').normalize('NFD').replace(/[\\u0300-\\u036f]/g, '');
-            let cats;
-            try { cats = JSON.parse(card.dataset.cats); } catch(e) { cats = {m:[],l:[],ch:0}; }
-            
-            if (search && !title.includes(search)) matchesFilter = false;
-            if (matchesFilter && activeFilters.momento && !cats.m.includes(activeFilters.momento)) matchesFilter = false;
-            if (matchesFilter && activeFilters.tiempo && !cats.l.includes(activeFilters.tiempo)) matchesFilter = false;
-            if (matchesFilter && activeFilters.chilena && !cats.ch) matchesFilter = false;
+            if (activeFilters.momento && !item.cats.m.includes(activeFilters.momento)) matches = false;
+            if (matches && activeFilters.tiempo && !item.cats.l.includes(activeFilters.tiempo)) matches = false;
+            if (matches && activeFilters.chilena && !item.cats.ch) matches = false;
+            if (matches && search) {
+                // Check match in title OR in lyrics/chords
+                const inTitle = item.title.includes(search);
+                const inLyrics = item.lyrics.includes(search);
+                if (!inTitle && !inLyrics) matches = false;
+            }
         }
         
-        link.style.display = (filtersActive && !matchesFilter) ? 'none' : '';
-        if (!filtersActive || matchesFilter) visible++;
+        if (matches) matchingSlugs.add(item.slug);
+    }
+    
+    // Filter the INDEX links
+    document.querySelectorAll('.index-link').forEach((link) => {
+        const slug = link.dataset.slug;
+        const matches = !filtersActive || matchingSlugs.has(slug);
+        link.style.display = matches ? '' : 'none';
+        if (matches) visible++;
     });
     
-    document.getElementById('song-count').textContent = filtersActive ? \`(\${visible} de \${finalSongs.length})\` : \`(\${finalSongs.length})\`;
+    document.getElementById('song-count').textContent = filtersActive ? \`(\${visible} de ${finalSongs.length})\` : \`(${finalSongs.length})\`;
 }
 
 function showSingleSong(event, slug) {
     event.preventDefault();
-    // Hide welcome message
     const welcomeMsg = document.getElementById('welcome-msg');
     if (welcomeMsg) welcomeMsg.style.display = 'none';
-    // Show only the clicked song
+    
     document.querySelectorAll('.song-card').forEach(c => c.classList.add('hidden-filter'));
     const target = document.getElementById(slug);
     if (target) {
         target.classList.remove('hidden-filter');
-        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        
+        // Offset scroll calculation considering sticky navbar (60px) + search (70px)
+        const headerOffset = 135;
+        const elementPosition = target.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+        window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth'
+        });
     }
 }
 
+initSearchIndex();
 document.getElementById('search-input').addEventListener('input', applyFilters);
 applyFilters();
 </script>
