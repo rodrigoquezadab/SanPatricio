@@ -20,7 +20,7 @@
 <nav class="bg-verdeSanPatricio sticky top-0 z-50 shadow-md">
     <div class="container mx-auto px-4 flex flex-wrap justify-between items-center py-3">
         <a href="index.html" class="text-white text-xl font-bold flex items-center">
-            <img src="assets/logo-san-patricio.jpg" alt="Logo Parroquia San Patricio" class="h-10 w-auto mr-3 rounded-full object-cover">
+            <img src="assets/logo-san-patricio.jpg" alt="Logo Parroquia San Patricio" class="h-10 w-auto mr-3 rounded-lg object-contain shadow-md border border-white/40">
             Parroquia San Patricio
         </a>
         <button id="menu-toggle" class="lg:hidden text-white focus:outline-none"><i class="fas fa-bars fa-xl"></i></button>
@@ -94,7 +94,7 @@
     document.addEventListener("DOMContentLoaded", function () {
         Promise.all([
             fetch("data/noticias.json?v=" + new Date().getTime()).then(res => res.json()).catch(() => []),
-            fetch("assets/flyers-historicos/").then(res => res.text()).catch(() => "")
+            fetch("assets/flyers/historicos/").then(res => res.text()).catch(() => "")
         ]).then(async ([newsData, html]) => {
             const normalizePath = (p) => (p || "").toLowerCase().replace(/%20/g, ' ').replace(/[-_]/g, ' ').replace(/\s+/g, ' ').trim();
 
@@ -111,7 +111,7 @@
                     id: id,
                     title: title,
                     description: "Revisa la información en el afiche histórico adjunto para más detalles.",
-                    imageUrl: "assets/flyers-historicos/" + filename,
+                    imageUrl: "assets/flyers/historicos/" + filename,
                     date: "Histórico",
                     isBanner: false,
                     isArchived: true
@@ -120,7 +120,7 @@
 
             if (flyers.length === 0 && window.location.hostname !== '127.0.0.1' && window.location.hostname !== 'localhost') {
                 try {
-                    const apiRes = await fetch("https://api.github.com/repos/rodrigoquezadab/SanPatricio/contents/assets/flyers-historicos");
+                    const apiRes = await fetch("https://api.github.com/repos/rodrigoquezadab/SanPatricio/contents/assets/flyers/historicos");
                     if (apiRes.ok) {
                         const files = await apiRes.json();
                         files.forEach(file => {
@@ -135,7 +135,7 @@
                                     title: title,
                                     description: "Revisa la información en el afiche histórico adjunto para más detalles.",
                                     date: "Histórico",
-                                    imageUrl: "assets/flyers-historicos/" + file.name,
+                                    imageUrl: "assets/flyers/historicos/" + file.name,
                                     isArchived: true
                                 });
                             }
@@ -147,8 +147,8 @@
             }
 
             const allNews = [...newsData, ...flyers];
-            const activeNews = allNews.filter(n => n.activo !== false && n.isArchived !== true);
-            const archivedNews = allNews.filter(n => n.activo === false || n.isArchived === true);
+            const activeNews = allNews.filter(n => n.isActive !== false && n.activo !== false && n.isArchived !== true);
+            const archivedNews = allNews.filter(n => n.isActive === false || n.activo === false || n.isArchived === true);
 
             function parseChileanDate(dateStr) {
                 if (!dateStr) return Infinity;

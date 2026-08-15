@@ -46,9 +46,8 @@ El carrusel de la página de inicio (`index.html`) unifica ambas fuentes:
 - Si no hay marcados como banner, muestra los 3 elementos más recientes de la lista combinada.
 
 ### 🖼️ Gestión de Assets
-- **Imágenes de Noticias Manuales**: Deben guardarse en `/assets/flyers-noticias/`. Esta carpeta contiene las imágenes vinculadas específicamente a las entradas de `noticias.json`.
-- **Flyers Automáticos**: Deben guardarse en `/assets/flyers/` para ser detectados automáticamente por el script de carga.
-- **Flyers Históricos**: Los afiches de noticias antiguas que ya no están activas se deben mover a `/assets/flyers-historicos/` para mantener un respaldo limpio y organizado.
+- **Afiches de Noticias**: Deben guardarse en `/assets/flyers/noticias/`. Esta carpeta contiene las imágenes vinculadas específicamente a las entradas activas de `data/noticias.json`.
+- **Afiches Históricos**: Los afiches de noticias y eventos anteriores se almacenan en `/assets/flyers/historicos/` para mantener un respaldo ordenado sin saturar la vista principal.
 - **Imágenes Generales**: Logos, fotos de la parroquia y otros elementos estáticos permanecen en la raíz de `/assets`.
 
 
