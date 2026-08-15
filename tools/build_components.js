@@ -1,8 +1,9 @@
 const fs = require('fs');
 const path = require('path');
 
-const menuHtml = fs.readFileSync(path.join(__dirname, 'components', 'menu.html'), 'utf8');
-const footerHtml = fs.readFileSync(path.join(__dirname, 'components', 'footer.html'), 'utf8');
+const projectRoot = path.join(__dirname, '..');
+const menuHtml = fs.readFileSync(path.join(projectRoot, 'components', 'menu.html'), 'utf8');
+const footerHtml = fs.readFileSync(path.join(projectRoot, 'components', 'footer.html'), 'utf8');
 
 const metaDescriptions = {
     'adoracion.html': 'Adoración Eucarística en la Parroquia San Patricio, Las Condes. Horarios, cómo sumarte como adorador y ubicación de la capilla.',
@@ -22,9 +23,10 @@ const metaDescriptions = {
 const stylesRegex = /<style>[\s\S]*?<\/style>/i;
 
 function processFile(file) {
+    const filePath = path.join(projectRoot, file);
     if (file === 'index.html' || file === 'noticia.html' || file === 'generated_songs.html' || file === 'generated_index.html') {
         // Para index.html y noticia.html solo inyectamos menu y footer y actualizamos estilos, NO tocamos metas
-        let content = fs.readFileSync(file, 'utf8');
+        let content = fs.readFileSync(filePath, 'utf8');
         
         // Inject menu
         if (content.includes('<nav class="bg-verdeSanPatricio')) {
@@ -43,7 +45,6 @@ function processFile(file) {
         // Clean up paths if it was moved (index was already in root, but just in case)
         if(file !== 'index.html') {
             content = content.replace(/\.\.\/assets\//g, 'assets/');
-            content = content.replace(/\.\.\/noticias\.json/g, 'noticias.json');
             content = content.replace(/\.\.\/components\.js/g, 'components.js');
         }
 
@@ -52,12 +53,12 @@ function processFile(file) {
             content = content.replace(stylesRegex, '<link rel="stylesheet" href="styles.css">');
         }
 
-        fs.writeFileSync(file, content, 'utf8');
+        fs.writeFileSync(filePath, content, 'utf8');
         console.log(`Processed ${file} (partial)`);
         return;
     }
 
-    let content = fs.readFileSync(file, 'utf8');
+    let content = fs.readFileSync(filePath, 'utf8');
     
     // Inject menu & footer
     if (content.includes('<nav class="bg-verdeSanPatricio')) {
@@ -74,7 +75,6 @@ function processFile(file) {
 
     // Clean up paths since files are now in root
     content = content.replace(/\.\.\/assets\//g, 'assets/');
-    content = content.replace(/\.\.\/noticias\.json/g, 'noticias.json');
     content = content.replace(/\.\.\/components\.js/g, 'components.js');
 
     // Replace styles
@@ -97,10 +97,10 @@ function processFile(file) {
         content = content.replace('</head>', `${metaTags}\n</head>`);
     }
 
-    fs.writeFileSync(file, content, 'utf8');
+    fs.writeFileSync(filePath, content, 'utf8');
     console.log(`Processed ${file}`);
 }
 
-const files = fs.readdirSync(__dirname).filter(f => f.endsWith('.html') && !f.startsWith('generated_'));
+const files = fs.readdirSync(projectRoot).filter(f => f.endsWith('.html') && !f.startsWith('generated_'));
 files.forEach(processFile);
 console.log('Build completed!');

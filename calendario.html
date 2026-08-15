@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
@@ -166,7 +166,7 @@
 </footer>
 
 </div>
-<script src="components.js?v=6"></script>
+<script src="components.js?v=7"></script>
 <script>
 document.addEventListener("DOMContentLoaded", function () {
     const eventsByDate = {};
@@ -225,222 +225,66 @@ document.addEventListener("DOMContentLoaded", function () {
         return { emoji, type, title: cleanSummary };
     }
 
-    // List of local parish-specific events from Google Doc
-    const localEvents = [
-        // Mayo 2026
-        {
-            start: "20260504",
-            summary: "🔵 [P] Despedida de Pablo Sandoval",
-            description: "20:30 hrs: Despedida de Pablo Sandoval (Parroquia de las Nieves)."
-        },
-        {
-            start: "20260506",
-            summary: "🔵 [P] Novena al Padre José Frassinetti - Día 1",
-            description: "Día 1 de la Novena al Venerable Padre José Frassinetti."
-        },
-        {
-            start: "20260507",
-            summary: "🔵 [P] Novena al Padre José Frassinetti - Día 2",
-            description: "Día 2 de la Novena al Venerable Padre José Frassinetti."
-        },
-        {
-            start: "20260508",
-            summary: "🔵 [P] Novena al Padre José Frassinetti - Día 3",
-            description: "Día 3 de la Novena al Venerable Padre José Frassinetti."
-        },
-        {
-            start: "20260509",
-            summary: "🔵 [P] Novena al Padre José Frassinetti - Día 4",
-            description: "Día 4 de la Novena al Venerable Padre José Frassinetti."
-        },
-        {
-            start: "20260509",
-            summary: "🔵 [P] Asamblea Zonal de la Vicaría",
-            description: "09:00 a 12:00 hrs: Asamblea Zonal de la Vicaría Cordillera en el Colegio Seminario Pontificio Menor (Av. Padre Errázuriz 7001, metro Hernando de Magallanes). Participan ministros ordenados, consejos parroquiales, colegios, movimientos y agrupaciones eclesiales. Contaremos con la visita del Padre Rodrigo Cordero, nuevo Vicario para la Pastoral en Santiago. El tema será trabajar en una de las 4 orientaciones 2025-2029."
-        },
-        {
-            start: "20260510",
-            summary: "🔵 [P] Novena al Padre José Frassinetti - Día 5",
-            description: "Día 5 de la Novena al Venerable Padre José Frassinetti."
-        },
-        {
-            start: "20260511",
-            summary: "🔵 [P] Consejo Pastoral Parroquial",
-            description: "Reunión mensual del Consejo Pastoral de la Parroquia San Patricio."
-        },
-        {
-            start: "20260511",
-            summary: "🔵 [P] Novena al Padre José Frassinetti - Día 6",
-            description: "Día 6 de la Novena al Venerable Padre José Frassinetti."
-        },
-        {
-            start: "20260512",
-            summary: "🔵 [P] Novena al Padre José Frassinetti - Día 7",
-            description: "Día 7 de la Novena al Venerable Padre José Frassinetti."
-        },
-        {
-            start: "20260513",
-            summary: "🔵 [P] Rosario Mundial de Familias & Misa",
-            description: "11:00 hrs: Rosario Mundial de Familias (Nuestra Señora de Fátima).\n12:00 hrs: Santa Misa."
-        },
-        {
-            start: "20260513",
-            summary: "🔵 [P] Novena al Padre José Frassinetti - Día 8",
-            description: "Día 8 de la Novena al Venerable Padre José Frassinetti."
-        },
-        {
-            start: "20260514",
-            summary: "🔵 [P] Novena al Padre José Frassinetti - Día 9",
-            description: "Día 9 de la Novena al Venerable Padre José Frassinetti."
-        },
-        {
-            start: "20260516",
-            summary: "🔵 [P] Misa con Adoradores Eucarísticos",
-            description: "18:00 hrs: Santa Misa con presencia y participación activa de los adoradores de la capilla de adoración."
-        },
-        {
-            start: "20260517",
-            summary: "🔵 [P] Procesión Comunitaria de Pascua",
-            description: "Después de la Misa de las 09:30: Procesión comunitaria. Momento de oración y testimonio pascual. Recorrido desde el Templo parroquial hacia la Plaza Isabel La Católica."
-        },
-        {
-            start: "20260523",
-            summary: "🔵 [P] Vigilia de Pentecostés",
-            description: "18:00 hrs: Vigilia de Pentecostés. Santa Misa y adoración al Santísimo, con música sacra, hasta las 20:00 hrs."
-        },
-        {
-            start: "20260524",
-            summary: "🔵 [P] Misas de Pentecostés",
-            description: "Misas del Domingo de Pentecostés en horarios parroquiales: 09:30, 11:00 y 12:30 hrs."
-        },
-        {
-            start: "20260515",
-            summary: "🔵 [P] Novena al Padre José Frassinetti - Día de la Fiesta (Término)",
-            description: "Fiesta y término de la Novena al Venerable Padre José Frassinetti."
-        },
-        // Julio 2026
-        {
-            start: "20260707",
-            summary: "🔵 [P] Novena a la Virgen del Carmen",
-            description: "Misas a las 12:00 y 19:00 hrs."
-        },
-        {
-            start: "20260715",
-            summary: "🔵 [P] 11° Aniversario Ordenación Padre Samuel",
-            description: "Misa a las 19:00 hrs, seguida de un ágape (se invita a la comunidad a traer algo para compartir)."
-        },
-        {
-            start: "20260716",
-            summary: "🔵 [P] Misas de la Virgen del Carmen",
-            description: "Misa solemne a las 12:00 y 19:00 hrs."
-        },
-        {
-            start: "20260721",
-            summary: "🔵 [P] Inicio de Catequesis",
-            description: "Inicio de catequesis para jóvenes y adultos."
-        },
-        {
-            start: "20260722",
-            summary: "🔵 [P] Presentación de la Orquesta de Cámara",
-            description: "Presentación de la orquesta de cámara en el templo a las 19:00 hrs (preguntar a Claudia)."
-        },
-        {
-            start: "20260723",
-            summary: "🔵 [P] Visita Pastoral del Vicario Zona Cordillera",
-            description: "Visita pastoral del Vicario Zona Cordillera (horario por definir)."
-        }
-    ];
+    // Cargar eventos parroquiales desde JSON externo
+    let localEvents = [];
 
-    // Eventos Recurrentes de 2026 (Todos los Jueves)
-    for (let month = 0; month < 12; month++) {
-        const daysInMonth = new Date(2026, month + 1, 0).getDate();
-        for (let day = 1; day <= daysInMonth; day++) {
-            const dObj = new Date(2026, month, day);
-            if (dObj.getDay() === 4) { // 4 es Jueves
-                const yKey = "2026";
-                const mKey = (month + 1).toString().padStart(2, '0');
-                const dKey = day.toString().padStart(2, '0');
-                const dateKey = `${yKey}${mKey}${dKey}`;
-                
-                localEvents.push({
-                    start: dateKey,
-                    summary: "🔵 [P] Adoración al Santísimo",
-                    description: "18:30 hrs: Adoración al Santísimo."
-                });
-                localEvents.push({
-                    start: dateKey,
-                    summary: "🔵 [P] Santa Misa",
-                    description: "19:00 hrs: Santa Misa."
-                });
-                localEvents.push({
-                    start: dateKey,
-                    summary: "🔵 [P] Taller TAOS: 'Adorar para Sanar'",
-                    description: "19:30 hrs: Talleres de Adoración, Oración y Sanación Interior (TAOS 2026) / Fraternidad Eucarística Belén. Tema: 'Adorar para Sanar' (trabajo de sanación interior, perdón, discernimiento, etc.). Contacto: Christian Huenchun."
-                });
-            }
+    function loadLocalEvents(data) {
+        // 1. Eventos puntuales (one-time)
+        if (data.oneTime) {
+            data.oneTime.forEach(ev => localEvents.push(ev));
+        }
+
+        // 2. Eventos recurrentes semanales
+        if (data.recurring && data.recurring.weekly) {
+            data.recurring.weekly.forEach(rule => {
+                for (let month = 0; month < 12; month++) {
+                    const daysInMonth = new Date(data.year, month + 1, 0).getDate();
+                    for (let day = 1; day <= daysInMonth; day++) {
+                        const dObj = new Date(data.year, month, day);
+                        if (dObj.getDay() === rule.dayOfWeek) {
+                            const yKey = data.year.toString();
+                            const mKey = (month + 1).toString().padStart(2, '0');
+                            const dKey = day.toString().padStart(2, '0');
+                            const dateKey = yKey + mKey + dKey;
+                            rule.events.forEach(ev => {
+                                localEvents.push({
+                                    start: dateKey,
+                                    summary: ev.summary,
+                                    description: ev.description
+                                });
+                            });
+                        }
+                    }
+                }
+            });
+        }
+
+        // 3. Eventos por rango de fechas
+        if (data.recurring && data.recurring.dateRange) {
+            data.recurring.dateRange.forEach(range => {
+                const startYear = parseInt(range.startDate.substring(0, 4));
+                const startMonth = parseInt(range.startDate.substring(4, 6)) - 1;
+                const startDay = parseInt(range.startDate.substring(6, 8));
+                const endYear = parseInt(range.endDate.substring(0, 4));
+                const endMonth = parseInt(range.endDate.substring(4, 6)) - 1;
+                const endDay = parseInt(range.endDate.substring(6, 8));
+
+                const sDate = new Date(startYear, startMonth, startDay);
+                const eDate = new Date(endYear, endMonth, endDay);
+
+                for (let d = new Date(sDate); d <= eDate; d.setDate(d.getDate() + 1)) {
+                    const yKey = d.getFullYear().toString();
+                    const mKey = (d.getMonth() + 1).toString().padStart(2, '0');
+                    const dKey = d.getDate().toString().padStart(2, '0');
+                    localEvents.push({
+                        start: yKey + mKey + dKey,
+                        summary: range.summary,
+                        description: range.description
+                    });
+                }
+            });
         }
     }
-
-    // Ausencia del Padre Roberto: del 30 de mayo al 13 de junio
-    const absenceStartDate = new Date(2026, 4, 30); // 30 de mayo
-    const absenceEndDate = new Date(2026, 5, 13); // 13 de junio
-    for (let d = new Date(absenceStartDate); d <= absenceEndDate; d.setDate(d.getDate() + 1)) {
-        const yKey = d.getFullYear().toString();
-        const mKey = (d.getMonth() + 1).toString().padStart(2, '0');
-        const dKey = d.getDate().toString().padStart(2, '0');
-        localEvents.push({
-            start: `${yKey}${mKey}${dKey}`,
-            summary: "🔵 [P] Ausencia del Padre Roberto",
-            description: "El Padre Roberto estará ausente de la parroquia desde el 30 de mayo hasta el 13 de junio."
-        });
-    }
-
-    // Curso para Ministros Extraordinarios de Comunión en Junio (Jueves 4, 11, 18, 25)
-    const juneThursdays = ["20260604", "20260611", "20260618", "20260625"];
-    juneThursdays.forEach(date => {
-        localEvents.push({
-            start: date,
-            summary: "🔵 [P] Curso de Formación para Ministros de Comunión",
-            description: "17:00 hrs: Curso de Formación para Ministros Extraordinarios de la Comunión (Vicaría Cordillera).\nLugar: Capilla Parroquial (Isabel La Católica 6319, Las Condes).\nProfesor: Padre Javier Barros.\nInscripción presencial al llegar."
-        });
-    });
-
-    // Lunes 15 de Junio
-    localEvents.push({
-        start: "20260615",
-        summary: "🔵 [P] Consejo Pastoral Parroquial",
-        description: "Reunión del Consejo Pastoral de la Parroquia San Patricio."
-    });
-
-    // Domingo 7 de Junio - Corpus Christi
-    localEvents.push({
-        start: "20260607",
-        summary: "🔵 [P] Presentación de nuevos Ministros (Corpus Christi)",
-        description: "Presentación oficial de los nuevos Ministros de Comunión: Susana, Vicente y Roxana en la fiesta de Corpus Christi."
-    });
-
-    // Lunes 22 de Junio
-    localEvents.push({
-        start: "20260622",
-        summary: "🔵 [P] Conmemoración de la Consagración del Altar",
-        description: "En 1997, siendo Cura Párroco José Sozzi, por el Cardenal Carlos Oviedo Cavada. Misas solemnes a las 12:00 hrs y a las 19:00 hrs."
-    });
-    // Agosto (13 o 16 de Agosto: Conmemoración del 70° Aniversario / 14 de Agosto: 44° Aniversario Ordenación P. Roberto)
-    localEvents.push({
-        start: "20260813",
-        summary: "🔵 [P] Conmemoración del 70° Aniversario de la Parroquia",
-        description: "70° Aniversario de la Constitución Canónica de la Parroquia San Patricio. Se celebrará la conmemoración el día 13 o el 16 de agosto con una invitación y visita del Obispo."
-    });
-    localEvents.push({
-        start: "20260814",
-        summary: "🔵 [P] 44° Aniversario Ordenación P. Roberto Cancian",
-        description: "44° Aniversario de Ordenación Sacerdotal y Profesión de Fe del Párroco, Padre Roberto Daniel Cancian Carletti (14 de agosto de 1982)."
-    });
-    localEvents.push({
-        start: "20260816",
-        summary: "🔵 [P] Conmemoración del 70° Aniversario de la Parroquia",
-        description: "70° Aniversario de la Constitución Canónica de la Parroquia San Patricio. Se celebrará la conmemoración el día 13 o el 16 de agosto con una invitación y visita del Obispo."
-    });
 
     function parseICS(icsText) {
         const unfoldedText = icsText.replace(/\r?\n[ \t]/g, '');
@@ -851,12 +695,11 @@ document.addEventListener("DOMContentLoaded", function () {
     currentYear = 2026;
     currentMonth = today.getFullYear() === 2026 ? today.getMonth() : 6; // July as default for 2026
 
-    fetch('assets/calendar-2026.ics')
-        .then(response => {
-            if (!response.ok) throw new Error('Failed to fetch calendar file');
-            return response.text();
-        })
-        .then(icsText => {
+    Promise.all([
+        fetch('assets/calendar-2026.ics').then(r => { if (!r.ok) throw new Error('Failed to fetch calendar'); return r.text(); }),
+        fetch('data/eventos_parroquiales.json?v=' + new Date().getTime()).then(r => r.json()).catch(() => ({ oneTime: [], recurring: { weekly: [], dateRange: [] } }))
+    ]).then(([icsText, eventsData]) => {
+            loadLocalEvents(eventsData);
             parseICS(icsText);
             
             document.getElementById('calendar-loading').classList.add('hidden');

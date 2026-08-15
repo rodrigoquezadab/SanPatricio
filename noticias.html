@@ -89,11 +89,11 @@
 </footer>
 
 </div>
-<script src="components.js?v=6"></script>
+<script src="components.js?v=7"></script>
 <script>
     document.addEventListener("DOMContentLoaded", function () {
         Promise.all([
-            fetch("noticias.json?v=" + new Date().getTime()).then(res => res.json()).catch(() => []),
+            fetch("data/noticias.json?v=" + new Date().getTime()).then(res => res.json()).catch(() => []),
             fetch("assets/flyers-historicos/").then(res => res.text()).catch(() => "")
         ]).then(async ([newsData, html]) => {
             const normalizePath = (p) => (p || "").toLowerCase().replace(/%20/g, ' ').replace(/[-_]/g, ' ').replace(/\s+/g, ' ').trim();

@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 
 // Load scraped data
-const songs = JSON.parse(fs.readFileSync(path.join(__dirname, 'cancionero_data.json'), 'utf8'));
+const songs = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'data', 'cancionero_data.json'), 'utf8'));
 
 // "Abre tu jardín" PROTECTED content from our current cancionero (REGLA DE ORO)
 const ABRE_TU_JARDIN_CONTENT = `<c>MI</c>         <c>FA#m</c> <c>SOL#m</c>         <c>FA#m</c>
@@ -165,8 +165,8 @@ const allTiempos = rawTiempos.sort((a, b) => {
 });
 
 // Read components
-const menuHtml = fs.readFileSync(path.join(__dirname, 'components', 'menu.html'), 'utf8');
-const footerHtml = fs.readFileSync(path.join(__dirname, 'components', 'footer.html'), 'utf8');
+const menuHtml = fs.readFileSync(path.join(__dirname, '..', 'components', 'menu.html'), 'utf8');
+const footerHtml = fs.readFileSync(path.join(__dirname, '..', 'components', 'footer.html'), 'utf8');
 
 // Build HTML
 const html = `<!DOCTYPE html>
@@ -412,6 +412,6 @@ applyFilters();
 </body>
 </html>`;
 
-const outputHtmlPath = path.join(__dirname, 'cantos.html');
+const outputHtmlPath = path.join(__dirname, '..', 'cantos.html');
 fs.writeFileSync(outputHtmlPath, html, 'utf8');
 console.log(`✅ cantos.html generado: ${(html.length/1024).toFixed(0)} KB, ${finalSongs.length} canciones`);

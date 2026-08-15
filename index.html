@@ -37,7 +37,7 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <script>tailwind.config = { theme: { extend: { colors: { arena: '#F3E5DC', verdeSanPatricio: '#16A34A', negro: '#000000' } } } }</script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link rel="stylesheet" href="styles.css?v=6">
+  <link rel="stylesheet" href="styles.css?v=7">
 </head>
 
 <body>
@@ -138,11 +138,11 @@
 </footer>
 
 </div>
-  <script src="components.js?v=6"></script>
+  <script src="components.js?v=7"></script>
   <script>
     document.addEventListener("DOMContentLoaded", function () {
       Promise.all([
-        fetch("noticias.json?v=" + new Date().getTime()).then(res => res.json()).catch(() => []),
+        fetch("data/noticias.json?v=" + new Date().getTime()).then(res => res.json()).catch(() => []),
         fetch("assets/flyers/").then(res => res.text()).catch(() => "")
       ]).then(async ([newsData, html]) => {
         const regex = /href=["']([^"'>]+\.(?:jpg|jpeg|png|webp|gif))["']/gi;
@@ -222,7 +222,7 @@
         .catch(error => console.error("Error cargando noticias:", error));
 
       // Fetch horarios
-      fetch("horarios.json?v=" + new Date().getTime())
+      fetch("data/horarios.json?v=" + new Date().getTime())
         .then(response => response.json())
         .then(data => {
           if (data.misas) document.getElementById('lista-misas').innerHTML = data.misas.map(m => `<li>${m}</li>`).join('');

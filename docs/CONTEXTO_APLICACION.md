@@ -86,6 +86,15 @@ node build_cantos.js        # Genera paginas/cantos.html desde los datos
 
 ## 📋 Registro de Cambios (Changelog)
 
+### [2026-08-15] - Reorganización del Proyecto para Revisión Humana y Crecimiento Futuro
+- **Estructura**: Reorganización completa del proyecto en carpetas especializadas:
+  - `data/`: Centralización de todos los datos en formato JSON (`eventos_parroquiales.json`, `noticias.json`, `horarios.json`, `cancionero_data.json`).
+  - `tools/`: Agrupación de todos los scripts de automatización y build (`build_components.js`, `build_cantos.js`, `build_oraciones.js`, `bust_cache.js`, `scrape_cancionero.js`).
+  - `docs/`: Documentación interna (`CONTEXTO_APLICACION.md`, `mejoras.md`).
+- **Limpieza**: Eliminación de 9 archivos obsoletos y temporales (`fix_paths.js`, `comment_index.js`, `restore_index.js`, `fetch_songs.js`, `process_songs.js`, `generated_filter.js`, `generated_index.html`, `generated_songs.html`, `songs_data.json`).
+- **Calendario Desacoplado**: Se extrajeron los eventos locales del script de `calendario.html` a `data/eventos_parroquiales.json` con soporte para eventos únicos (`oneTime`), semanales (`recurring.weekly`) y rangos (`recurring.dateRange`).
+- **Rutas**: Actualización de todos los `fetch()` en `index.html`, `noticias.html`, `noticia.html` y `calendario.html` para consultar directamente en `data/`.
+
 ### [2026-08-14] - Nueva Noticia 70 Años y Reorganización de Noticias Archivadas
 - **Contenido**: Se agregó la publicación especial por los 70 Años de la Parroquia San Patricio a `noticias.json` con `isBanner: true` para su destacación principal.
 - **Gestión de Archivo y Noticias Pasadas**: Se clasificaron las noticias pasadas (Misa por Venezuela, Orquesta de Cámara, Taller TAOS) como `isArchived: true` y `isBanner: false`. Sus afiches se trasladaron a `assets/flyers-historicos/`.

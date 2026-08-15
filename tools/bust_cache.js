@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 
 // Bust cache for all HTML files in the root directory
-const rootDir = __dirname;
+const rootDir = path.join(__dirname, '..');
 const files = fs.readdirSync(rootDir).filter(f => f.endsWith('.html'));
 
 let version = 2;

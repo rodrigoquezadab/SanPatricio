@@ -253,7 +253,7 @@ async function main() {
   
   // Write JSON output
   const fs = require('fs');
-  const outputPath = require('path').join(__dirname, 'cancionero_data.json');
+  const outputPath = require('path').join(__dirname, '..', 'data', 'cancionero_data.json');
   fs.writeFileSync(outputPath, JSON.stringify(songs, null, 2), 'utf8');
   console.log(`📄 Datos guardados en: ${outputPath}`);
 }

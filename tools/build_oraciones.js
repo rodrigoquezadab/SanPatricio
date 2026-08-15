@@ -1,6 +1,6 @@
 const fs = require('fs');
-
-const oracionesHtmlPath = 'oraciones.html';
+const path = require('path');
+const oracionesHtmlPath = path.join(__dirname, '..', 'oraciones.html');
 const content = fs.readFileSync(oracionesHtmlPath, 'utf8');
 
 // Extract the oraciones array string

@@ -1,7 +1,8 @@
-$menuHtml = Get-Content -Raw -Path (Join-Path $PSScriptRoot "components/menu.html") -Encoding utf8
-$footerHtml = Get-Content -Raw -Path (Join-Path $PSScriptRoot "components/footer.html") -Encoding utf8
+$projectRoot = Split-Path -Parent $PSScriptRoot
+$menuHtml = Get-Content -Raw -Path (Join-Path $projectRoot "components/menu.html") -Encoding utf8
+$footerHtml = Get-Content -Raw -Path (Join-Path $projectRoot "components/footer.html") -Encoding utf8
 
-$files = Get-ChildItem -Path $PSScriptRoot -Filter *.html | Where-Object { $_.Name -notlike "generated_*" }
+$files = Get-ChildItem -Path $projectRoot -Filter *.html | Where-Object { $_.Name -notlike "generated_*" }
 
 foreach ($file in $files) {
     $content = Get-Content -Raw -Path $file.FullName -Encoding utf8
@@ -22,7 +23,6 @@ foreach ($file in $files) {
     
     # Clean up paths just in case
     $content = $content.Replace('../assets/', 'assets/')
-    $content = $content.Replace('../noticias.json', 'noticias.json')
     $content = $content.Replace('../components.js', 'components.js')
     
     # Write back to file
