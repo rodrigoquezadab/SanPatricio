@@ -256,7 +256,12 @@ ${finalSongs.map(s => `            <a href="#${s.slug}" class="index-link" data-
 ${finalSongs.map(s => {
   const cats = JSON.stringify({m: s.momentos, l: s.tiempos, ch: s.misaChilena ? 1 : 0}).replace(/"/g, '&quot;');
   return `    <div class="card mb-6 song-card hidden-filter" id="${s.slug}" data-cats='${JSON.stringify({m:s.momentos,l:s.tiempos,ch:s.misaChilena?1:0})}' data-title="${s.title.replace(/"/g, '&quot;').toLowerCase()}">
-        <h3 class="text-xl mb-3 border-b pb-2">${s.title}</h3>
+        <div class="flex items-center justify-between border-b pb-2 mb-3 gap-2 flex-wrap">
+            <h3 class="text-xl text-verdeSanPatricio font-bold">${s.title}</h3>
+            <button onclick="closeSong()" class="text-xs bg-stone-100 hover:bg-stone-200 text-stone-700 px-3 py-1.5 rounded-lg border border-stone-300 transition-colors flex items-center gap-1.5 shadow-sm font-medium cursor-pointer" title="Cerrar y volver al buscador">
+                <i class="fas fa-search text-verdeSanPatricio"></i> <span>Buscar otra canción</span>
+            </button>
+        </div>
         <div class="flex flex-wrap gap-2 mb-3 text-sm text-gray-700">
             <button onclick="toggleChords(this)" class="bg-arena hover:bg-gray-200 px-3 py-1 rounded border border-gray-300 transition-colors flex items-center">
                 <i class="fas fa-eye-slash mr-1"></i> <span class="btn-text">Ocultar Acordes</span>
@@ -270,8 +275,16 @@ ${finalSongs.map(s => {
                 <button onclick="transpose(this, 1)" class="hover:bg-gray-200 px-3 py-1 font-bold border-l border-gray-300">+</button>
             </div>
         </div>
-${s.momentos.length || s.tiempos.length || s.misaChilena ? `        <div class="flex flex-wrap gap-1 mb-3">${s.momentos.map(m=>`<span class="text-xs bg-green-100 text-green-800 px-2 py-0.5 rounded-full">${m}</span>`).join('')}${s.tiempos.map(t=>`<span class="text-xs bg-blue-100 text-blue-800 px-2 py-0.5 rounded-full">${t}</span>`).join('')}${s.misaChilena?'<span class="text-xs bg-yellow-100 text-yellow-800 px-2 py-0.5 rounded-full">Misa a la Chilena</span>':''}</div>` : ''}
+${s.momentos.length || s.tiempos.length || s.misaChilena ? `        <div class="flex flex-wrap gap-1 mb-3">${s.momentos.map(m=>`<span class="text-xs bg-green-100 text-green-800 px-2 py-0.5 rounded-full font-medium">${m}</span>`).join('')}${s.tiempos.map(t=>`<span class="text-xs bg-blue-100 text-blue-800 px-2 py-0.5 rounded-full font-medium">${t}</span>`).join('')}${s.misaChilena?'<span class="text-xs bg-yellow-100 text-yellow-800 px-2 py-0.5 rounded-full font-medium">Misa a la Chilena</span>':''}</div>` : ''}
         <pre class="song-pre">${s.content}</pre>
+        <div class="mt-4 pt-3 border-t border-stone-200 flex items-center justify-between text-xs text-gray-500 flex-wrap gap-2">
+            <button onclick="closeSong()" class="bg-verdeSanPatricio/10 hover:bg-verdeSanPatricio/20 text-verdeSanPatricio font-semibold px-3.5 py-2 rounded-xl transition flex items-center gap-1.5 cursor-pointer">
+                <i class="fas fa-search"></i> <span>Buscar otra canción</span>
+            </button>
+            <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="text-stone-500 hover:text-stone-800 hover:underline flex items-center gap-1 cursor-pointer">
+                <i class="fas fa-arrow-up"></i> <span>Volver arriba</span>
+            </button>
+        </div>
     </div>`;
 }).join('\n')}
 </main>
@@ -814,6 +827,7 @@ function showSingleSong(event, slug) {
     const welcomeMsg = document.getElementById('welcome-msg');
     if (welcomeMsg) welcomeMsg.style.display = 'none';
     
+    // Explicitly hide ALL song cards so only the selected one is rendered
     document.querySelectorAll('.song-card').forEach(c => c.classList.add('hidden-filter'));
     const target = document.getElementById(slug);
     if (target) {
@@ -828,6 +842,33 @@ function showSingleSong(event, slug) {
         });
     }
 }
+
+function closeSong() {
+    // Hide all song cards and return directly to search bar
+    document.querySelectorAll('.song-card').forEach(c => c.classList.add('hidden-filter'));
+    const welcomeMsg = document.getElementById('welcome-msg');
+    if (welcomeMsg && !hasActiveFilter()) {
+        welcomeMsg.style.display = '';
+    }
+    const input = document.getElementById('search-input');
+    if (input) {
+        const searchContainer = document.getElementById('sticky-search-container');
+        if (searchContainer) {
+            const elementPosition = searchContainer.getBoundingClientRect().top;
+            const offsetPosition = elementPosition + window.pageYOffset - 70;
+            window.scrollTo({ top: Math.max(0, offsetPosition), behavior: 'smooth' });
+        }
+        input.focus();
+        input.select();
+    }
+}
+
+window.addEventListener('hashchange', () => {
+    const hash = window.location.hash.replace('#', '');
+    if (hash) {
+        showSingleSong(null, hash);
+    }
+});
 
 // ── Search Input Listeners & Keyboard Nav ──
 const searchInput = document.getElementById('search-input');
