@@ -192,16 +192,19 @@ ${menuHtml}
 
 <main class="container mx-auto px-4 py-8 space-y-6">
     <h2 class="text-3xl mb-2 text-center"><i class="fas fa-music mr-2"></i>Cancionero</h2>
-    <p class="text-center text-gray-600 text-sm mb-4">${finalSongs.length} canciones disponibles</p>
-
-    <!-- Sticky Search Bar -->
+    <p class="text-center text-gray-600 text-sm mb-4">${finalSongs.length}     <!-- Sticky Search Bar -->
     <div id="sticky-search-container" class="sticky top-[58px] z-40 bg-[#F3E5DC]/95 backdrop-blur-md py-3 -mx-4 px-4 shadow-sm border-b border-stone-300 mb-4 transition-all">
         <div class="relative max-w-xl mx-auto">
-            <i class="fas fa-search absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 text-base pointer-events-none"></i>
-            <input type="text" id="search-input" class="w-full pl-11 pr-10 py-2.5 rounded-xl border border-gray-300 bg-white shadow-sm focus:outline-none focus:ring-2 focus:ring-verdeSanPatricio focus:border-transparent text-base" placeholder="Buscar por título o frase dentro de la canción..." autocomplete="off">
-            <button id="clear-search-btn" onclick="clearSearchInput()" class="hidden absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-700 p-1 transition-colors" title="Borrar búsqueda">
-                <i class="fas fa-times-circle text-lg"></i>
-            </button>
+            <div class="relative">
+                <i class="fas fa-search absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 text-base pointer-events-none"></i>
+                <input type="text" id="search-input" class="w-full pl-11 pr-10 py-2.5 rounded-xl border border-gray-300 bg-white shadow-sm focus:outline-none focus:ring-2 focus:ring-verdeSanPatricio focus:border-transparent text-base" placeholder="Buscar por título o fragmento de la letra..." autocomplete="off">
+                <button id="clear-search-btn" onclick="clearSearchInput()" class="hidden absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-700 p-1 transition-colors" title="Borrar búsqueda">
+                    <i class="fas fa-times-circle text-lg"></i>
+                </button>
+            </div>
+            <!-- Dynamic Suggestions Dropdown -->
+            <div id="search-suggestions" class="hidden absolute left-0 right-0 top-full mt-1.5 bg-white rounded-xl shadow-2xl border border-gray-200 overflow-hidden z-50 max-h-80 overflow-y-auto divide-y divide-gray-100">
+            </div>
         </div>
     </div>
 
@@ -235,7 +238,10 @@ ${allTiempos.map(t => `                <button class="filter-btn" data-type="tie
     <div id="indice" class="card mb-6">
         <h3 class="text-xl mb-3 border-b pb-2"><i class="fas fa-list-ol mr-2 text-verdeSanPatricio"></i>Índice de Canciones <span id="song-count" class="text-sm font-normal text-gray-500"></span></h3>
         <div class="index-grid" id="index-grid">
-${finalSongs.map(s => `            <a href="#${s.slug}" class="index-link" data-slug="${s.slug}" onclick="showSingleSong(event, '${s.slug}')">${s.title}</a>`).join('\n')}
+${finalSongs.map(s => `            <a href="#${s.slug}" class="index-link" data-slug="${s.slug}" onclick="showSingleSong(event, '${s.slug}')">
+                <span class="index-title font-medium">${s.title}</span>
+                <span class="index-snippet hidden text-xs text-gray-500 italic block mt-0.5"></span>
+            </a>`).join('\n')}
         </div>
     </div>
 
@@ -288,7 +294,6 @@ const nL=['Do','Do#','Re','Re#','Mi','Fa','Fa#','Sol','Sol#','La','La#','Si'];
 const nA=['C','C#','D','D#','E','F','F#','G','G#','A','A#','B'];
 const eq={'Dob':'Si','Reb':'Do#','Mib':'Re#','Fab':'Mi','Solb':'Fa#','Lab':'Sol#','Sib':'La#','Cb':'B','Db':'C#','Eb':'D#','Fb':'E','Gb':'F#','Ab':'G#','Bb':'A#'};
 function pN(s){
-  // Handle slash chords: split at / to get root and bass
   let slashIdx = s.indexOf('/');
   let main = slashIdx > 0 ? s.substring(0, slashIdx) : s;
   let bass = slashIdx > 0 ? s.substring(slashIdx + 1) : null;
@@ -299,7 +304,6 @@ function pN(s){
   if(eq[fn]) fn = eq[fn];
   let i = nL.indexOf(fn), tp = 'lat';
   if(i === -1){ i = nA.indexOf(fn); tp = 'ang'; }
-  // Parse bass note if present
   let bassIdx = -1;
   if(bass){
     let bm = bass.match(/^(Do|Re|Mi|Fa|Sol|La|Si|C|D|E|F|G|A|B)(#|b)?/i);
@@ -327,7 +331,7 @@ function toggleNotation(b){let c=b.closest('.card'),sp=c.querySelectorAll('c spa
 function transpose(b,st){let c=b.closest('.card');let cur=parseInt(c.dataset.transSteps||'0');cur+=st;c.dataset.transSteps=cur;let disp=c.querySelector('.tono-display');if(disp){if(cur===0){disp.textContent='Tono';disp.style.color='';}else{disp.textContent=(cur>0?'+':'')+cur;disp.style.color=cur!==0?'#dc2626':'';}}c.querySelectorAll('c span').forEach(s=>{let p=pN(s.innerText);if(p&&p.idx!==-1)s.innerText=fN(p.idx+st,p.type,p.mod,p.hasBass?p.bassIdx+st:undefined);});}
 function resetTranspose(b){let c=b.closest('.card');let cur=parseInt(c.dataset.transSteps||'0');if(cur===0)return;let rev=-cur;c.dataset.transSteps='0';b.textContent='Tono';b.style.color='';c.querySelectorAll('c span').forEach(s=>{let p=pN(s.innerText);if(p&&p.idx!==-1)s.innerText=fN(p.idx+rev,p.type,p.mod,p.hasBass?p.bassIdx+rev:undefined);});}
 
-// ── Filtering ──
+// ── Filtering & Advanced Search ──
 let activeFilters = { momento: null, tiempo: null, chilena: null };
 
 document.querySelectorAll('.filter-btn').forEach(btn => {
@@ -348,23 +352,94 @@ document.querySelectorAll('.filter-btn').forEach(btn => {
 });
 
 let songIndexCache = [];
+let focusedSuggestionIndex = -1;
+
+function normalizeText(str) {
+    return (str || '')
+        .toLowerCase()
+        .normalize('NFD')
+        .replace(/[\\u0300-\\u036f]/g, '')
+        .replace(/[^\\w\\s]/g, ' ')
+        .replace(/\\s+/g, ' ')
+        .trim();
+}
+
+function escapeHtml(str) {
+    if (!str) return '';
+    return str
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#039;');
+}
+
+function escapeRegexChar(str) {
+    const special = '-[]/{}()*+?.\\\\^$|';
+    return str.split('').map(c => special.includes(c) ? '\\\\' + c : c).join('');
+}
+
+function makeAccentRegex(query) {
+    const map = {
+        'a': '[aáàäâAÁÀÄÂ]',
+        'e': '[eéèëêEÉÈËÊ]',
+        'i': '[iíìïîIÍÌÏÎ]',
+        'o': '[oóòöôOÓÒÖÔ]',
+        'u': '[uúùüûUÚÙÜÛ]',
+        'n': '[nñNÑ]',
+        'c': '[cçCÇ]'
+    };
+    const words = query.trim().split(/\\s+/).filter(Boolean);
+    if (words.length === 0) return null;
+    const wordPatterns = words.map(w => {
+        const escaped = escapeRegexChar(w);
+        return escaped.split('').map(ch => {
+            const lower = ch.toLowerCase();
+            return map[lower] || ch;
+        }).join('');
+    });
+    return new RegExp('(' + wordPatterns.join('\\\\s+') + '|' + wordPatterns.join('|') + ')', 'gi');
+}
+
+function highlightMatch(rawText, query) {
+    if (!query || !rawText) return escapeHtml(rawText);
+    const regex = makeAccentRegex(query);
+    if (!regex) return escapeHtml(rawText);
+    const safe = escapeHtml(rawText);
+    return safe.replace(regex, (m) => \`<mark class="bg-amber-200 text-amber-950 px-1 py-0.5 rounded font-semibold">\${m}</mark>\`);
+}
 
 function initSearchIndex() {
     songIndexCache = [];
     document.querySelectorAll('.song-card').forEach(card => {
         const slug = card.id;
-        const rawTitle = card.dataset.title || '';
-        const titleNorm = rawTitle.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+        const rawTitle = card.querySelector('h3') ? card.querySelector('h3').textContent.trim() : (card.dataset.title || '');
+        const titleNorm = normalizeText(rawTitle);
+        
         const pre = card.querySelector('.song-pre');
-        const rawLyrics = pre ? pre.textContent : '';
-        const lyricsNorm = rawLyrics.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+        let rawLines = [];
+        if (pre) {
+            const clone = pre.cloneNode(true);
+            clone.querySelectorAll('c').forEach(c => c.remove());
+            const cleanText = clone.textContent || '';
+            rawLines = cleanText.split('\\n')
+                .map(l => l.replace(/\\/\\//g, '').replace(/x\\d+/gi, '').replace(/\\bbis\\b/gi, '').trim())
+                .filter(l => l.length > 0 && !l.match(/^(intro:|estrofa|coro|final:|puente:)/i));
+        }
+
+        const linesNorm = rawLines.map(l => normalizeText(l));
+        const fullLyricsNorm = linesNorm.join(' ');
+        
         let cats = { m: [], l: [], ch: 0 };
         try { cats = JSON.parse(card.dataset.cats); } catch(e) {}
         
         songIndexCache.push({
             slug: slug,
-            title: titleNorm,
-            lyrics: lyricsNorm,
+            rawTitle: rawTitle,
+            titleNorm: titleNorm,
+            rawLines: rawLines,
+            linesNorm: linesNorm,
+            fullLyricsNorm: fullLyricsNorm,
             cats: cats
         });
     });
@@ -375,6 +450,7 @@ function clearSearchInput() {
     input.value = '';
     const clearBtn = document.getElementById('clear-search-btn');
     if (clearBtn) clearBtn.classList.add('hidden');
+    hideSuggestions();
     input.focus();
     applyFilters();
 }
@@ -386,6 +462,7 @@ function clearFilters() {
     input.value = '';
     const clearBtn = document.getElementById('clear-search-btn');
     if (clearBtn) clearBtn.classList.add('hidden');
+    hideSuggestions();
     applyFilters();
 }
 
@@ -393,6 +470,76 @@ function hasActiveFilter() {
     const input = document.getElementById('search-input');
     const search = input ? input.value.trim() : '';
     return search.length > 0 || activeFilters.momento || activeFilters.tiempo || activeFilters.chilena;
+}
+
+function hideSuggestions() {
+    const container = document.getElementById('search-suggestions');
+    if (container) {
+        container.classList.add('hidden');
+        container.innerHTML = '';
+        focusedSuggestionIndex = -1;
+    }
+}
+
+function renderSuggestions(query, matches) {
+    const container = document.getElementById('search-suggestions');
+    if (!container) return;
+
+    if (!query || matches.length === 0) {
+        hideSuggestions();
+        return;
+    }
+
+    focusedSuggestionIndex = -1;
+    const topMatches = matches.slice(0, 7);
+    
+    let html = '';
+    topMatches.forEach((item, idx) => {
+        const highlightedTitle = highlightMatch(item.rawTitle, query);
+        let badgeHtml = '';
+        if (item.cats.m && item.cats.m.length > 0) {
+            badgeHtml += \`<span class="text-[10px] bg-green-100 text-green-800 px-1.5 py-0.5 rounded-full">\${escapeHtml(item.cats.m[0])}</span>\`;
+        } else if (item.cats.l && item.cats.l.length > 0) {
+            badgeHtml += \`<span class="text-[10px] bg-blue-100 text-blue-800 px-1.5 py-0.5 rounded-full">\${escapeHtml(item.cats.l[0])}</span>\`;
+        }
+
+        let snippetHtml = '';
+        if (item.matchedLine) {
+            snippetHtml = highlightMatch(item.matchedLine, query);
+        }
+
+        html += \`
+        <div class="suggestion-item px-4 py-2.5 hover:bg-emerald-50 cursor-pointer transition-colors flex flex-col gap-0.5 select-none \${idx === 0 ? 'bg-stone-50/50' : ''}" data-slug="\${item.slug}" onclick="selectSuggestion('\${item.slug}')">
+            <div class="flex items-center justify-between">
+                <div class="font-medium text-gray-900 text-sm flex items-center gap-2">
+                    <i class="fas fa-music text-verdeSanPatricio text-xs"></i>
+                    <span>\${highlightedTitle}</span>
+                    \${item.matchType === 'title' ? '<span class="text-[10px] font-semibold text-emerald-700 bg-emerald-100 px-1.5 py-0.2 rounded">Título</span>' : ''}
+                </div>
+                <div class="flex items-center gap-1">
+                    \${badgeHtml}
+                </div>
+            </div>
+            \${snippetHtml ? \`
+            <div class="text-xs text-gray-500 pl-4 flex items-start gap-1.5 mt-0.5">
+                <i class="fas fa-quote-left text-[9px] text-stone-400 mt-0.5 flex-shrink-0"></i>
+                <span class="line-clamp-1 italic text-stone-600">\${snippetHtml}</span>
+            </div>
+            \` : ''}
+        </div>\`;
+    });
+
+    if (matches.length > topMatches.length) {
+        html += \`<div class="px-4 py-2 text-center text-xs text-gray-500 bg-gray-50 font-medium">Ver las \${matches.length} coincidencias en el índice abajo ↓</div>\`;
+    }
+
+    container.innerHTML = html;
+    container.classList.remove('hidden');
+}
+
+function selectSuggestion(slug) {
+    hideSuggestions();
+    showSingleSong(null, slug);
 }
 
 function applyFilters() {
@@ -403,7 +550,8 @@ function applyFilters() {
         else clearBtn.classList.add('hidden');
     }
 
-    const search = rawSearch.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+    const searchNorm = normalizeText(rawSearch);
+    const searchWords = searchNorm ? searchNorm.split(' ').filter(Boolean) : [];
     const welcomeMsg = document.getElementById('welcome-msg');
     const filtersActive = hasActiveFilter();
     let visible = 0;
@@ -411,12 +559,12 @@ function applyFilters() {
     // Welcome message: show only when nothing is active
     if (welcomeMsg) welcomeMsg.style.display = filtersActive ? 'none' : '';
     
-    // Always hide ALL song cards — they only appear via index click
+    // Always hide ALL song cards — they only appear via index click or suggestion click
     document.querySelectorAll('.song-card').forEach((card) => card.classList.add('hidden-filter'));
     
-    // Lookup matching slugs from cached index
-    const matchingSlugs = new Set();
-    
+    const matchingSlugsMap = new Map(); // slug -> { matchType, matchedLine }
+    const matchesForSuggestions = [];
+
     for (let i = 0; i < songIndexCache.length; i++) {
         const item = songIndexCache[i];
         let matches = true;
@@ -425,22 +573,93 @@ function applyFilters() {
             if (activeFilters.momento && !item.cats.m.includes(activeFilters.momento)) matches = false;
             if (matches && activeFilters.tiempo && !item.cats.l.includes(activeFilters.tiempo)) matches = false;
             if (matches && activeFilters.chilena && !item.cats.ch) matches = false;
-            if (matches && search) {
-                // Check match in title OR in lyrics/chords
-                const inTitle = item.title.includes(search);
-                const inLyrics = item.lyrics.includes(search);
-                if (!inTitle && !inLyrics) matches = false;
+            
+            if (matches && searchNorm) {
+                // Check in Title
+                const inTitleExact = item.titleNorm.includes(searchNorm);
+                const inTitleWords = searchWords.length > 1 && searchWords.every(w => item.titleNorm.includes(w));
+                
+                // Check in Lyrics
+                let matchedLine = '';
+                let inLyricsExact = item.fullLyricsNorm.includes(searchNorm);
+                let inLyricsWords = false;
+
+                if (inLyricsExact || inTitleExact || inTitleWords) {
+                    // Find the best line matching for snippet
+                    for (let l = 0; l < item.linesNorm.length; l++) {
+                        if (item.linesNorm[l].includes(searchNorm) || (searchWords.length > 1 && searchWords.every(w => item.linesNorm[l].includes(w)))) {
+                            matchedLine = item.rawLines[l];
+                            break;
+                        }
+                    }
+                } else if (searchWords.length > 0) {
+                    // Check if all words appear in the lyrics
+                    const allWordsInLyrics = searchWords.every(w => item.fullLyricsNorm.includes(w));
+                    if (allWordsInLyrics) {
+                        inLyricsWords = true;
+                        // Find line with the most matching words
+                        let maxWordMatches = 0;
+                        for (let l = 0; l < item.linesNorm.length; l++) {
+                            const line = item.linesNorm[l];
+                            const count = searchWords.filter(w => line.includes(w)).length;
+                            if (count > maxWordMatches) {
+                                maxWordMatches = count;
+                                matchedLine = item.rawLines[l];
+                            }
+                        }
+                    }
+                }
+
+                if (!inTitleExact && !inTitleWords && !inLyricsExact && !inLyricsWords) {
+                    matches = false;
+                } else {
+                    const matchType = (inTitleExact || inTitleWords) ? 'title' : 'lyrics';
+                    const score = inTitleExact ? 4 : (inTitleWords ? 3 : (inLyricsExact ? 2 : 1));
+                    const matchInfo = {
+                        slug: item.slug,
+                        rawTitle: item.rawTitle,
+                        matchType: matchType,
+                        matchedLine: matchedLine,
+                        cats: item.cats,
+                        score: score
+                    };
+                    matchingSlugsMap.set(item.slug, matchInfo);
+                    matchesForSuggestions.push(matchInfo);
+                }
             }
         }
         
-        if (matches) matchingSlugs.add(item.slug);
+        if (matches && !searchNorm) {
+            matchingSlugsMap.set(item.slug, { matchType: 'all', matchedLine: '' });
+        }
+    }
+
+    // Sort matches for suggestions by relevance score
+    if (searchNorm) {
+        matchesForSuggestions.sort((a, b) => b.score - a.score || a.rawTitle.localeCompare(b.rawTitle, 'es'));
+        renderSuggestions(rawSearch, matchesForSuggestions);
+    } else {
+        hideSuggestions();
     }
     
-    // Filter the INDEX links
+    // Filter the INDEX links and update snippets
     document.querySelectorAll('.index-link').forEach((link) => {
         const slug = link.dataset.slug;
-        const matches = !filtersActive || matchingSlugs.has(slug);
+        const matchInfo = matchingSlugsMap.get(slug);
+        const matches = !filtersActive || !!matchInfo;
         link.style.display = matches ? '' : 'none';
+        
+        const snippetEl = link.querySelector('.index-snippet');
+        if (snippetEl) {
+            if (matches && searchNorm && matchInfo && matchInfo.matchedLine) {
+                snippetEl.innerHTML = highlightMatch(matchInfo.matchedLine, rawSearch);
+                snippetEl.classList.remove('hidden');
+            } else {
+                snippetEl.classList.add('hidden');
+                snippetEl.textContent = '';
+            }
+        }
+
         if (matches) visible++;
     });
     
@@ -448,7 +667,9 @@ function applyFilters() {
 }
 
 function showSingleSong(event, slug) {
-    event.preventDefault();
+    if (event && event.preventDefault) event.preventDefault();
+    hideSuggestions();
+    
     const welcomeMsg = document.getElementById('welcome-msg');
     if (welcomeMsg) welcomeMsg.style.display = 'none';
     
@@ -468,8 +689,72 @@ function showSingleSong(event, slug) {
     }
 }
 
+// ── Search Input Listeners & Keyboard Nav ──
+const searchInput = document.getElementById('search-input');
+
+searchInput.addEventListener('input', applyFilters);
+
+searchInput.addEventListener('focus', () => {
+    if (searchInput.value.trim().length > 0) {
+        applyFilters();
+    }
+});
+
+searchInput.addEventListener('keydown', (e) => {
+    const suggestionsContainer = document.getElementById('search-suggestions');
+    const items = suggestionsContainer ? suggestionsContainer.querySelectorAll('.suggestion-item') : [];
+    
+    if (suggestionsContainer && !suggestionsContainer.classList.contains('hidden') && items.length > 0) {
+        if (e.key === 'ArrowDown') {
+            e.preventDefault();
+            focusedSuggestionIndex = (focusedSuggestionIndex + 1) % items.length;
+            updateFocusedSuggestion(items);
+            return;
+        }
+        if (e.key === 'ArrowUp') {
+            e.preventDefault();
+            focusedSuggestionIndex = (focusedSuggestionIndex - 1 + items.length) % items.length;
+            updateFocusedSuggestion(items);
+            return;
+        }
+        if (e.key === 'Enter') {
+            e.preventDefault();
+            if (focusedSuggestionIndex >= 0 && focusedSuggestionIndex < items.length) {
+                const slug = items[focusedSuggestionIndex].dataset.slug;
+                selectSuggestion(slug);
+            } else if (items.length > 0) {
+                const slug = items[0].dataset.slug;
+                selectSuggestion(slug);
+            }
+            return;
+        }
+        if (e.key === 'Escape') {
+            hideSuggestions();
+            return;
+        }
+    }
+});
+
+function updateFocusedSuggestion(items) {
+    items.forEach((item, idx) => {
+        if (idx === focusedSuggestionIndex) {
+            item.classList.add('bg-emerald-100', 'ring-1', 'ring-emerald-300');
+            item.scrollIntoView({ block: 'nearest' });
+        } else {
+            item.classList.remove('bg-emerald-100', 'ring-1', 'ring-emerald-300');
+        }
+    });
+}
+
+// Close suggestions on outside click
+document.addEventListener('click', (e) => {
+    const searchContainer = document.getElementById('sticky-search-container');
+    if (searchContainer && !searchContainer.contains(e.target)) {
+        hideSuggestions();
+    }
+});
+
 initSearchIndex();
-document.getElementById('search-input').addEventListener('input', applyFilters);
 applyFilters();
 </script>
 </body>

@@ -4,8 +4,14 @@ Este documento sirve como guía técnica para entender el funcionamiento del sit
 
 ---
 
-## ⚠️ Reglas de Trabajo Críticas (Gestión de Versiones)
+## ⚠️ Reglas de Trabajo Críticas
 
+### 🔴 REGLA PRIMARIA: Restricción Estricta de Ámbito (Scope Local)
+*   **ALCANCE LOCAL OBLIGATORIO**: Cualquier instrucción o prompt futuro para la implementación de un cambio (por mínimo que sea) **debe restringirse única y exclusivamente al área, archivo, módulo o componente en el que se trabaja**, y NUNCA aplicarse a todo el proyecto.
+*   **PROHIBICIÓN DE CAMBIOS GENERALES / GLOBALES**: Está estrictamente prohibido realizar modificaciones globales, refactorizaciones no solicitadas, alteraciones masivas de estilos o cambios colaterales en otros archivos/secciones del proyecto fuera del ámbito específico de la tarea.
+*   **TRABAJO EN EL ÁMBITO ESPECÍFICO**: Todo trabajo debe realizarse únicamente en el contexto delimitado por la solicitud del usuario, preservando intacto el resto del código y la estructura del proyecto general como regla prioritaria y mandataria.
+
+### 🟡 Gestión de Versiones y Git
 *   **PROHIBICIÓN DE COMMITS AUTOMÁTICOS**: El asistente de IA NUNCA debe ejecutar `git add` ni `git commit` por su cuenta tras finalizar una tarea. El `commit` representa la aprobación explícita de los cambios por parte del usuario, no del asistente.
 *   **PROHIBIDO EL PUSH AUTOMÁTICO**: Bajo ninguna circunstancia se debe ejecutar `git push` de forma automática.
 *   **FLUJO DE APROBACIÓN**: Todas las modificaciones deben permanecer en el entorno de trabajo (working directory) sin staging ni commit. Solo cuando el usuario da su aprobación explícita (por ejemplo, diciendo "push" o "haz commit"), el asistente debe agrupar los comandos (`git add`, `git commit` y, si corresponde, `git push`). No se asumen permisos de un turno anterior.
