@@ -56365,9 +56365,61 @@ function normalizeText(str) {
         .toLowerCase()
         .normalize('NFD')
         .replace(/[\u0300-\u036f]/g, '')
-        .replace(/[^\w\s]/g, ' ')
+        .replace(/[^a-z0-9\s]/g, ' ')
         .replace(/\s+/g, ' ')
         .trim();
+}
+
+function phoneticClean(str) {
+    return (str || '')
+        .replace(/h/g, '')
+        .replace(/v/g, 'b')
+        .replace(/z/g, 's')
+        .replace(/c(?=[ei])/g, 's')
+        .replace(/qu(?=[ei])/g, 'k')
+        .replace(/c(?=[aou])/g, 'k')
+        .replace(/g(?=[ei])/g, 'j')
+        .replace(/ll/g, 'y')
+        .replace(/(.)\1+/g, '$1');
+}
+
+function levenshtein(a, b) {
+    if (a === b) return 0;
+    const la = a.length, lb = b.length;
+    if (la === 0) return lb;
+    if (lb === 0) return la;
+    let prev = new Array(lb + 1);
+    let curr = new Array(lb + 1);
+    for (let j = 0; j <= lb; j++) prev[j] = j;
+    for (let i = 1; i <= la; i++) {
+        curr[0] = i;
+        const ca = a.charCodeAt(i - 1);
+        for (let j = 1; j <= lb; j++) {
+            const cost = ca === b.charCodeAt(j - 1) ? 0 : 1;
+            curr[j] = Math.min(prev[j] + 1, curr[j - 1] + 1, prev[j - 1] + cost);
+        }
+        for (let j = 0; j <= lb; j++) prev[j] = curr[j];
+    }
+    return curr[lb];
+}
+
+function fastWordSimilarity(qToken, tToken) {
+    if (qToken.norm === tToken.norm) return 1.0;
+    if (tToken.norm.startsWith(qToken.norm) && qToken.norm.length >= 3) {
+        return (qToken.norm.length / tToken.norm.length) * 0.95;
+    }
+    if (qToken.phon === tToken.phon) return 0.92;
+    if (tToken.phon.startsWith(qToken.phon) && qToken.phon.length >= 3) return 0.88;
+    
+    if (Math.abs(qToken.norm.length - tToken.norm.length) > 2) return 0.0;
+    
+    const maxLen = Math.max(qToken.norm.length, tToken.norm.length);
+    const maxAllowedDist = maxLen <= 3 ? 0 : (maxLen <= 6 ? 1 : 2);
+    const d = levenshtein(qToken.norm, tToken.norm);
+    if (d <= maxAllowedDist) {
+        return 1.0 - (d / (maxLen + 1));
+    }
+    return 0.0;
 }
 
 function escapeHtml(str) {
@@ -56380,39 +56432,54 @@ function escapeHtml(str) {
         .replace(/'/g, '&#039;');
 }
 
-function escapeRegexChar(str) {
-    const special = '-[]/{}()*+?.\\^$|';
-    return str.split('').map(c => special.includes(c) ? '\\' + c : c).join('');
-}
-
-function makeAccentRegex(query) {
-    const map = {
-        'a': '[aáàäâAÁÀÄÂ]',
-        'e': '[eéèëêEÉÈËÊ]',
-        'i': '[iíìïîIÍÌÏÎ]',
-        'o': '[oóòöôOÓÒÖÔ]',
-        'u': '[uúùüûUÚÙÜÛ]',
-        'n': '[nñNÑ]',
-        'c': '[cçCÇ]'
-    };
-    const words = query.trim().split(/\s+/).filter(Boolean);
-    if (words.length === 0) return null;
-    const wordPatterns = words.map(w => {
-        const escaped = escapeRegexChar(w);
-        return escaped.split('').map(ch => {
-            const lower = ch.toLowerCase();
-            return map[lower] || ch;
-        }).join('');
-    });
-    return new RegExp('(' + wordPatterns.join('\\s+') + '|' + wordPatterns.join('|') + ')', 'gi');
-}
-
-function highlightMatch(rawText, query) {
-    if (!query || !rawText) return escapeHtml(rawText);
-    const regex = makeAccentRegex(query);
-    if (!regex) return escapeHtml(rawText);
-    const safe = escapeHtml(rawText);
-    return safe.replace(regex, (m) => `<mark class="bg-amber-200 text-amber-950 px-1 py-0.5 rounded font-semibold">${m}</mark>`);
+function highlightFuzzyMatch(rawText, queryTokens) {
+    if (!rawText || !queryTokens || queryTokens.length === 0) return escapeHtml(rawText);
+    
+    const tokens = rawText.split(/([\s,.;:!?¡¿()"-]+)/);
+    const matchedTokens = new Set();
+    
+    for (let i = 0; i < tokens.length; i++) {
+        const token = tokens[i];
+        if (!token.trim() || token.match(/^[\s,.;:!?¡¿()"-]+$/)) continue;
+        const normToken = normalizeText(token);
+        if (!normToken) continue;
+        const tTok = { norm: normToken, phon: phoneticClean(normToken) };
+        
+        for (let q = 0; q < queryTokens.length; q++) {
+            if (fastWordSimilarity(queryTokens[q], tTok) >= 0.70) {
+                matchedTokens.add(i);
+                break;
+            }
+        }
+    }
+    
+    let result = '';
+    let inMark = false;
+    
+    for (let i = 0; i < tokens.length; i++) {
+        const isMatch = matchedTokens.has(i);
+        const token = tokens[i];
+        
+        if (isMatch) {
+            if (!inMark) {
+                result += '<mark class="bg-amber-200 text-amber-950 px-1 py-0.5 rounded font-semibold">';
+                inMark = true;
+            }
+            result += escapeHtml(token);
+        } else {
+            if (inMark) {
+                if (token.match(/^\s+$/) && i + 1 < tokens.length && matchedTokens.has(i + 1)) {
+                    result += escapeHtml(token);
+                    continue;
+                }
+                result += '</mark>';
+                inMark = false;
+            }
+            result += escapeHtml(token);
+        }
+    }
+    if (inMark) result += '</mark>';
+    return result;
 }
 
 function initSearchIndex() {
@@ -56421,6 +56488,11 @@ function initSearchIndex() {
         const slug = card.id;
         const rawTitle = card.querySelector('h3') ? card.querySelector('h3').textContent.trim() : (card.dataset.title || '');
         const titleNorm = normalizeText(rawTitle);
+        const titleTokens = titleNorm.split(' ').filter(Boolean).map(w => ({
+            norm: w,
+            phon: phoneticClean(w),
+            len: w.length
+        }));
         
         const pre = card.querySelector('.song-pre');
         let rawLines = [];
@@ -56434,6 +56506,11 @@ function initSearchIndex() {
         }
 
         const linesNorm = rawLines.map(l => normalizeText(l));
+        const linesTokens = linesNorm.map(l => l.split(' ').filter(Boolean).map(w => ({
+            norm: w,
+            phon: phoneticClean(w),
+            len: w.length
+        })));
         const fullLyricsNorm = linesNorm.join(' ');
         
         let cats = { m: [], l: [], ch: 0 };
@@ -56443,8 +56520,10 @@ function initSearchIndex() {
             slug: slug,
             rawTitle: rawTitle,
             titleNorm: titleNorm,
+            titleTokens: titleTokens,
             rawLines: rawLines,
             linesNorm: linesNorm,
+            linesTokens: linesTokens,
             fullLyricsNorm: fullLyricsNorm,
             cats: cats
         });
@@ -56487,11 +56566,11 @@ function hideSuggestions() {
     }
 }
 
-function renderSuggestions(query, matches) {
+function renderSuggestions(queryTokens, matches) {
     const container = document.getElementById('search-suggestions');
     if (!container) return;
 
-    if (!query || matches.length === 0) {
+    if (!queryTokens || queryTokens.length === 0 || matches.length === 0) {
         hideSuggestions();
         return;
     }
@@ -56501,17 +56580,17 @@ function renderSuggestions(query, matches) {
     
     let html = '';
     topMatches.forEach((item, idx) => {
-        const highlightedTitle = highlightMatch(item.rawTitle, query);
+        const highlightedTitle = highlightFuzzyMatch(item.rawTitle, queryTokens);
         let badgeHtml = '';
         if (item.cats.m && item.cats.m.length > 0) {
-            badgeHtml += `<span class="text-[10px] bg-green-100 text-green-800 px-1.5 py-0.5 rounded-full">${escapeHtml(item.cats.m[0])}</span>`;
+            badgeHtml += `<span class="text-[10px] bg-green-100 text-green-800 px-1.5 py-0.5 rounded-full font-medium">${escapeHtml(item.cats.m[0])}</span>`;
         } else if (item.cats.l && item.cats.l.length > 0) {
-            badgeHtml += `<span class="text-[10px] bg-blue-100 text-blue-800 px-1.5 py-0.5 rounded-full">${escapeHtml(item.cats.l[0])}</span>`;
+            badgeHtml += `<span class="text-[10px] bg-blue-100 text-blue-800 px-1.5 py-0.5 rounded-full font-medium">${escapeHtml(item.cats.l[0])}</span>`;
         }
 
         let snippetHtml = '';
         if (item.matchedLine) {
-            snippetHtml = highlightMatch(item.matchedLine, query);
+            snippetHtml = highlightFuzzyMatch(item.matchedLine, queryTokens);
         }
 
         html += `
@@ -56558,17 +56637,21 @@ function applyFilters() {
 
     const searchNorm = normalizeText(rawSearch);
     const searchWords = searchNorm ? searchNorm.split(' ').filter(Boolean) : [];
+    const queryTokens = searchWords.map(w => ({
+        norm: w,
+        phon: phoneticClean(w),
+        len: w.length
+    }));
+
     const welcomeMsg = document.getElementById('welcome-msg');
     const filtersActive = hasActiveFilter();
     let visible = 0;
     
-    // Welcome message: show only when nothing is active
     if (welcomeMsg) welcomeMsg.style.display = filtersActive ? 'none' : '';
     
-    // Always hide ALL song cards — they only appear via index click or suggestion click
     document.querySelectorAll('.song-card').forEach((card) => card.classList.add('hidden-filter'));
     
-    const matchingSlugsMap = new Map(); // slug -> { matchType, matchedLine }
+    const matchingSlugsMap = new Map();
     const matchesForSuggestions = [];
 
     for (let i = 0; i < songIndexCache.length; i++) {
@@ -56581,53 +56664,112 @@ function applyFilters() {
             if (matches && activeFilters.chilena && !item.cats.ch) matches = false;
             
             if (matches && searchNorm) {
-                // Check in Title
-                const inTitleExact = item.titleNorm.includes(searchNorm);
-                const inTitleWords = searchWords.length > 1 && searchWords.every(w => item.titleNorm.includes(w));
-                
-                // Check in Lyrics
+                let matchScore = 0;
                 let matchedLine = '';
-                let inLyricsExact = item.fullLyricsNorm.includes(searchNorm);
-                let inLyricsWords = false;
+                let matchType = 'lyrics';
 
-                if (inLyricsExact || inTitleExact || inTitleWords) {
-                    // Find the best line matching for snippet
+                // 1. Exact Title match
+                if (item.titleNorm.includes(searchNorm)) {
+                    matchScore = 10.0 + (item.titleNorm === searchNorm ? 5 : 0);
+                    matchType = 'title';
+                }
+                // 2. Exact Lyrics substring match
+                else if (item.fullLyricsNorm.includes(searchNorm)) {
+                    matchScore = 6.0;
                     for (let l = 0; l < item.linesNorm.length; l++) {
-                        if (item.linesNorm[l].includes(searchNorm) || (searchWords.length > 1 && searchWords.every(w => item.linesNorm[l].includes(w)))) {
+                        if (item.linesNorm[l].includes(searchNorm)) {
                             matchedLine = item.rawLines[l];
                             break;
                         }
                     }
-                } else if (searchWords.length > 0) {
-                    // Check if all words appear in the lyrics
-                    const allWordsInLyrics = searchWords.every(w => item.fullLyricsNorm.includes(w));
-                    if (allWordsInLyrics) {
-                        inLyricsWords = true;
-                        // Find line with the most matching words
-                        let maxWordMatches = 0;
-                        for (let l = 0; l < item.linesNorm.length; l++) {
-                            const line = item.linesNorm[l];
-                            const count = searchWords.filter(w => line.includes(w)).length;
-                            if (count > maxWordMatches) {
-                                maxWordMatches = count;
-                                matchedLine = item.rawLines[l];
+                } else {
+                    // 3. Fuzzy Title Match
+                    let titleMatchCount = 0;
+                    let titleScore = 0;
+                    for (let q = 0; q < queryTokens.length; q++) {
+                        const qw = queryTokens[q];
+                        let bestSim = 0;
+                        for (let t = 0; t < item.titleTokens.length; t++) {
+                            const sim = fastWordSimilarity(qw, item.titleTokens[t]);
+                            if (sim > bestSim) bestSim = sim;
+                        }
+                        if (bestSim >= 0.70) {
+                            titleScore += bestSim;
+                            titleMatchCount++;
+                        }
+                    }
+                    const titleCoverage = titleMatchCount / queryTokens.length;
+                    if (titleCoverage >= 0.60 && titleScore >= 0.70) {
+                        matchScore = 4.0 + (titleScore / queryTokens.length) + titleCoverage;
+                        matchType = 'title';
+                    }
+
+                    // 4. Fuzzy Lyrics Phrase Match (Phrase-level prioritizes overall sentence above minor letter typos)
+                    let bestLineScore = 0;
+                    let bestMatchedLine = '';
+                    
+                    for (let l = 0; l < item.linesTokens.length; l++) {
+                        const lineTokens = item.linesTokens[l];
+                        if (lineTokens.length === 0) continue;
+                        
+                        let lineMatchCount = 0;
+                        let lineTotalSim = 0;
+                        let matchedIndices = [];
+                        
+                        for (let q = 0; q < queryTokens.length; q++) {
+                            const qw = queryTokens[q];
+                            let bestSim = 0;
+                            let bestIdx = -1;
+                            for (let t = 0; t < lineTokens.length; t++) {
+                                const sim = fastWordSimilarity(qw, lineTokens[t]);
+                                if (sim > bestSim) {
+                                    bestSim = sim;
+                                    bestIdx = t;
+                                }
+                            }
+                            if (bestSim >= 0.70) {
+                                lineTotalSim += bestSim;
+                                lineMatchCount++;
+                                matchedIndices.push(bestIdx);
+                            }
+                        }
+                        
+                        const coverage = lineMatchCount / queryTokens.length;
+                        if (coverage >= 0.50) {
+                            let orderBonus = 0;
+                            if (matchedIndices.length > 1) {
+                                let inOrder = true;
+                                for (let k = 1; k < matchedIndices.length; k++) {
+                                    if (matchedIndices[k] <= matchedIndices[k - 1]) inOrder = false;
+                                }
+                                if (inOrder) orderBonus = 0.25;
+                            }
+                            
+                            const currentScore = (lineTotalSim / queryTokens.length * 0.7) + (coverage * 0.3) + orderBonus;
+                            if (currentScore > bestLineScore) {
+                                bestLineScore = currentScore;
+                                bestMatchedLine = item.rawLines[l];
                             }
                         }
                     }
+
+                    if (bestLineScore > matchScore && bestLineScore >= 0.60) {
+                        matchScore = bestLineScore;
+                        matchedLine = bestMatchedLine;
+                        matchType = 'lyrics';
+                    }
                 }
 
-                if (!inTitleExact && !inTitleWords && !inLyricsExact && !inLyricsWords) {
+                if (matchScore <= 0) {
                     matches = false;
                 } else {
-                    const matchType = (inTitleExact || inTitleWords) ? 'title' : 'lyrics';
-                    const score = inTitleExact ? 4 : (inTitleWords ? 3 : (inLyricsExact ? 2 : 1));
                     const matchInfo = {
                         slug: item.slug,
                         rawTitle: item.rawTitle,
                         matchType: matchType,
                         matchedLine: matchedLine,
                         cats: item.cats,
-                        score: score
+                        score: matchScore
                     };
                     matchingSlugsMap.set(item.slug, matchInfo);
                     matchesForSuggestions.push(matchInfo);
@@ -56640,10 +56782,9 @@ function applyFilters() {
         }
     }
 
-    // Sort matches for suggestions by relevance score
     if (searchNorm) {
         matchesForSuggestions.sort((a, b) => b.score - a.score || a.rawTitle.localeCompare(b.rawTitle, 'es'));
-        renderSuggestions(rawSearch, matchesForSuggestions);
+        renderSuggestions(queryTokens, matchesForSuggestions);
     } else {
         hideSuggestions();
     }
@@ -56658,7 +56799,7 @@ function applyFilters() {
         const snippetEl = link.querySelector('.index-snippet');
         if (snippetEl) {
             if (matches && searchNorm && matchInfo && matchInfo.matchedLine) {
-                snippetEl.innerHTML = highlightMatch(matchInfo.matchedLine, rawSearch);
+                snippetEl.innerHTML = highlightFuzzyMatch(matchInfo.matchedLine, queryTokens);
                 snippetEl.classList.remove('hidden');
             } else {
                 snippetEl.classList.add('hidden');
@@ -56684,7 +56825,6 @@ function showSingleSong(event, slug) {
     if (target) {
         target.classList.remove('hidden-filter');
         
-        // Offset scroll calculation considering sticky navbar (60px) + search (70px)
         const headerOffset = 135;
         const elementPosition = target.getBoundingClientRect().top;
         const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
@@ -56752,7 +56892,6 @@ function updateFocusedSuggestion(items) {
     });
 }
 
-// Close suggestions on outside click
 document.addEventListener('click', (e) => {
     const searchContainer = document.getElementById('sticky-search-container');
     if (searchContainer && !searchContainer.contains(e.target)) {
