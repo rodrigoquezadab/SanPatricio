@@ -15,9 +15,9 @@
     "description": "Este año celebramos con alegría y gratitud 70 años de historia, fe, comunidad y servicio. Desde 1956 hasta hoy, nuestra parroquia ha sido un lugar de encuentro, oración y esperanza para tantas generaciones.\n\n🙏 Queremos conmemorar este aniversario dando gracias a Dios por todo lo vivido y mirando con esperanza el camino que seguimos construyendo juntos.\n\n⛪ Misa de celebración\n📅 Lunes 17 de agosto\n🕖 Horario: 19:00 hrs.\n✝️ Preside S. E. Mons. Fernando Chomali, Cardenal Arzobispo de la Arquidiócesis de Santiago.\n\n📍 Parroquia San Patricio\nIsabel La Católica 6319, Las Condes, Santiago.\n\n💚 70 años caminando juntos en la fe y el amor de Dios.\n\nTe invitamos a ser parte de esta celebración tan especial y a dar gracias por nuestra historia y por todo lo que está por venir.\n\n¡Te esperamos! 🙏☘️\n\n#70Años #ParroquiaSanPatricio #SanPatricio #70AñosDeFe #Comunidad #FeYEsperanza #LasCondes #IglesiaDeSantiago",
     "imageUrl": "assets/flyers/noticias/70-anos-parroquia-san-patricio.jpg",
     "date": "14/08/2026",
-    "isActive": true,
-    "isBanner": true,
-    "isArchived": false
+    "isActive": false,
+    "isBanner": false,
+    "isArchived": true
   },
   {
     "id": "cuaresma-aporte-solidario-2026",
@@ -25,9 +25,9 @@
     "description": "💜🙏 ¡Gracias, comunidad de San Patricio! 🙏💜\n\nDurante la Cuaresma de Fraternidad 2026, nuestra comunidad parroquial de San Patricio realizó un valioso aporte solidario de $1.974.700, correspondiente al 100% de lo recaudado. 🤝❤️\n\nEste gesto de generosidad y compromiso nos permite ser parte de una Iglesia que cuida, acompaña y se preocupa especialmente por quienes más lo necesitan. 🫂✨\n\n👵👴 Gracias a este aporte, junto al de muchas otras comunidades, será posible acompañar durante el año 2027 a personas mayores en situación de vulnerabilidad, promoviendo su dignidad, cuidado y participación en la vida comunitaria, tanto en Santiago como a nivel nacional. ❤️\n\n🙏 Agradecemos a cada persona de nuestra parroquia que hizo posible este aporte. Cada gesto cuenta y juntos podemos construir una sociedad más fraterna y solidaria.\n\n💜 “Gracias por ser parte de una Iglesia que cuida y acompaña”.\n\n📍 Pastoral Social Cáritas\n🤝 Delegación Episcopal para la Pastoral Social Cáritas\n🌐 www.cuaresmasantiago.cl\n\n#CuaresmaDeFraternidad #SanPatricio #PastoralSocial #Cáritas #Solidaridad #Fraternidad #IglesiaQueCuida #IglesiaQueAcompaña #PersonasMayores #ComunidadSanPatricio",
     "imageUrl": "assets/flyers/noticias/cuaresma-aporte-solidario.jpg",
     "date": "07/08/2026",
-    "isActive": true,
-    "isBanner": true,
-    "isArchived": false
+    "isActive": false,
+    "isBanner": false,
+    "isArchived": true
   },
   {
     "id": "catequesis-camino-neocatecumenal",
