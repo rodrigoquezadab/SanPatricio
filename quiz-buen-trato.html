@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz: Buen Trato y Ambientes Sanos - Parroquia San Patricio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>tailwind.config = { theme: { extend: { colors: { arena: '#F3E5DC', verdeSanPatricio: '#16A34A', negro: '#000000' } } } }</script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+
+    <meta name="description" content="Quiz interactivo de autoevaluación sobre el Buen Trato, la ética del cuidado y la prevención de abusos en comunidades pastorales.">
+    <link rel="canonical" href="https://rodrigoquezadab.github.io/SanPatricio/quiz-buen-trato.html">
+    <meta property="og:title" content="Quiz: Buen Trato y Ambientes Sanos - Parroquia San Patricio">
+    <meta property="og:description" content="Pon a prueba tus conocimientos sobre ambientes sanos y la cultura del cuidado en la comunidad parroquial.">
+    <meta property="og:type" content="website">
+</head>
+<body>
+<!-- BARRA SUPERIOR FIJA EXCLUSIVA DEL QUIZ -->
+<header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md shadow-sm border-b-2 border-verdeSanPatricio py-2.5 px-4">
+    <div class="container mx-auto max-w-4xl flex items-center justify-between gap-3">
+        <!-- Botón fijo arriba a la izquierda para volver a estudiar buen trato -->
+        <a href="recursos.html#buen-trato" class="inline-flex items-center gap-2 px-3.5 py-2 bg-verdeSanPatricio hover:bg-green-700 text-white rounded-xl text-xs sm:text-sm font-bold shadow-sm transition transform hover:-translate-y-0.5" title="Volver a estudiar la Guía de Buen Trato en Recursos">
+            <i class="fas fa-arrow-left text-xs"></i>
+            <i class="fas fa-book-open"></i>
+            <span>Volver a estudiar Buen Trato</span>
+        </a>
+
+        <!-- Identidad Parroquia -->
+        <div class="flex items-center gap-2.5 sm:gap-3 text-right">
+            <div class="hidden sm:block">
+                <span class="block font-bold text-sm text-gray-900 leading-tight">Parroquia San Patricio</span>
+                <span class="text-[11px] text-gray-500 font-medium">Quiz: Ambientes Sanos</span>
+            </div>
+            <img src="assets/logo-san-patricio.jpg" alt="Logo Parroquia San Patricio" class="h-9 w-auto rounded-lg object-contain shadow-sm border border-gray-200">
+        </div>
+    </div>
+</header>
+
+<main class="container mx-auto px-4 py-8 max-w-4xl">
+    <!-- Tarjeta Principal del Quiz -->
+    <section class="card transition-opacity duration-300 shadow-lg border border-green-100 p-6 md:p-10">
+        <!-- Encabezado del Quiz -->
+        <div class="border-b pb-6 mb-8 flex flex-col md:flex-row md:items-center justify-between gap-4">
+            <div>
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold bg-green-100 text-verdeSanPatricio mb-3">
+                    <i class="fas fa-shield-heart"></i> Ambientes Sanos y Cultura del Cuidado
+                </div>
+                <h1 class="text-2xl md:text-3xl font-extrabold text-verdeSanPatricio flex items-center">
+                    <i class="fas fa-clipboard-check mr-3"></i>Quiz: ¿Cuánto sabes sobre el Buen Trato?
+                </h1>
+                <p class="text-sm md:text-base text-gray-600 mt-2">
+                    Pon a prueba tus conocimientos sobre todos los puntos del documento (ética del cuidado, resolución de conflictos, mitos y ambientes protectores) en 16 preguntas formativas con verificación de consistencia.
+                </p>
+            </div>
+            <div class="flex items-center gap-3 self-start md:self-center">
+                <span id="quiz-counter-badge" class="text-xs font-bold px-3.5 py-1.5 bg-green-50 text-verdeSanPatricio border border-green-200 rounded-lg whitespace-nowrap shadow-sm">
+                    Pregunta <span id="quiz-q-current">1</span> de <span id="quiz-q-total">16</span>
+                </span>
+            </div>
+        </div>
+
+        <!-- Barra de progreso -->
+        <div class="w-full bg-gray-200 h-2.5 rounded-full mb-8 overflow-hidden">
+            <div id="quiz-progress-bar" class="bg-verdeSanPatricio h-full transition-all duration-300" style="width: 16.6%;"></div>
+        </div>
+
+        <!-- Contenedor de la Pregunta Dinámica -->
+        <div id="quiz-question-container">
+            <!-- Recordatorio siempre visible para consultar la materia -->
+            <div class="flex items-center justify-between bg-green-50/90 border border-green-200 rounded-xl px-4 py-2.5 text-xs sm:text-sm mb-6">
+                <span class="text-gray-700 font-medium flex items-center gap-2">
+                    <i class="fas fa-graduation-cap text-verdeSanPatricio text-base"></i>
+                    <span>¿Dudas con la materia?</span>
+                </span>
+                <a href="recursos.html#buen-trato" target="_blank" rel="noopener noreferrer" class="font-bold text-verdeSanPatricio hover:underline inline-flex items-center gap-1.5">
+                    <span>Abrir Guía en Recursos</span>
+                    <i class="fas fa-arrow-up-right-from-square text-[11px]"></i>
+                </a>
+            </div>
+
+            <h2 id="quiz-question-title" class="text-lg md:text-xl font-bold text-gray-900 mb-6 leading-snug"></h2>
+            
+            <div id="quiz-options-container" class="space-y-3.5 mb-8"></div>
+
+            <!-- Feedback formativo -->
+            <div id="quiz-feedback-box" class="hidden p-4 md:p-5 rounded-xl border text-sm md:text-base transition-all duration-300 mb-8"></div>
+
+            <!-- Botón Siguiente -->
+            <div class="flex justify-end pt-2">
+                <button id="quiz-btn-next" class="hidden px-6 py-3 bg-verdeSanPatricio hover:bg-green-700 text-white font-bold rounded-xl shadow-md transition transform hover:-translate-y-0.5 text-sm md:text-base items-center gap-2">
+                    <span id="quiz-btn-next-text">Siguiente pregunta</span>
+                    <i class="fas fa-arrow-right text-xs"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Pantalla de Resultados Finales -->
+        <div id="quiz-results-container" class="hidden text-center py-8">
+            <div id="quiz-result-icon-wrapper" class="w-24 h-24 mx-auto mb-5 rounded-full flex items-center justify-center text-4xl shadow-md"></div>
+            <h2 id="quiz-result-heading" class="text-2xl md:text-3xl font-extrabold text-gray-800 mb-2"></h2>
+            <p id="quiz-result-score" class="text-lg md:text-xl font-bold text-verdeSanPatricio mb-4"></p>
+            <p id="quiz-result-message" class="text-gray-700 max-w-xl mx-auto text-sm md:text-base leading-relaxed mb-8"></p>
+            
+            <div class="flex flex-wrap justify-center gap-4">
+                <button id="quiz-btn-restart" class="px-6 py-3 bg-verdeSanPatricio hover:bg-green-700 text-white font-bold rounded-xl shadow transition text-sm md:text-base flex items-center gap-2">
+                    <i class="fas fa-rotate-right"></i>
+                    <span>Volver a intentar</span>
+                </button>
+                <a href="recursos.html#buen-trato" class="px-6 py-3 bg-green-50 border border-green-200 hover:bg-green-100 text-verdeSanPatricio font-semibold rounded-xl transition text-sm md:text-base flex items-center gap-2">
+                    <i class="fas fa-book-open"></i>
+                    <span>Volver a estudiar Buen Trato</span>
+                </a>
+            </div>
+        </div>
+    </section>
+</main>
+
+<div id="footer-container">
+    <div class="btn-flotante-container">
+        <button id="btnSubir" class="btn-flotante btn-subir hidden" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" title="Subir"><i class="fas fa-chevron-up"></i></button>
+    </div>
+
+    <footer class="py-6 text-center text-xs text-gray-500">
+        <p>&copy; 2026 Parroquia San Patricio &middot; Quiz Formativo: Buen Trato y Ambientes Sanos</p>
+    </footer>
+</div>
+<script src="components.js?v=7"></script>
+
+<!-- SCRIPT DEL QUIZ -->
+<script>
+(function() {
+    const quizData = [
+        {
+            question: "1. Según las orientaciones formativas sobre Ambientes Sanos, ¿cómo se define y promueve esencialmente el Buen Trato?",
+            options: [
+                "Es un conjunto de reglas, castigos e instrucciones rígidas que deben memorizarse obligatoriamente.",
+                "Consiste en evitar hablar de temas difíciles o incómodos para aparentar armonía en la comunidad.",
+                "No se instruye solamente: se vive. Surge de sentirse bien tratado y se promueve en el vínculo cotidiano (cuidar, proteger, educar, acompañar y empatizar)."
+            ],
+            correct: 2,
+            explanation: "🌱 <strong>¡Correcto!</strong> El Buen Trato no es mera teoría ni un reglamento: es un paradigma vivencial que nace de sentirse reconocido y tratado con amor y respeto en el vínculo cotidiano."
+        },
+        {
+            question: "2. Al observar cómo Jesús se relaciona con las personas en los Evangelios, ¿cuál es su rasgo distintivo de Buen Trato?",
+            options: [
+                "Pone a la persona al centro («¿Qué quieres que haga por ti?»), reconoce su fe, no se apropia de su vida y siempre pone de pie, sana y libera.",
+                "Se apropia de las decisiones de sus discípulos para evitar que cometan errores.",
+                "Impone su autoridad exigiendo obediencia ciega sin escuchar las preguntas o dudas de quienes lo siguen."
+            ],
+            correct: 0,
+            explanation: "✨ <strong>¡Exacto!</strong> Jesús jamás instrumentaliza ni domina al prójimo; lo reconoce en su dignidad, respeta su libertad, escucha su necesidad y lo restituye integralmente."
+        },
+        {
+            question: "3. ¿Qué caracteriza a la «Ética del Cuidado» que sustenta el Buen Trato (Vinka Jackson / Leonardo Boff)?",
+            options: [
+                "Reconocer que el valor de las personas reside en sus talentos y en cuánto aportan a la comunidad.",
+                "Cuidar es un acto de pura responsabilidad que no espera retribución ni transacciones; la persona tiene valor intrínseco en sí misma por su dignidad inviolable.",
+                "Es un acuerdo condicional donde solo se cuida a quienes nos garantizan un favor o beneficio a cambio."
+            ],
+            correct: 1,
+            explanation: "❤️ <strong>¡Muy bien!</strong> Como expresa Vinka Jackson y Leonardo Boff, cuando amamos cuidamos. La ética del cuidado no es transaccional; responde a la dignidad intrínseca de toda persona."
+        },
+        {
+            question: "4. ¿Cuáles son los tres ámbitos de relación en los que se debe manifestar la Ética del Cuidado?",
+            options: [
+                "Con los superiores, con los benefactores y con las autoridades civiles.",
+                "Exclusivamente en el templo durante la liturgia, en la oración personal y en las reuniones formales.",
+                "Consigo mismo (atención a la propia salud y límites), con los demás (responsabilidad y equilibrio de poder) y con el ecosistema/Creación (Laudato Si')."
+            ],
+            correct: 2,
+            explanation: "🌿 <strong>¡Así es!</strong> Basado en Carol Gilligan y la encíclica <em>Laudato Si'</em> del Papa Francisco, el cuidado abarca el autocuidado personal, la relación fraterna con el prójimo y el respeto por la casa común."
+        },
+        {
+            question: "5. Según los estudios de Barudy y Dantagnan sobre el impacto del maltrato y la violencia:",
+            options: [
+                "El estrés crónico generado por el maltrato daña la estructura cerebral y el apego sano, pero las víctimas pueden superarlo si encuentran dinámicas y tutores de resiliencia.",
+                "El maltrato no deja ninguna secuela a largo plazo si la persona asiste regularmente a la iglesia.",
+                "Quien sufre malos tratos en la infancia jamás podrá recuperarse ni reintegrarse sanamente a la sociedad."
+            ],
+            correct: 0,
+            explanation: "🛡️ <strong>¡Correcto!</strong> El maltrato altera el apego y la salud cerebral, pero la comunidad y los vínculos sanos pueden actuar como tutores de resiliencia que sanan y restauran vidas."
+        },
+        {
+            question: "6. En el Buen Trato, ¿qué significa reconocer al otro como «legítimo otro»?",
+            options: [
+                "Aceptar al otro únicamente si coincide en todas nuestras opiniones teológicas o pastorales.",
+                "Asumir que las jerarquías otorgan a unos más valor humano y dignidad que a otros.",
+                "La capacidad de percibir que, tanto como uno, el otro existe, tiene necesidades, dolores y derechos tan válidos como los míos (dimensión fraterna como hijo de Dios)."
+            ],
+            correct: 2,
+            explanation: "🤝 <strong>¡Exacto!</strong> El reconocimiento del otro es la esencia del respeto. Significa asumir que el prójimo es un legítimo semejante cuyas necesidades son tan importantes como las nuestras."
+        },
+        {
+            question: "7. Sobre la afinidad y el afecto en el grupo, ¿cuál de las siguientes afirmaciones aclara uno de los mitos del Buen Trato?",
+            options: [
+                "Es una obligación moral que todos los miembros de una comunidad se sientan simpáticos y tengan afecto íntimo entre sí.",
+                "Es imposible tener simpatía o afinidad con todas las personas; lo mandatorio del Buen Trato es respetar profundamente a todos, aun cuando no nos agraden.",
+                "Si una persona no nos agrada, estamos eximidos de saludarla o tratarla con cortesía."
+            ],
+            correct: 1,
+            explanation: "👏 <strong>¡Muy bien!</strong> Buen Trato no es forzar simpatías artificiales. La caridad y el respeto exigen dignidad en el trato hacia todas las personas sin excepción, haya o no afinidad natural."
+        },
+        {
+            question: "8. Respecto al cuidado de uno mismo en la labor pastoral, el documento clarifica que:",
+            options: [
+                "El buen trato NO es darse por entero olvidándose de uno mismo; solo podemos cuidar bien a otros si nos cuidamos y respetamos nuestros propios límites.",
+                "Quien descansa o pide ayuda está demostrando falta de compromiso con Dios.",
+                "El bienestar del servidor carece de importancia comparado con las metas numéricas de la pastoral."
+            ],
+            correct: 0,
+            explanation: "🌱 <strong>¡Correcto!</strong> Darse por entero olvidándose de sí mismo es un mito destructivo. La entrega sana exige acoger las propias necesidades y límites emocionales y físicos."
+        },
+        {
+            question: "9. ¿Cómo aborda el Buen Trato la experiencia de la rabia o la molestia en la convivencia?",
+            options: [
+                "Enseña que nunca debemos enojarnos y que cualquier molestia debe reprimirse para no pecar.",
+                "Justifica que ante una causa justa se pueda insultar o desacreditar al hermano.",
+                "La rabia es una emoción humana sana y natural; el verdadero aprendizaje del Buen Trato es aprender a expresarla sin agredir ni humillar a los demás."
+            ],
+            correct: 2,
+            explanation: "✨ <strong>¡Exacto!</strong> La rabia es una emoción natural y legítima; lo que daña es la agresión. El Buen Trato enseña a gestionarla y comunicarla con asertividad y respeto."
+        },
+        {
+            question: "10. Frente a los desacuerdos y situaciones dolorosas en la comunidad, el Buen Trato sostiene que:",
+            options: [
+                "Una comunidad verdaderamente santa nunca experimenta desacuerdos ni discrepancias.",
+                "Los conflictos son inherentes a la convivencia humana; el reto es abordarlos constructivamente sin dañar y dejando espacio para registrar dolores reales.",
+                "Solo se debe ver el lado positivo de la vida, ignorando cualquier sufrimiento o queja comunitaria."
+            ],
+            correct: 1,
+            explanation: "🕊️ <strong>¡Correcto!</strong> El Buen Trato no evade los problemas ni cae en un optimismo ingenuo: asume los conflictos con madurez realista y acoge el dolor para sanar heridas."
+        },
+        {
+            question: "11. ¿Cuál es la función vital de generar «Microclimas de Buen Trato» en nuestros grupos, familias y parroquia (Aron & Milicic)?",
+            options: [
+                "Aislarse del resto del mundo para no interactuar con quienes piensan distinto.",
+                "Servir como clubes exclusivos donde solo entran los miembros perfectos.",
+                "Otorgan parámetros de contraste que impiden normalizar la violencia, permitiendo a las personas oxigenarse, fortalecerse y florecer."
+            ],
+            correct: 2,
+            explanation: "🌟 <strong>¡Muy bien!</strong> Los microclimas saludables impiden que el maltrato se vuelva costumbre, brindando a niños, jóvenes y adultos un espacio seguro donde oxigenarse y crecer."
+        },
+        {
+            question: "12. En la comparación de ambientes, ¿qué diferencia a un ambiente sano de uno propicio para el abuso respecto a los errores?",
+            options: [
+                "El ambiente sano asume el error como una oportunidad de aprendizaje y valora los talentos; el propicio para el abuso enfatiza defectos y considera el error un fracaso condenable.",
+                "El ambiente sano castiga el error con el doble de rigor para evitar reincidencias.",
+                "En ningún ambiente se permite equivocarse; el error siempre descalifica al voluntario."
+            ],
+            correct: 0,
+            explanation: "💡 <strong>¡Correcto!</strong> En los ambientes sanos la mirada está centrada en los recursos y en la capacidad de superación; en los abusivos prima la crítica descalificadora."
+        },
+        {
+            question: "13. En cuanto al ejercicio de la autoridad, ¿cómo se manifiesta la «Autoridad Protectora» en la comunidad?",
+            options: [
+                "Ejerce un control permanente, impone sumisión y censura las preguntas de los jóvenes.",
+                "Es flexible, transitoria y orientada al servicio; reconoce a cada persona como única y promueve activamente su autonomía y desarrollo integral.",
+                "Renuncia a toda responsabilidad y deja que cada miembro actúe sin ningún tipo de orientación pastoral."
+            ],
+            correct: 1,
+            explanation: "🛡️ <strong>¡Exacto!</strong> La autoridad protectora no busca someter ni intimidar; acompaña y custodia el desarrollo integral de los hermanos, especialmente de niños y jóvenes."
+        },
+        {
+            question: "14. En un ambiente pastoral protector y bien tratante, ¿cómo se articulan la comunicación y la resolución de discrepancias?",
+            options: [
+                "Se impone un discurso oficial único y se silencian las opiniones divergentes para evitar discusiones.",
+                "Se fomenta la rivalidad interna donde un grupo debe ganar y el otro quedar derrotado.",
+                "Se propician espacios para dialogar y escucharse, se aceptan dudas y se negocia bajo el principio «yo gano si tú ganas», priorizando el bienestar de las personas."
+            ],
+            correct: 2,
+            explanation: "🤝 <strong>¡Excelente!</strong> La escucha transparente y la negociación solidaria («yo gano si tú ganas») son pilares de ambientes sanos que erradican el abuso de poder."
+        },
+        {
+            question: "15. [Verificación de Consistencia] Durante una reunión de coordinación pastoral, dos voluntarios experimentan un desacuerdo evidente y uno de ellos siente gran enojo. De acuerdo con el Buen Trato, ¿cuál es la reacción adecuada?",
+            options: [
+                "Reconocer internamente la emoción de molestia, respirar y expresar el punto de vista con firmeza pero con total respeto hacia la persona del hermano, buscando el diálogo sin agredirlo.",
+                "Desahogar la furia de inmediato alzando la voz e insultando al otro, ya que la rabia nunca debe reprimirse.",
+                "Fingir una sonrisa, callarse para siempre y retirarse resentido para evitar cualquier conflicto."
+            ],
+            correct: 0,
+            explanation: "🎯 <strong>¡Consistencia comprobada!</strong> Esta respuesta confirma el dominio real del tema: el Buen Trato no es ni agresividad destructiva ni sumisión pasiva; es asertividad empática y respetuosa."
+        },
+        {
+            question: "16. [Verificación de Consistencia] Un coordinador pastoral duerme apenas 4 horas diarias por asumir demasiadas tareas y se siente física y espiritualmente colapsado. Según el Buen Trato y la Ética del Cuidado, ¿qué debe hacer?",
+            options: [
+                "Sentirse culpable por cansarse y redoblar sus esfuerzos, creyendo que el sufrimiento extremo es la única prueba de entrega sincera.",
+                "Reconocer sus límites humanos con humildad, resguardar sus horas de descanso y compartir responsabilidades tejiendo una red de apoyo con su equipo y comunidad.",
+                "Renunciar con amargura a la fe y desentenderse de todo vínculo con su comunidad."
+            ],
+            correct: 1,
+            explanation: "🎯 <strong>¡Consistencia comprobada!</strong> Quien no cuida de sí mismo no puede cuidar sanamente a otros. Saber delegar, registrar el agotamiento y pedir ayuda a tiempo es testimonio maduro de buen trato."
+        }
+    ];
+
+    let currentQuestion = 0;
+    let score = 0;
+    let answered = false;
+
+    const qContainer = document.getElementById('quiz-question-container');
+    const rContainer = document.getElementById('quiz-results-container');
+    const qTitle = document.getElementById('quiz-question-title');
+    const qOptions = document.getElementById('quiz-options-container');
+    const feedbackBox = document.getElementById('quiz-feedback-box');
+    const btnNext = document.getElementById('quiz-btn-next');
+    const btnNextText = document.getElementById('quiz-btn-next-text');
+    const progressBar = document.getElementById('quiz-progress-bar');
+    const qCurrent = document.getElementById('quiz-q-current');
+    const qTotal = document.getElementById('quiz-q-total');
+    const btnRestart = document.getElementById('quiz-btn-restart');
+
+    if (!qContainer || !qTitle) return;
+
+    qTotal.textContent = quizData.length;
+
+    function loadQuestion(index) {
+        answered = false;
+        const item = quizData[index];
+        
+        qCurrent.textContent = index + 1;
+        progressBar.style.width = ((index + 1) / quizData.length * 100) + '%';
+        
+        qTitle.textContent = item.question;
+        qOptions.innerHTML = '';
+        
+        feedbackBox.className = 'hidden p-4 md:p-5 rounded-xl border text-sm md:text-base transition-all duration-300 mb-8';
+        feedbackBox.innerHTML = '';
+        
+        btnNext.classList.add('hidden');
+        btnNext.classList.remove('inline-flex');
+        if (index === quizData.length - 1) {
+            btnNextText.textContent = 'Ver resultados finales';
+        } else {
+            btnNextText.textContent = 'Siguiente pregunta';
+        }
+
+        item.options.forEach((optText, optIndex) => {
+            const optBtn = document.createElement('button');
+            optBtn.type = 'button';
+            optBtn.className = 'w-full text-left p-4 md:p-5 rounded-xl border-2 border-gray-200 bg-white hover:border-verdeSanPatricio hover:bg-green-50/50 transition-all duration-200 text-sm md:text-base text-gray-800 flex items-start gap-3.5 shadow-sm focus:outline-none';
+            
+            const letterSpan = document.createElement('span');
+            letterSpan.className = 'w-7 h-7 rounded-full bg-gray-100 text-gray-700 text-xs font-bold flex items-center justify-center flex-shrink-0 mt-0.5';
+            letterSpan.textContent = String.fromCharCode(65 + optIndex);
+
+            const textSpan = document.createElement('span');
+            textSpan.className = 'flex-grow leading-relaxed';
+            textSpan.textContent = optText;
+
+            optBtn.appendChild(letterSpan);
+            optBtn.appendChild(textSpan);
+
+            optBtn.addEventListener('click', () => selectOption(optIndex));
+            qOptions.appendChild(optBtn);
+        });
+    }
+
+    function selectOption(selectedIndex) {
+        if (answered) return;
+        answered = true;
+
+        const item = quizData[currentQuestion];
+        const optionButtons = qOptions.querySelectorAll('button');
+
+        optionButtons.forEach((btn, idx) => {
+            btn.disabled = true;
+            btn.classList.remove('hover:border-verdeSanPatricio', 'hover:bg-green-50/50', 'cursor-pointer');
+            btn.classList.add('cursor-default');
+
+            const badge = btn.querySelector('span:first-child');
+
+            if (idx === item.correct) {
+                btn.classList.remove('border-gray-200', 'bg-white');
+                btn.classList.add('border-green-500', 'bg-green-50', 'text-green-950', 'font-medium');
+                badge.className = 'w-7 h-7 rounded-full bg-verdeSanPatricio text-white text-xs font-bold flex items-center justify-center flex-shrink-0 mt-0.5';
+                badge.innerHTML = '<i class="fas fa-check text-xs"></i>';
+            } else if (idx === selectedIndex) {
+                btn.classList.remove('border-gray-200', 'bg-white');
+                btn.classList.add('border-red-400', 'bg-red-50', 'text-red-950');
+                badge.className = 'w-7 h-7 rounded-full bg-red-500 text-white text-xs font-bold flex items-center justify-center flex-shrink-0 mt-0.5';
+                badge.innerHTML = '<i class="fas fa-times text-xs"></i>';
+            } else {
+                btn.classList.add('opacity-50');
+            }
+        });
+
+        const isCorrect = (selectedIndex === item.correct);
+        const studyLinkHtml = '<div class="mt-2.5 pt-2 border-t border-black/10 text-xs"><a href="recursos.html#buen-trato" target="_blank" rel="noopener noreferrer" class="text-verdeSanPatricio hover:underline font-bold inline-flex items-center gap-1.5"><i class="fas fa-book-open"></i> Repasar este tema en la Guía de Recursos <i class="fas fa-arrow-up-right-from-square text-[10px]"></i></a></div>';
+        
+        if (isCorrect) {
+            score++;
+            feedbackBox.className = 'p-4 md:p-5 rounded-xl border border-green-300 bg-green-50 text-green-900 text-sm md:text-base mb-8 flex items-start gap-3.5 shadow-sm';
+            feedbackBox.innerHTML = '<i class="fas fa-circle-check text-verdeSanPatricio text-xl mt-0.5 flex-shrink-0"></i><div class="flex-grow">' + item.explanation + studyLinkHtml + '</div>';
+        } else {
+            feedbackBox.className = 'p-4 md:p-5 rounded-xl border border-amber-300 bg-amber-50 text-amber-900 text-sm md:text-base mb-8 flex items-start gap-3.5 shadow-sm';
+            feedbackBox.innerHTML = '<i class="fas fa-circle-info text-amber-600 text-xl mt-0.5 flex-shrink-0"></i><div class="flex-grow"><strong>Respuesta a reflexionar:</strong> La opción más acertada era la <strong>' + String.fromCharCode(65 + item.correct) + '</strong>.<br><br>' + item.explanation + studyLinkHtml + '</div>';
+        }
+        feedbackBox.classList.remove('hidden');
+
+        btnNext.classList.remove('hidden');
+        btnNext.classList.add('inline-flex');
+    }
+
+    btnNext.addEventListener('click', () => {
+        currentQuestion++;
+        if (currentQuestion < quizData.length) {
+            loadQuestion(currentQuestion);
+        } else {
+            showResults();
+        }
+    });
+
+    function showResults() {
+        qContainer.classList.add('hidden');
+        rContainer.classList.remove('hidden');
+        progressBar.style.width = '100%';
+
+        const scoreHeading = document.getElementById('quiz-result-heading');
+        const scoreText = document.getElementById('quiz-result-score');
+        const scoreMsg = document.getElementById('quiz-result-message');
+        const iconWrapper = document.getElementById('quiz-result-icon-wrapper');
+
+        scoreText.textContent = 'Obtuviste ' + score + ' de ' + quizData.length + ' respuestas correctas (' + Math.round((score / quizData.length) * 100) + '%)';
+
+        if (score === quizData.length) {
+            iconWrapper.className = 'w-24 h-24 mx-auto mb-5 rounded-full flex items-center justify-center text-4xl shadow-md bg-green-100 text-verdeSanPatricio';
+            iconWrapper.innerHTML = '<i class="fas fa-award"></i>';
+            scoreHeading.textContent = '¡Extraordinario! Promotor del Buen Trato';
+            scoreMsg.textContent = '¡Puntaje perfecto de 16/16! Has demostrado un dominio integral de todos los puntos del documento y una total consistencia en las preguntas de control. ¡Continúa contagiando y fortaleciendo esta cultura en tu comunidad y grupos parroquiales!';
+        } else if (score >= 13) {
+            iconWrapper.className = 'w-24 h-24 mx-auto mb-5 rounded-full flex items-center justify-center text-4xl shadow-md bg-emerald-100 text-emerald-600';
+            iconWrapper.innerHTML = '<i class="fas fa-star"></i>';
+            scoreHeading.textContent = '¡Muy Buen Desempeño!';
+            scoreMsg.textContent = 'Posees una comprensión sólida sobre la prevención de abusos, el autocuidado y la dignidad en las relaciones comunitarias. Te animamos a seguir dialogando estos temas con tus compañeros de pastoral.';
+        } else if (score >= 9) {
+            iconWrapper.className = 'w-24 h-24 mx-auto mb-5 rounded-full flex items-center justify-center text-4xl shadow-md bg-amber-100 text-amber-600';
+            iconWrapper.innerHTML = '<i class="fas fa-book-open-reader"></i>';
+            scoreHeading.textContent = '¡Buen Esfuerzo de Aprendizaje!';
+            scoreMsg.textContent = 'Has asimilado conceptos valiosos, aunque hubo dudas en algunos temas clave o en las preguntas de verificación. Te invitamos a repasar los módulos de la guía o descargar la presentación completa para consolidar tu aprendizaje.';
+        } else {
+            iconWrapper.className = 'w-24 h-24 mx-auto mb-5 rounded-full flex items-center justify-center text-4xl shadow-md bg-orange-100 text-orange-600';
+            iconWrapper.innerHTML = '<i class="fas fa-book-open"></i>';
+            scoreHeading.textContent = 'Te invitamos a repasar la guía';
+            scoreMsg.textContent = 'El Buen Trato es un aprendizaje permanente. Te recomendamos leer la guía comunitaria o revisar la presentación PPTX antes de volver a intentar el quiz.';
+        }
+    }
+
+    btnRestart.addEventListener('click', () => {
+        currentQuestion = 0;
+        score = 0;
+        rContainer.classList.add('hidden');
+        qContainer.classList.remove('hidden');
+        loadQuestion(0);
+    });
+
+    loadQuestion(0);
+})();
+</script>
+</body>
+</html>
