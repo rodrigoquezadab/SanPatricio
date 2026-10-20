@@ -8,7 +8,8 @@ Este documento registra los **hitos y versiones estables** del proyecto **Parroq
 
 | Versión | Fecha | Commit (Corto) | Commit Hash Completo | Descripción del Estado / Hito | Comando Rápido de Recuperación |
 | :--- | :---: | :---: | :---: | :--- | :--- |
-| **v1.2.0** *(Actual)* | 2026-10-20 | `122a891` | `122a8911874b94e236a956c8611b22f14ca6c961` | • Noticias y Cuaresma archivadas en `data/noticias.json`.<br>• Calendario sincronizado con actividades parroquiales.<br>• Buscador de cantos optimizado (búsqueda difusa/fonética, tolerancia a puntuación/comas, aislamiento de letra y botón flotante de retorno rápido).<br>• Estructura SEO flat y componentes estáticos unificados. | `git checkout 122a891` |
+| **v1.3.0** *(Actual)* | 2026-10-20 | `5a39545` | `5a3954514c298852b47e92f0f3f8392c1c26de34` | • Nueva sección y guía comunitaria de «Buen Trato y Ambientes Sanos» en `recursos.html` con descarga de presentación oficial (.pptx).<br>• Nuevo Quiz interactivo independiente (`quiz-buen-trato.html`) con 16 preguntas formativas balanceadas (A: 5, B: 5, C: 6), verificación cruzada y botón fijo para volver a estudiar.<br>• Optimización de jerarquía visual de botones en Recursos (Realizar Quiz en verde sólido principal y PPTX en estilo secundario). | `git checkout 5a39545` |
+| **v1.2.0** | 2026-10-20 | `122a891` | `122a8911874b94e236a956c8611b22f14ca6c961` | • Noticias y Cuaresma archivadas en `data/noticias.json`.<br>• Calendario sincronizado con actividades parroquiales.<br>• Buscador de cantos optimizado (búsqueda difusa/fonética, tolerancia a puntuación/comas, aislamiento de letra y botón flotante de retorno rápido).<br>• Estructura SEO flat y componentes estáticos unificados. | `git checkout 122a891` |
 | **v1.1.0** | 2026-08-15 | `9798683` | `97986838d8e8123b13d65b88666ec96aad1e6cab` | • Gran revisión y reorganización de directorios (`data/`, `tools/`, `docs/`).<br>• Desacople de eventos de calendario.<br>• Normalización de flyers y carga dinámica. | `git checkout 9798683` |
 
 ---
@@ -20,7 +21,7 @@ Si se presenta un error en producción o un cambio rompe la funcionalidad y nece
 ### Opción A: Explorar el estado estable sin modificar tu rama actual (Seguro)
 Para revisar los archivos tal como estaban en esa versión sin alterar tu historial:
 ```bash
-git checkout 122a891
+git checkout 5a39545
 ```
 *(Para volver a la rama principal cuando termines de revisar, ejecuta: `git checkout main`)*
 
@@ -29,7 +30,7 @@ git checkout 122a891
 ### Opción B: Crear una rama de trabajo a partir de la versión estable (Recomendado)
 Para investigar o trabajar en una solución basada en el punto estable sin tocar `main`:
 ```bash
-git checkout -b rollback-v1.2.0 122a891
+git checkout -b rollback-v1.3.0 5a39545
 ```
 
 ---
