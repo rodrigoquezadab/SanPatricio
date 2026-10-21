@@ -91,6 +91,11 @@ node build_cantos.js        # Genera paginas/cantos.html desde los datos
 
 ## 📋 Registro de Cambios (Changelog)
 
+### [2026-10-20] - Nuevas Noticias (Pastoral de la Salud, Ayuda Fraterna) y Archivo de Noticias Pasadas
+- **Contenido**: Se incorporó la noticia de convocatoria para la Pastoral de la Salud («❤️🙏 ¡SÚMATE A LA PASTORAL DE LA SALUD DE SAN PATRICIO! 🙏❤️») y la nueva campaña de Ayuda Fraterna («🌟🤝 ¡La ayuda fraterna transforma vidas! Súmate a la campaña solidaria de la Parroquia San Patricio 🤝🌟») en `data/noticias.json` con `isBanner: true` y fecha actual (20/10/2026).
+- **Imágenes**: Vinculación directa con los afiches oficiales optimizados a formato ligero `.jpeg`: `assets/flyers/noticias/Invitación Pastoral_ Puente de Amor y Fe.jpeg`, `assets/flyers/noticias/Campaña de Ayuda Fraterna.jpeg` y `assets/flyers/noticias/taos01.jpeg`.
+- **Archivo de Noticias**: Se pasaron a estado archivado (`isActive: false`, `isBanner: false`, `isArchived: true`) las noticias de la «Catequesis del Camino Neocatecumenal» y del «Mes de la Biblia» al haber concluido sus actividades principales.
+
 ### [2026-08-15] - Reorganización del Proyecto para Revisión Humana y Crecimiento Futuro
 - **Estructura**: Reorganización completa del proyecto en carpetas especializadas:
   - `data/`: Centralización de todos los datos en formato JSON (`eventos_parroquiales.json`, `noticias.json`, `horarios.json`, `cancionero_data.json`).
