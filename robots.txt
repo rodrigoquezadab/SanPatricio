@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://rodrigoquezadab.github.io/SanPatricio/sitemap.xml
+Sitemap: https://parroquiasanpatricio.cl/sitemap.xml

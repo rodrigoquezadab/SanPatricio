@@ -89,7 +89,7 @@ function processFile(file) {
         
         const metaTags = `
     <meta name="description" content="${desc}">
-    <link rel="canonical" href="https://rodrigoquezadab.github.io/SanPatricio/${file}">
+    <link rel="canonical" href="https://parroquiasanpatricio.cl/${file}">
     <meta property="og:title" content="Parroquia San Patricio - ${sectionName}">
     <meta property="og:description" content="${desc}">
     <meta property="og:type" content="website">`;

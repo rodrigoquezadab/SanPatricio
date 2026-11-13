@@ -176,7 +176,7 @@ const html = `<!DOCTYPE html>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Parroquia San Patricio - Cancionero</title>
     <meta name="description" content="Cancionero litúrgico de la Parroquia San Patricio con acordes y letras. Filtrado por momentos de la misa y tiempos litúrgicos.">
-    <link rel="canonical" href="https://rodrigoquezadab.github.io/SanPatricio/cantos.html">
+    <link rel="canonical" href="https://parroquiasanpatricio.cl/cantos.html">
     <meta property="og:title" content="Parroquia San Patricio - Cancionero">
     <meta property="og:description" content="Cancionero litúrgico de la Parroquia San Patricio con acordes y letras. Filtrado por momentos de la misa y tiempos litúrgicos.">
     <meta property="og:type" content="website">

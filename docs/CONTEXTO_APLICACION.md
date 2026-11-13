@@ -91,6 +91,11 @@ node build_cantos.js        # Genera paginas/cantos.html desde los datos
 
 ## 📋 Registro de Cambios (Changelog)
 
+### [2026-11-13] - Dominio de Producción en SEO, 404 y `.htaccess`
+- **SEO**: Los `canonical`, `og:image`, `sitemap.xml` y `robots.txt` pasan de `rodrigoquezadab.github.io/SanPatricio/` a `https://parroquiasanpatricio.cl/` (también en las plantillas de `tools/build_components.js` y `tools/build_cantos.js`). Se agregó canonical a `index.html` y `quiz-buen-trato.html` al sitemap.
+- **404**: `404.html` usa rutas absolutas desde la raíz (`/styles.css`, `/index.html`) y `noindex`.
+- **Servidor**: Nuevo `.htaccess` con `ErrorDocument 404 /404.html`, redirección 301 a `https://` sin `www`, y redirecciones 301 de `/paginas/*` y `congregacion.html`.
+
 ### [2026-10-20] - Nuevas Noticias (Pastoral de la Salud, Ayuda Fraterna) y Archivo de Noticias Pasadas
 - **Contenido**: Se incorporó la noticia de convocatoria para la Pastoral de la Salud («❤️🙏 ¡SÚMATE A LA PASTORAL DE LA SALUD DE SAN PATRICIO! 🙏❤️») y la nueva campaña de Ayuda Fraterna («🌟🤝 ¡La ayuda fraterna transforma vidas! Súmate a la campaña solidaria de la Parroquia San Patricio 🤝🌟») en `data/noticias.json` con `isBanner: true` y fecha actual (20/10/2026).
 - **Imágenes**: Vinculación directa con los afiches oficiales optimizados a formato ligero `.jpeg`: `assets/flyers/noticias/Invitación Pastoral_ Puente de Amor y Fe.jpeg`, `assets/flyers/noticias/Campaña de Ayuda Fraterna.jpeg` y `assets/flyers/noticias/taos01.jpeg`.
