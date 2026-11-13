@@ -7,8 +7,8 @@ ErrorDocument 404 /404.html
 <IfModule mod_rewrite.c>
     RewriteEngine On
 
-    # 1. Forzar HTTPS y dominio sin www (una sola redirección 301)
-    RewriteCond %{HTTPS} off [OR]
+    # 1. Dominio sin www. (HTTP -> HTTPS lo resuelve el CDN de Hostinger; no usar %{HTTPS} aquí:
+    #    el CDN conecta al servidor por HTTP y la condición provoca un bucle de redirecciones.)
     RewriteCond %{HTTP_HOST} ^www\. [NC]
     RewriteRule ^(.*)$ https://parroquiasanpatricio.cl/$1 [R=301,L]
 
