@@ -12,10 +12,10 @@
     <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png">
     <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 
-    <meta name="description" content="Cursos y formación de la Parroquia San Patricio: Buen Trato y Ambientes Sanos, y Las Partes de la Misa (respuestas, gestos y posturas), cada uno con su quiz formativo.">
+    <meta name="description" content="Cursos y formación de la Parroquia San Patricio: Buen Trato y Ambientes Sanos, Las Partes de la Misa (respuestas, gestos y posturas) y Curso para Lectores (cómo preparar y proclamar las lecturas).">
     <link rel="canonical" href="https://parroquiasanpatricio.cl/cursos.html">
     <meta property="og:title" content="Parroquia San Patricio - Cursos">
-    <meta property="og:description" content="Cursos y formación de la Parroquia San Patricio: Buen Trato y Ambientes Sanos, y Las Partes de la Misa (respuestas, gestos y posturas), cada uno con su quiz formativo.">
+    <meta property="og:description" content="Cursos y formación de la Parroquia San Patricio: Buen Trato y Ambientes Sanos, Las Partes de la Misa (respuestas, gestos y posturas) y Curso para Lectores (cómo preparar y proclamar las lecturas).">
     <meta property="og:type" content="website">
 </head>
 <body>
@@ -69,6 +69,15 @@
                     <div class="w-14 h-14 rounded-2xl bg-green-100 text-verdeSanPatricio flex items-center justify-center text-2xl mb-4 group-hover:bg-verdeSanPatricio group-hover:text-white transition"><i class="fas fa-book-bible"></i></div>
                     <h3 class="text-xl font-bold text-gray-900 mb-2 group-hover:text-verdeSanPatricio transition">Las Partes de la Misa</h3>
                     <p class="text-gray-600 text-sm flex-grow">Qué ocurre en cada momento de la Misa, qué respondemos y qué postura tomamos, según la IGMR y el Misal aprobado para Chile.</p>
+                    <div class="flex items-center justify-between mt-5">
+                        <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-bold bg-green-100 text-green-900"><i class="fas fa-clipboard-check"></i> Incluye quiz</span>
+                        <span class="text-verdeSanPatricio font-bold text-sm inline-flex items-center gap-1.5">Ver curso <i class="fas fa-arrow-right text-xs group-hover:translate-x-1 transition"></i></span>
+                    </div>
+                </a>
+                <a href="#lectores" class="group card !h-auto flex flex-col border-2 border-transparent hover:border-verdeSanPatricio hover:shadow-xl transition">
+                    <div class="w-14 h-14 rounded-2xl bg-green-100 text-verdeSanPatricio flex items-center justify-center text-2xl mb-4 group-hover:bg-verdeSanPatricio group-hover:text-white transition"><i class="fas fa-book-open-reader"></i></div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2 group-hover:text-verdeSanPatricio transition">Curso para Lectores</h3>
+                    <p class="text-gray-600 text-sm flex-grow">Cómo prepararse y proclamar las lecturas en la Misa: los leccionarios, qué se lee y qué no, el Salmo, la reverencia y la ubicación del lector.</p>
                     <div class="flex items-center justify-between mt-5">
                         <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-bold bg-green-100 text-green-900"><i class="fas fa-clipboard-check"></i> Incluye quiz</span>
                         <span class="text-verdeSanPatricio font-bold text-sm inline-flex items-center gap-1.5">Ver curso <i class="fas fa-arrow-right text-xs group-hover:translate-x-1 transition"></i></span>
@@ -731,6 +740,244 @@
                     </div>
                 </div>
                 <a href="quiz-misa.html" target="_blank" rel="noopener noreferrer"
+                   class="inline-flex items-center justify-center gap-2.5 px-6 py-3.5 bg-verdeSanPatricio hover:bg-green-700 text-white font-bold rounded-xl shadow-md transition transform hover:-translate-y-0.5 text-base whitespace-nowrap self-stretch md:self-auto text-center">
+                    <i class="fas fa-play text-sm"></i>
+                    <span>Abrir Quiz en Nueva Pestaña</span>
+                    <i class="fas fa-arrow-up-right-from-square text-xs ml-1"></i>
+                </a>
+            </div>
+        </div>
+
+        <!-- SECCIÓN LECTORES -->
+        <div id="lectores" class="curso-detalle hidden card transition-opacity duration-300 scroll-mt-24">
+            <a href="#cursos" class="volver-cursos inline-flex items-center gap-2 mb-5 text-sm font-semibold text-verdeSanPatricio hover:underline"><i class="fas fa-arrow-left text-xs"></i>Volver a los cursos</a>
+            <!-- Encabezado -->
+            <div class="border-b pb-5 mb-6 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+                <div>
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-green-100 text-verdeSanPatricio mb-2">
+                        <i class="fas fa-microphone-lines"></i> Ministerio Litúrgico
+                    </div>
+                    <h3 class="text-2xl md:text-3xl font-bold text-verdeSanPatricio flex items-center">
+                        <i class="fas fa-book-open-reader mr-3"></i>Curso para Lectores
+                    </h3>
+                    <p class="text-sm text-gray-600 mt-1">
+                        Cómo prepararse y cómo proclamar las lecturas en la Misa. Basado en la <strong>Instrucción General del Misal Romano (IGMR)</strong> y en la <strong>Ordenación de las Lecturas de la Misa</strong> (introducción del Leccionario).
+                    </p>
+                </div>
+                <div class="flex flex-wrap items-center gap-2.5 self-start md:self-auto">
+                    <a href="quiz-lectores.html" target="_blank" rel="noopener noreferrer"
+                       class="inline-flex items-center justify-center gap-2 px-4 py-2.5 bg-verdeSanPatricio hover:bg-green-700 text-white font-bold rounded-lg shadow-md transition transform hover:-translate-y-0.5 text-sm whitespace-nowrap">
+                        <i class="fas fa-clipboard-check text-white text-base"></i>
+                        <span>Realizar Quiz</span>
+                        <i class="fas fa-arrow-up-right-from-square text-xs ml-0.5 opacity-90"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Introducción -->
+            <div class="bg-gradient-to-br from-green-50 to-emerald-50 p-6 rounded-xl border border-green-200 mb-8">
+                <h4 class="text-lg font-bold text-verdeSanPatricio mb-2"><i class="fas fa-quote-left mr-2 opacity-60"></i>Prestar la voz a Dios</h4>
+                <p class="text-gray-700 leading-relaxed">
+                    Cuando en la Iglesia se leen las Sagradas Escrituras, es <strong>Dios mismo quien habla a su pueblo</strong> (IGMR 29). El lector no da un discurso ni hace una lectura cualquiera: presta su voz para que la Palabra llegue a todos. Por eso su servicio pide <strong>preparación</strong>, <strong>sencillez</strong> y <strong>fidelidad al texto</strong>.
+                </p>
+                <p class="text-gray-700 leading-relaxed mt-3">
+                    El lector proclama las lecturas anteriores al Evangelio y, si no hay salmista, el Salmo; también puede leer las intenciones de la Oración de los fieles (IGMR 99, 101 y 138). El <strong>Evangelio</strong> lo proclama siempre el diácono o el sacerdote.
+                </p>
+            </div>
+
+            <!-- 1. LOS LECCIONARIOS -->
+            <div class="mb-8">
+                <h4 class="text-xl font-bold text-gray-800 mb-1 flex items-center"><span class="w-8 h-8 rounded-full bg-verdeSanPatricio text-white text-sm flex items-center justify-center mr-3">1</span>Los Leccionarios: ¿de qué libro se lee?</h4>
+                <p class="text-sm text-gray-600 mb-4 ml-11">El <strong>Leccionario</strong> es el libro litúrgico que contiene las lecturas de la Misa. No hay uno solo: según el día y la celebración se usa uno distinto. Dependiendo de la edición, pueden venir en uno o en varios tomos.</p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-3 ml-0 md:ml-11">
+                    <div class="bg-white border border-gray-200 rounded-xl p-4 shadow-sm">
+                        <strong class="text-gray-900"><i class="fas fa-sun text-amber-500 mr-1.5"></i>Dominical y festivo</strong>
+                        <p class="text-sm text-gray-700 mt-1">Domingos y solemnidades. Trae tres lecturas y el Salmo, en un ciclo de <strong>tres años: A, B y C</strong>.</p>
+                    </div>
+                    <div class="bg-white border border-gray-200 rounded-xl p-4 shadow-sm">
+                        <strong class="text-gray-900"><i class="fas fa-calendar-day text-blue-500 mr-1.5"></i>Ferial (de semana)</strong>
+                        <p class="text-sm text-gray-700 mt-1">Lunes a sábado. La primera lectura sigue un ciclo de <strong>dos años: I (años impares) y II (años pares)</strong>; el Evangelio es el mismo todos los años.</p>
+                    </div>
+                    <div class="bg-white border border-gray-200 rounded-xl p-4 shadow-sm">
+                        <strong class="text-gray-900"><i class="fas fa-crown text-purple-500 mr-1.5"></i>Santoral</strong>
+                        <p class="text-sm text-gray-700 mt-1">Fiestas y memorias de los santos (lecturas propias) y los «comunes»: de apóstoles, mártires, pastores, vírgenes, santos y santas, de la dedicación de una iglesia, etc.</p>
+                    </div>
+                    <div class="bg-white border border-gray-200 rounded-xl p-4 shadow-sm">
+                        <strong class="text-gray-900"><i class="fas fa-star text-sky-500 mr-1.5"></i>De la Virgen María</strong>
+                        <p class="text-sm text-gray-700 mt-1">Leccionario de la <strong>Colección de Misas de la Bienaventurada Virgen María</strong>, para celebraciones marianas (por ejemplo, en santuarios o en sábados dedicados a María).</p>
+                    </div>
+                    <div class="bg-white border border-gray-200 rounded-xl p-4 shadow-sm">
+                        <strong class="text-gray-900"><i class="fas fa-ring text-rose-500 mr-1.5"></i>Misas rituales</strong>
+                        <p class="text-sm text-gray-700 mt-1">Para Misas en que se celebra un sacramento o rito: Bautismo, Confirmación, Matrimonio, Unción de los enfermos, Ordenaciones, Profesión religiosa…</p>
+                    </div>
+                    <div class="bg-white border border-gray-200 rounded-xl p-4 shadow-sm">
+                        <strong class="text-gray-900"><i class="fas fa-hands-holding text-gray-600 mr-1.5"></i>Diversas necesidades, votivas y difuntos</strong>
+                        <p class="text-sm text-gray-700 mt-1">Misas por la Iglesia, por la paz, por las vocaciones, de acción de gracias; Misas votivas (del Sagrado Corazón, del Espíritu Santo…) y <strong>Misas de difuntos</strong>.</p>
+                    </div>
+                </div>
+                <div class="ml-0 md:ml-11 mt-3 bg-gray-50 border border-gray-200 rounded-xl p-4 text-sm text-gray-700">
+                    <p><i class="fas fa-book-bible text-verdeSanPatricio mr-1"></i>Existe también el <strong>Evangeliario</strong>, que contiene solo los Evangelios. Es el libro que el diácono (o el lector, si no hay diácono) puede llevar en la procesión de entrada y deja sobre el altar; <strong>de él no lee el lector</strong>.</p>
+                </div>
+            </div>
+
+            <!-- 2. ANTES DE LA MISA -->
+            <div class="mb-8">
+                <h4 class="text-xl font-bold text-gray-800 mb-1 flex items-center"><span class="w-8 h-8 rounded-full bg-verdeSanPatricio text-white text-sm flex items-center justify-center mr-3">2</span>Antes de la Misa: la preparación</h4>
+                <p class="text-sm text-gray-600 mb-4 ml-11">La Ordenación de las Lecturas pide una preparación <strong>espiritual</strong> (entender y rezar el texto) y <strong>técnica</strong> (saber leerlo en público).</p>
+                <div class="space-y-3 ml-0 md:ml-11">
+                    <div class="bg-white border-2 border-amber-200 rounded-xl p-4 shadow-sm">
+                        <strong class="text-gray-900"><i class="fas fa-calendar-check text-amber-600 mr-1.5"></i>Comprobar que es la lectura correcta</strong>
+                        <p class="text-sm text-gray-700 mt-1">Antes de preparar, verifica que la lectura corresponde al <strong>día</strong>, al <strong>tiempo litúrgico</strong> y al <strong>ciclo del año</strong>:</p>
+                        <ul class="text-sm text-gray-700 mt-2 space-y-1.5 ml-4 list-disc">
+                            <li><strong>Domingo:</strong> ciclo A, B o C. Un truco: toma el año en que <em>termina</em> el año litúrgico (el que empieza el 1.<sup>er</sup> domingo de Adviento); si al dividirlo por 3 sobra 1 es <strong>A</strong>, si sobran 2 es <strong>B</strong> y si no sobra nada es <strong>C</strong>.</li>
+                            <li><strong>Semana:</strong> año <strong>I</strong> si el año litúrgico termina en un año impar, y <strong>II</strong> si termina en un año par.</li>
+                            <li>Ejemplo: el año litúrgico que comienza en Adviento de 2026 termina en 2027 → domingos <strong>ciclo B</strong> y semana <strong>año I</strong>.</li>
+                            <li>Si ese día hay una <strong>solemnidad o fiesta</strong>, las lecturas pueden ser propias (y no las del domingo o la semana).</li>
+                        </ul>
+                        <p class="text-sm text-gray-700 mt-2">Ante cualquier duda, consulta el <strong>calendario litúrgico</strong> o pregunta al sacerdote o al encargado de liturgia.</p>
+                    </div>
+                    <div class="bg-white border border-gray-200 rounded-xl p-4 shadow-sm">
+                        <strong class="text-gray-900"><i class="fas fa-book-open text-verdeSanPatricio mr-1.5"></i>Leer, entender y rezar el texto</strong>
+                        <p class="text-sm text-gray-700 mt-1">Léelo varias veces durante la semana. Busca de qué trata, quién habla y a quién. Solo se puede transmitir bien lo que uno ha comprendido y orado.</p>
+                    </div>
+                    <div class="bg-white border border-gray-200 rounded-xl p-4 shadow-sm">
+                        <strong class="text-gray-900"><i class="fas fa-microphone text-verdeSanPatricio mr-1.5"></i>Practicar en voz alta</strong>
+                        <p class="text-sm text-gray-700 mt-1">Ensaya la pronunciación de nombres y lugares difíciles, respeta la puntuación y marca las pausas. Practicar en voz alta evita tropiezos en el ambón.</p>
+                    </div>
+                    <div class="bg-white border border-gray-200 rounded-xl p-4 shadow-sm">
+                        <strong class="text-gray-900"><i class="fas fa-clock text-verdeSanPatricio mr-1.5"></i>Llegar con tiempo</strong>
+                        <p class="text-sm text-gray-700 mt-1">Llega unos 15 minutos antes. Revisa que el Leccionario esté en el ambón <strong>abierto en la página correcta</strong>, comprueba el micrófono y acuerda con los demás quién lee la primera lectura, el Salmo, la segunda lectura y las intenciones.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3. EN LA MISA: UBICACIÓN Y DESPLAZAMIENTO -->
+            <div class="mb-8">
+                <h4 class="text-xl font-bold text-gray-800 mb-1 flex items-center"><span class="w-8 h-8 rounded-full bg-verdeSanPatricio text-white text-sm flex items-center justify-center mr-3">3</span>Durante la Misa: ubicación y desplazamiento</h4>
+                <div class="space-y-3 ml-0 md:ml-11 mt-4">
+                    <div class="bg-white border border-gray-200 rounded-xl p-4 shadow-sm">
+                        <strong class="text-gray-900"><i class="fas fa-chair text-verdeSanPatricio mr-1.5"></i>Sentarse cerca del ambón</strong>
+                        <p class="text-sm text-gray-700 mt-1">Ubícate en un lugar cercano y de fácil acceso al ambón, para llegar sin demoras ni recorridos largos y no interrumpir el ritmo de la celebración.</p>
+                    </div>
+                    <div class="bg-white border border-gray-200 rounded-xl p-4 shadow-sm">
+                        <strong class="text-gray-900"><i class="fas fa-person-walking text-verdeSanPatricio mr-1.5"></i>Cuándo acercarse</strong>
+                        <p class="text-sm text-gray-700 mt-1">Después del «Amén» de la oración colecta, cuando todos se han sentado, te diriges al ambón con calma, sin correr.</p>
+                    </div>
+                    <div class="bg-white border-2 border-purple-200 rounded-xl p-4 shadow-sm">
+                        <strong class="text-gray-900"><i class="fas fa-hands-praying text-purple-600 mr-1.5"></i>Hacer reverencia al altar</strong>
+                        <p class="text-sm text-gray-700 mt-1">Al pasar frente al altar, de ida y de vuelta, haz una <strong>inclinación profunda</strong> (del cuerpo) hacia el altar, que representa a Cristo. Durante la Misa <strong>no</strong> se hace genuflexión al Sagrario; esta se hace al llegar al templo y al retirarse (IGMR 274).</p>
+                    </div>
+                    <div class="bg-white border border-gray-200 rounded-xl p-4 shadow-sm">
+                        <strong class="text-gray-900"><i class="fas fa-ear-listen text-verdeSanPatricio mr-1.5"></i>Esperar el silencio</strong>
+                        <p class="text-sm text-gray-700 mt-1">Ya en el ambón, acomoda el micrófono si es necesario y espera a que la asamblea esté sentada y en silencio. Recién entonces comienza.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 4. QUÉ SE LEE Y QUÉ NO -->
+            <div class="mb-8">
+                <h4 class="text-xl font-bold text-gray-800 mb-1 flex items-center"><span class="w-8 h-8 rounded-full bg-verdeSanPatricio text-white text-sm flex items-center justify-center mr-3">4</span>Cómo se lee: lo que se dice y lo que no</h4>
+                <p class="text-sm text-gray-600 mb-4 ml-11">En el Leccionario, lo que está en <strong class="text-red-600">rojo</strong> son indicaciones para quien lee (se llaman <em>rúbricas</em>). Lo que está en <strong>negro</strong> es lo que se proclama.</p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-3 ml-0 md:ml-11">
+                    <div class="bg-red-50 border border-red-200 rounded-xl p-4">
+                        <strong class="text-red-800"><i class="fas fa-xmark mr-1.5"></i>No se lee (en rojo)</strong>
+                        <ul class="text-sm text-gray-800 mt-2 space-y-1 list-disc ml-4">
+                            <li>«Primera lectura», «Segunda lectura», «Salmo responsorial».</li>
+                            <li>La cita bíblica (por ejemplo, <em>Is 55, 10-11</em>).</li>
+                            <li>El título o resumen que encabeza la lectura.</li>
+                            <li>La letra <em>R.</em> que marca la respuesta del Salmo.</li>
+                        </ul>
+                    </div>
+                    <div class="bg-green-50 border border-green-200 rounded-xl p-4">
+                        <strong class="text-green-800"><i class="fas fa-check mr-1.5"></i>Sí se lee (en negro)</strong>
+                        <ul class="text-sm text-gray-800 mt-2 space-y-1 list-disc ml-4">
+                            <li>El anuncio: «Lectura del libro del profeta Isaías».</li>
+                            <li>El texto completo, tal como está escrito.</li>
+                            <li>Al final, tras una breve pausa: <strong>«Palabra de Dios»</strong>.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="ml-0 md:ml-11 mt-3 bg-amber-50 border border-amber-200 rounded-xl p-4 text-sm text-gray-800">
+                    <p class="font-semibold text-amber-900 mb-1"><i class="fas fa-triangle-exclamation mr-1"></i>No se agrega nada a lo que está escrito</p>
+                    <p>Desde «Lectura del…» hasta «Palabra de Dios» se lee <strong>solo el texto en negro</strong>. No se saluda («buenos días»), no se presenta («ahora vamos a escuchar…»), no se explica ni se comenta, y no se dice «fin de la lectura» ni «esta es Palabra de Dios». La asamblea responde: <strong>«Te alabamos, Señor.»</strong></p>
+                </div>
+                <div class="ml-0 md:ml-11 mt-3 bg-white border border-gray-200 rounded-xl p-4 shadow-sm">
+                    <strong class="text-gray-900"><i class="fas fa-volume-high text-verdeSanPatricio mr-1.5"></i>La forma de leer</strong>
+                    <ul class="text-sm text-gray-700 mt-2 space-y-1.5 list-disc ml-4">
+                        <li><strong>Despacio</strong> y con voz clara, más lento que en una conversación: el templo y el micrófono lo exigen.</li>
+                        <li>Respeta las <strong>comas y puntos</strong>; haz una pausa entre párrafos.</li>
+                        <li><strong>Proclama, no actúes</strong>: con convicción, pero sin dramatizar ni imitar voces.</li>
+                        <li>Mira de vez en cuando a la asamblea, sobre todo al anunciar la lectura y al decir «Palabra de Dios».</li>
+                        <li>Si te equivocas en una palabra, corrígela con calma y sigue: no pidas disculpas ni comentes.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- 5. EL SALMO -->
+            <div class="mb-8">
+                <h4 class="text-xl font-bold text-gray-800 mb-1 flex items-center"><span class="w-8 h-8 rounded-full bg-verdeSanPatricio text-white text-sm flex items-center justify-center mr-3">5</span>El Salmo responsorial</h4>
+                <p class="text-sm text-gray-600 mb-4 ml-11">Lo ideal es que se cante (IGMR 61). Si se lee, se hace así:</p>
+                <div class="ml-0 md:ml-11 bg-white border border-gray-200 rounded-xl p-4 shadow-sm">
+                    <ol class="text-sm text-gray-700 space-y-2 list-decimal ml-4">
+                        <li>Se lee la <strong>respuesta</strong> (la antífona), una vez y con claridad. La asamblea la repite.</li>
+                        <li>Se lee la primera <strong>estrofa</strong>; al terminarla, la asamblea dice la respuesta.</li>
+                        <li>Se continúa igual con cada estrofa.</li>
+                        <li>Al final del Salmo <strong>no se dice «Palabra de Dios»</strong>: simplemente se termina con la última respuesta.</li>
+                    </ol>
+                </div>
+                <div class="ml-0 md:ml-11 mt-3 bg-amber-50 border border-amber-200 rounded-xl p-4 text-sm text-gray-800">
+                    <p class="font-semibold text-amber-900 mb-1"><i class="fas fa-triangle-exclamation mr-1"></i>No se dice «repitamos todos»</p>
+                    <p>No se dice «repitamos todos», «respondemos» ni «la respuesta es»: <strong>solo se lee la respuesta</strong>, y la asamblea la repite. Si notas que los fieles no la están repitiendo bien, puedes <strong>volver a decir la frase junto con ellos</strong> después de las estrofas, para ayudarles a responder correctamente.</p>
+                </div>
+            </div>
+
+            <!-- 6. SEGUNDA LECTURA Y ORACIÓN DE LOS FIELES -->
+            <div class="mb-8">
+                <h4 class="text-xl font-bold text-gray-800 mb-1 flex items-center"><span class="w-8 h-8 rounded-full bg-verdeSanPatricio text-white text-sm flex items-center justify-center mr-3">6</span>Segunda lectura y Oración de los fieles</h4>
+                <div class="space-y-3 ml-0 md:ml-11 mt-4">
+                    <div class="bg-white border border-gray-200 rounded-xl p-4 shadow-sm">
+                        <strong class="text-gray-900">Segunda lectura</strong>
+                        <p class="text-sm text-gray-700 mt-1">Se lee igual que la primera. Al terminar, el lector vuelve a su lugar haciendo inclinación al altar. <strong>No anuncia el Aleluya</strong>: la asamblea se pone de pie y se canta directamente.</p>
+                    </div>
+                    <div class="bg-white border border-gray-200 rounded-xl p-4 shadow-sm">
+                        <strong class="text-gray-900">Oración de los fieles</strong>
+                        <p class="text-sm text-gray-700 mt-1">El sacerdote la introduce y la concluye. El lector lee desde el ambón cada intención y la invitación («Roguemos al Señor»), y la asamblea responde, por ejemplo, «Te rogamos, óyenos» (IGMR 71 y 138).</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- RESUMEN -->
+            <div class="mb-2 bg-gradient-to-r from-emerald-50 via-green-50 to-emerald-100 border-2 border-green-200 rounded-2xl p-5 md:p-6">
+                <h4 class="text-lg font-bold text-verdeSanPatricio mb-3 flex items-center"><i class="fas fa-list-check mr-2"></i>Lista rápida del lector</h4>
+                <ul class="grid grid-cols-1 md:grid-cols-2 gap-2 text-sm text-gray-800">
+                    <li class="flex items-start gap-2"><i class="fas fa-square-check text-verdeSanPatricio mt-0.5"></i><span>Verifiqué que la lectura es del día, del tiempo y del ciclo correcto.</span></li>
+                    <li class="flex items-start gap-2"><i class="fas fa-square-check text-verdeSanPatricio mt-0.5"></i><span>La leí, la recé y la practiqué en voz alta.</span></li>
+                    <li class="flex items-start gap-2"><i class="fas fa-square-check text-verdeSanPatricio mt-0.5"></i><span>Llegué con tiempo y el Leccionario está abierto en la página correcta.</span></li>
+                    <li class="flex items-start gap-2"><i class="fas fa-square-check text-verdeSanPatricio mt-0.5"></i><span>Me senté cerca del ambón.</span></li>
+                    <li class="flex items-start gap-2"><i class="fas fa-square-check text-verdeSanPatricio mt-0.5"></i><span>Hago inclinación al altar al ir y al volver.</span></li>
+                    <li class="flex items-start gap-2"><i class="fas fa-square-check text-verdeSanPatricio mt-0.5"></i><span>No leo lo rojo; leo solo lo negro, sin agregar nada.</span></li>
+                    <li class="flex items-start gap-2"><i class="fas fa-square-check text-verdeSanPatricio mt-0.5"></i><span>Termino con «Palabra de Dios», tras una pausa.</span></li>
+                    <li class="flex items-start gap-2"><i class="fas fa-square-check text-verdeSanPatricio mt-0.5"></i><span>En el Salmo no digo «repitamos todos».</span></li>
+                </ul>
+            </div>
+
+            <!-- BANNER QUIZ -->
+            <div id="quiz-lectores" class="mt-8 bg-gradient-to-r from-emerald-50 via-green-50 to-emerald-100 p-6 md:p-8 rounded-2xl border-2 border-green-200 shadow-sm flex flex-col md:flex-row items-center justify-between gap-6">
+                <div class="flex items-start md:items-center gap-4">
+                    <div class="w-14 h-14 rounded-2xl bg-verdeSanPatricio text-white flex items-center justify-center text-2xl shadow-md flex-shrink-0">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <div>
+                        <div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-bold bg-green-200 text-green-900 mb-1">
+                            <i class="fas fa-clipboard-check"></i> Autoevaluación Formativa
+                        </div>
+                        <h4 class="text-xl font-bold text-gray-900">Quiz: ¿Estás listo para leer en la Misa?</h4>
+                        <p class="text-sm text-gray-700 mt-1">
+                            16 preguntas sobre los leccionarios, la preparación, qué se lee y qué no, el Salmo y la reverencia al altar.
+                        </p>
+                    </div>
+                </div>
+                <a href="quiz-lectores.html" target="_blank" rel="noopener noreferrer"
                    class="inline-flex items-center justify-center gap-2.5 px-6 py-3.5 bg-verdeSanPatricio hover:bg-green-700 text-white font-bold rounded-xl shadow-md transition transform hover:-translate-y-0.5 text-base whitespace-nowrap self-stretch md:self-auto text-center">
                     <i class="fas fa-play text-sm"></i>
                     <span>Abrir Quiz en Nueva Pestaña</span>

@@ -91,6 +91,11 @@ node tools/build_cantos.js        # Genera cantos.html desde los datos
 
 ## 📋 Registro de Cambios (Changelog)
 
+### [2026-11-13] - Curso para Lectores
+- **Contenido** (`cursos.html#lectores`): Nuevo curso con los distintos Leccionarios (dominical A/B/C, ferial I/II, santoral, de la Virgen María, rituales, diversas necesidades/votivas/difuntos) y cómo calcular el ciclo; preparación de la lectura; ubicación cerca del ambón y reverencia al altar; qué se lee (negro) y qué no (rojo), sin agregar nada hasta «Palabra de Dios»; el Salmo responsorial sin «repitamos todos»; segunda lectura y oración de los fieles; lista rápida del lector.
+- **Fuentes**: IGMR y Ordenación de las Lecturas de la Misa. Tarjeta nueva en el listado de cursos.
+- **Quiz** (`quiz-lectores.html`): 16 preguntas con explicación, mismo diseño que los otros quiz. Agregado al `sitemap.xml`.
+
 ### [2026-11-13] - Curso «Las Partes de la Misa» y Quiz
 - **Contenido** (`cursos.html#partes-misa`): Nuevo curso con los cuatro momentos de la Misa (Ritos Iniciales, Liturgia de la Palabra, Liturgia Eucarística y Ritos de Conclusión), las respuestas de la asamblea, las posturas (de pie, sentados, de rodillas, inclinación), los gestos y una sección «¿Sabías que…?» (p. ej., no se dice «Amén» al final del Padre Nuestro). Índice de cursos al inicio de la página.
 - **Fuentes**: Instrucción General del Misal Romano (IGMR) y Misal Romano aprobado para Chile. Las posturas de rodillas que dependen de la costumbre local (IGMR 43) se indican como tales.

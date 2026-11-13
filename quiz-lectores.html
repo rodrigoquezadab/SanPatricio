@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz: Curso para Lectores - Parroquia San Patricio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>tailwind.config = { theme: { extend: { colors: { arena: '#F3E5DC', verdeSanPatricio: '#16A34A', negro: '#000000' } } } }</script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png">
+    <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+
+    <meta name="description" content="Quiz interactivo para lectores de la Misa: leccionarios, preparación, qué se lee y qué no, el Salmo responsorial y la reverencia al altar.">
+    <link rel="canonical" href="https://parroquiasanpatricio.cl/quiz-lectores.html">
+    <meta property="og:title" content="Quiz: Curso para Lectores - Parroquia San Patricio">
+    <meta property="og:description" content="Pon a prueba lo que sabes sobre cómo preparar y proclamar las lecturas en la Misa.">
+    <meta property="og:type" content="website">
+</head>
+<body>
+<!-- BARRA SUPERIOR FIJA EXCLUSIVA DEL QUIZ -->
+<header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md shadow-sm border-b-2 border-verdeSanPatricio py-2.5 px-4">
+    <div class="container mx-auto max-w-4xl flex items-center justify-between gap-3">
+        <!-- Botón fijo arriba a la izquierda para volver a estudiar buen trato -->
+        <a href="cursos.html#lectores" class="inline-flex items-center gap-2 px-3.5 py-2 bg-verdeSanPatricio hover:bg-green-700 text-white rounded-xl text-xs sm:text-sm font-bold shadow-sm transition transform hover:-translate-y-0.5" title="Volver al Curso para Lectores">
+            <i class="fas fa-arrow-left text-xs"></i>
+            <i class="fas fa-book-open"></i>
+            <span>Volver al curso de lectores</span>
+        </a>
+
+        <!-- Identidad Parroquia -->
+        <div class="flex items-center gap-2.5 sm:gap-3 text-right">
+            <div class="hidden sm:block">
+                <span class="block font-bold text-sm text-gray-900 leading-tight">Parroquia San Patricio</span>
+                <span class="text-[11px] text-gray-500 font-medium">Quiz: Lectores</span>
+            </div>
+            <img src="assets/logo-san-patricio.jpg" alt="Logo Parroquia San Patricio" class="h-9 w-auto rounded-lg object-contain shadow-sm border border-gray-200">
+        </div>
+    </div>
+</header>
+
+<main class="container mx-auto px-4 py-8 max-w-4xl">
+    <!-- Tarjeta Principal del Quiz -->
+    <section class="card transition-opacity duration-300 shadow-lg border border-green-100 p-6 md:p-10">
+        <!-- Encabezado del Quiz -->
+        <div class="border-b pb-6 mb-8 flex flex-col md:flex-row md:items-center justify-between gap-4">
+            <div>
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold bg-green-100 text-verdeSanPatricio mb-3">
+                    <i class="fas fa-microphone-lines"></i> Ministerio Litúrgico
+                </div>
+                <h1 class="text-2xl md:text-3xl font-extrabold text-verdeSanPatricio flex items-center">
+                    <i class="fas fa-clipboard-check mr-3"></i>Quiz: ¿Estás listo para leer en la Misa?
+                </h1>
+                <p class="text-sm md:text-base text-gray-600 mt-2">
+                    Pon a prueba lo que sabes sobre los leccionarios, la preparación de la lectura, qué se lee y qué no, el Salmo responsorial y la forma de moverse en el presbiterio. Son 16 preguntas formativas.
+                </p>
+            </div>
+            <div class="flex items-center gap-3 self-start md:self-center">
+                <span id="quiz-counter-badge" class="text-xs font-bold px-3.5 py-1.5 bg-green-50 text-verdeSanPatricio border border-green-200 rounded-lg whitespace-nowrap shadow-sm">
+                    Pregunta <span id="quiz-q-current">1</span> de <span id="quiz-q-total">16</span>
+                </span>
+            </div>
+        </div>
+
+        <!-- Barra de progreso -->
+        <div class="w-full bg-gray-200 h-2.5 rounded-full mb-8 overflow-hidden">
+            <div id="quiz-progress-bar" class="bg-verdeSanPatricio h-full transition-all duration-300" style="width: 16.6%;"></div>
+        </div>
+
+        <!-- Contenedor de la Pregunta Dinámica -->
+        <div id="quiz-question-container">
+            <!-- Recordatorio siempre visible para consultar la materia -->
+            <div class="flex items-center justify-between bg-green-50/90 border border-green-200 rounded-xl px-4 py-2.5 text-xs sm:text-sm mb-6">
+                <span class="text-gray-700 font-medium flex items-center gap-2">
+                    <i class="fas fa-graduation-cap text-verdeSanPatricio text-base"></i>
+                    <span>¿Dudas con la materia?</span>
+                </span>
+                <a href="cursos.html#lectores" target="_blank" rel="noopener noreferrer" class="font-bold text-verdeSanPatricio hover:underline inline-flex items-center gap-1.5">
+                    <span>Abrir el curso</span>
+                    <i class="fas fa-arrow-up-right-from-square text-[11px]"></i>
+                </a>
+            </div>
+
+            <h2 id="quiz-question-title" class="text-lg md:text-xl font-bold text-gray-900 mb-6 leading-snug"></h2>
+            
+            <div id="quiz-options-container" class="space-y-3.5 mb-8"></div>
+
+            <!-- Feedback formativo -->
+            <div id="quiz-feedback-box" class="hidden p-4 md:p-5 rounded-xl border text-sm md:text-base transition-all duration-300 mb-8"></div>
+
+            <!-- Botón Siguiente -->
+            <div class="flex justify-end pt-2">
+                <button id="quiz-btn-next" class="hidden px-6 py-3 bg-verdeSanPatricio hover:bg-green-700 text-white font-bold rounded-xl shadow-md transition transform hover:-translate-y-0.5 text-sm md:text-base items-center gap-2">
+                    <span id="quiz-btn-next-text">Siguiente pregunta</span>
+                    <i class="fas fa-arrow-right text-xs"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Pantalla de Resultados Finales -->
+        <div id="quiz-results-container" class="hidden text-center py-8">
+            <div id="quiz-result-icon-wrapper" class="w-24 h-24 mx-auto mb-5 rounded-full flex items-center justify-center text-4xl shadow-md"></div>
+            <h2 id="quiz-result-heading" class="text-2xl md:text-3xl font-extrabold text-gray-800 mb-2"></h2>
+            <p id="quiz-result-score" class="text-lg md:text-xl font-bold text-verdeSanPatricio mb-4"></p>
+            <p id="quiz-result-message" class="text-gray-700 max-w-xl mx-auto text-sm md:text-base leading-relaxed mb-8"></p>
+            
+            <div class="flex flex-wrap justify-center gap-4">
+                <button id="quiz-btn-restart" class="px-6 py-3 bg-verdeSanPatricio hover:bg-green-700 text-white font-bold rounded-xl shadow transition text-sm md:text-base flex items-center gap-2">
+                    <i class="fas fa-rotate-right"></i>
+                    <span>Volver a intentar</span>
+                </button>
+                <a href="cursos.html#lectores" class="px-6 py-3 bg-green-50 border border-green-200 hover:bg-green-100 text-verdeSanPatricio font-semibold rounded-xl transition text-sm md:text-base flex items-center gap-2">
+                    <i class="fas fa-book-open"></i>
+                    <span>Volver al curso de lectores</span>
+                </a>
+            </div>
+        </div>
+    </section>
+</main>
+
+<div id="footer-container">
+    <div class="btn-flotante-container">
+        <button id="btnSubir" class="btn-flotante btn-subir hidden" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" title="Subir"><i class="fas fa-chevron-up"></i></button>
+    </div>
+
+    <footer class="py-6 text-center text-xs text-gray-500">
+        <p>&copy; 2026 Parroquia San Patricio &middot; Quiz Formativo: Curso para Lectores</p>
+    </footer>
+</div>
+<script src="components.js?v=7"></script>
+
+<!-- SCRIPT DEL QUIZ -->
+<script>
+(function() {
+    const quizData = [
+        {
+            question: "1. ¿Quién proclama el Evangelio en la Misa?",
+            options: [
+                "El lector que leyó la primera lectura.",
+                "Cualquier fiel que se haya preparado.",
+                "El diácono o el sacerdote."
+            ],
+            correct: 2,
+            explanation: "📖 <strong>¡Correcto!</strong> El lector proclama las lecturas anteriores al Evangelio (y el Salmo si no hay salmista); el Evangelio corresponde al diácono o al sacerdote."
+        },
+        {
+            question: "2. En el Leccionario, ¿qué parte del texto NO se lee en voz alta?",
+            options: [
+                "Lo que está en rojo: «Primera lectura», la cita bíblica, el título y la «R.» del Salmo.",
+                "Lo que está en negro.",
+                "El anuncio «Lectura del libro de…»."
+            ],
+            correct: 0,
+            explanation: "🔴 <strong>¡Exacto!</strong> Lo rojo son indicaciones (rúbricas) para quien lee. Se proclama solo lo que está en negro."
+        },
+        {
+            question: "3. ¿Cómo se comienza la lectura?",
+            options: [
+                "Saludando: «Buenos días, hermanos».",
+                "Diciendo directamente lo que está en negro: «Lectura del libro de…».",
+                "Anunciando: «Primera lectura, Isaías capítulo 55»."
+            ],
+            correct: 1,
+            explanation: "✅ <strong>¡Muy bien!</strong> No se saluda, no se presenta y no se lee la cita: se comienza con el anuncio escrito en negro."
+        },
+        {
+            question: "4. ¿Qué se dice al terminar la primera o la segunda lectura?",
+            options: [
+                "«Esta es Palabra de Dios, fin de la lectura».",
+                "Solo «Palabra de Dios», después de una breve pausa.",
+                "«Palabra del Señor»."
+            ],
+            correct: 1,
+            explanation: "🙏 <strong>¡Correcto!</strong> Tras una breve pausa se dice «Palabra de Dios», y la asamblea responde «Te alabamos, Señor». «Palabra del Señor» es la conclusión del Evangelio."
+        },
+        {
+            question: "5. Mientras se lee, ¿se puede agregar alguna explicación o comentario?",
+            options: [
+                "Sí, si el texto es difícil de entender.",
+                "Sí, una breve introducción para situar la lectura.",
+                "No: desde «Lectura del…» hasta «Palabra de Dios» se lee solo el texto en negro, tal como está."
+            ],
+            correct: 2,
+            explanation: "📜 <strong>¡Exacto!</strong> El lector es fiel al texto: no agrega, no explica ni comenta. La explicación corresponde a la homilía."
+        },
+        {
+            question: "6. En el Salmo responsorial, ¿cómo se presenta la respuesta a la asamblea?",
+            options: [
+                "Se lee la respuesta, sin decir «repitamos todos» ni «la respuesta es».",
+                "Diciendo «Repitamos todos:» y luego la respuesta.",
+                "Diciendo «Respondemos:» antes de cada estrofa."
+            ],
+            correct: 0,
+            explanation: "🎶 <strong>¡Correcto!</strong> Solo se lee la respuesta, y la asamblea la repite. No se agregan invitaciones."
+        },
+        {
+            question: "7. Si notas que la asamblea no está repitiendo bien la respuesta del Salmo, ¿qué puedes hacer?",
+            options: [
+                "Detener el Salmo y explicar la respuesta.",
+                "Decir «más fuerte, por favor».",
+                "Volver a decir la frase junto con ellos después de las estrofas, para ayudarles a responder."
+            ],
+            correct: 2,
+            explanation: "🤝 <strong>¡Muy bien!</strong> Basta con decir la respuesta junto con la asamblea, sin comentarios, para ayudarla a responder."
+        },
+        {
+            question: "8. ¿Qué se dice al terminar el Salmo responsorial?",
+            options: [
+                "«Palabra de Dios».",
+                "Nada: se termina con la última respuesta.",
+                "«Te alabamos, Señor»."
+            ],
+            correct: 1,
+            explanation: "✋ <strong>¡Correcto!</strong> El Salmo no termina con «Palabra de Dios»: simplemente concluye con la última respuesta de la asamblea."
+        },
+        {
+            question: "9. ¿Qué reverencia hace el lector al pasar frente al altar durante la Misa?",
+            options: [
+                "Una inclinación profunda hacia el altar.",
+                "Una genuflexión hacia el Sagrario.",
+                "Ninguna, para no demorar la celebración."
+            ],
+            correct: 0,
+            explanation: "🙇 <strong>¡Exacto!</strong> Se hace inclinación profunda al altar, que representa a Cristo. Durante la Misa no se hace genuflexión al Sagrario; esa se hace al llegar y al retirarse (IGMR 274)."
+        },
+        {
+            question: "10. ¿Dónde conviene que se siente el lector?",
+            options: [
+                "En el último banco, para no distraer.",
+                "Cerca del ambón, en un lugar de fácil acceso.",
+                "Junto al sacerdote, en la sede."
+            ],
+            correct: 1,
+            explanation: "🪑 <strong>¡Correcto!</strong> Así llega al ambón sin demoras ni recorridos largos, sin interrumpir el ritmo de la celebración."
+        },
+        {
+            question: "11. ¿Cuándo se dirige el lector al ambón para la primera lectura?",
+            options: [
+                "Durante el canto del Gloria.",
+                "Cuando el sacerdote lo llama por su nombre.",
+                "Después del «Amén» de la oración colecta, cuando todos se han sentado."
+            ],
+            correct: 2,
+            explanation: "🚶 <strong>¡Muy bien!</strong> Terminada la colecta, la asamblea se sienta y el lector se acerca con calma, sin correr."
+        },
+        {
+            question: "12. ¿Cómo se organizan las lecturas de los domingos?",
+            options: [
+                "En un ciclo de tres años: A, B y C.",
+                "En un ciclo de dos años: I y II.",
+                "Son las mismas todos los años."
+            ],
+            correct: 0,
+            explanation: "📅 <strong>¡Correcto!</strong> Los domingos siguen un ciclo de tres años (A, B y C); el ciclo de dos años (I y II) es el de la primera lectura de los días de semana."
+        },
+        {
+            question: "13. ¿Qué ciclos corresponden al año litúrgico que comienza en Adviento de 2026 (y termina en 2027)?",
+            options: [
+                "Domingos ciclo A y semana año II.",
+                "Domingos ciclo B y semana año I.",
+                "Domingos ciclo C y semana año I."
+            ],
+            correct: 1,
+            explanation: "🧮 <strong>¡Exacto!</strong> 2027 dividido por 3 deja resto 2 → ciclo B; y como 2027 es impar, la semana es año I."
+        },
+        {
+            question: "14. Para la fiesta de un apóstol, ¿qué Leccionario se usa normalmente?",
+            options: [
+                "El Santoral, que trae las lecturas de las fiestas y memorias de los santos.",
+                "El Ferial de ese día de la semana.",
+                "El de Misas rituales."
+            ],
+            correct: 0,
+            explanation: "👑 <strong>¡Correcto!</strong> Las fiestas de los santos tienen lecturas propias en el Santoral (o en sus «comunes»). Ante la duda, consulta el calendario litúrgico."
+        },
+        {
+            question: "15. ¿Qué preparación pide la Ordenación de las Lecturas de la Misa al lector?",
+            options: [
+                "Solo leerlo una vez antes de subir al ambón.",
+                "Memorizar la lectura para no tener que mirar el libro.",
+                "Espiritual y técnica: leer, comprender y rezar el texto, y practicarlo en voz alta."
+            ],
+            correct: 2,
+            explanation: "📚 <strong>¡Muy bien!</strong> Solo se transmite bien lo que se ha comprendido y orado; y practicar en voz alta evita tropiezos."
+        },
+        {
+            question: "16. Si te equivocas en una palabra al leer, ¿qué haces?",
+            options: [
+                "Vuelves a comenzar la lectura desde el principio.",
+                "La corriges con calma y sigues, sin pedir disculpas ni comentar.",
+                "Pides disculpas a la asamblea antes de continuar."
+            ],
+            correct: 1,
+            explanation: "🕊️ <strong>¡Excelente!</strong> Una corrección serena basta: lo importante es que la Palabra llegue con claridad."
+        }
+    ];
+
+    let currentQuestion = 0;
+    let score = 0;
+    let answered = false;
+
+    const qContainer = document.getElementById('quiz-question-container');
+    const rContainer = document.getElementById('quiz-results-container');
+    const qTitle = document.getElementById('quiz-question-title');
+    const qOptions = document.getElementById('quiz-options-container');
+    const feedbackBox = document.getElementById('quiz-feedback-box');
+    const btnNext = document.getElementById('quiz-btn-next');
+    const btnNextText = document.getElementById('quiz-btn-next-text');
+    const progressBar = document.getElementById('quiz-progress-bar');
+    const qCurrent = document.getElementById('quiz-q-current');
+    const qTotal = document.getElementById('quiz-q-total');
+    const btnRestart = document.getElementById('quiz-btn-restart');
+
+    if (!qContainer || !qTitle) return;
+
+    qTotal.textContent = quizData.length;
+
+    function loadQuestion(index) {
+        answered = false;
+        const item = quizData[index];
+        
+        qCurrent.textContent = index + 1;
+        progressBar.style.width = ((index + 1) / quizData.length * 100) + '%';
+        
+        qTitle.textContent = item.question;
+        qOptions.innerHTML = '';
+        
+        feedbackBox.className = 'hidden p-4 md:p-5 rounded-xl border text-sm md:text-base transition-all duration-300 mb-8';
+        feedbackBox.innerHTML = '';
+        
+        btnNext.classList.add('hidden');
+        btnNext.classList.remove('inline-flex');
+        if (index === quizData.length - 1) {
+            btnNextText.textContent = 'Ver resultados finales';
+        } else {
+            btnNextText.textContent = 'Siguiente pregunta';
+        }
+
+        item.options.forEach((optText, optIndex) => {
+            const optBtn = document.createElement('button');
+            optBtn.type = 'button';
+            optBtn.className = 'w-full text-left p-4 md:p-5 rounded-xl border-2 border-gray-200 bg-white hover:border-verdeSanPatricio hover:bg-green-50/50 transition-all duration-200 text-sm md:text-base text-gray-800 flex items-start gap-3.5 shadow-sm focus:outline-none';
+            
+            const letterSpan = document.createElement('span');
+            letterSpan.className = 'w-7 h-7 rounded-full bg-gray-100 text-gray-700 text-xs font-bold flex items-center justify-center flex-shrink-0 mt-0.5';
+            letterSpan.textContent = String.fromCharCode(65 + optIndex);
+
+            const textSpan = document.createElement('span');
+            textSpan.className = 'flex-grow leading-relaxed';
+            textSpan.textContent = optText;
+
+            optBtn.appendChild(letterSpan);
+            optBtn.appendChild(textSpan);
+
+            optBtn.addEventListener('click', () => selectOption(optIndex));
+            qOptions.appendChild(optBtn);
+        });
+    }
+
+    function selectOption(selectedIndex) {
+        if (answered) return;
+        answered = true;
+
+        const item = quizData[currentQuestion];
+        const optionButtons = qOptions.querySelectorAll('button');
+
+        optionButtons.forEach((btn, idx) => {
+            btn.disabled = true;
+            btn.classList.remove('hover:border-verdeSanPatricio', 'hover:bg-green-50/50', 'cursor-pointer');
+            btn.classList.add('cursor-default');
+
+            const badge = btn.querySelector('span:first-child');
+
+            if (idx === item.correct) {
+                btn.classList.remove('border-gray-200', 'bg-white');
+                btn.classList.add('border-green-500', 'bg-green-50', 'text-green-950', 'font-medium');
+                badge.className = 'w-7 h-7 rounded-full bg-verdeSanPatricio text-white text-xs font-bold flex items-center justify-center flex-shrink-0 mt-0.5';
+                badge.innerHTML = '<i class="fas fa-check text-xs"></i>';
+            } else if (idx === selectedIndex) {
+                btn.classList.remove('border-gray-200', 'bg-white');
+                btn.classList.add('border-red-400', 'bg-red-50', 'text-red-950');
+                badge.className = 'w-7 h-7 rounded-full bg-red-500 text-white text-xs font-bold flex items-center justify-center flex-shrink-0 mt-0.5';
+                badge.innerHTML = '<i class="fas fa-times text-xs"></i>';
+            } else {
+                btn.classList.add('opacity-50');
+            }
+        });
+
+        const isCorrect = (selectedIndex === item.correct);
+        const studyLinkHtml = '<div class="mt-2.5 pt-2 border-t border-black/10 text-xs"><a href="cursos.html#lectores" target="_blank" rel="noopener noreferrer" class="text-verdeSanPatricio hover:underline font-bold inline-flex items-center gap-1.5"><i class="fas fa-book-open"></i> Repasar este tema en el curso <i class="fas fa-arrow-up-right-from-square text-[10px]"></i></a></div>';
+        
+        if (isCorrect) {
+            score++;
+            feedbackBox.className = 'p-4 md:p-5 rounded-xl border border-green-300 bg-green-50 text-green-900 text-sm md:text-base mb-8 flex items-start gap-3.5 shadow-sm';
+            feedbackBox.innerHTML = '<i class="fas fa-circle-check text-verdeSanPatricio text-xl mt-0.5 flex-shrink-0"></i><div class="flex-grow">' + item.explanation + studyLinkHtml + '</div>';
+        } else {
+            feedbackBox.className = 'p-4 md:p-5 rounded-xl border border-amber-300 bg-amber-50 text-amber-900 text-sm md:text-base mb-8 flex items-start gap-3.5 shadow-sm';
+            feedbackBox.innerHTML = '<i class="fas fa-circle-info text-amber-600 text-xl mt-0.5 flex-shrink-0"></i><div class="flex-grow"><strong>Respuesta a reflexionar:</strong> La opción más acertada era la <strong>' + String.fromCharCode(65 + item.correct) + '</strong>.<br><br>' + item.explanation + studyLinkHtml + '</div>';
+        }
+        feedbackBox.classList.remove('hidden');
+
+        btnNext.classList.remove('hidden');
+        btnNext.classList.add('inline-flex');
+    }
+
+    btnNext.addEventListener('click', () => {
+        currentQuestion++;
+        if (currentQuestion < quizData.length) {
+            loadQuestion(currentQuestion);
+        } else {
+            showResults();
+        }
+    });
+
+    function showResults() {
+        qContainer.classList.add('hidden');
+        rContainer.classList.remove('hidden');
+        progressBar.style.width = '100%';
+
+        const scoreHeading = document.getElementById('quiz-result-heading');
+        const scoreText = document.getElementById('quiz-result-score');
+        const scoreMsg = document.getElementById('quiz-result-message');
+        const iconWrapper = document.getElementById('quiz-result-icon-wrapper');
+
+        scoreText.textContent = 'Obtuviste ' + score + ' de ' + quizData.length + ' respuestas correctas (' + Math.round((score / quizData.length) * 100) + '%)';
+
+        if (score === quizData.length) {
+            iconWrapper.className = 'w-24 h-24 mx-auto mb-5 rounded-full flex items-center justify-center text-4xl shadow-md bg-green-100 text-verdeSanPatricio';
+            iconWrapper.innerHTML = '<i class="fas fa-award"></i>';
+            scoreHeading.textContent = '¡Extraordinario! Estás listo para el ambón';
+            scoreMsg.textContent = '¡Puntaje perfecto! Conoces cómo preparar y proclamar las lecturas. Que tu voz ayude a que la Palabra llegue a todos.';
+        } else if (score >= 13) {
+            iconWrapper.className = 'w-24 h-24 mx-auto mb-5 rounded-full flex items-center justify-center text-4xl shadow-md bg-emerald-100 text-emerald-600';
+            iconWrapper.innerHTML = '<i class="fas fa-star"></i>';
+            scoreHeading.textContent = '¡Muy Buen Desempeño!';
+            scoreMsg.textContent = 'Tienes muy claro tu servicio como lector. Repasa los detalles en que dudaste y estarás completamente preparado.';
+        } else if (score >= 9) {
+            iconWrapper.className = 'w-24 h-24 mx-auto mb-5 rounded-full flex items-center justify-center text-4xl shadow-md bg-amber-100 text-amber-600';
+            iconWrapper.innerHTML = '<i class="fas fa-book-open-reader"></i>';
+            scoreHeading.textContent = '¡Buen Esfuerzo de Aprendizaje!';
+            scoreMsg.textContent = 'Conoces lo esencial, pero hay puntos importantes por reforzar. Te recomendamos repasar el curso antes de leer en la Misa.';
+        } else {
+            iconWrapper.className = 'w-24 h-24 mx-auto mb-5 rounded-full flex items-center justify-center text-4xl shadow-md bg-orange-100 text-orange-600';
+            iconWrapper.innerHTML = '<i class="fas fa-book-open"></i>';
+            scoreHeading.textContent = 'Te invitamos a repasar la guía';
+            scoreMsg.textContent = 'Leer en la Misa es un servicio que se aprende con calma. Te invitamos a leer el curso y volver a intentar el quiz.';
+        }
+    }
+
+    btnRestart.addEventListener('click', () => {
+        currentQuestion = 0;
+        score = 0;
+        rContainer.classList.add('hidden');
+        qContainer.classList.remove('hidden');
+        loadQuestion(0);
+    });
+
+    loadQuestion(0);
+})();
+</script>
+</body>
+</html>
