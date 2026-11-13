@@ -53,14 +53,33 @@
 <main class="container mx-auto px-4 py-8 space-y-16">
     <section id="cursos">
         <h2 class="text-3xl mb-6 text-center">Cursos</h2>
-        <p class="text-center text-gray-700 max-w-2xl mx-auto mb-8">Material de formación para agentes pastorales, voluntarios y toda la comunidad parroquial.</p>
-        <div class="flex flex-wrap justify-center gap-3 mb-8">
-            <a href="#buen-trato" class="inline-flex items-center gap-2 px-4 py-2.5 bg-white border border-green-200 hover:bg-green-50 text-verdeSanPatricio font-semibold rounded-xl shadow-sm transition text-sm"><i class="fas fa-shield-heart"></i>Buen Trato y Ambientes Sanos</a>
-            <a href="#partes-misa" class="inline-flex items-center gap-2 px-4 py-2.5 bg-white border border-green-200 hover:bg-green-50 text-verdeSanPatricio font-semibold rounded-xl shadow-sm transition text-sm"><i class="fas fa-book-bible"></i>Las Partes de la Misa</a>
+        <div id="cursos-lista">
+            <p class="text-center text-gray-700 max-w-2xl mx-auto mb-8">Material de formación para agentes pastorales, voluntarios y toda la comunidad parroquial.</p>
+            <div class="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+                <a href="#buen-trato" class="group card !h-auto flex flex-col border-2 border-transparent hover:border-verdeSanPatricio hover:shadow-xl transition">
+                    <div class="w-14 h-14 rounded-2xl bg-green-100 text-verdeSanPatricio flex items-center justify-center text-2xl mb-4 group-hover:bg-verdeSanPatricio group-hover:text-white transition"><i class="fas fa-shield-heart"></i></div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2 group-hover:text-verdeSanPatricio transition">Buen Trato y Ambientes Sanos</h3>
+                    <p class="text-gray-600 text-sm flex-grow">Cultura del cuidado y prevención en la comunidad parroquial: guía comunitaria, presentación descargable y autoevaluación.</p>
+                    <div class="flex items-center justify-between mt-5">
+                        <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-bold bg-green-100 text-green-900"><i class="fas fa-clipboard-check"></i> Incluye quiz</span>
+                        <span class="text-verdeSanPatricio font-bold text-sm inline-flex items-center gap-1.5">Ver curso <i class="fas fa-arrow-right text-xs group-hover:translate-x-1 transition"></i></span>
+                    </div>
+                </a>
+                <a href="#partes-misa" class="group card !h-auto flex flex-col border-2 border-transparent hover:border-verdeSanPatricio hover:shadow-xl transition">
+                    <div class="w-14 h-14 rounded-2xl bg-green-100 text-verdeSanPatricio flex items-center justify-center text-2xl mb-4 group-hover:bg-verdeSanPatricio group-hover:text-white transition"><i class="fas fa-book-bible"></i></div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2 group-hover:text-verdeSanPatricio transition">Las Partes de la Misa</h3>
+                    <p class="text-gray-600 text-sm flex-grow">Qué ocurre en cada momento de la Misa, qué respondemos y qué postura tomamos, según la IGMR y el Misal aprobado para Chile.</p>
+                    <div class="flex items-center justify-between mt-5">
+                        <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-bold bg-green-100 text-green-900"><i class="fas fa-clipboard-check"></i> Incluye quiz</span>
+                        <span class="text-verdeSanPatricio font-bold text-sm inline-flex items-center gap-1.5">Ver curso <i class="fas fa-arrow-right text-xs group-hover:translate-x-1 transition"></i></span>
+                    </div>
+                </a>
+            </div>
         </div>
 
         <!-- SECCIÓN BUEN TRATO -->
-        <div id="buen-trato" class="card transition-opacity duration-300 scroll-mt-24">
+        <div id="buen-trato" class="curso-detalle hidden card transition-opacity duration-300 scroll-mt-24">
+            <a href="#cursos" class="volver-cursos inline-flex items-center gap-2 mb-5 text-sm font-semibold text-verdeSanPatricio hover:underline"><i class="fas fa-arrow-left text-xs"></i>Volver a los cursos</a>
             <!-- Header con título, badge institucional y botón de descarga -->
             <div class="border-b pb-5 mb-6 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
                 <div>
@@ -409,7 +428,8 @@
             </div>
         </div>
         <!-- SECCIÓN PARTES DE LA MISA -->
-        <div id="partes-misa" class="card transition-opacity duration-300 scroll-mt-24 mt-8">
+        <div id="partes-misa" class="curso-detalle hidden card transition-opacity duration-300 scroll-mt-24">
+            <a href="#cursos" class="volver-cursos inline-flex items-center gap-2 mb-5 text-sm font-semibold text-verdeSanPatricio hover:underline"><i class="fas fa-arrow-left text-xs"></i>Volver a los cursos</a>
             <!-- Encabezado -->
             <div class="border-b pb-5 mb-6 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
                 <div>
@@ -420,7 +440,7 @@
                         <i class="fas fa-book-bible mr-3"></i>Las Partes de la Misa
                     </h3>
                     <p class="text-sm text-gray-600 mt-1">
-                        Qué ocurre en cada momento, qué respondemos y qué postura tomamos. Basado en la <strong>Instrucción General del Misal Romano (IGMR)</strong> y en el <strong>Misal Romano aprobado para Chile</strong>.
+                        Qué ocurre en cada momento, qué respondemos y qué postura tomamos. Basado en la <strong>Instrucción General del Misal Romano (IGMR)</strong> y en el <strong>Misal Romano aprobado para Chile</strong>; las normas para comulgar, en el <strong>Código de Derecho Canónico</strong>.
                     </p>
                 </div>
                 <div class="flex flex-wrap items-center gap-2.5 self-start md:self-auto">
@@ -510,7 +530,8 @@
                     </div>
                     <div class="bg-white border border-gray-200 rounded-xl p-4 shadow-sm">
                         <div class="flex flex-wrap items-center justify-between gap-2 mb-1.5"><strong class="text-gray-900">Profesión de fe (Credo)</strong><span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-semibold bg-blue-100 text-blue-800"><i class="fas fa-person"></i> De pie</span></div>
-                        <p class="text-sm text-gray-700">Domingos y solemnidades. En las palabras <em>«y por obra del Espíritu Santo se encarnó de María, la Virgen, y se hizo hombre»</em> todos hacemos una <strong>inclinación profunda</strong>; en <strong>Navidad y en la Anunciación</strong> nos arrodillamos (IGMR 137).</p>
+                        <p class="text-sm text-gray-700">Se reza de pie los domingos y solemnidades. <strong>Solo</strong> durante las palabras <em>«y por obra del Espíritu Santo se encarnó de María, la Virgen, y se hizo hombre»</em> todos hacemos una <strong>inclinación profunda</strong>; terminada esa frase, nos enderezamos y seguimos el Credo de pie.</p>
+                        <p class="text-sm text-gray-700 mt-1">En <strong>Navidad (25 de diciembre)</strong> y en la <strong>Anunciación del Señor (25 de marzo)</strong>, en vez de inclinarnos <strong>nos arrodillamos en esa misma frase</strong>, y luego nos ponemos de pie para continuar (IGMR 137). No se reza todo el Credo de rodillas.</p>
                     </div>
                     <div class="bg-white border border-gray-200 rounded-xl p-4 shadow-sm">
                         <div class="flex flex-wrap items-center justify-between gap-2 mb-1.5"><strong class="text-gray-900">Oración de los fieles</strong><span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-semibold bg-blue-100 text-blue-800"><i class="fas fa-person"></i> De pie</span></div>
@@ -539,7 +560,32 @@
                     </div>
                     <div class="bg-white border-2 border-purple-200 rounded-xl p-4 shadow-sm">
                         <div class="flex flex-wrap items-center justify-between gap-2 mb-1.5"><strong class="text-gray-900">Plegaria Eucarística y Consagración</strong><span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-semibold bg-purple-100 text-purple-800"><i class="fas fa-person-praying"></i> De rodillas</span></div>
-                        <p class="text-sm text-gray-700">Es el centro de toda la celebración. Nos <strong>arrodillamos para la consagración</strong>; donde existe esa costumbre, desde que termina el Santo hasta el final de la Plegaria (IGMR 43).</p>
+                        <p class="text-sm text-gray-700">Es el centro de toda la celebración. Nos <strong>arrodillamos para la consagración</strong> (IGMR 43).</p>
+                        <div class="mt-2 bg-purple-50 border border-purple-200 rounded-lg p-3 md:p-4 text-sm text-gray-700">
+                            <p class="font-semibold text-purple-900 mb-1"><i class="fas fa-clock mr-1"></i>¿Cuándo nos arrodillamos y cuándo nos ponemos de pie?</p>
+                            <p class="mb-3">La IGMR (n. 43) pide que los fieles <strong>se arrodillen para la consagración</strong>, y además invita a conservar la costumbre, allí donde existe, de permanecer de rodillas <strong>durante toda la Plegaria Eucarística</strong>. Por eso hay <strong>dos formas correctas</strong> de hacerlo:</p>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                                <div class="bg-white border border-purple-200 rounded-lg p-3">
+                                    <p class="font-bold text-purple-900 mb-1.5">Forma 1 · Toda la Plegaria de rodillas</p>
+                                    <ol class="list-decimal ml-5 space-y-1">
+                                        <li><strong>Nos arrodillamos</strong> al terminar el canto del <strong>Santo</strong>.</li>
+                                        <li>Seguimos de rodillas durante la consagración y el resto de la Plegaria.</li>
+                                        <li><strong>Nos ponemos de pie después del Gran Amén</strong> («Por Cristo, con Él y en Él…»), para el <strong>Padre Nuestro</strong>.</li>
+                                    </ol>
+                                    <p class="mt-2 text-xs text-gray-600">Es la costumbre que la IGMR elogia: toda la Plegaria se vive como un gran momento de adoración.</p>
+                                </div>
+                                <div class="bg-white border border-purple-200 rounded-lg p-3">
+                                    <p class="font-bold text-purple-900 mb-1.5">Forma 2 · Solo la consagración de rodillas</p>
+                                    <ol class="list-decimal ml-5 space-y-1">
+                                        <li>Después del Santo seguimos <strong>de pie</strong>.</li>
+                                        <li><strong>Nos arrodillamos</strong> cuando el sacerdote extiende las manos sobre el pan y el vino para invocar al Espíritu Santo (suele sonar la campanilla), justo antes de la consagración.</li>
+                                        <li><strong>Nos ponemos de pie</strong> después de la elevación del cáliz, al «<strong>Este es el Sacramento de nuestra fe</strong>», y seguimos de pie hasta el final.</li>
+                                    </ol>
+                                    <p class="mt-2 text-xs text-gray-600">Es lo mínimo que pide la IGMR: adorar de rodillas a Cristo en el momento en que se hace presente.</p>
+                                </div>
+                            </div>
+                            <p class="mt-3"><i class="fas fa-users text-verdeSanPatricio mr-1"></i><strong>¿Cuál hago yo?</strong> La que vive tu comunidad. Lo importante es hacer los gestos <strong>todos juntos</strong>, porque la postura común es signo de que somos un solo cuerpo (IGMR 42). Si llegas a otra parroquia, observa y sigue a la asamblea.</p>
+                        </div>
                         <p class="text-sm text-gray-700 mt-1">Quien no puede arrodillarse por salud, edad o falta de espacio, hace una <strong>inclinación profunda</strong> cuando el sacerdote hace la genuflexión después de cada consagración.</p>
                         <p class="text-sm text-gray-700 mt-1"><span class="text-gray-500">Sacerdote:</span> «Este es el Sacramento de nuestra fe.» — <strong class="text-verdeSanPatricio">Todos:</strong> «Anunciamos tu muerte, proclamamos tu resurrección. ¡Ven, Señor Jesús!»</p>
                         <p class="text-sm text-gray-700 mt-1">La Plegaria termina con «Por Cristo, con Él y en Él…», y todos respondemos el <strong>Gran Amén</strong>: nuestro «sí» a todo lo que se ha celebrado.</p>
@@ -565,7 +611,8 @@
                     <div class="bg-white border border-gray-200 rounded-xl p-4 shadow-sm">
                         <div class="flex flex-wrap items-center justify-between gap-2 mb-1.5"><strong class="text-gray-900">Comunión</strong><span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-semibold bg-amber-100 text-amber-800"><i class="fas fa-hands-praying"></i> Inclinación antes de comulgar</span></div>
                         <p class="text-sm text-gray-700">Antes de recibir hacemos una <strong>inclinación de cabeza</strong>. <span class="text-gray-500">Ministro:</span> «El Cuerpo de Cristo.» — <strong class="text-verdeSanPatricio">«Amén.»</strong></p>
-                        <p class="text-sm text-gray-700 mt-1">Se puede comulgar en la boca o en la mano. En la mano: la <strong>izquierda sobre la derecha</strong>, formando un trono, y se comulga <strong>ahí mismo, frente al ministro</strong>, antes de volver al lugar. Para comulgar hay que estar en gracia de Dios y guardar el <strong>ayuno eucarístico de una hora</strong>.</p>
+                        <p class="text-sm text-gray-700 mt-1">Se puede comulgar en la boca o en la mano. En la mano: la <strong>izquierda sobre la derecha</strong>, formando un trono, y se comulga <strong>ahí mismo, frente al ministro</strong>, antes de volver al lugar.</p>
+                        <p class="text-sm text-gray-700 mt-1">Para comulgar hay que estar <strong>en gracia de Dios</strong> (Código de Derecho Canónico, c. 916) y guardar el <strong>ayuno eucarístico</strong>: no comer ni beber nada, salvo agua y medicamentos, al menos <strong>una hora antes</strong> de comulgar. Los adultos mayores, los enfermos y quienes los cuidan están dispensados (c. 919).</p>
                         <p class="text-sm text-gray-700 mt-1">Después, un tiempo de <strong>silencio</strong> y acción de gracias (sentados o de rodillas). Luego, de pie, la oración después de la comunión — «Amén».</p>
                     </div>
                 </div>
@@ -579,6 +626,7 @@
                     <div class="bg-white border border-gray-200 rounded-xl p-4 shadow-sm">
                         <div class="flex flex-wrap items-center justify-between gap-2 mb-1.5"><strong class="text-gray-900">Avisos, bendición y despedida</strong><span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-semibold bg-blue-100 text-blue-800"><i class="fas fa-person"></i> De pie</span></div>
                         <p class="text-sm text-gray-700">«El Señor esté con ustedes.» — <strong class="text-verdeSanPatricio">«Y con tu espíritu.»</strong> · «La bendición de Dios todopoderoso, Padre, Hijo y Espíritu Santo…» — nos persignamos y respondemos <strong class="text-verdeSanPatricio">«Amén.»</strong></p>
+                        <p class="text-sm text-gray-700 mt-1"><strong>¿Hay que inclinar la cabeza?</strong> En la bendición sencilla no es obligatorio. Sí lo hacemos cuando el diácono o el sacerdote invita: <em>«Inclínense para recibir la bendición»</em>. Esto ocurre antes de una <strong>bendición solemne</strong> (con varias invocaciones, a cada una respondemos «Amén») o de una <strong>oración sobre el pueblo</strong>; permanecemos inclinados hasta la bendición final (IGMR 185).</p>
                         <p class="text-sm text-gray-700 mt-1">«Pueden ir en paz.» — <strong class="text-verdeSanPatricio">«Demos gracias a Dios.»</strong> Lo adecuado es esperar a que el sacerdote se retire antes de salir.</p>
                     </div>
                 </div>
@@ -660,6 +708,23 @@
 
 </div>
 <script src="components.js?v=7"></script>
+<script>
+    // Cursos: el listado se muestra por defecto; #buen-trato o #partes-misa abren ese curso
+    (function () {
+        const lista = document.getElementById("cursos-lista");
+        const cursos = [...document.querySelectorAll(".curso-detalle")];
+        function mostrar() {
+            const id = decodeURIComponent(location.hash.slice(1));
+            const curso = cursos.find(c => c.id === id);
+            cursos.forEach(c => c.classList.toggle("hidden", c !== curso));
+            lista.classList.toggle("hidden", !!curso);
+            document.title = "Parroquia San Patricio - " + (curso ? curso.querySelector("h3").textContent.trim() : "Cursos");
+            window.scrollTo({ top: 0 });
+        }
+        window.addEventListener("hashchange", mostrar);
+        mostrar();
+    })();
+</script>
 
 </body>
 </html>
