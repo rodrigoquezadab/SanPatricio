@@ -8,11 +8,14 @@
     <script>tailwind.config = { theme: { extend: { colors: { arena: '#F3E5DC', verdeSanPatricio: '#16A34A', negro: '#000000' } } } }</script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png">
+    <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 
-    <meta name="description" content="Cursos y formación de la Parroquia San Patricio: Buen Trato y Ambientes Sanos, con guía comunitaria, presentación descargable y quiz formativo.">
+    <meta name="description" content="Cursos y formación de la Parroquia San Patricio: Buen Trato y Ambientes Sanos, y Las Partes de la Misa (respuestas, gestos y posturas), cada uno con su quiz formativo.">
     <link rel="canonical" href="https://parroquiasanpatricio.cl/cursos.html">
     <meta property="og:title" content="Parroquia San Patricio - Cursos">
-    <meta property="og:description" content="Cursos y formación de la Parroquia San Patricio: Buen Trato y Ambientes Sanos, con guía comunitaria, presentación descargable y quiz formativo.">
+    <meta property="og:description" content="Cursos y formación de la Parroquia San Patricio: Buen Trato y Ambientes Sanos, y Las Partes de la Misa (respuestas, gestos y posturas), cada uno con su quiz formativo.">
     <meta property="og:type" content="website">
 </head>
 <body>
@@ -51,6 +54,10 @@
     <section id="cursos">
         <h2 class="text-3xl mb-6 text-center">Cursos</h2>
         <p class="text-center text-gray-700 max-w-2xl mx-auto mb-8">Material de formación para agentes pastorales, voluntarios y toda la comunidad parroquial.</p>
+        <div class="flex flex-wrap justify-center gap-3 mb-8">
+            <a href="#buen-trato" class="inline-flex items-center gap-2 px-4 py-2.5 bg-white border border-green-200 hover:bg-green-50 text-verdeSanPatricio font-semibold rounded-xl shadow-sm transition text-sm"><i class="fas fa-shield-heart"></i>Buen Trato y Ambientes Sanos</a>
+            <a href="#partes-misa" class="inline-flex items-center gap-2 px-4 py-2.5 bg-white border border-green-200 hover:bg-green-50 text-verdeSanPatricio font-semibold rounded-xl shadow-sm transition text-sm"><i class="fas fa-book-bible"></i>Las Partes de la Misa</a>
+        </div>
 
         <!-- SECCIÓN BUEN TRATO -->
         <div id="buen-trato" class="card transition-opacity duration-300 scroll-mt-24">
@@ -394,6 +401,232 @@
                     </div>
                 </div>
                 <a href="quiz-buen-trato.html" target="_blank" rel="noopener noreferrer"
+                   class="inline-flex items-center justify-center gap-2.5 px-6 py-3.5 bg-verdeSanPatricio hover:bg-green-700 text-white font-bold rounded-xl shadow-md transition transform hover:-translate-y-0.5 text-base whitespace-nowrap self-stretch md:self-auto text-center">
+                    <i class="fas fa-play text-sm"></i>
+                    <span>Abrir Quiz en Nueva Pestaña</span>
+                    <i class="fas fa-arrow-up-right-from-square text-xs ml-1"></i>
+                </a>
+            </div>
+        </div>
+        <!-- SECCIÓN PARTES DE LA MISA -->
+        <div id="partes-misa" class="card transition-opacity duration-300 scroll-mt-24 mt-8">
+            <!-- Encabezado -->
+            <div class="border-b pb-5 mb-6 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+                <div>
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-green-100 text-verdeSanPatricio mb-2">
+                        <i class="fas fa-church"></i> Formación Litúrgica
+                    </div>
+                    <h3 class="text-2xl md:text-3xl font-bold text-verdeSanPatricio flex items-center">
+                        <i class="fas fa-book-bible mr-3"></i>Las Partes de la Misa
+                    </h3>
+                    <p class="text-sm text-gray-600 mt-1">
+                        Qué ocurre en cada momento, qué respondemos y qué postura tomamos. Basado en la <strong>Instrucción General del Misal Romano (IGMR)</strong> y en el <strong>Misal Romano aprobado para Chile</strong>.
+                    </p>
+                </div>
+                <div class="flex flex-wrap items-center gap-2.5 self-start md:self-auto">
+                    <a href="quiz-misa.html" target="_blank" rel="noopener noreferrer"
+                       class="inline-flex items-center justify-center gap-2 px-4 py-2.5 bg-verdeSanPatricio hover:bg-green-700 text-white font-bold rounded-lg shadow-md transition transform hover:-translate-y-0.5 text-sm whitespace-nowrap">
+                        <i class="fas fa-clipboard-check text-white text-base"></i>
+                        <span>Realizar Quiz</span>
+                        <i class="fas fa-arrow-up-right-from-square text-xs ml-0.5 opacity-90"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Introducción -->
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
+                <div class="lg:col-span-2 bg-gradient-to-br from-green-50 to-emerald-50 p-6 rounded-xl border border-green-200">
+                    <h4 class="text-lg font-bold text-verdeSanPatricio mb-2"><i class="fas fa-quote-left mr-2 opacity-60"></i>Una sola acción, cuatro momentos</h4>
+                    <p class="text-gray-700 leading-relaxed">
+                        La Misa es una única celebración en la que Cristo nos reúne, nos habla y se nos entrega. Sus dos partes centrales —la <strong>Liturgia de la Palabra</strong> y la <strong>Liturgia Eucarística</strong>— están tan unidas que forman un solo acto de culto, enmarcado por los <strong>Ritos Iniciales</strong> y los <strong>Ritos de Conclusión</strong> (IGMR 28).
+                    </p>
+                    <p class="text-gray-700 leading-relaxed mt-3">
+                        Las posturas y respuestas no son un detalle: expresan y favorecen la participación de todos. Hacerlas juntos es signo de que somos <em>un solo cuerpo</em> (IGMR 42).
+                    </p>
+                </div>
+                <div class="bg-white p-5 rounded-xl border border-gray-200 shadow-sm">
+                    <h4 class="font-bold text-gray-800 mb-3">Guía de posturas</h4>
+                    <ul class="space-y-2.5 text-sm text-gray-700">
+                        <li class="flex items-start gap-2"><span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-semibold bg-blue-100 text-blue-800 whitespace-nowrap"><i class="fas fa-person"></i> De pie</span><span>Disponibilidad, alegría de la resurrección, oración.</span></li>
+                        <li class="flex items-start gap-2"><span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-semibold bg-gray-200 text-gray-800 whitespace-nowrap"><i class="fas fa-chair"></i> Sentados</span><span>Escucha atenta y meditación.</span></li>
+                        <li class="flex items-start gap-2"><span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-semibold bg-purple-100 text-purple-800 whitespace-nowrap"><i class="fas fa-person-praying"></i> De rodillas</span><span>Adoración y humildad ante Dios.</span></li>
+                        <li class="flex items-start gap-2"><span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-semibold bg-amber-100 text-amber-800 whitespace-nowrap"><i class="fas fa-hands-praying"></i> Inclinación</span><span>Reverencia y respeto.</span></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- 1. RITOS INICIALES -->
+            <div class="mb-8">
+                <h4 class="text-xl font-bold text-gray-800 mb-1 flex items-center"><span class="w-8 h-8 rounded-full bg-verdeSanPatricio text-white text-sm flex items-center justify-center mr-3">1</span>Ritos Iniciales</h4>
+                <p class="text-sm text-gray-600 mb-4 ml-11">Nos reúnen como comunidad y nos disponen a escuchar la Palabra y celebrar la Eucaristía.</p>
+                <div class="space-y-3 ml-0 md:ml-11">
+                    <div class="bg-white border border-gray-200 rounded-xl p-4 shadow-sm">
+                        <div class="flex flex-wrap items-center justify-between gap-2 mb-1.5"><strong class="text-gray-900">Canto de entrada y procesión</strong><span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-semibold bg-blue-100 text-blue-800"><i class="fas fa-person"></i> De pie</span></div>
+                        <p class="text-sm text-gray-700">El sacerdote besa el altar en señal de veneración: el altar representa a Cristo.</p>
+                    </div>
+                    <div class="bg-white border border-gray-200 rounded-xl p-4 shadow-sm">
+                        <div class="flex flex-wrap items-center justify-between gap-2 mb-1.5"><strong class="text-gray-900">Señal de la cruz y saludo</strong><span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-semibold bg-blue-100 text-blue-800"><i class="fas fa-person"></i> De pie</span></div>
+                        <p class="text-sm text-gray-700"><span class="text-gray-500">Sacerdote:</span> «En el nombre del Padre, y del Hijo, y del Espíritu Santo.» — <strong class="text-verdeSanPatricio">Todos:</strong> «Amén.»</p>
+                        <p class="text-sm text-gray-700 mt-1"><span class="text-gray-500">Sacerdote:</span> «El Señor esté con ustedes.» — <strong class="text-verdeSanPatricio">Todos:</strong> «Y con tu espíritu.»</p>
+                    </div>
+                    <div class="bg-white border border-gray-200 rounded-xl p-4 shadow-sm">
+                        <div class="flex flex-wrap items-center justify-between gap-2 mb-1.5"><strong class="text-gray-900">Acto penitencial</strong><span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-semibold bg-blue-100 text-blue-800"><i class="fas fa-person"></i> De pie</span></div>
+                        <p class="text-sm text-gray-700">Reconocemos que somos pecadores. En el «Yo confieso», al decir <em>«por mi culpa, por mi culpa, por mi gran culpa»</em> nos <strong>golpeamos el pecho</strong>. Sigue el <em>«Señor, ten piedad»</em>.</p>
+                    </div>
+                    <div class="bg-white border border-gray-200 rounded-xl p-4 shadow-sm">
+                        <div class="flex flex-wrap items-center justify-between gap-2 mb-1.5"><strong class="text-gray-900">Gloria</strong><span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-semibold bg-blue-100 text-blue-800"><i class="fas fa-person"></i> De pie</span></div>
+                        <p class="text-sm text-gray-700">Himno de alabanza que se canta o reza los domingos, solemnidades y fiestas. <strong>No se dice en Adviento ni en Cuaresma.</strong></p>
+                    </div>
+                    <div class="bg-white border border-gray-200 rounded-xl p-4 shadow-sm">
+                        <div class="flex flex-wrap items-center justify-between gap-2 mb-1.5"><strong class="text-gray-900">Oración colecta</strong><span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-semibold bg-blue-100 text-blue-800"><i class="fas fa-person"></i> De pie</span></div>
+                        <p class="text-sm text-gray-700">El sacerdote dice «Oremos» y todos guardamos un momento de <strong>silencio</strong> para presentar nuestras intenciones. Al final respondemos: <strong class="text-verdeSanPatricio">«Amén.»</strong></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 2. LITURGIA DE LA PALABRA -->
+            <div class="mb-8">
+                <h4 class="text-xl font-bold text-gray-800 mb-1 flex items-center"><span class="w-8 h-8 rounded-full bg-verdeSanPatricio text-white text-sm flex items-center justify-center mr-3">2</span>Liturgia de la Palabra</h4>
+                <p class="text-sm text-gray-600 mb-4 ml-11">Dios mismo habla a su pueblo y Cristo anuncia su Evangelio (IGMR 29).</p>
+                <div class="space-y-3 ml-0 md:ml-11">
+                    <div class="bg-white border border-gray-200 rounded-xl p-4 shadow-sm">
+                        <div class="flex flex-wrap items-center justify-between gap-2 mb-1.5"><strong class="text-gray-900">Primera lectura, Salmo y Segunda lectura</strong><span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-semibold bg-gray-200 text-gray-800"><i class="fas fa-chair"></i> Sentados</span></div>
+                        <p class="text-sm text-gray-700"><span class="text-gray-500">Lector:</span> «Palabra de Dios.» — <strong class="text-verdeSanPatricio">Todos:</strong> «Te alabamos, Señor.»</p>
+                        <p class="text-sm text-gray-700 mt-1">En el Salmo respondemos con la antífona (el estribillo) que propone el salmista.</p>
+                    </div>
+                    <div class="bg-white border border-gray-200 rounded-xl p-4 shadow-sm">
+                        <div class="flex flex-wrap items-center justify-between gap-2 mb-1.5"><strong class="text-gray-900">Aclamación antes del Evangelio</strong><span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-semibold bg-blue-100 text-blue-800"><i class="fas fa-person"></i> De pie</span></div>
+                        <p class="text-sm text-gray-700">Nos ponemos de pie para recibir a Cristo que nos habla. Se canta el <strong>Aleluya</strong>; en <strong>Cuaresma no se dice Aleluya</strong> y se usa otra aclamación (por ejemplo, «Gloria y alabanza a ti, Señor Jesús»).</p>
+                    </div>
+                    <div class="bg-white border border-gray-200 rounded-xl p-4 shadow-sm">
+                        <div class="flex flex-wrap items-center justify-between gap-2 mb-1.5"><strong class="text-gray-900">Evangelio</strong><span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-semibold bg-blue-100 text-blue-800"><i class="fas fa-person"></i> De pie</span></div>
+                        <p class="text-sm text-gray-700"><span class="text-gray-500">Sacerdote o diácono:</span> «El Señor esté con ustedes.» — <strong class="text-verdeSanPatricio">Todos:</strong> «Y con tu espíritu.»</p>
+                        <p class="text-sm text-gray-700 mt-1"><span class="text-gray-500">Sacerdote o diácono:</span> «Lectura del santo Evangelio según san…» — <strong class="text-verdeSanPatricio">Todos:</strong> «Gloria a ti, Señor.» Mientras tanto, con el pulgar trazamos una <strong>pequeña cruz en la frente, los labios y el pecho</strong>: que la Palabra esté en nuestra mente, en nuestros labios y en nuestro corazón.</p>
+                        <p class="text-sm text-gray-700 mt-1">Al terminar: «Palabra del Señor.» — <strong class="text-verdeSanPatricio">Todos:</strong> «Gloria a ti, Señor Jesús.»</p>
+                    </div>
+                    <div class="bg-white border border-gray-200 rounded-xl p-4 shadow-sm">
+                        <div class="flex flex-wrap items-center justify-between gap-2 mb-1.5"><strong class="text-gray-900">Homilía</strong><span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-semibold bg-gray-200 text-gray-800"><i class="fas fa-chair"></i> Sentados</span></div>
+                        <p class="text-sm text-gray-700">Explicación de las lecturas para la vida. Conviene un breve silencio después.</p>
+                    </div>
+                    <div class="bg-white border border-gray-200 rounded-xl p-4 shadow-sm">
+                        <div class="flex flex-wrap items-center justify-between gap-2 mb-1.5"><strong class="text-gray-900">Profesión de fe (Credo)</strong><span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-semibold bg-blue-100 text-blue-800"><i class="fas fa-person"></i> De pie</span></div>
+                        <p class="text-sm text-gray-700">Domingos y solemnidades. En las palabras <em>«y por obra del Espíritu Santo se encarnó de María, la Virgen, y se hizo hombre»</em> todos hacemos una <strong>inclinación profunda</strong>; en <strong>Navidad y en la Anunciación</strong> nos arrodillamos (IGMR 137).</p>
+                    </div>
+                    <div class="bg-white border border-gray-200 rounded-xl p-4 shadow-sm">
+                        <div class="flex flex-wrap items-center justify-between gap-2 mb-1.5"><strong class="text-gray-900">Oración de los fieles</strong><span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-semibold bg-blue-100 text-blue-800"><i class="fas fa-person"></i> De pie</span></div>
+                        <p class="text-sm text-gray-700">Pedimos por la Iglesia, el mundo, los que sufren y la comunidad. Respondemos a cada petición, por ejemplo: <strong class="text-verdeSanPatricio">«Te rogamos, óyenos.»</strong></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3. LITURGIA EUCARÍSTICA -->
+            <div class="mb-8">
+                <h4 class="text-xl font-bold text-gray-800 mb-1 flex items-center"><span class="w-8 h-8 rounded-full bg-verdeSanPatricio text-white text-sm flex items-center justify-center mr-3">3</span>Liturgia Eucarística</h4>
+                <p class="text-sm text-gray-600 mb-4 ml-11">Se hace presente el sacrificio de Cristo y lo recibimos en la Comunión.</p>
+                <div class="space-y-3 ml-0 md:ml-11">
+                    <div class="bg-white border border-gray-200 rounded-xl p-4 shadow-sm">
+                        <div class="flex flex-wrap items-center justify-between gap-2 mb-1.5"><strong class="text-gray-900">Presentación de los dones</strong><span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-semibold bg-gray-200 text-gray-800"><i class="fas fa-chair"></i> Sentados</span></div>
+                        <p class="text-sm text-gray-700">Se llevan al altar el pan y el vino (y la colecta). Si el sacerdote dice las oraciones en voz alta, respondemos: <strong class="text-verdeSanPatricio">«Bendito seas por siempre, Señor.»</strong></p>
+                    </div>
+                    <div class="bg-white border border-gray-200 rounded-xl p-4 shadow-sm">
+                        <div class="flex flex-wrap items-center justify-between gap-2 mb-1.5"><strong class="text-gray-900">«Oren, hermanos…»</strong><span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-semibold bg-blue-100 text-blue-800"><i class="fas fa-person"></i> De pie</span></div>
+                        <p class="text-sm text-gray-700">Nos ponemos de pie y respondemos: <strong class="text-verdeSanPatricio">«El Señor reciba de tus manos este sacrificio, para alabanza y gloria de su nombre, para nuestro bien y el de toda su santa Iglesia.»</strong> Sigue la oración sobre las ofrendas — «Amén».</p>
+                    </div>
+                    <div class="bg-white border border-gray-200 rounded-xl p-4 shadow-sm">
+                        <div class="flex flex-wrap items-center justify-between gap-2 mb-1.5"><strong class="text-gray-900">Prefacio y Santo</strong><span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-semibold bg-blue-100 text-blue-800"><i class="fas fa-person"></i> De pie</span></div>
+                        <p class="text-sm text-gray-700">«El Señor esté con ustedes.» — <strong class="text-verdeSanPatricio">«Y con tu espíritu.»</strong> · «Levantemos el corazón.» — <strong class="text-verdeSanPatricio">«Lo tenemos levantado hacia el Señor.»</strong> · «Demos gracias al Señor, nuestro Dios.» — <strong class="text-verdeSanPatricio">«Es justo y necesario.»</strong></p>
+                        <p class="text-sm text-gray-700 mt-1">Al terminar el prefacio, todos cantamos el <strong>Santo</strong>.</p>
+                    </div>
+                    <div class="bg-white border-2 border-purple-200 rounded-xl p-4 shadow-sm">
+                        <div class="flex flex-wrap items-center justify-between gap-2 mb-1.5"><strong class="text-gray-900">Plegaria Eucarística y Consagración</strong><span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-semibold bg-purple-100 text-purple-800"><i class="fas fa-person-praying"></i> De rodillas</span></div>
+                        <p class="text-sm text-gray-700">Es el centro de toda la celebración. Nos <strong>arrodillamos para la consagración</strong>; donde existe esa costumbre, desde que termina el Santo hasta el final de la Plegaria (IGMR 43).</p>
+                        <p class="text-sm text-gray-700 mt-1">Quien no puede arrodillarse por salud, edad o falta de espacio, hace una <strong>inclinación profunda</strong> cuando el sacerdote hace la genuflexión después de cada consagración.</p>
+                        <p class="text-sm text-gray-700 mt-1"><span class="text-gray-500">Sacerdote:</span> «Este es el Sacramento de nuestra fe.» — <strong class="text-verdeSanPatricio">Todos:</strong> «Anunciamos tu muerte, proclamamos tu resurrección. ¡Ven, Señor Jesús!»</p>
+                        <p class="text-sm text-gray-700 mt-1">La Plegaria termina con «Por Cristo, con Él y en Él…», y todos respondemos el <strong>Gran Amén</strong>: nuestro «sí» a todo lo que se ha celebrado.</p>
+                    </div>
+                    <div class="bg-white border-2 border-amber-200 rounded-xl p-4 shadow-sm">
+                        <div class="flex flex-wrap items-center justify-between gap-2 mb-1.5"><strong class="text-gray-900">Padre Nuestro</strong><span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-semibold bg-blue-100 text-blue-800"><i class="fas fa-person"></i> De pie</span></div>
+                        <p class="text-sm text-gray-700">Lo rezamos todos juntos. <strong>Al terminar no decimos «Amén»</strong>, porque la oración continúa: el sacerdote prolonga la última petición con «Líbranos de todos los males, Señor…» y todos concluimos con la aclamación:</p>
+                        <p class="text-sm text-verdeSanPatricio font-semibold mt-1">«Tuyo es el reino, tuyo el poder y la gloria, por siempre, Señor.»</p>
+                    </div>
+                    <div class="bg-white border border-gray-200 rounded-xl p-4 shadow-sm">
+                        <div class="flex flex-wrap items-center justify-between gap-2 mb-1.5"><strong class="text-gray-900">Rito de la paz</strong><span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-semibold bg-blue-100 text-blue-800"><i class="fas fa-person"></i> De pie</span></div>
+                        <p class="text-sm text-gray-700">El sacerdote pide la paz para la Iglesia — «Amén». «La paz del Señor esté siempre con ustedes.» — <strong class="text-verdeSanPatricio">«Y con tu espíritu.»</strong> Nos damos la paz con sobriedad, a quienes están más cerca.</p>
+                    </div>
+                    <div class="bg-white border border-gray-200 rounded-xl p-4 shadow-sm">
+                        <div class="flex flex-wrap items-center justify-between gap-2 mb-1.5"><strong class="text-gray-900">Cordero de Dios (fracción del pan)</strong><span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-semibold bg-blue-100 text-blue-800"><i class="fas fa-person"></i> De pie</span></div>
+                        <p class="text-sm text-gray-700">Mientras el sacerdote parte la Hostia, cantamos «Cordero de Dios, que quitas el pecado del mundo…».</p>
+                    </div>
+                    <div class="bg-white border-2 border-purple-200 rounded-xl p-4 shadow-sm">
+                        <div class="flex flex-wrap items-center justify-between gap-2 mb-1.5"><strong class="text-gray-900">«Este es el Cordero de Dios…»</strong><span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-semibold bg-purple-100 text-purple-800"><i class="fas fa-person-praying"></i> De rodillas (según costumbre)</span></div>
+                        <p class="text-sm text-gray-700">Donde es costumbre, nos arrodillamos cuando el sacerdote muestra la Hostia (IGMR 43) y respondemos:</p>
+                        <p class="text-sm text-verdeSanPatricio font-semibold mt-1">«Señor, no soy digno de que entres en mi casa, pero una palabra tuya bastará para sanarme.»</p>
+                    </div>
+                    <div class="bg-white border border-gray-200 rounded-xl p-4 shadow-sm">
+                        <div class="flex flex-wrap items-center justify-between gap-2 mb-1.5"><strong class="text-gray-900">Comunión</strong><span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-semibold bg-amber-100 text-amber-800"><i class="fas fa-hands-praying"></i> Inclinación antes de comulgar</span></div>
+                        <p class="text-sm text-gray-700">Antes de recibir hacemos una <strong>inclinación de cabeza</strong>. <span class="text-gray-500">Ministro:</span> «El Cuerpo de Cristo.» — <strong class="text-verdeSanPatricio">«Amén.»</strong></p>
+                        <p class="text-sm text-gray-700 mt-1">Se puede comulgar en la boca o en la mano. En la mano: la <strong>izquierda sobre la derecha</strong>, formando un trono, y se comulga <strong>ahí mismo, frente al ministro</strong>, antes de volver al lugar. Para comulgar hay que estar en gracia de Dios y guardar el <strong>ayuno eucarístico de una hora</strong>.</p>
+                        <p class="text-sm text-gray-700 mt-1">Después, un tiempo de <strong>silencio</strong> y acción de gracias (sentados o de rodillas). Luego, de pie, la oración después de la comunión — «Amén».</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 4. RITOS DE CONCLUSIÓN -->
+            <div class="mb-8">
+                <h4 class="text-xl font-bold text-gray-800 mb-1 flex items-center"><span class="w-8 h-8 rounded-full bg-verdeSanPatricio text-white text-sm flex items-center justify-center mr-3">4</span>Ritos de Conclusión</h4>
+                <p class="text-sm text-gray-600 mb-4 ml-11">Somos enviados a vivir lo celebrado.</p>
+                <div class="space-y-3 ml-0 md:ml-11">
+                    <div class="bg-white border border-gray-200 rounded-xl p-4 shadow-sm">
+                        <div class="flex flex-wrap items-center justify-between gap-2 mb-1.5"><strong class="text-gray-900">Avisos, bendición y despedida</strong><span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-semibold bg-blue-100 text-blue-800"><i class="fas fa-person"></i> De pie</span></div>
+                        <p class="text-sm text-gray-700">«El Señor esté con ustedes.» — <strong class="text-verdeSanPatricio">«Y con tu espíritu.»</strong> · «La bendición de Dios todopoderoso, Padre, Hijo y Espíritu Santo…» — nos persignamos y respondemos <strong class="text-verdeSanPatricio">«Amén.»</strong></p>
+                        <p class="text-sm text-gray-700 mt-1">«Pueden ir en paz.» — <strong class="text-verdeSanPatricio">«Demos gracias a Dios.»</strong> Lo adecuado es esperar a que el sacerdote se retire antes de salir.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- GESTOS -->
+            <div class="mb-8">
+                <h4 class="text-xl font-bold text-gray-800 mb-4 flex items-center"><i class="fas fa-hand-sparkles text-verdeSanPatricio mr-2"></i>Gestos que hablan</h4>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                    <div class="bg-green-50/60 border border-green-200 rounded-xl p-4"><strong class="text-gray-900">Agua bendita y señal de la cruz</strong><p class="text-sm text-gray-700 mt-1">Al entrar al templo: recuerdo de nuestro Bautismo.</p></div>
+                    <div class="bg-green-50/60 border border-green-200 rounded-xl p-4"><strong class="text-gray-900">Genuflexión</strong><p class="text-sm text-gray-700 mt-1">Doblar la <strong>rodilla derecha</strong> hasta el suelo ante el Santísimo en el Sagrario, al llegar y al retirarnos. Si no es posible, una inclinación profunda.</p></div>
+                    <div class="bg-green-50/60 border border-green-200 rounded-xl p-4"><strong class="text-gray-900">Inclinación</strong><p class="text-sm text-gray-700 mt-1">De cabeza o de cuerpo: ante el altar, en el Credo y antes de comulgar.</p></div>
+                    <div class="bg-green-50/60 border border-green-200 rounded-xl p-4"><strong class="text-gray-900">Golpe de pecho</strong><p class="text-sm text-gray-700 mt-1">En el «Yo confieso», al reconocer «por mi culpa».</p></div>
+                    <div class="bg-green-50/60 border border-green-200 rounded-xl p-4"><strong class="text-gray-900">Triple cruz en el Evangelio</strong><p class="text-sm text-gray-700 mt-1">Frente, labios y pecho, al responder «Gloria a ti, Señor».</p></div>
+                    <div class="bg-green-50/60 border border-green-200 rounded-xl p-4"><strong class="text-gray-900">Silencio</strong><p class="text-sm text-gray-700 mt-1">También es parte de la celebración: tras el «Oremos», después de las lecturas y la homilía, y después de comulgar (IGMR 45).</p></div>
+                </div>
+            </div>
+
+            <!-- ¿SABÍAS QUE? -->
+            <div class="mb-2 bg-amber-50 border border-amber-200 rounded-xl p-5 md:p-6">
+                <h4 class="text-lg font-bold text-amber-900 mb-3 flex items-center"><i class="fas fa-lightbulb mr-2"></i>¿Sabías que…? Detalles que se confunden a menudo</h4>
+                <ul class="space-y-2.5 text-sm text-gray-800">
+                    <li class="flex items-start gap-2"><i class="fas fa-check text-verdeSanPatricio mt-1"></i><span>En la Misa <strong>no se dice «Amén» al final del Padre Nuestro</strong>: seguimos en oración hasta «Tuyo es el reino…».</span></li>
+                    <li class="flex items-start gap-2"><i class="fas fa-check text-verdeSanPatricio mt-1"></i><span>Tras las lecturas decimos <strong>«Te alabamos, Señor»</strong>; tras el Evangelio, <strong>«Gloria a ti, Señor Jesús»</strong>.</span></li>
+                    <li class="flex items-start gap-2"><i class="fas fa-check text-verdeSanPatricio mt-1"></i><span>Al saludo «El Señor esté con ustedes» se responde <strong>«Y con tu espíritu»</strong>.</span></li>
+                    <li class="flex items-start gap-2"><i class="fas fa-check text-verdeSanPatricio mt-1"></i><span>En <strong>Adviento y Cuaresma no hay Gloria</strong>, y en <strong>Cuaresma tampoco Aleluya</strong>.</span></li>
+                    <li class="flex items-start gap-2"><i class="fas fa-check text-verdeSanPatricio mt-1"></i><span>Si se comulga en la mano, se consume <strong>de inmediato frente al ministro</strong>, no caminando de vuelta al asiento.</span></li>
+                    <li class="flex items-start gap-2"><i class="fas fa-check text-verdeSanPatricio mt-1"></i><span>Las posturas de rodillas dependen en parte de la <strong>costumbre local</strong>: lo importante es hacerlas todos juntos, siguiendo a la comunidad.</span></li>
+                </ul>
+            </div>
+
+            <!-- BANNER QUIZ -->
+            <div id="quiz-misa" class="mt-8 bg-gradient-to-r from-emerald-50 via-green-50 to-emerald-100 p-6 md:p-8 rounded-2xl border-2 border-green-200 shadow-sm flex flex-col md:flex-row items-center justify-between gap-6">
+                <div class="flex items-start md:items-center gap-4">
+                    <div class="w-14 h-14 rounded-2xl bg-verdeSanPatricio text-white flex items-center justify-center text-2xl shadow-md flex-shrink-0">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <div>
+                        <div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-bold bg-green-200 text-green-900 mb-1">
+                            <i class="fas fa-clipboard-check"></i> Autoevaluación Formativa
+                        </div>
+                        <h4 class="text-xl font-bold text-gray-900">Quiz: ¿Cuánto sabes de la Misa?</h4>
+                        <p class="text-sm text-gray-700 mt-1">
+                            16 preguntas sobre las partes de la Misa, las respuestas, los gestos y las posturas.
+                        </p>
+                    </div>
+                </div>
+                <a href="quiz-misa.html" target="_blank" rel="noopener noreferrer"
                    class="inline-flex items-center justify-center gap-2.5 px-6 py-3.5 bg-verdeSanPatricio hover:bg-green-700 text-white font-bold rounded-xl shadow-md transition transform hover:-translate-y-0.5 text-base whitespace-nowrap self-stretch md:self-auto text-center">
                     <i class="fas fa-play text-sm"></i>
                     <span>Abrir Quiz en Nueva Pestaña</span>

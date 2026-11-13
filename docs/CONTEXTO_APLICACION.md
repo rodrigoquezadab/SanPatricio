@@ -91,6 +91,12 @@ node tools/build_cantos.js        # Genera cantos.html desde los datos
 
 ## 📋 Registro de Cambios (Changelog)
 
+### [2026-11-13] - Curso «Las Partes de la Misa» y Quiz
+- **Contenido** (`cursos.html#partes-misa`): Nuevo curso con los cuatro momentos de la Misa (Ritos Iniciales, Liturgia de la Palabra, Liturgia Eucarística y Ritos de Conclusión), las respuestas de la asamblea, las posturas (de pie, sentados, de rodillas, inclinación), los gestos y una sección «¿Sabías que…?» (p. ej., no se dice «Amén» al final del Padre Nuestro). Índice de cursos al inicio de la página.
+- **Fuentes**: Instrucción General del Misal Romano (IGMR) y Misal Romano aprobado para Chile. Las posturas de rodillas que dependen de la costumbre local (IGMR 43) se indican como tales.
+- **Quiz** (`quiz-misa.html`): 16 preguntas con explicación, generado con el mismo diseño y lógica que `quiz-buen-trato.html`. Agregado al `sitemap.xml`.
+- **Favicon**: Emblema del logo sin texto (`favicon.ico`, `assets/favicon-32x32.png`, `assets/apple-touch-icon.png`) enlazado en todas las páginas y en la plantilla de `tools/build_cantos.js`.
+
 ### [2026-11-13] - Cancionero: Acordes no Reconocidos y Retiro de la Regla de «Abre tu jardín»
 - **Detección de acordes** (`tools/build_cantos.js`): Se reconocen y pintan en rojo ~1.780 acordes que quedaban en negro: semidisminuidos (`SIm7b5`), disminuidos (`MI°`), extensiones entre paréntesis (`SOL#m(b13)`, `RE4/9`), acordes opcionales `(RE7)`, acordes unidos con guion (`DO-FA-SOL`), bajos con calidad (`RE/FA#m`) y marcas como `(x2)`, `INTRO:`, `Inicio:`.
 - **Transposición**: Se conserva el sufijo tras la barra (`RE4/9` → `Mi4/9`, `RE/FA#m` → `Mi/Sol#m`).

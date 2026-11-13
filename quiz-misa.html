@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz: Las Partes de la Misa - Parroquia San Patricio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>tailwind.config = { theme: { extend: { colors: { arena: '#F3E5DC', verdeSanPatricio: '#16A34A', negro: '#000000' } } } }</script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png">
+    <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+
+    <meta name="description" content="Quiz interactivo sobre las partes de la Misa: respuestas, gestos y posturas según la Instrucción General del Misal Romano y el Misal aprobado para Chile.">
+    <link rel="canonical" href="https://parroquiasanpatricio.cl/quiz-misa.html">
+    <meta property="og:title" content="Quiz: Las Partes de la Misa - Parroquia San Patricio">
+    <meta property="og:description" content="Pon a prueba lo que sabes sobre las partes de la Misa, sus respuestas, gestos y posturas.">
+    <meta property="og:type" content="website">
+</head>
+<body>
+<!-- BARRA SUPERIOR FIJA EXCLUSIVA DEL QUIZ -->
+<header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md shadow-sm border-b-2 border-verdeSanPatricio py-2.5 px-4">
+    <div class="container mx-auto max-w-4xl flex items-center justify-between gap-3">
+        <!-- Botón fijo arriba a la izquierda para volver a estudiar buen trato -->
+        <a href="cursos.html#partes-misa" class="inline-flex items-center gap-2 px-3.5 py-2 bg-verdeSanPatricio hover:bg-green-700 text-white rounded-xl text-xs sm:text-sm font-bold shadow-sm transition transform hover:-translate-y-0.5" title="Volver a estudiar Las Partes de la Misa">
+            <i class="fas fa-arrow-left text-xs"></i>
+            <i class="fas fa-book-open"></i>
+            <span>Volver a estudiar la Misa</span>
+        </a>
+
+        <!-- Identidad Parroquia -->
+        <div class="flex items-center gap-2.5 sm:gap-3 text-right">
+            <div class="hidden sm:block">
+                <span class="block font-bold text-sm text-gray-900 leading-tight">Parroquia San Patricio</span>
+                <span class="text-[11px] text-gray-500 font-medium">Quiz: Partes de la Misa</span>
+            </div>
+            <img src="assets/logo-san-patricio.jpg" alt="Logo Parroquia San Patricio" class="h-9 w-auto rounded-lg object-contain shadow-sm border border-gray-200">
+        </div>
+    </div>
+</header>
+
+<main class="container mx-auto px-4 py-8 max-w-4xl">
+    <!-- Tarjeta Principal del Quiz -->
+    <section class="card transition-opacity duration-300 shadow-lg border border-green-100 p-6 md:p-10">
+        <!-- Encabezado del Quiz -->
+        <div class="border-b pb-6 mb-8 flex flex-col md:flex-row md:items-center justify-between gap-4">
+            <div>
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold bg-green-100 text-verdeSanPatricio mb-3">
+                    <i class="fas fa-church"></i> Formación Litúrgica
+                </div>
+                <h1 class="text-2xl md:text-3xl font-extrabold text-verdeSanPatricio flex items-center">
+                    <i class="fas fa-clipboard-check mr-3"></i>Quiz: ¿Cuánto sabes de la Misa?
+                </h1>
+                <p class="text-sm md:text-base text-gray-600 mt-2">
+                    Pon a prueba lo que sabes sobre las partes de la Misa, las respuestas de la asamblea, los gestos y las posturas, según la Instrucción General del Misal Romano (IGMR) y el Misal aprobado para Chile. Son 16 preguntas formativas.
+                </p>
+            </div>
+            <div class="flex items-center gap-3 self-start md:self-center">
+                <span id="quiz-counter-badge" class="text-xs font-bold px-3.5 py-1.5 bg-green-50 text-verdeSanPatricio border border-green-200 rounded-lg whitespace-nowrap shadow-sm">
+                    Pregunta <span id="quiz-q-current">1</span> de <span id="quiz-q-total">16</span>
+                </span>
+            </div>
+        </div>
+
+        <!-- Barra de progreso -->
+        <div class="w-full bg-gray-200 h-2.5 rounded-full mb-8 overflow-hidden">
+            <div id="quiz-progress-bar" class="bg-verdeSanPatricio h-full transition-all duration-300" style="width: 16.6%;"></div>
+        </div>
+
+        <!-- Contenedor de la Pregunta Dinámica -->
+        <div id="quiz-question-container">
+            <!-- Recordatorio siempre visible para consultar la materia -->
+            <div class="flex items-center justify-between bg-green-50/90 border border-green-200 rounded-xl px-4 py-2.5 text-xs sm:text-sm mb-6">
+                <span class="text-gray-700 font-medium flex items-center gap-2">
+                    <i class="fas fa-graduation-cap text-verdeSanPatricio text-base"></i>
+                    <span>¿Dudas con la materia?</span>
+                </span>
+                <a href="cursos.html#partes-misa" target="_blank" rel="noopener noreferrer" class="font-bold text-verdeSanPatricio hover:underline inline-flex items-center gap-1.5">
+                    <span>Abrir el curso</span>
+                    <i class="fas fa-arrow-up-right-from-square text-[11px]"></i>
+                </a>
+            </div>
+
+            <h2 id="quiz-question-title" class="text-lg md:text-xl font-bold text-gray-900 mb-6 leading-snug"></h2>
+            
+            <div id="quiz-options-container" class="space-y-3.5 mb-8"></div>
+
+            <!-- Feedback formativo -->
+            <div id="quiz-feedback-box" class="hidden p-4 md:p-5 rounded-xl border text-sm md:text-base transition-all duration-300 mb-8"></div>
+
+            <!-- Botón Siguiente -->
+            <div class="flex justify-end pt-2">
+                <button id="quiz-btn-next" class="hidden px-6 py-3 bg-verdeSanPatricio hover:bg-green-700 text-white font-bold rounded-xl shadow-md transition transform hover:-translate-y-0.5 text-sm md:text-base items-center gap-2">
+                    <span id="quiz-btn-next-text">Siguiente pregunta</span>
+                    <i class="fas fa-arrow-right text-xs"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Pantalla de Resultados Finales -->
+        <div id="quiz-results-container" class="hidden text-center py-8">
+            <div id="quiz-result-icon-wrapper" class="w-24 h-24 mx-auto mb-5 rounded-full flex items-center justify-center text-4xl shadow-md"></div>
+            <h2 id="quiz-result-heading" class="text-2xl md:text-3xl font-extrabold text-gray-800 mb-2"></h2>
+            <p id="quiz-result-score" class="text-lg md:text-xl font-bold text-verdeSanPatricio mb-4"></p>
+            <p id="quiz-result-message" class="text-gray-700 max-w-xl mx-auto text-sm md:text-base leading-relaxed mb-8"></p>
+            
+            <div class="flex flex-wrap justify-center gap-4">
+                <button id="quiz-btn-restart" class="px-6 py-3 bg-verdeSanPatricio hover:bg-green-700 text-white font-bold rounded-xl shadow transition text-sm md:text-base flex items-center gap-2">
+                    <i class="fas fa-rotate-right"></i>
+                    <span>Volver a intentar</span>
+                </button>
+                <a href="cursos.html#partes-misa" class="px-6 py-3 bg-green-50 border border-green-200 hover:bg-green-100 text-verdeSanPatricio font-semibold rounded-xl transition text-sm md:text-base flex items-center gap-2">
+                    <i class="fas fa-book-open"></i>
+                    <span>Volver a estudiar la Misa</span>
+                </a>
+            </div>
+        </div>
+    </section>
+</main>
+
+<div id="footer-container">
+    <div class="btn-flotante-container">
+        <button id="btnSubir" class="btn-flotante btn-subir hidden" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" title="Subir"><i class="fas fa-chevron-up"></i></button>
+    </div>
+
+    <footer class="py-6 text-center text-xs text-gray-500">
+        <p>&copy; 2026 Parroquia San Patricio &middot; Quiz Formativo: Las Partes de la Misa</p>
+    </footer>
+</div>
+<script src="components.js?v=7"></script>
+
+<!-- SCRIPT DEL QUIZ -->
+<script>
+(function() {
+    const quizData = [
+        {
+            question: "1. ¿Cuáles son las dos partes centrales de la Misa, enmarcadas por los Ritos Iniciales y los Ritos de Conclusión?",
+            options: [
+                "El Acto penitencial y la Homilía.",
+                "La Liturgia de la Palabra y la Liturgia Eucarística.",
+                "El Credo y la Comunión."
+            ],
+            correct: 1,
+            explanation: "📖 <strong>¡Correcto!</strong> La Liturgia de la Palabra y la Liturgia Eucarística están tan unidas que forman un solo acto de culto (IGMR 28)."
+        },
+        {
+            question: "2. Al rezar el Padre Nuestro en la Misa, ¿por qué no decimos «Amén» al terminar?",
+            options: [
+                "Porque la oración continúa: el sacerdote sigue con «Líbranos de todos los males, Señor…» y todos concluimos con «Tuyo es el reino, tuyo el poder y la gloria, por siempre, Señor».",
+                "Porque el «Amén» solo lo dice el sacerdote.",
+                "Porque en la Misa el Padre Nuestro se reza en silencio."
+            ],
+            correct: 0,
+            explanation: "🙏 <strong>¡Exacto!</strong> Seguimos en oración: el sacerdote prolonga la última petición («Líbranos de todos los males…») y la oración termina con la aclamación «Tuyo es el reino…»."
+        },
+        {
+            question: "3. Cuando el sacerdote dice «El Señor esté con ustedes», ¿qué respondemos?",
+            options: [
+                "«Y también contigo.»",
+                "«Amén.»",
+                "«Y con tu espíritu.»"
+            ],
+            correct: 2,
+            explanation: "✅ <strong>¡Correcto!</strong> La respuesta del Misal es «Y con tu espíritu», y se repite en varios momentos de la celebración."
+        },
+        {
+            question: "4. ¿Qué gesto hacemos al anunciarse el Evangelio («Lectura del santo Evangelio según san…»)?",
+            options: [
+                "Nos arrodillamos y juntamos las manos.",
+                "Hacemos una genuflexión hacia el ambón.",
+                "Con el pulgar trazamos una pequeña cruz en la frente, los labios y el pecho, mientras decimos «Gloria a ti, Señor»."
+            ],
+            correct: 2,
+            explanation: "✝️ <strong>¡Muy bien!</strong> Pedimos que la Palabra esté en nuestra mente, en nuestros labios y en nuestro corazón."
+        },
+        {
+            question: "5. ¿Qué se responde al terminar la lectura del Evangelio («Palabra del Señor»)?",
+            options: [
+                "«Gloria a ti, Señor Jesús.»",
+                "«Te alabamos, Señor.»",
+                "«Demos gracias a Dios.»"
+            ],
+            correct: 0,
+            explanation: "🌟 <strong>¡Correcto!</strong> Tras el Evangelio respondemos «Gloria a ti, Señor Jesús». «Te alabamos, Señor» es la respuesta a la primera y segunda lectura."
+        },
+        {
+            question: "6. ¿Qué postura tomamos durante la primera lectura, el salmo y la segunda lectura?",
+            options: [
+                "De pie.",
+                "Sentados, en actitud de escucha.",
+                "De rodillas."
+            ],
+            correct: 1,
+            explanation: "🪑 <strong>¡Así es!</strong> Escuchamos sentados; nos ponemos de pie para la aclamación y el Evangelio."
+        },
+        {
+            question: "7. ¿En qué momento nos arrodillamos durante la Plegaria Eucarística?",
+            options: [
+                "Para la consagración; donde existe la costumbre, desde que termina el Santo hasta el final de la Plegaria.",
+                "Solo durante la homilía.",
+                "Durante el rito de la paz."
+            ],
+            correct: 0,
+            explanation: "🛐 <strong>¡Correcto!</strong> La IGMR (n. 43) pide arrodillarse para la consagración y valora la costumbre de hacerlo desde el final del Santo hasta el final de la Plegaria Eucarística."
+        },
+        {
+            question: "8. Si una persona no puede arrodillarse por salud, edad o falta de espacio, ¿qué hace durante la consagración?",
+            options: [
+                "Se sienta y espera a que termine.",
+                "Sale del templo un momento.",
+                "Hace una inclinación profunda cuando el sacerdote hace la genuflexión después de la consagración."
+            ],
+            correct: 2,
+            explanation: "🙇 <strong>¡Exacto!</strong> Es lo que indica la IGMR (n. 43): una inclinación profunda acompaña la genuflexión del sacerdote."
+        },
+        {
+            question: "9. En el Credo, al decir «y por obra del Espíritu Santo se encarnó de María, la Virgen, y se hizo hombre», ¿qué gesto se hace?",
+            options: [
+                "Nos golpeamos el pecho.",
+                "Una inclinación profunda; en Navidad y en la Anunciación, nos arrodillamos.",
+                "Nos persignamos."
+            ],
+            correct: 1,
+            explanation: "👑 <strong>¡Correcto!</strong> Honramos el misterio de la Encarnación con una inclinación; en Navidad y la Anunciación, de rodillas (IGMR 137)."
+        },
+        {
+            question: "10. ¿En qué tiempos litúrgicos no se dice el Gloria en la Misa dominical?",
+            options: [
+                "En Navidad y Pascua.",
+                "En Adviento y Cuaresma.",
+                "En el Tiempo Ordinario."
+            ],
+            correct: 1,
+            explanation: "🟣 <strong>¡Muy bien!</strong> En Adviento y Cuaresma se omite el Gloria; vuelve con fuerza en Navidad y en la Vigilia Pascual."
+        },
+        {
+            question: "11. ¿Qué ocurre con el Aleluya durante la Cuaresma?",
+            options: [
+                "Se canta dos veces.",
+                "Se reza en silencio.",
+                "No se dice: se reemplaza por otra aclamación, como «Gloria y alabanza a ti, Señor Jesús»."
+            ],
+            correct: 2,
+            explanation: "🎶 <strong>¡Correcto!</strong> El Aleluya calla en Cuaresma y vuelve en la Vigilia Pascual, como canto de la Resurrección."
+        },
+        {
+            question: "12. En el «Yo confieso», ¿cuándo nos golpeamos el pecho?",
+            options: [
+                "Al decir «por mi culpa, por mi culpa, por mi gran culpa».",
+                "Al comenzar: «Yo confieso ante Dios todopoderoso».",
+                "Al pedir la intercesión de la Virgen María."
+            ],
+            correct: 0,
+            explanation: "💚 <strong>¡Exacto!</strong> El golpe de pecho es un gesto de arrepentimiento al reconocer nuestra culpa."
+        },
+        {
+            question: "13. Cuando el sacerdote dice «Levantemos el corazón», ¿qué respondemos?",
+            options: [
+                "«Es justo y necesario.»",
+                "«Bendito seas por siempre, Señor.»",
+                "«Lo tenemos levantado hacia el Señor.»"
+            ],
+            correct: 2,
+            explanation: "❤️ <strong>¡Correcto!</strong> Luego, a «Demos gracias al Señor, nuestro Dios», respondemos «Es justo y necesario»."
+        },
+        {
+            question: "14. Después de la consagración el sacerdote dice «Este es el Sacramento de nuestra fe». ¿Cuál es la respuesta?",
+            options: [
+                "«Anunciamos tu muerte, proclamamos tu resurrección. ¡Ven, Señor Jesús!»",
+                "«Señor, no soy digno de que entres en mi casa…»",
+                "«Santo, Santo, Santo es el Señor…»"
+            ],
+            correct: 0,
+            explanation: "✨ <strong>¡Muy bien!</strong> Es la aclamación memorial: anunciamos el misterio pascual de Cristo."
+        },
+        {
+            question: "15. ¿Cómo se recibe correctamente la Comunión en la mano?",
+            options: [
+                "Se toma la Hostia con los dedos y se lleva al asiento para comulgar allí.",
+                "Tras una inclinación de cabeza, se pone la mano izquierda sobre la derecha, se responde «Amén» y se comulga ahí mismo, frente al ministro.",
+                "Se recibe con una sola mano y se comulga caminando."
+            ],
+            correct: 1,
+            explanation: "🍞 <strong>¡Correcto!</strong> La mano forma un «trono» para el Señor y se comulga de inmediato, frente al ministro."
+        },
+        {
+            question: "16. Al despedirnos («Pueden ir en paz»), ¿qué respondemos y qué hacemos?",
+            options: [
+                "«Demos gracias a Dios», y esperamos a que el sacerdote se retire antes de salir.",
+                "«Amén», y salimos de inmediato.",
+                "«Y con tu espíritu», y nos sentamos."
+            ],
+            correct: 0,
+            explanation: "🕊️ <strong>¡Excelente!</strong> Somos enviados a vivir en la semana lo que hemos celebrado."
+        }
+    ];
+
+    let currentQuestion = 0;
+    let score = 0;
+    let answered = false;
+
+    const qContainer = document.getElementById('quiz-question-container');
+    const rContainer = document.getElementById('quiz-results-container');
+    const qTitle = document.getElementById('quiz-question-title');
+    const qOptions = document.getElementById('quiz-options-container');
+    const feedbackBox = document.getElementById('quiz-feedback-box');
+    const btnNext = document.getElementById('quiz-btn-next');
+    const btnNextText = document.getElementById('quiz-btn-next-text');
+    const progressBar = document.getElementById('quiz-progress-bar');
+    const qCurrent = document.getElementById('quiz-q-current');
+    const qTotal = document.getElementById('quiz-q-total');
+    const btnRestart = document.getElementById('quiz-btn-restart');
+
+    if (!qContainer || !qTitle) return;
+
+    qTotal.textContent = quizData.length;
+
+    function loadQuestion(index) {
+        answered = false;
+        const item = quizData[index];
+        
+        qCurrent.textContent = index + 1;
+        progressBar.style.width = ((index + 1) / quizData.length * 100) + '%';
+        
+        qTitle.textContent = item.question;
+        qOptions.innerHTML = '';
+        
+        feedbackBox.className = 'hidden p-4 md:p-5 rounded-xl border text-sm md:text-base transition-all duration-300 mb-8';
+        feedbackBox.innerHTML = '';
+        
+        btnNext.classList.add('hidden');
+        btnNext.classList.remove('inline-flex');
+        if (index === quizData.length - 1) {
+            btnNextText.textContent = 'Ver resultados finales';
+        } else {
+            btnNextText.textContent = 'Siguiente pregunta';
+        }
+
+        item.options.forEach((optText, optIndex) => {
+            const optBtn = document.createElement('button');
+            optBtn.type = 'button';
+            optBtn.className = 'w-full text-left p-4 md:p-5 rounded-xl border-2 border-gray-200 bg-white hover:border-verdeSanPatricio hover:bg-green-50/50 transition-all duration-200 text-sm md:text-base text-gray-800 flex items-start gap-3.5 shadow-sm focus:outline-none';
+            
+            const letterSpan = document.createElement('span');
+            letterSpan.className = 'w-7 h-7 rounded-full bg-gray-100 text-gray-700 text-xs font-bold flex items-center justify-center flex-shrink-0 mt-0.5';
+            letterSpan.textContent = String.fromCharCode(65 + optIndex);
+
+            const textSpan = document.createElement('span');
+            textSpan.className = 'flex-grow leading-relaxed';
+            textSpan.textContent = optText;
+
+            optBtn.appendChild(letterSpan);
+            optBtn.appendChild(textSpan);
+
+            optBtn.addEventListener('click', () => selectOption(optIndex));
+            qOptions.appendChild(optBtn);
+        });
+    }
+
+    function selectOption(selectedIndex) {
+        if (answered) return;
+        answered = true;
+
+        const item = quizData[currentQuestion];
+        const optionButtons = qOptions.querySelectorAll('button');
+
+        optionButtons.forEach((btn, idx) => {
+            btn.disabled = true;
+            btn.classList.remove('hover:border-verdeSanPatricio', 'hover:bg-green-50/50', 'cursor-pointer');
+            btn.classList.add('cursor-default');
+
+            const badge = btn.querySelector('span:first-child');
+
+            if (idx === item.correct) {
+                btn.classList.remove('border-gray-200', 'bg-white');
+                btn.classList.add('border-green-500', 'bg-green-50', 'text-green-950', 'font-medium');
+                badge.className = 'w-7 h-7 rounded-full bg-verdeSanPatricio text-white text-xs font-bold flex items-center justify-center flex-shrink-0 mt-0.5';
+                badge.innerHTML = '<i class="fas fa-check text-xs"></i>';
+            } else if (idx === selectedIndex) {
+                btn.classList.remove('border-gray-200', 'bg-white');
+                btn.classList.add('border-red-400', 'bg-red-50', 'text-red-950');
+                badge.className = 'w-7 h-7 rounded-full bg-red-500 text-white text-xs font-bold flex items-center justify-center flex-shrink-0 mt-0.5';
+                badge.innerHTML = '<i class="fas fa-times text-xs"></i>';
+            } else {
+                btn.classList.add('opacity-50');
+            }
+        });
+
+        const isCorrect = (selectedIndex === item.correct);
+        const studyLinkHtml = '<div class="mt-2.5 pt-2 border-t border-black/10 text-xs"><a href="cursos.html#partes-misa" target="_blank" rel="noopener noreferrer" class="text-verdeSanPatricio hover:underline font-bold inline-flex items-center gap-1.5"><i class="fas fa-book-open"></i> Repasar este tema en el curso <i class="fas fa-arrow-up-right-from-square text-[10px]"></i></a></div>';
+        
+        if (isCorrect) {
+            score++;
+            feedbackBox.className = 'p-4 md:p-5 rounded-xl border border-green-300 bg-green-50 text-green-900 text-sm md:text-base mb-8 flex items-start gap-3.5 shadow-sm';
+            feedbackBox.innerHTML = '<i class="fas fa-circle-check text-verdeSanPatricio text-xl mt-0.5 flex-shrink-0"></i><div class="flex-grow">' + item.explanation + studyLinkHtml + '</div>';
+        } else {
+            feedbackBox.className = 'p-4 md:p-5 rounded-xl border border-amber-300 bg-amber-50 text-amber-900 text-sm md:text-base mb-8 flex items-start gap-3.5 shadow-sm';
+            feedbackBox.innerHTML = '<i class="fas fa-circle-info text-amber-600 text-xl mt-0.5 flex-shrink-0"></i><div class="flex-grow"><strong>Respuesta a reflexionar:</strong> La opción más acertada era la <strong>' + String.fromCharCode(65 + item.correct) + '</strong>.<br><br>' + item.explanation + studyLinkHtml + '</div>';
+        }
+        feedbackBox.classList.remove('hidden');
+
+        btnNext.classList.remove('hidden');
+        btnNext.classList.add('inline-flex');
+    }
+
+    btnNext.addEventListener('click', () => {
+        currentQuestion++;
+        if (currentQuestion < quizData.length) {
+            loadQuestion(currentQuestion);
+        } else {
+            showResults();
+        }
+    });
+
+    function showResults() {
+        qContainer.classList.add('hidden');
+        rContainer.classList.remove('hidden');
+        progressBar.style.width = '100%';
+
+        const scoreHeading = document.getElementById('quiz-result-heading');
+        const scoreText = document.getElementById('quiz-result-score');
+        const scoreMsg = document.getElementById('quiz-result-message');
+        const iconWrapper = document.getElementById('quiz-result-icon-wrapper');
+
+        scoreText.textContent = 'Obtuviste ' + score + ' de ' + quizData.length + ' respuestas correctas (' + Math.round((score / quizData.length) * 100) + '%)';
+
+        if (score === quizData.length) {
+            iconWrapper.className = 'w-24 h-24 mx-auto mb-5 rounded-full flex items-center justify-center text-4xl shadow-md bg-green-100 text-verdeSanPatricio';
+            iconWrapper.innerHTML = '<i class="fas fa-award"></i>';
+            scoreHeading.textContent = '¡Extraordinario! Conoces muy bien la Misa';
+            scoreMsg.textContent = '¡Puntaje perfecto! Conoces las partes de la Misa, sus respuestas y sus gestos. Te invitamos a ayudar a otros a vivirla con la misma atención.';
+        } else if (score >= 13) {
+            iconWrapper.className = 'w-24 h-24 mx-auto mb-5 rounded-full flex items-center justify-center text-4xl shadow-md bg-emerald-100 text-emerald-600';
+            iconWrapper.innerHTML = '<i class="fas fa-star"></i>';
+            scoreHeading.textContent = '¡Muy Buen Desempeño!';
+            scoreMsg.textContent = 'Tienes una comprensión sólida de la celebración. Repasa los detalles en que dudaste para participar con aún más conciencia.';
+        } else if (score >= 9) {
+            iconWrapper.className = 'w-24 h-24 mx-auto mb-5 rounded-full flex items-center justify-center text-4xl shadow-md bg-amber-100 text-amber-600';
+            iconWrapper.innerHTML = '<i class="fas fa-book-open-reader"></i>';
+            scoreHeading.textContent = '¡Buen Esfuerzo de Aprendizaje!';
+            scoreMsg.textContent = 'Conoces lo esencial, pero algunos momentos, respuestas o posturas aún generan dudas. Te recomendamos repasar el curso antes de volver a intentarlo.';
+        } else {
+            iconWrapper.className = 'w-24 h-24 mx-auto mb-5 rounded-full flex items-center justify-center text-4xl shadow-md bg-orange-100 text-orange-600';
+            iconWrapper.innerHTML = '<i class="fas fa-book-open"></i>';
+            scoreHeading.textContent = 'Te invitamos a repasar la guía';
+            scoreMsg.textContent = 'La Misa se aprende viviéndola. Te invitamos a leer el curso con calma y volver a intentar el quiz.';
+        }
+    }
+
+    btnRestart.addEventListener('click', () => {
+        currentQuestion = 0;
+        score = 0;
+        rContainer.classList.add('hidden');
+        qContainer.classList.remove('hidden');
+        loadQuestion(0);
+    });
+
+    loadQuestion(0);
+})();
+</script>
+</body>
+</html>
