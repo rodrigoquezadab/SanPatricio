@@ -1,5 +1,15 @@
 [
   {
+    "id": "mes-de-maria-2026",
+    "title": "💙🌸 ¡Mes de María en la Parroquia San Patricio! 🌸💙",
+    "description": "🙏 «En este mes consagrado a ti, enséñanos a rezar, a amar y vivir como verdaderos hijos tuyos.»\n\nHermanas y hermanos, los invitamos a vivir juntos el Mes de María, un tiempo de oración, encuentro y cariño filial hacia nuestra Madre. 💐\n\n👑 Este año la Iglesia conmemora especialmente el centenario de la coronación de la Virgen del Carmen como reina y patrona de Chile.\n\n⛪ HORARIOS DEL MES DE MARÍA\n\n🌿 Oración en la Gruta\n📅 De lunes a viernes\n⏰ 18:00 hrs\n\n✝️ Santa Misa\n📅 De lunes a viernes\n⏰ 19:00 hrs\n\n🏙️ EN PLAZAS DE LA COMUNA ORAREMOS A LAS 20:00 HRS\n\n📍 Viernes 13 de noviembre: Plaza Isabel La Católica\n📍 Viernes 20 de noviembre: Plaza Cabildo\n📍 Viernes 27 de noviembre: Plaza Concordia\n📍 Viernes 4 de diciembre: Plaza Horacio Rivarola\n\n💙 ¡Los esperamos con alegría! Invita a tu familia, a tus vecinos y amigos a acompañarnos a rezar a María.\n\n📍 Parroquia San Patricio\nIsabel La Católica 6319, Las Condes\n\n#MesDeMaría #ParroquiaSanPatricio #VirgenDelCarmen #LasCondes #IglesiaCatólica",
+    "imageUrl": "assets/flyers/noticias/mes-de-maria-2026.jpg",
+    "date": "13/11/2026",
+    "isActive": true,
+    "isBanner": true,
+    "isArchived": false
+  },
+  {
     "id": "pastoral-de-la-salud",
     "title": "❤️🙏 ¡SÚMATE A LA PASTORAL DE LA SALUD DE SAN PATRICIO! 🙏❤️",
     "description": "¿Tienes un poco de tiempo para regalar? ¿Te gustaría poner tu fe en acción y compartir el amor de Cristo Jesús con quienes más lo necesitan? ¡Te estamos buscando! 🕊️❤️\n\nLa Parroquia San Patricio de Las Condes invita a sus fieles, seguidores y a toda la comunidad a integrarse a la Pastoral de la Salud y convertirse en voluntarios de esta hermosa misión.\n\n🏡 Necesitamos personas dispuestas a visitar y acompañar a enfermos, adultos mayores y residentes de hogares de personas mayores de nuestro sector, llevando compañía, la Palabra de Dios y la Sagrada Comunión.\n\n🤲 No se trata de hacer grandes cosas, sino de estar presentes. Escuchar, conversar, compartir una oración y regalar unos minutos de nuestro día puede significar muchísimo para alguien que vive la enfermedad, la soledad o que ya no puede acercarse a nuestra parroquia.\n\n✝️ ¡Cristo Jesús nos invita a salir al encuentro de nuestros hermanos! No dejemos que nuestra fe se quede solo en palabras: hagámosla vida a través del servicio, la cercanía y el amor al prójimo.\n\n💚 HOY TE INVITAMOS A DAR EL PASO.\n\n🙋‍♀️🙋‍♂️ Si eres joven, adulto o adulto mayor, si tienes disposición para servir y quieres formar parte de una comunidad que acompaña y comparte su fe, ¡hay un lugar para ti en la Pastoral de la Salud!\n\n📲 ¿Quieres ser voluntario? ¡Contáctanos directamente!\n📞 Joy: +56 9 9550 6368\n📞 Ana María: +56 9 7529 3097\n📞 Secretaría Parroquia San Patricio: +56 9 3348 4878\n\n💒 Parroquia San Patricio de Las Condes\n❤️ Regala tu tiempo. Comparte tu fe. Acompaña a quien lo necesita.\n\n🙏 ¡Súmate a la Pastoral de la Salud! Tu presencia puede ser una señal del amor de Dios en la vida de otra persona. ¡Te esperamos!\n\n#ParroquiaSanPatricio #PastoralDeLaSalud #SanPatricioLasCondes #VoluntariadoCatólico #FeEnAcción #AmorAlPrójimo #CristoVive #ServirConAmor",
@@ -75,9 +85,9 @@
     "description": "✨ ¡EMPEZAMOS LAS CATEQUESIS EN SAN PATRICIO! ✨\n\n¿Buscas profundizar en tu fe o recibir algún sacramento?\n¡Las inscripciones ya están abiertas!\n\nContamos con programas para todas las edades en nuestra parroquia.\n\n📖🙏👦 CATEQUESIS PRE-JUVENIL Para niños entre 6 a 15 años.\nPreparación para: Bautismo y Primera Comunión.\n📞 Contacto: Cecilia Peruzzi (Catequista)\n📱 Celular: +569 78572808\n\n🙌 CATEQUESIS JUVENIL Y ADULTOS Desde los 16 años en adelante.\nPreparación para: Bautismo, Primera Comunión y Confirmación.\n☎️ Secretaría: +56 2 2229 9060\n📱 Celular: +569 33484878\n\n📍 UBICACIÓN Y CONTACTO\nDirección: Isabel la Católica 6319, Las Condes.\n📧 Correo: secreparroquiasanpatricio@gmail.com\n\n¡Te esperamos para caminar juntos en la fe! 👣✨",
     "imageUrl": "assets/flyers/noticias/catequesis.jpg",
     "date": "15/03/2026",
-    "isActive": true,
-    "isBanner": true,
-    "isArchived": false
+    "isActive": false,
+    "isBanner": false,
+    "isArchived": true
   },
   {
     "id": "jmj-corea-2027",
@@ -143,7 +153,7 @@
     "id": "vigilia-pentecostes",
     "title": "🔥🕊️ Solemnidad y Vigilia de Pentecostés",
     "description": "Gran Vigilia parroquial de Pentecostés. Nos unimos en oración comunitaria para impetrar los dones del Espíritu Santo y renovar nuestra fe eclesial.",
-    "imageUrl": "assets/flyers/historicos/Pentecostes.png",
+    "imageUrl": "assets/flyers/historicos/Pentecostes.jpg",
     "date": "18/05/2026",
     "isActive": false,
     "isBanner": false,
@@ -163,7 +173,7 @@
     "id": "fiesta-cuasimodo",
     "title": "🐎✝️ Fiesta de Cuasimodo: El Cristo Corre",
     "description": "Tradicional celebración de Cuasimodo en nuestra parroquia, acompañando la entrega de la Santa Comunión a los enfermos y ancianos del sector.",
-    "imageUrl": "assets/flyers/historicos/Cuasimodo.png",
+    "imageUrl": "assets/flyers/historicos/Cuasimodo.jpg",
     "date": "12/04/2026",
     "isActive": false,
     "isBanner": false,

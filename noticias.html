@@ -38,6 +38,7 @@
                 <li><a href="oraciones.html" class="nav-link block">Oraciones</a></li>
                 <li><a href="cantos.html" class="nav-link block">Cantos</a></li>
                 <li><a href="recursos.html" class="nav-link block">Recursos</a></li>
+                <li><a href="cursos.html" class="nav-link block">Cursos</a></li>
                 <li><a href="calendario.html" class="nav-link block">Calendario</a></li>
             </ul>
         </div>
@@ -55,14 +56,22 @@
     </section>
 
     <section id="noticias-archivadas-section" class="pt-8 border-t border-gray-200">
-        <div class="flex items-center justify-between mb-8">
-            <h2 class="text-2xl font-bold text-gray-700 flex items-center">
-                <i class="fas fa-archive text-gray-500 mr-3"></i>Archivo de Noticias
-            </h2>
-            <span class="text-sm font-semibold text-gray-500 bg-gray-100 px-3 py-1 rounded-full">Histórico</span>
+        <div class="text-center">
+            <button id="btn-ver-archivadas" type="button" aria-expanded="false" aria-controls="noticias-archivadas-wrapper"
+                class="inline-flex items-center gap-2 bg-white border border-gray-300 text-gray-700 font-semibold px-6 py-3 rounded-lg shadow-sm hover:bg-gray-100 transition">
+                <i class="fas fa-archive text-gray-500"></i><span>Ver noticias archivadas</span>
+            </button>
         </div>
-        <div id="noticias-archivadas-grid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <!-- Se llenará con JS -->
+        <div id="noticias-archivadas-wrapper" class="hidden mt-8">
+            <div class="flex items-center justify-between mb-8">
+                <h2 class="text-2xl font-bold text-gray-700 flex items-center">
+                    <i class="fas fa-archive text-gray-500 mr-3"></i>Archivo de Noticias
+                </h2>
+                <span class="text-sm font-semibold text-gray-500 bg-gray-100 px-3 py-1 rounded-full">Histórico</span>
+            </div>
+            <div id="noticias-archivadas-grid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Se llenará con JS solo al pulsar "Ver noticias archivadas" -->
+            </div>
         </div>
     </section>
 </main>
@@ -92,15 +101,29 @@
 <script src="components.js?v=7"></script>
 <script>
     document.addEventListener("DOMContentLoaded", function () {
-        Promise.all([
-            fetch("data/noticias.json?v=" + new Date().getTime()).then(res => res.json()).catch(() => []),
-            fetch("assets/flyers/historicos/").then(res => res.text()).catch(() => "")
-        ]).then(async ([newsData, html]) => {
-            const normalizePath = (p) => (p || "").toLowerCase().replace(/%20/g, ' ').replace(/[-_]/g, ' ').replace(/\s+/g, ' ').trim();
+        const normalizePath = (p) => (p || "").toLowerCase().replace(/%20/g, ' ').replace(/[-_]/g, ' ').replace(/\s+/g, ' ').trim();
+        const isArchivedNews = (n) => n.isActive === false || n.activo === false || n.isArchived === true;
 
+        function parseChileanDate(dateStr) {
+            if (!dateStr) return Infinity;
+            const parts = dateStr.split('/');
+            if (parts.length === 3) {
+                const day = parseInt(parts[0], 10);
+                const month = parseInt(parts[1], 10) - 1;
+                const year = parseInt(parts[2], 10);
+                if (!isNaN(day) && !isNaN(month) && !isNaN(year)) {
+                    return new Date(year, month, day).getTime();
+                }
+            }
+            return Infinity;
+        }
+
+        // Flyers históricos sueltos (sin entrada en noticias.json). Solo se consultan al abrir el archivo.
+        async function loadHistoricFlyers(newsData) {
+            const flyers = [];
+            const html = await fetch("assets/flyers/historicos/").then(res => res.text()).catch(() => "");
             const regex = /href=["']([^"'>]+\.(?:jpg|jpeg|png|webp|gif))["']/gi;
             let match;
-            const flyers = [];
             while ((match = regex.exec(html)) !== null) {
                 let filename = decodeURIComponent(match[1].split('/').pop());
                 if (newsData.some(n => n.imageUrl && normalizePath(n.imageUrl).includes(normalizePath(filename)))) continue;
@@ -145,31 +168,42 @@
                     console.error("Error cargando desde GitHub API", e);
                 }
             }
+            return flyers;
+        }
 
-            const allNews = [...newsData, ...flyers];
-            const activeNews = allNews.filter(n => n.isActive !== false && n.activo !== false && n.isArchived !== true);
-            const archivedNews = allNews.filter(n => n.isActive === false || n.activo === false || n.isArchived === true);
-
-            function parseChileanDate(dateStr) {
-                if (!dateStr) return Infinity;
-                const parts = dateStr.split('/');
-                if (parts.length === 3) {
-                    const day = parseInt(parts[0], 10);
-                    const month = parseInt(parts[1], 10) - 1;
-                    const year = parseInt(parts[2], 10);
-                    if (!isNaN(day) && !isNaN(month) && !isNaN(year)) {
-                        return new Date(year, month, day).getTime();
-                    }
-                }
-                return Infinity;
-            }
-
+        function renderArchived(archivedNews) {
             archivedNews.sort((a, b) => parseChileanDate(b.date) - parseChileanDate(a.date));
+            let archivedHTML = "";
+            archivedNews.forEach(n => {
+                archivedHTML += `
+                    <div class="card flex flex-col cursor-pointer hover:shadow-lg transition bg-gray-50 border border-gray-200" onclick="window.location.href='noticia.html?id=${n.id}'">
+                        <div class="relative w-full h-56 mb-4 rounded-t-lg overflow-hidden bg-gray-900 z-0 flex-shrink-0 opacity-80">
+                            <img src="${n.imageUrl}" alt="" loading="lazy" class="absolute inset-0 w-full h-full object-cover blur-xl opacity-40 scale-110 -z-10">
+                            <img src="${n.imageUrl}" alt="${n.title}" loading="lazy" class="relative w-full h-full object-contain">
+                            <span class="absolute top-2 right-2 bg-amber-700 text-white text-xs font-semibold px-2.5 py-1 rounded shadow"><i class="fas fa-history mr-1"></i>Histórico</span>
+                        </div>
+                        <h3 class="text-lg font-bold mb-2 flex-grow text-gray-700">${n.title}</h3>
+                        <p class="text-gray-500 line-clamp-2 text-sm">${n.description}</p>
+                        <p class="text-xs font-medium text-gray-400 mt-3"><i class="far fa-clock mr-1"></i>${n.date}</p>
+                    </div>
+                `;
+            });
+            if (archivedNews.length === 0) {
+                archivedHTML = '<p class="text-center col-span-3 text-gray-500">No hay noticias archivadas.</p>';
+            }
+            document.getElementById("noticias-archivadas-grid").innerHTML = archivedHTML;
+        }
 
-            const gridContainer = document.getElementById("noticias-grid");
-            let gridHTML = "";
-            activeNews.forEach(n => {
-                gridHTML += `
+        fetch("data/noticias.json?v=" + new Date().getTime())
+            .then(res => res.json())
+            .catch(() => [])
+            .then(newsData => {
+                const activeNews = newsData.filter(n => !isArchivedNews(n));
+
+                const gridContainer = document.getElementById("noticias-grid");
+                let gridHTML = "";
+                activeNews.forEach(n => {
+                    gridHTML += `
                     <div class="card flex flex-col cursor-pointer hover:shadow-xl transition" onclick="window.location.href='noticia.html?id=${n.id}'">
                         <div class="relative w-full h-64 mb-4 rounded-t-lg overflow-hidden bg-[#000000] z-0 flex-shrink-0">
                             <img src="${n.imageUrl}" alt="" class="absolute inset-0 w-full h-full object-cover blur-xl opacity-60 scale-110 -z-10">
@@ -180,31 +214,39 @@
                         <p class="text-sm font-bold text-verdeSanPatricio mt-3">${n.date}</p>
                     </div>
                 `;
-            });
-            gridContainer.innerHTML = gridHTML;
+                });
+                gridContainer.innerHTML = gridHTML;
 
-            const archivedContainer = document.getElementById("noticias-archivadas-grid");
-            let archivedHTML = "";
-            archivedNews.forEach(n => {
-                archivedHTML += `
-                    <div class="card flex flex-col cursor-pointer hover:shadow-lg transition bg-gray-50 border border-gray-200" onclick="window.location.href='noticia.html?id=${n.id}'">
-                        <div class="relative w-full h-56 mb-4 rounded-t-lg overflow-hidden bg-gray-900 z-0 flex-shrink-0 opacity-80">
-                            <img src="${n.imageUrl}" alt="" class="absolute inset-0 w-full h-full object-cover blur-xl opacity-40 scale-110 -z-10">
-                            <img src="${n.imageUrl}" alt="${n.title}" class="relative w-full h-full object-contain">
-                            <span class="absolute top-2 right-2 bg-amber-700 text-white text-xs font-semibold px-2.5 py-1 rounded shadow"><i class="fas fa-history mr-1"></i>Histórico</span>
-                        </div>
-                        <h3 class="text-lg font-bold mb-2 flex-grow text-gray-700">${n.title}</h3>
-                        <p class="text-gray-500 line-clamp-2 text-sm">${n.description}</p>
-                        <p class="text-xs font-medium text-gray-400 mt-3"><i class="far fa-clock mr-1"></i>${n.date}</p>
-                    </div>
-                `;
+                // Archivo: no se renderiza hasta que el usuario lo pida
+                const btn = document.getElementById("btn-ver-archivadas");
+                const btnLabel = btn.querySelector("span");
+                const wrapper = document.getElementById("noticias-archivadas-wrapper");
+                let archiveLoaded = false;
+
+                btn.addEventListener("click", async () => {
+                    if (!wrapper.classList.contains("hidden")) {
+                        wrapper.classList.add("hidden");
+                        btn.setAttribute("aria-expanded", "false");
+                        btnLabel.textContent = "Ver noticias archivadas";
+                        return;
+                    }
+                    if (!archiveLoaded) {
+                        btn.disabled = true;
+                        btnLabel.textContent = "Cargando…";
+                        const flyers = await loadHistoricFlyers(newsData);
+                        renderArchived([...newsData.filter(isArchivedNews), ...flyers]);
+                        archiveLoaded = true;
+                        btn.disabled = false;
+                    }
+                    wrapper.classList.remove("hidden");
+                    btn.setAttribute("aria-expanded", "true");
+                    btnLabel.textContent = "Ocultar noticias archivadas";
+                });
+            })
+            .catch(error => {
+                console.error("Error cargando noticias:", error);
+                document.getElementById('noticias-grid').innerHTML = '<p class="text-center col-span-3 text-red-500">Error al cargar las noticias.</p>';
             });
-            if (archivedContainer) archivedContainer.innerHTML = archivedHTML;
-        })
-        .catch(error => {
-            console.error("Error cargando noticias:", error);
-            document.getElementById('noticias-grid').innerHTML = '<p class="text-center col-span-3 text-red-500">Error al cargar las noticias.</p>';
-        });
     });
 </script>
 </body>

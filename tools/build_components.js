@@ -16,6 +16,7 @@ const metaDescriptions = {
     'noticias.html': 'Noticias y actividades recientes de la Parroquia San Patricio en Las Condes, Santiago de Chile.',
     'oraciones.html': 'Colección de oraciones: Regina Caeli, Novena al P. Frassinetti, Novena a San José, y más oraciones de la comunidad.',
     'recursos.html': 'Enlaces y recursos útiles para la comunidad: Santo Rosario, Liturgia de las Horas, cancionero litúrgico y más.',
+    'cursos.html': 'Cursos y formación de la Parroquia San Patricio: Buen Trato y Ambientes Sanos, con guía comunitaria, presentación descargable y quiz formativo.',
     'servicios.html': 'Servicios parroquiales: corona de caridad, visita a enfermos, velatorio, dirección espiritual, bendición de hogares.',
     'cantos.html': 'Cancionero Católico Parroquial con acordes, buscador y transposición para animación litúrgica.'
 };

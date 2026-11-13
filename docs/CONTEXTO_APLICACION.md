@@ -60,18 +60,18 @@ El carrusel de la página de inicio (`index.html`) unifica ambas fuentes:
 ### 🧹 Romper Caché
 Cuando realices cambios críticos en archivos CSS o JS, utiliza el script `bust_cache.js` para actualizar las versiones (`?v=X`) en los archivos HTML y asegurar que los usuarios vean la versión más reciente.
 
-### 🎵 Sistema del Cancionero (`paginas/cantos.html`)
-El cancionero es una página generada automáticamente que contiene **880 canciones litúrgicas** con acordes, letras y clasificación por categorías.
+### 🎵 Sistema del Cancionero (`cantos.html`)
+El cancionero es una página generada automáticamente que contiene **880 canciones litúrgicas** con acordes, letras y clasificación por categorías. Todas las canciones se muestran en **orden alfabético**.
 
 #### Pipeline de Datos
-1. **Scraping** (`scrape_cancionero.js`): Extrae canciones desde [cancionerocatolico.cl](https://cancionerocatolico.cl), mapeando cada canción a sus categorías (Momentos de la Misa, Tiempos Litúrgicos, Misa a la Chilena). Genera `cancionero_data.json`.
-2. **Build** (`build_cantos.js`): Lee `cancionero_data.json`, convierte acordes de texto plano a etiquetas `<c>`, y genera el archivo final `paginas/cantos.html`.
-3. **⚠️ REGLA DE ORO**: La canción "Abre tu jardín" está protegida y NUNCA debe ser sobrescrita por el scraping. Su contenido se preserva manualmente en `build_cantos.js`.
+1. **Scraping** (`tools/scrape_cancionero.js`): Extrae canciones desde [cancionerocatolico.cl](https://cancionerocatolico.cl), mapeando cada canción a sus categorías (Momentos de la Misa, Tiempos Litúrgicos, Misa a la Chilena). Genera `data/cancionero_data.json`.
+2. **Build** (`tools/build_cantos.js`): Lee `data/cancionero_data.json`, convierte acordes de texto plano a etiquetas `<c>` (en rojo), y genera el archivo final `cantos.html`.
+3. **Origen de la estructura («Abre tu jardín»)**: La primera versión del cancionero (29/04/2026) se armó a mano y la canción «Abre tu jardín» se usó como **prototipo** para definir la estructura de cada canción (líneas de acordes sobre la letra, estrofas en negrita, herramientas por canción). Durante la migración al scraping se mantuvo una copia fija de esa canción en `build_cantos.js` como referencia («regla de oro»). Cumplido su propósito, la copia y la regla se retiraron el 13/11/2026: la canción ahora se genera desde los datos como cualquier otra y ocupa su lugar alfabético.
 
 #### Para regenerar el cancionero:
 ```bash
-node scrape_cancionero.js   # Solo si se necesita re-escrapear (genera cancionero_data.json)
-node build_cantos.js        # Genera paginas/cantos.html desde los datos
+node tools/scrape_cancionero.js   # Solo si se necesita re-escrapear (genera data/cancionero_data.json)
+node tools/build_cantos.js        # Genera cantos.html desde los datos
 ```
 
 #### Funcionalidades del Frontend
@@ -90,6 +90,11 @@ node build_cantos.js        # Genera paginas/cantos.html desde los datos
 ---
 
 ## 📋 Registro de Cambios (Changelog)
+
+### [2026-11-13] - Cancionero: Acordes no Reconocidos y Retiro de la Regla de «Abre tu jardín»
+- **Detección de acordes** (`tools/build_cantos.js`): Se reconocen y pintan en rojo ~1.780 acordes que quedaban en negro: semidisminuidos (`SIm7b5`), disminuidos (`MI°`), extensiones entre paréntesis (`SOL#m(b13)`, `RE4/9`), acordes opcionales `(RE7)`, acordes unidos con guion (`DO-FA-SOL`), bajos con calidad (`RE/FA#m`) y marcas como `(x2)`, `INTRO:`, `Inicio:`.
+- **Transposición**: Se conserva el sufijo tras la barra (`RE4/9` → `Mi4/9`, `RE/FA#m` → `Mi/Sol#m`).
+- **«Abre tu jardín»**: Se registra que fue la canción prototipo de la estructura del cancionero. Se eliminó su copia fija y la «regla de oro»; ahora se genera desde `data/cancionero_data.json` (contenido idéntico) y se ordena alfabéticamente con el resto.
 
 ### [2026-11-13] - Dominio de Producción en SEO, 404 y `.htaccess`
 - **SEO**: Los `canonical`, `og:image`, `sitemap.xml` y `robots.txt` pasan de `rodrigoquezadab.github.io/SanPatricio/` a `https://parroquiasanpatricio.cl/` (también en las plantillas de `tools/build_components.js` y `tools/build_cantos.js`). Se agregó canonical a `index.html` y `quiz-buen-trato.html` al sitemap.

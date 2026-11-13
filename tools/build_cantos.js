@@ -4,68 +4,44 @@ const path = require('path');
 // Load scraped data
 const songs = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'data', 'cancionero_data.json'), 'utf8'));
 
-// "Abre tu jardín" PROTECTED content from our current cancionero (REGLA DE ORO)
-const ABRE_TU_JARDIN_CONTENT = `<c>MI</c>         <c>FA#m</c> <c>SOL#m</c>         <c>FA#m</c>
-Abre tu jardín, traigo una buena noticia;
-<c>MI</c>          <c>FA#m</c> <c>SOL#m</c>      <c>FA#m</c>
-Novedad sin fin, corramos a recibirla,
-<c>LA</c>      <c>SI7</c>  <c>MI</c>
-¡ven, levántate!
-
-<c>MI7</c>        <c>LA</c>
-Abre tu jardín,
-<c>MI</c>                  <c>LA</c> 
-pon flores en tu ventana,
-<c>MI</c>           <c>LA</c>
-Canta una canción,
-<c>MI</c>                  <c>LA</c> 
-hoy día se murió la muerte;
-<c>FA#m</c>       <c>SOL#m</c>   <c>FA#m</c>      <c>SI7</c>
-¡es día de fiesta, es día de vida!
-
-<c>MI</c>           <c>LA</c>
-No te quedes hoy
-<c>MI</c>                  <c>LA</c>
-encerrado en tus costumbres,
-<c>MI</c>           <c>LA</c>
-como en el sillón
-<c>MI</c>                 <c>LA</c>
-de las antiguas verdades;
-<c>FA#m</c>      <c>SOL#m</c>  <c>FA#m</c>      <c>SI7</c>
-vive la palabra, luego vivirás.
-
-<c>MI</c>         <c>LA</c>
-Vamos por ahí
-<c>MI</c>                <c>LA</c>
-cantando la buena nueva:
-<c>MI</c>        <c>LA</c>
-ama de verdad
-<c>MI</c>                  <c>LA</c>
-como a ti te están amando; 
-<c>FA#m</c>          <c>SOL#m</c> <c>FA#m</c>      <c>SI7</c>
-nace un nuevo día, ¡ven a renacer!.`;
-
 // Process scraped songs: convert plain-text chord lines to <c> tag format
+// Acorde: raíz (latina o anglosajona) + alteración + calidades/extensiones + bajo opcional.
+// Incluye disminuidos (° / dim), semidisminuidos (m7b5 / ø), extensiones entre paréntesis
+// como m(b13) o m(6), y bajos con calidad como RE/FA#m.
+const CHORD_ROOT = '(?:DO|RE|MI|FA|SOL|LA|SI|[A-G])(?:#|b)?';
+const CHORD_QUALITY = '(?:maj|min|dim|aug|sus2|sus4|sus|add9|add|m|M|°|º|ø|\\+|4\\/9|6\\/9|b5|#5|b9|#9|b13|7|9|11|13|6|\\d|\\((?:b|#)?\\d+\\))*';
+const CHORD = `${CHORD_ROOT}${CHORD_QUALITY}(?:\\/${CHORD_ROOT}m?)?`;
+// Un token puede ir entre ( ) o [ ], llevar repetición pegada "LA(x2)" o un acorde alternativo "RE(RE7)".
+const CHORD_TOKEN_RE = new RegExp(`^([\\(\\[]?)(${CHORD})(?:\\((${CHORD})\\))?([\\)\\]]?)(\\(x\\d+\\))?([\\)\\]]?)$`, 'i');
+// Marcas que pueden aparecer en una línea de acordes sin ser acordes.
+const NON_CHORD_RE = /^(?:(?:intro|introducción|inicio|intermedio|intro\/intermedio|interludio|final|coro|estribillo|puente):?|\(|\)|\[|\]|\/\/|\||[\(\[]?x\d+[\)\]]*|\(?\d+|veces\)?|\(?bis\)?)$/i;
+
+function chordToken(token) {
+  const m = token.match(CHORD_TOKEN_RE);
+  // Los ( ) o [ ] pueden abrir en un acorde y cerrar en otro: "[DO  FA  SOL]"
+  return m || null;
+}
+
+function wrapChordToken(m) {
+  const alt = m[3] ? `(<c>${m[3]}</c>)` : '';
+  return `${m[1]}<c>${m[2]}</c>${alt}${m[4]}${m[5] || ''}${m[6]}`;
+}
+
 function processContent(rawContent) {
-  const chordPattern = /^[\s]*(([A-G][#b]?(m|maj|min|dim|aug|sus|add|7|9|11|13|\d)*[\/]?[A-G]?[#b]?|DO[#b]?|RE[#b]?|MI[#b]?|FA[#b]?|SOL[#b]?|LA[#b]?|SI[#b]?)(m|M|maj|min|dim|aug|sus|add|7|9|11|13|\d|\/[A-G]|\/DO|\/RE|\/MI|\/FA|\/SOL|\/LA|\/SI)*[\s\-]*)+$/i;
-  
-  // More precise: a line is "chords only" if every non-whitespace token looks like a chord
+  // Una línea es "de acordes" si todos sus tokens son acordes o marcas permitidas
   function isChordLine(line) {
     const trimmed = line.trim();
     if (!trimmed || trimmed.length === 0) return false;
     // Remove common non-chord markers
     if (trimmed.startsWith('//') && !trimmed.match(/^\/\/\s*[A-G]/)) return false;
-    
+
     const tokens = trimmed.replace(/\/\//g, ' ').split(/[\s\-]+/).filter(t => t.length > 0);
     if (tokens.length === 0) return false;
-    
-    const chordRegex = /^(DO|RE|MI|FA|SOL|LA|SI|[A-G])(#|b)?(m|M|maj|min|dim|aug|sus2|sus4|sus|add9|add|7|9|11|13|6|\d)*(\/((DO|RE|MI|FA|SOL|LA|SI|[A-G])(#|b)?))?$/i;
-    const nonChordAllowed = ['Intro:', 'intro:', 'Intro', '(', ')', '//', '|', 'x2', 'x3', 'x4', 'bis'];
-    
+
     let chordCount = 0;
     for (const token of tokens) {
-      if (nonChordAllowed.includes(token)) continue;
-      if (chordRegex.test(token)) {
+      if (NON_CHORD_RE.test(token)) continue;
+      if (chordToken(token)) {
         chordCount++;
       } else {
         return false;
@@ -77,14 +53,14 @@ function processContent(rawContent) {
   // Split content into lines, process each
   const lines = rawContent.split('\n');
   const result = [];
-  
+
   for (const line of lines) {
     if (isChordLine(line)) {
-      // Convert each chord token to <c> tag, preserving spacing
-      let processed = line.replace(/\S+/g, (match) => {
-        const chordRegex = /^(DO|RE|MI|FA|SOL|LA|SI|[A-G])(#|b)?(m|M|maj|min|dim|aug|sus2|sus4|sus|add9|add|7|9|11|13|6|\d)*(\/((DO|RE|MI|FA|SOL|LA|SI|[A-G])(#|b)?))?$/i;
-        if (chordRegex.test(match)) {
-          return `<c>${match}</c>`;
+      // Convert each chord token to <c> tag, preserving spacing (y paréntesis fuera de la etiqueta)
+      let processed = line.replace(/[^\s\-]+/g, (match) => {
+        const m = chordToken(match);
+        if (m && !NON_CHORD_RE.test(match)) {
+          return wrapChordToken(m);
         }
         return match;
       });
@@ -106,37 +82,18 @@ function slugify(title) {
     .replace(/^-+|-+$/g, '');
 }
 
-// Build song entries - Abre tu jardín first (PROTECTED), then rest alphabetically
-const abreIdx = songs.findIndex(s => s.title === 'Abre tu jardín');
-
-// Build final song list
+// Build final song list: todas las canciones en orden alfabético
 const finalSongs = [];
+const sortedSongs = [...songs].sort((a, b) => a.title.localeCompare(b.title, 'es'));
 
-// #1: Abre tu jardín (PROTECTED - use our version)
-const abreData = abreIdx >= 0 ? songs[abreIdx] : { momentos: ['Entrada'], tiempos: [], misaChilena: false };
-finalSongs.push({
-  title: 'Abre tu jardín',
-  slug: 'abre-tu-jardin',
-  content: ABRE_TU_JARDIN_CONTENT,
-  momentos: abreData.momentos,
-  tiempos: abreData.tiempos,
-  misaChilena: abreData.misaChilena,
-  isProtected: true
-});
-
-// Rest of songs (sorted alphabetically, skip "Abre tu jardín")
-const rest = songs.filter((_, i) => i !== abreIdx)
-  .sort((a, b) => a.title.localeCompare(b.title, 'es'));
-
-for (const song of rest) {
+for (const song of sortedSongs) {
   finalSongs.push({
     title: song.title,
     slug: slugify(song.title),
     content: processContent(song.content),
     momentos: song.momentos,
     tiempos: song.tiempos,
-    misaChilena: song.misaChilena,
-    isProtected: false
+    misaChilena: song.misaChilena
   });
 }
 
@@ -307,7 +264,9 @@ const nL=['Do','Do#','Re','Re#','Mi','Fa','Fa#','Sol','Sol#','La','La#','Si'];
 const nA=['C','C#','D','D#','E','F','F#','G','G#','A','A#','B'];
 const eq={'Dob':'Si','Reb':'Do#','Mib':'Re#','Fab':'Mi','Solb':'Fa#','Lab':'Sol#','Sib':'La#','Cb':'B','Db':'C#','Eb':'D#','Fb':'E','Gb':'F#','Ab':'G#','Bb':'A#'};
 function pN(s){
-  let slashIdx = s.indexOf('/');
+  let slashIdx = s.lastIndexOf('/');
+  // Solo es bajo si después de "/" viene una nota (en "RE4/9" el "/9" es parte del acorde)
+  if (slashIdx > 0 && !/^(Do|Re|Mi|Fa|Sol|La|Si|C|D|E|F|G|A|B)/i.test(s.substring(slashIdx + 1))) slashIdx = -1;
   let main = slashIdx > 0 ? s.substring(0, slashIdx) : s;
   let bass = slashIdx > 0 ? s.substring(slashIdx + 1) : null;
   let m = main.match(/^(Do|Re|Mi|Fa|Sol|La|Si|C|D|E|F|G|A|B)(#|b)?(.*)/i);
@@ -317,32 +276,33 @@ function pN(s){
   if(eq[fn]) fn = eq[fn];
   let i = nL.indexOf(fn), tp = 'lat';
   if(i === -1){ i = nA.indexOf(fn); tp = 'ang'; }
-  let bassIdx = -1;
+  let bassIdx = -1, bassMod = '';
   if(bass){
-    let bm = bass.match(/^(Do|Re|Mi|Fa|Sol|La|Si|C|D|E|F|G|A|B)(#|b)?/i);
+    let bm = bass.match(/^(Do|Re|Mi|Fa|Sol|La|Si|C|D|E|F|G|A|B)(#|b)?(.*)/i);
     if(bm){
       let bb = bm[1].charAt(0).toUpperCase() + bm[1].slice(1).toLowerCase();
       let bfn = bb + (bm[2]||'');
       if(eq[bfn]) bfn = eq[bfn];
       bassIdx = nL.indexOf(bfn);
       if(bassIdx === -1) bassIdx = nA.indexOf(bfn);
+      bassMod = bm[3] || '';
     }
   }
-  return {idx: i, type: tp, mod: m[3]||'', bassIdx: bassIdx, hasBass: bass !== null};
+  return {idx: i, type: tp, mod: m[3]||'', bassIdx: bassIdx, hasBass: bass !== null, bassMod: bassMod};
 }
-function fN(i, tp, mo, bassIdx){
+function fN(i, tp, mo, bassIdx, bassMod){
   i = (i % 12 + 12) % 12;
   let result = (tp === 'ang' ? nA[i] : nL[i]) + mo;
   if(bassIdx !== undefined && bassIdx !== -1){
     bassIdx = (bassIdx % 12 + 12) % 12;
-    result += '/' + (tp === 'ang' ? nA[bassIdx] : nL[bassIdx]);
+    result += '/' + (tp === 'ang' ? nA[bassIdx] : nL[bassIdx]) + (bassMod || '');
   }
   return result;
 }
 function toggleChords(b){let c=b.closest('.card'),p=c.querySelector('pre'),bt=b.querySelector('.btn-text'),ic=b.querySelector('i');if(p.classList.contains('acordes-ocultos')){p.classList.remove('acordes-ocultos');bt.innerText='Ocultar Acordes';ic.className='fas fa-eye-slash mr-1';c.querySelectorAll('c').forEach(x=>x.style.display='');}else{p.classList.add('acordes-ocultos');bt.innerText='Mostrar Acordes';ic.className='fas fa-eye mr-1';c.querySelectorAll('c').forEach(x=>x.style.display='none');}}
-function toggleNotation(b){let c=b.closest('.card'),sp=c.querySelectorAll('c span'),isA=c.dataset.notation==='anglo',tt=isA?'lat':'ang';c.dataset.notation=tt==='ang'?'anglo':'latina';b.querySelector('.btn-text').innerText=isA?'Do / C':'C / Do';sp.forEach(s=>{let p=pN(s.innerText);if(p&&p.idx!==-1)s.innerText=fN(p.idx,tt,p.mod,p.hasBass?p.bassIdx:undefined);});}
-function transpose(b,st){let c=b.closest('.card');let cur=parseInt(c.dataset.transSteps||'0');cur+=st;c.dataset.transSteps=cur;let disp=c.querySelector('.tono-display');if(disp){if(cur===0){disp.textContent='Tono';disp.style.color='';}else{disp.textContent=(cur>0?'+':'')+cur;disp.style.color=cur!==0?'#dc2626':'';}}c.querySelectorAll('c span').forEach(s=>{let p=pN(s.innerText);if(p&&p.idx!==-1)s.innerText=fN(p.idx+st,p.type,p.mod,p.hasBass?p.bassIdx+st:undefined);});}
-function resetTranspose(b){let c=b.closest('.card');let cur=parseInt(c.dataset.transSteps||'0');if(cur===0)return;let rev=-cur;c.dataset.transSteps='0';b.textContent='Tono';b.style.color='';c.querySelectorAll('c span').forEach(s=>{let p=pN(s.innerText);if(p&&p.idx!==-1)s.innerText=fN(p.idx+rev,p.type,p.mod,p.hasBass?p.bassIdx+rev:undefined);});}
+function toggleNotation(b){let c=b.closest('.card'),sp=c.querySelectorAll('c span'),isA=c.dataset.notation==='anglo',tt=isA?'lat':'ang';c.dataset.notation=tt==='ang'?'anglo':'latina';b.querySelector('.btn-text').innerText=isA?'Do / C':'C / Do';sp.forEach(s=>{let p=pN(s.innerText);if(p&&p.idx!==-1)s.innerText=fN(p.idx,tt,p.mod,p.hasBass?p.bassIdx:undefined,p.bassMod);});}
+function transpose(b,st){let c=b.closest('.card');let cur=parseInt(c.dataset.transSteps||'0');cur+=st;c.dataset.transSteps=cur;let disp=c.querySelector('.tono-display');if(disp){if(cur===0){disp.textContent='Tono';disp.style.color='';}else{disp.textContent=(cur>0?'+':'')+cur;disp.style.color=cur!==0?'#dc2626':'';}}c.querySelectorAll('c span').forEach(s=>{let p=pN(s.innerText);if(p&&p.idx!==-1)s.innerText=fN(p.idx+st,p.type,p.mod,p.hasBass?p.bassIdx+st:undefined,p.bassMod);});}
+function resetTranspose(b){let c=b.closest('.card');let cur=parseInt(c.dataset.transSteps||'0');if(cur===0)return;let rev=-cur;c.dataset.transSteps='0';b.textContent='Tono';b.style.color='';c.querySelectorAll('c span').forEach(s=>{let p=pN(s.innerText);if(p&&p.idx!==-1)s.innerText=fN(p.idx+rev,p.type,p.mod,p.hasBass?p.bassIdx+rev:undefined,p.bassMod);});}
 
 // ── Filtering & Advanced Search ──
 let activeFilters = { momento: null, tiempo: null, chilena: null };

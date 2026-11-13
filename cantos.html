@@ -37,6 +37,7 @@
                 <li><a href="oraciones.html" class="nav-link block">Oraciones</a></li>
                 <li><a href="cantos.html" class="nav-link block">Cantos</a></li>
                 <li><a href="recursos.html" class="nav-link block">Recursos</a></li>
+                <li><a href="cursos.html" class="nav-link block">Cursos</a></li>
                 <li><a href="calendario.html" class="nav-link block">Calendario</a></li>
             </ul>
         </div>
@@ -116,10 +117,6 @@
     <div id="indice" class="card mb-6">
         <h3 class="text-xl mb-3 border-b pb-2"><i class="fas fa-list-ol mr-2 text-verdeSanPatricio"></i>Índice de Canciones <span id="song-count" class="text-sm font-normal text-gray-500"></span></h3>
         <div class="index-grid" id="index-grid">
-            <a href="#abre-tu-jardin" class="index-link" data-slug="abre-tu-jardin" onclick="showSingleSong(event, 'abre-tu-jardin')">
-                <span class="index-title font-medium">Abre tu jardín</span>
-                <span class="index-snippet hidden text-xs text-gray-500 italic block mt-0.5"></span>
-            </a>
             <a href="#quien-es-el-que-vieron-pasar" class="index-link" data-slug="quien-es-el-que-vieron-pasar" onclick="showSingleSong(event, 'quien-es-el-que-vieron-pasar')">
                 <span class="index-title font-medium">¿Quién es el que vieron pasar?</span>
                 <span class="index-snippet hidden text-xs text-gray-500 italic block mt-0.5"></span>
@@ -142,6 +139,10 @@
             </a>
             <a href="#abandonate" class="index-link" data-slug="abandonate" onclick="showSingleSong(event, 'abandonate')">
                 <span class="index-title font-medium">Abandónate</span>
+                <span class="index-snippet hidden text-xs text-gray-500 italic block mt-0.5"></span>
+            </a>
+            <a href="#abre-tu-jardin" class="index-link" data-slug="abre-tu-jardin" onclick="showSingleSong(event, 'abre-tu-jardin')">
+                <span class="index-title font-medium">Abre tu jardín</span>
                 <span class="index-snippet hidden text-xs text-gray-500 italic block mt-0.5"></span>
             </a>
             <a href="#aclamacion-al-evangelio-folclorico" class="index-link" data-slug="aclamacion-al-evangelio-folclorico" onclick="showSingleSong(event, 'aclamacion-al-evangelio-folclorico')">
@@ -3647,75 +3648,6 @@
     </div>
 
     <!-- Songs -->
-    <div class="card mb-6 song-card hidden-filter" id="abre-tu-jardin" data-cats='{"m":["Entrada"],"l":[],"ch":0}' data-title="abre tu jardín">
-        <div class="flex items-center justify-between border-b pb-2 mb-3 gap-2 flex-wrap">
-            <h3 class="text-xl text-verdeSanPatricio font-bold">Abre tu jardín</h3>
-            <button onclick="closeSong()" class="text-xs bg-stone-100 hover:bg-stone-200 text-stone-700 px-3 py-1.5 rounded-lg border border-stone-300 transition-colors flex items-center gap-1.5 shadow-sm font-medium cursor-pointer" title="Cerrar y volver al buscador">
-                <i class="fas fa-search text-verdeSanPatricio"></i> <span>Buscar otra canción</span>
-            </button>
-        </div>
-        <div class="flex flex-wrap gap-2 mb-3 text-sm text-gray-700">
-            <button onclick="toggleChords(this)" class="bg-arena hover:bg-gray-200 px-3 py-1 rounded border border-gray-300 transition-colors flex items-center">
-                <i class="fas fa-eye-slash mr-1"></i> <span class="btn-text">Ocultar Acordes</span>
-            </button>
-            <button onclick="toggleNotation(this)" class="bg-arena hover:bg-gray-200 px-3 py-1 rounded border border-gray-300 transition-colors flex items-center">
-                <i class="fas fa-music mr-1"></i> <span class="btn-text">Do / C</span>
-            </button>
-            <div class="flex items-center bg-arena rounded border border-gray-300 overflow-hidden">
-                <button onclick="transpose(this, -1)" class="hover:bg-gray-200 px-3 py-1 font-bold border-r border-gray-300">-</button>
-                <span class="tono-display px-2 font-semibold cursor-pointer" title="Clic para volver al tono original" onclick="resetTranspose(this)">Tono</span>
-                <button onclick="transpose(this, 1)" class="hover:bg-gray-200 px-3 py-1 font-bold border-l border-gray-300">+</button>
-            </div>
-        </div>
-        <div class="flex flex-wrap gap-1 mb-3"><span class="text-xs bg-green-100 text-green-800 px-2 py-0.5 rounded-full font-medium">Entrada</span></div>
-        <pre class="song-pre"><c>MI</c>         <c>FA#m</c> <c>SOL#m</c>         <c>FA#m</c>
-Abre tu jardín, traigo una buena noticia;
-<c>MI</c>          <c>FA#m</c> <c>SOL#m</c>      <c>FA#m</c>
-Novedad sin fin, corramos a recibirla,
-<c>LA</c>      <c>SI7</c>  <c>MI</c>
-¡ven, levántate!
-
-<c>MI7</c>        <c>LA</c>
-Abre tu jardín,
-<c>MI</c>                  <c>LA</c> 
-pon flores en tu ventana,
-<c>MI</c>           <c>LA</c>
-Canta una canción,
-<c>MI</c>                  <c>LA</c> 
-hoy día se murió la muerte;
-<c>FA#m</c>       <c>SOL#m</c>   <c>FA#m</c>      <c>SI7</c>
-¡es día de fiesta, es día de vida!
-
-<c>MI</c>           <c>LA</c>
-No te quedes hoy
-<c>MI</c>                  <c>LA</c>
-encerrado en tus costumbres,
-<c>MI</c>           <c>LA</c>
-como en el sillón
-<c>MI</c>                 <c>LA</c>
-de las antiguas verdades;
-<c>FA#m</c>      <c>SOL#m</c>  <c>FA#m</c>      <c>SI7</c>
-vive la palabra, luego vivirás.
-
-<c>MI</c>         <c>LA</c>
-Vamos por ahí
-<c>MI</c>                <c>LA</c>
-cantando la buena nueva:
-<c>MI</c>        <c>LA</c>
-ama de verdad
-<c>MI</c>                  <c>LA</c>
-como a ti te están amando; 
-<c>FA#m</c>          <c>SOL#m</c> <c>FA#m</c>      <c>SI7</c>
-nace un nuevo día, ¡ven a renacer!.</pre>
-        <div class="mt-4 pt-3 border-t border-stone-200 flex items-center justify-between text-xs text-gray-500 flex-wrap gap-2">
-            <button onclick="closeSong()" class="bg-verdeSanPatricio/10 hover:bg-verdeSanPatricio/20 text-verdeSanPatricio font-semibold px-3.5 py-2 rounded-xl transition flex items-center gap-1.5 cursor-pointer">
-                <i class="fas fa-search"></i> <span>Buscar otra canción</span>
-            </button>
-            <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="text-stone-500 hover:text-stone-800 hover:underline flex items-center gap-1 cursor-pointer">
-                <i class="fas fa-arrow-up"></i> <span>Volver arriba</span>
-            </button>
-        </div>
-    </div>
     <div class="card mb-6 song-card hidden-filter" id="quien-es-el-que-vieron-pasar" data-cats='{"m":["Comunión"],"l":[],"ch":0}' data-title="¿quién es el que vieron pasar?">
         <div class="flex items-center justify-between border-b pb-2 mb-3 gap-2 flex-wrap">
             <h3 class="text-xl text-verdeSanPatricio font-bold">¿Quién es el que vieron pasar?</h3>
@@ -3971,7 +3903,7 @@ diciendo: "Cristo nació".
         </div>
         <div class="flex flex-wrap gap-1 mb-3"><span class="text-xs bg-green-100 text-green-800 px-2 py-0.5 rounded-full font-medium">Matrimonio</span></div>
         <pre class="song-pre">
-LA    RE    LA    RE  MI (x4)
+<c>LA</c>    <c>RE</c>    <c>LA</c>    <c>RE</c>  <c>MI</c> (x4)
 
 <c>LA</c>     <c>SOL</c>      <c>RE</c> <c>MI</c>  <c>LA</c>              <c>MI</c>
 A prometerte yo vengo, ante tus Padres y Dios
@@ -4191,6 +4123,78 @@ te faltará.</b>
             </button>
         </div>
     </div>
+    <div class="card mb-6 song-card hidden-filter" id="abre-tu-jardin" data-cats='{"m":["Entrada"],"l":[],"ch":0}' data-title="abre tu jardín">
+        <div class="flex items-center justify-between border-b pb-2 mb-3 gap-2 flex-wrap">
+            <h3 class="text-xl text-verdeSanPatricio font-bold">Abre tu jardín</h3>
+            <button onclick="closeSong()" class="text-xs bg-stone-100 hover:bg-stone-200 text-stone-700 px-3 py-1.5 rounded-lg border border-stone-300 transition-colors flex items-center gap-1.5 shadow-sm font-medium cursor-pointer" title="Cerrar y volver al buscador">
+                <i class="fas fa-search text-verdeSanPatricio"></i> <span>Buscar otra canción</span>
+            </button>
+        </div>
+        <div class="flex flex-wrap gap-2 mb-3 text-sm text-gray-700">
+            <button onclick="toggleChords(this)" class="bg-arena hover:bg-gray-200 px-3 py-1 rounded border border-gray-300 transition-colors flex items-center">
+                <i class="fas fa-eye-slash mr-1"></i> <span class="btn-text">Ocultar Acordes</span>
+            </button>
+            <button onclick="toggleNotation(this)" class="bg-arena hover:bg-gray-200 px-3 py-1 rounded border border-gray-300 transition-colors flex items-center">
+                <i class="fas fa-music mr-1"></i> <span class="btn-text">Do / C</span>
+            </button>
+            <div class="flex items-center bg-arena rounded border border-gray-300 overflow-hidden">
+                <button onclick="transpose(this, -1)" class="hover:bg-gray-200 px-3 py-1 font-bold border-r border-gray-300">-</button>
+                <span class="tono-display px-2 font-semibold cursor-pointer" title="Clic para volver al tono original" onclick="resetTranspose(this)">Tono</span>
+                <button onclick="transpose(this, 1)" class="hover:bg-gray-200 px-3 py-1 font-bold border-l border-gray-300">+</button>
+            </div>
+        </div>
+        <div class="flex flex-wrap gap-1 mb-3"><span class="text-xs bg-green-100 text-green-800 px-2 py-0.5 rounded-full font-medium">Entrada</span></div>
+        <pre class="song-pre">
+<b>
+<c>MI</c>         <c>FA#m</c> <c>SOL#m</c>         <c>FA#m</c>
+Abre tu jardín, traigo una buena noticia;
+<c>MI</c>          <c>FA#m</c> <c>SOL#m</c>      <c>FA#m</c>
+Novedad sin fin, corramos a recibirla,
+<c>LA</c>      <c>SI7</c>  <c>MI</c>
+¡ven, levántate!</b>
+
+<c>MI7</c>        <c>LA</c>
+Abre tu jardín,
+<c>MI</c>                  <c>LA</c> 
+pon flores en tu ventana,
+<c>MI</c>           <c>LA</c>
+Canta una canción,
+<c>MI</c>                  <c>LA</c> 
+hoy día se murió la muerte;
+<c>FA#m</c>       <c>SOL#m</c>   <c>FA#m</c>      <c>SI7</c>
+¡es día de fiesta, es día de vida!
+
+<c>MI</c>           <c>LA</c>
+No te quedes hoy
+<c>MI</c>                  <c>LA</c>
+encerrado en tus costumbres,
+<c>MI</c>           <c>LA</c>
+como en el sillón
+<c>MI</c>                 <c>LA</c>
+de las antiguas verdades;
+<c>FA#m</c>      <c>SOL#m</c>  <c>FA#m</c>      <c>SI7</c>
+vive la palabra, luego vivirás.
+
+<c>MI</c>         <c>LA</c>
+Vamos por ahí
+<c>MI</c>                <c>LA</c>
+cantando la buena nueva:
+<c>MI</c>        <c>LA</c>
+ama de verdad
+<c>MI</c>                  <c>LA</c>
+como a ti te están amando; 
+<c>FA#m</c>          <c>SOL#m</c> <c>FA#m</c>      <c>SI7</c>
+nace un nuevo día, ¡ven a renacer!.</b>
+</pre>
+        <div class="mt-4 pt-3 border-t border-stone-200 flex items-center justify-between text-xs text-gray-500 flex-wrap gap-2">
+            <button onclick="closeSong()" class="bg-verdeSanPatricio/10 hover:bg-verdeSanPatricio/20 text-verdeSanPatricio font-semibold px-3.5 py-2 rounded-xl transition flex items-center gap-1.5 cursor-pointer">
+                <i class="fas fa-search"></i> <span>Buscar otra canción</span>
+            </button>
+            <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="text-stone-500 hover:text-stone-800 hover:underline flex items-center gap-1 cursor-pointer">
+                <i class="fas fa-arrow-up"></i> <span>Volver arriba</span>
+            </button>
+        </div>
+    </div>
     <div class="card mb-6 song-card hidden-filter" id="aclamacion-al-evangelio-folclorico" data-cats='{"m":[],"l":[],"ch":1}' data-title="aclamación al evangelio (folclórico)">
         <div class="flex items-center justify-between border-b pb-2 mb-3 gap-2 flex-wrap">
             <h3 class="text-xl text-verdeSanPatricio font-bold">Aclamación al evangelio (folclórico)</h3>
@@ -4218,7 +4222,7 @@ te faltará.</b>
 
   <c>LA</c>           <c>MI</c>
 Señor, oh mi Señor,
-    <c>RE</c>           LA-LA7
+    <c>RE</c>           <c>LA</c>-<c>LA7</c>
 hoy venimos a buscar
 <c>RE</c>           <c>LA</c>
 la palabra divina
@@ -4260,7 +4264,7 @@ que Tú nos vas a entregar.
         </div>
         <div class="flex flex-wrap gap-1 mb-3"><span class="text-xs bg-green-100 text-green-800 px-2 py-0.5 rounded-full font-medium">Entrada</span></div>
         <pre class="song-pre">
-Intro: DO-FA-SOL-FA   DO-FA-SOL-SOL7
+Intro: <c>DO</c>-<c>FA</c>-<c>SOL</c>-<c>FA</c>   <c>DO</c>-<c>FA</c>-<c>SOL</c>-<c>SOL7</c>
 
 <c>DO</c>   <c>FA</c>          <c>SOL</c>
 Mira cómo aclara en la cordillera,
@@ -4362,7 +4366,7 @@ Cejillo 2° espacio
 //  Acuérdate 
 <c>SI7</c> <c>MIm</c> <c>RE</c> <c>LA</c>
 de mí
-LAm      SI   MIm  (RE)
+<c>LAm</c>      <c>SI</c>   <c>MIm</c>  (<c>RE</c>)
 cuando estés ahí. // </b>
 
  <c>DO</c>                       <c>RE</c>
@@ -4380,7 +4384,7 @@ solo Tú puedes salvarme, Señor.
 //  Acuérdate 
 <c>SI7</c> <c>MIm</c> <c>RE</c> <c>LA</c>
 de mí
-LAm      SI7  MIm  (RE)
+<c>LAm</c>      <c>SI7</c>  <c>MIm</c>  (<c>RE</c>)
 cuando estés ahí. // </b>
 
     <c>DO</c>
@@ -4532,15 +4536,15 @@ veníte adorémus. Dóminum.
         <pre class="song-pre">
 Cejillo 5° espacio
 
-LAm  SIm7b5  MI
-LAm  SIm7b5  MI
+<c>LAm</c>  <c>SIm7b5</c>  <c>MI</c>
+<c>LAm</c>  <c>SIm7b5</c>  <c>MI</c>
 
-LAm  SIm7b5    MI    LAm    LA7        REm
+<c>LAm</c>  <c>SIm7b5</c>    <c>MI</c>    <c>LAm</c>    <c>LA7</c>        <c>REm</c>
 Adorando en silencio bajo esta noche oscura,
 <c>SOL</c>  <c>MI</c>       <c>LAm</c>    <c>FA</c>  <c>REm</c>      <c>MI</c> 
 abrazarte sin prisa, amarte con locura.
 
-LAm     SIm7b5    MI  LAm  LA7         REm
+<c>LAm</c>     <c>SIm7b5</c>    <c>MI</c>  <c>LAm</c>  <c>LA7</c>         <c>REm</c>
 Con los ojos cerrados para ver más que nunca,
 <c>SOL</c>      <c>MI</c>       <c>LAm</c>  <c>FA</c>  <c>REm</c>      <c>MI</c>   <c>SOL</c>
 porque estar a tu lado incinera mis dudas.
@@ -4555,12 +4559,12 @@ Sé que en este instante se unen cielo y tierra,
 la verdad es una, ¡la muerte está muerta!</b>
 
 
-REm  SOL  DO  FA  SIm7b5  MI  LAm  LA7
-REm  SOL  DO  FA  SIm7b5  MI  FA   SOL   LAm
-LAm  SIm7b5  LAm  SIm7b5
-LAm  SIm7b5  MI
+<c>REm</c>  <c>SOL</c>  <c>DO</c>  <c>FA</c>  <c>SIm7b5</c>  <c>MI</c>  <c>LAm</c>  <c>LA7</c>
+<c>REm</c>  <c>SOL</c>  <c>DO</c>  <c>FA</c>  <c>SIm7b5</c>  <c>MI</c>  <c>FA</c>   <c>SOL</c>   <c>LAm</c>
+<c>LAm</c>  <c>SIm7b5</c>  <c>LAm</c>  <c>SIm7b5</c>
+<c>LAm</c>  <c>SIm7b5</c>  <c>MI</c>
 
-LAm   SIm7b5      MI     LAm  LA7        REm
+<c>LAm</c>   <c>SIm7b5</c>      <c>MI</c>     <c>LAm</c>  <c>LA7</c>        <c>REm</c>
 Seguirte tiene un precio en este mundo herido,
 <c>SOL</c>  <c>MI</c>        <c>LAm</c>    <c>FA</c>     <c>REm</c>       <c>MI</c>  <c>SOL</c>
 sólo con Tu presencia todo adquiere sentido.
@@ -5106,11 +5110,11 @@ Alégrate, porque el Señor está contigo.</b>
 
 <c>MIm</c>                   <c>SI7</c>
 Qué significa aquel saludo,
-       DO-SI7     <c>MIm</c>
+       <c>DO</c>-<c>SI7</c>     <c>MIm</c>
 es el anuncio del ángel.
     <c>RE</c>       <c>SOL</c>    <c>SI7</c>          <c>MIm</c>
 "No temas, María, darás a luz un hijo,
-DO-LAm  <c>SI7</c>  <c>RE</c>
+<c>DO</c>-<c>LAm</c>  <c>SI7</c>  <c>RE</c>
 Él será grande"
 
    <c>MIm</c>             <c>SI7</c>
@@ -5253,12 +5257,12 @@ la serena certeza con que el día proclama
         </div>
         <div class="flex flex-wrap gap-1 mb-3"><span class="text-xs bg-green-100 text-green-800 px-2 py-0.5 rounded-full font-medium">Aleluya</span></div>
         <pre class="song-pre">
-MI-LA-SI7
+<c>MI</c>-<c>LA</c>-<c>SI7</c>
 Aleluya
 <b>
-  MI-LA-SI7
+  <c>MI</c>-<c>LA</c>-<c>SI7</c>
 //Aleluya,  
-LA-SI7-MI
+<c>LA</c>-<c>SI7</c>-<c>MI</c>
 Aleluya //</b>
  
 <c>MI</c>       <c>LA</c>            <c>SI7</c>      <c>LA</c>
@@ -5270,7 +5274,7 @@ la buena nueva a los pobres, aleluya.
 <c>MI</c>           <c>LA</c>       <c>SI7</c>
 Esta es la palabra de Dios,
 <b>
-MI-LA      <c>SI7</c>   <c>LA</c>   <c>SI7</c>    <c>MI</c>
+<c>MI</c>-<c>LA</c>      <c>SI7</c>   <c>LA</c>   <c>SI7</c>    <c>MI</c>
 Gloria y honor a Ti Señor, Jesús.</b>
 </pre>
         <div class="mt-4 pt-3 border-t border-stone-200 flex items-center justify-between text-xs text-gray-500 flex-wrap gap-2">
@@ -5304,24 +5308,24 @@ Gloria y honor a Ti Señor, Jesús.</b>
         </div>
         <div class="flex flex-wrap gap-1 mb-3"><span class="text-xs bg-green-100 text-green-800 px-2 py-0.5 rounded-full font-medium">Aleluya</span></div>
         <pre class="song-pre">
-<c>RE</c> <c>LA</c>       SIm-FA#m-SOL-LA
+<c>RE</c> <c>LA</c>       <c>SIm</c>-<c>FA#m</c>-<c>SOL</c>-<c>LA</c>
 Aleluya, aleluya.
-<c>RE</c> <c>LA</c>       SIm-FA#m-SOL
+<c>RE</c> <c>LA</c>       <c>SIm</c>-<c>FA#m</c>-<c>SOL</c>
 Aleluya, aleluya. 
     <c>MIm</c>         <c>LA</c>
 Escuchemos al Señor
-        <c>SOL</c>      <c>LA</c>  SIm-SOLm-RE
+        <c>SOL</c>      <c>LA</c>  <c>SIm</c>-<c>SOLm</c>-<c>RE</c>
 que nos habla al corazón.
  
 <b class="subtitulo">Respuesta:</b>
 
-<c>RE</c> <c>LA</c>       SIm-FA#m-SOL-LA
+<c>RE</c> <c>LA</c>       <c>SIm</c>-<c>FA#m</c>-<c>SOL</c>-<c>LA</c>
 Aleluya, aleluya.
-<c>RE</c> <c>LA</c>       SIm-FA#m-SOL
+<c>RE</c> <c>LA</c>       <c>SIm</c>-<c>FA#m</c>-<c>SOL</c>
 Aleluya, aleluya. 
       <c>MIm</c>          <c>LA</c>
 Demos gracias al Señor
-      <c>SOL</c>    <c>LA</c>  SIm-SOLm-RE
+      <c>SOL</c>    <c>LA</c>  <c>SIm</c>-<c>SOLm</c>-<c>RE</c>
 nos habló al corazón.
 </pre>
         <div class="mt-4 pt-3 border-t border-stone-200 flex items-center justify-between text-xs text-gray-500 flex-wrap gap-2">
@@ -5395,11 +5399,11 @@ aleluya.
         <pre class="song-pre">
 <c>REm</c>
 Aleluya,
-SOLm-DO
+<c>SOLm</c>-<c>DO</c>
 aleluya,
-FA-DO-FA
+<c>FA</c>-<c>DO</c>-<c>FA</c>
 aleluya,
-SIb-LA-REm
+<c>SIb</c>-<c>LA</c>-<c>REm</c>
  aleluya.
 </pre>
         <div class="mt-4 pt-3 border-t border-stone-200 flex items-center justify-between text-xs text-gray-500 flex-wrap gap-2">
@@ -5471,9 +5475,9 @@ ale--lu--ya.
         </div>
         <div class="flex flex-wrap gap-1 mb-3"><span class="text-xs bg-green-100 text-green-800 px-2 py-0.5 rounded-full font-medium">Aleluya</span></div>
         <pre class="song-pre">
-<c>SIm</c>      <c>RE</c>          SOL-LA <c>RE</c>
+<c>SIm</c>      <c>RE</c>          <c>SOL</c>-<c>LA</c> <c>RE</c>
 Aleluya, aleluya, alelu-----ya.
-   <c>SIm</c>      <c>RE</c>       SOL-FA#m <c>SIm</c>
+   <c>SIm</c>      <c>RE</c>       <c>SOL</c>-<c>FA#m</c> <c>SIm</c>
 Aleluya, aleluya, alelu-------ya.
 </pre>
         <div class="mt-4 pt-3 border-t border-stone-200 flex items-center justify-between text-xs text-gray-500 flex-wrap gap-2">
@@ -5614,7 +5618,7 @@ fuente de consuelo y luz!
 Aleluya, aleluya,
 <c>RE</c>       <c>DO</c>
 Aleluya, aleluya,
-RE-DO-RE  <c>DO</c>  <c>RE</c>
+<c>RE</c>-<c>DO</c>-<c>RE</c>  <c>DO</c>  <c>RE</c>
 Aleluya, aleluya. 
 </pre>
         <div class="mt-4 pt-3 border-t border-stone-200 flex items-center justify-between text-xs text-gray-500 flex-wrap gap-2">
@@ -5648,9 +5652,9 @@ Aleluya, aleluya.
         </div>
         <div class="flex flex-wrap gap-1 mb-3"><span class="text-xs bg-green-100 text-green-800 px-2 py-0.5 rounded-full font-medium">Aleluya</span><span class="text-xs bg-yellow-100 text-yellow-800 px-2 py-0.5 rounded-full font-medium">Misa a la Chilena</span></div>
         <pre class="song-pre">
-<c>RE</c>                          <c>LA</c>          RE-RE7
+<c>RE</c>                          <c>LA</c>          <c>RE</c>-<c>RE7</c>
 Señor, quiero escuchar la palabra que darás
-        SOL   	 RE        LA          RE (RE7)
+        <c>SOL</c>   	 <c>RE</c>        <c>LA</c>          <c>RE</c> (<c>RE7</c>)
 //Que dirá la verdad que Jesús nos enseñó//
 <b>
    <c>RE</c>                	   <c>SOL</c>   <c>LA</c>   <c>RE</c>
@@ -5691,9 +5695,9 @@ Aleluya, aleluya, aleluya, a-le-lu-ya.</b>
         <pre class="song-pre">
 <c>FA</c>                  
 Aleluya,             
-SIb-DO                
+<c>SIb</c>-<c>DO</c>                
 Aleluya,
-FA-DO-FA              
+<c>FA</c>-<c>DO</c>-<c>FA</c>              
 Aleluya.              
 </pre>
         <div class="mt-4 pt-3 border-t border-stone-200 flex items-center justify-between text-xs text-gray-500 flex-wrap gap-2">
@@ -5731,7 +5735,7 @@ Aleluya.
 <c>FA#m</c>      <c>RE</c>  <c>DO#m</c>     <c>FA#m</c>  
 Aleluya, aleluya, aleluya.</b>
 
-<c>FA#m</c>        MI-FA#m
+<c>FA#m</c>        <c>MI</c>-<c>FA#m</c>
 Oh, hijos e hijas:
    <c>FA#m</c>                  <c>MI</c>       <c>FA#m</c>
 el Rey Celestial, el Rey de la Gloria,
@@ -5775,7 +5779,7 @@ aleluya.
 <c>FA#m</c>      <c>RE</c>  <c>DO#m</c>     <c>FA#m</c>  
 Aleluya, aleluya, aleluya.</b>
 
-<c>FA#m</c>        MI-FA#m
+<c>FA#m</c>        <c>MI</c>-<c>FA#m</c>
 Oh, hijos e hijas:
    <c>FA#m</c>                  <c>MI</c>       <c>FA#m</c>
 el Rey Celestial, el Rey de la Gloria,
@@ -5813,7 +5817,7 @@ aleluya.
 
 <c>FA#m</c>       <c>MI</c> <c>FA#m</c>
 Y Juan el apóstol
-  <c>FA#m</c>                MI-FA#m
+  <c>FA#m</c>                <c>MI</c>-<c>FA#m</c>
 corrió más aprisa que Pedro
 <c>FA#m</c>              <c>RE</c>      <c>DO#m</c>
 y al monumento primero llegó,
@@ -5833,7 +5837,7 @@ aleluya.
 Y escuchando Dídimo
       <c>FA#m</c>          <c>MI</c>  <c>FA#m</c>
 que Jesús había resucitado,
-<c>FA#m</c>            RE-DO#m
+<c>FA#m</c>            <c>RE</c>-<c>DO#m</c>
 seguía teniendo dudas,
      <c>FA#m</c>
 aleluya.
@@ -5851,7 +5855,7 @@ aleluya.
 Cuando Tomás vio el costado,
 <c>FA#m</c>                 <c>MI</c>     <c>FA#m</c>
 los pies y las manos de Cristo,
-<c>FA#m</c>             RE-DO#m
+<c>FA#m</c>             <c>RE</c>-<c>DO#m</c>
 dijo: Tú eres mi Dios,
      <c>FA#m</c>
 aleluya.
@@ -5869,12 +5873,12 @@ aleluya.
 En esta fiesta santísima
 <c>FA#m</c>          <c>MI</c>    <c>FA#m</c>   
 haya alabanza y júbilo,
-<c>FA#m</c>          MI-FA#m
+<c>FA#m</c>          <c>MI</c>-<c>FA#m</c>
 bendigamos al Señor,
      <c>FA#m</c>
 aleluya.
 
-<c>FA#m</c>     MI-FA#m
+<c>FA#m</c>     <c>MI</c>-<c>FA#m</c>
 Por todo esto,
 <c>FA#m</c>        <c>MI</c>  <c>FA#m</c>
 con humilde devoción,
@@ -6016,14 +6020,14 @@ El trae la salvación.
         <div class="flex flex-wrap gap-1 mb-3"><span class="text-xs bg-green-100 text-green-800 px-2 py-0.5 rounded-full font-medium">Aleluya</span><span class="text-xs bg-blue-100 text-blue-800 px-2 py-0.5 rounded-full font-medium">Pascua</span></div>
         <pre class="song-pre">
 <b>
-MI-LA-SI7  DO#m-FA#m-SI7
+<c>MI</c>-<c>LA</c>-<c>SI7</c>  <c>DO#m</c>-<c>FA#m</c>-<c>SI7</c>
 Aleluya,   aleluya,
-MI-LA-SI7  FA#m-SI7-MI
+<c>MI</c>-<c>LA</c>-<c>SI7</c>  <c>FA#m</c>-<c>SI7</c>-<c>MI</c>
 aleluya,   aleluya.</b>
 
 <c>DO</c>      <c>RE</c>       <c>LA</c>
 Toda la tierra levante su voz
-<c>FA#m</c>    <c>SOL#m</c>    LA-FA#m-SI7
+<c>FA#m</c>    <c>SOL#m</c>    <c>LA</c>-<c>FA#m</c>-<c>SI7</c>
 que Jesucristo resucitó.
 </pre>
         <div class="mt-4 pt-3 border-t border-stone-200 flex items-center justify-between text-xs text-gray-500 flex-wrap gap-2">
@@ -6077,7 +6081,7 @@ verdadero salvador.
 Despierte nuestra tierra y te alabe,
         <c>RE7</c>           <c>SOLm</c>
 por los siglos de los siglos
-DO7   FA    SIb   MIm   RE°  LA7
+<c>DO7</c>   <c>FA</c>    <c>SIb</c>   <c>MIm</c>   <c>RE°</c>  <c>LA7</c>
 proclamemos que Jesús resucitó.
 
 <c>REm</c>               <c>DO</c>             <c>FA</c>
@@ -6090,7 +6094,7 @@ hoy encuentra su perdón.
 Florezcan en los valles nuevos cantos
      <c>RE7</c>               <c>SOLm</c>
 que anuncien que El es vida,
-DO7  FA    SIb   MIm   RE°     LA7
+<c>DO7</c>  <c>FA</c>    <c>SIb</c>   <c>MIm</c>   <c>RE°</c>     <c>LA7</c>
 el camino, la verdad y nuestro Rey.
 </pre>
         <div class="mt-4 pt-3 border-t border-stone-200 flex items-center justify-between text-xs text-gray-500 flex-wrap gap-2">
@@ -6126,11 +6130,11 @@ el camino, la verdad y nuestro Rey.
         <pre class="song-pre">
 Cejillo 3er espacio
 <b>
-   DO-SOL/SI  
+   <c>DO</c>-<c>SOL/SI</c>  
 // Aleluya, 
-LAm-LAm/SOL  
+<c>LAm</c>-<c>LAm/SOL</c>  
 aleluya, 
-FA-SOL-DO   FA-SOL
+<c>FA</c>-<c>SOL</c>-<c>DO</c>   <c>FA</c>-<c>SOL</c>
 aleluya. //</b>
 
 <c>DO</c>     <c>SOL</c>         <c>LAm</c>   <c>LAm/SOL</c>
@@ -6207,12 +6211,12 @@ los que dan y no piensan jamás
 en su recompensa,
     <c>MI</c>                    <c>SI7</c>
 esa gente es feliz porque vive
-             MI-LA-MI
+             <c>MI</c>-<c>LA</c>-<c>MI</c>
 muy cerca de Dios.
 
         <c>MI</c>              <c>LA</c>
 Los que son generosos y dan
-               <c>MI</c>  LA-MI
+               <c>MI</c>  <c>LA</c>-<c>MI</c>
 de su pan un pedazo,
 los que siempre trabajan pensando
               <c>SI7</c>
@@ -6295,7 +6299,7 @@ Aleluya, Aleluya //
         <pre class="song-pre">
 <c>SOL</c>  <c>MIm</c>    <c>DO</c> <c>RE</c>
 Aleluya, aleluya,
-<c>SOL</c>  <c>MIm</c>    DO-RE-SOL
+<c>SOL</c>  <c>MIm</c>    <c>DO</c>-<c>RE</c>-<c>SOL</c>
 aleluya, aleluya  (bis)
 </pre>
         <div class="mt-4 pt-3 border-t border-stone-200 flex items-center justify-between text-xs text-gray-500 flex-wrap gap-2">
@@ -6546,11 +6550,11 @@ Aleluya, aleluya, alelu------ya.
         <div class="flex flex-wrap gap-1 mb-3"><span class="text-xs bg-green-100 text-green-800 px-2 py-0.5 rounded-full font-medium">Aleluya</span><span class="text-xs bg-green-100 text-green-800 px-2 py-0.5 rounded-full font-medium">Comunión</span></div>
         <pre class="song-pre">
 <b>
-   LA-RE    SOL#-DO#m
+   <c>LA</c>-<c>RE</c>    <c>SOL#</c>-<c>DO#m</c>
 Aleluya, aleluya,
-     <c>LA</c>  <c>FA#</c>        SIm-MI 
+     <c>LA</c>  <c>FA#</c>        <c>SIm</c>-<c>MI</c> 
 el Señor es nuestro Rey.
-   LA-RE    SOL#-DO#m
+   <c>LA</c>-<c>RE</c>    <c>SOL#</c>-<c>DO#m</c>
 Aleluya, aleluya, 
      <c>LA</c>  <c>MI</c>         <c>LA</c>
 el Señor es nuestro Rey.</b>
@@ -6588,11 +6592,11 @@ el Señor es nuestro Rey.</b>
         <pre class="song-pre">
 <c>SOL</c>              <c>MIm</c>
 Aleluya, es el Señor,
-   <c>RE</c>            SOL-SOL7
+   <c>RE</c>            <c>SOL</c>-<c>SOL7</c>
 aleluya nos hablará;
-   <c>DO</c>                SOL-SI7-MIm
+   <c>DO</c>                <c>SOL</c>-<c>SI7</c>-<c>MIm</c>
 aleluya, ven abre tu corazón
-   <c>LAm</c>   <c>RE</c>   SOL-DO-SOL
+   <c>LAm</c>   <c>RE</c>   <c>SOL</c>-<c>DO</c>-<c>SOL</c>
 aleluya, aleluya.
 </pre>
         <div class="mt-4 pt-3 border-t border-stone-200 flex items-center justify-between text-xs text-gray-500 flex-wrap gap-2">
@@ -6838,7 +6842,7 @@ Aleluya, aleluya,
 tu palabra, aleluya.
    <c>SOL</c>        <c>DO</c>
 Aleluya, aleluya,
-     <c>SOL</c>         RE-SOL
+     <c>SOL</c>         <c>RE</c>-<c>SOL</c>
 tu palabra, aleluya.
 </pre>
         <div class="mt-4 pt-3 border-t border-stone-200 flex items-center justify-between text-xs text-gray-500 flex-wrap gap-2">
@@ -6936,12 +6940,12 @@ Tú proclamaste nueva Ley;
 
       <c>SIm</c>    <c>SOL</c>     <c>LA</c>
 Enséanos justicia y paz,
-<c>RE</c>       <c>SIm</c>   <c>SOL</c>   LA-LA7
+<c>RE</c>       <c>SIm</c>   <c>SOL</c>   <c>LA</c>-<c>LA7</c>
 a comprender a los demás.
 
       <c>SIm</c>    <c>SOL</c>  <c>LA</c>
 Te adoramos, Oh Señor,
-<c>RE</c>       <c>SIm</c>      <c>SOL</c>     LA-LA7
+<c>RE</c>       <c>SIm</c>      <c>SOL</c>     <c>LA</c>-<c>LA7</c>
 te damos gracias, Dios de amor.
 </pre>
         <div class="mt-4 pt-3 border-t border-stone-200 flex items-center justify-between text-xs text-gray-500 flex-wrap gap-2">
@@ -6975,7 +6979,7 @@ te damos gracias, Dios de amor.
         </div>
         <div class="flex flex-wrap gap-1 mb-3"><span class="text-xs bg-green-100 text-green-800 px-2 py-0.5 rounded-full font-medium">Matrimonio</span></div>
         <pre class="song-pre">
-Intro: DO-FA-SOL-FA  (x2)
+Intro: <c>DO</c>-<c>FA</c>-<c>SOL</c>-<c>FA</c>  (x2)
 
         <c>DO</c>              <c>SOL</c>         <c>DO</c>  <c>FA</c>
 En la pobreza o en la riqueza te amaré
@@ -6997,7 +7001,7 @@ Tú me amarás, yo te amaré,
 <c>FA</c>                      <c>SOL</c>
 hasta que la muerte nos una más.</b>
 
-DO-FA-SOL-FA  (x2)
+<c>DO</c>-<c>FA</c>-<c>SOL</c>-<c>FA</c>  (x2)
 
        <c>DO</c>              <c>SOL</c>         <c>DO</c>  <c>FA</c>
 En las buenas o en las malas te amaré,
@@ -7074,7 +7078,7 @@ Agua del costado de Cristo, lávame.
 
 <c>MIm</c>       <c>RE</c>      <c>MIm</c>     <c>RE</c>
 Pasión de Cristo, confórtame.
-<c>MIm</c>         <c>RE</c>    <c>MIm</c> RE-RE7
+<c>MIm</c>         <c>RE</c>    <c>MIm</c> <c>RE</c>-<c>RE7</c>
 ¡Oh, buen Jesús!, óyeme
   <c>SOL</c>           <c>RE</c>      <c>LA</c>     <c>SIm</c>
 y dentro de tus llagas, escóndeme,
@@ -7083,7 +7087,7 @@ no permitas que me aparte de Ti.
 
 <c>MIm</c>    <c>RE</c>    <c>MIm</c>     <c>RE</c>
 Del enemigo, defiéndeme.
-<c>MIm</c>              <c>RE</c>      <c>MIm</c>  RE-RE7
+<c>MIm</c>              <c>RE</c>      <c>MIm</c>  <c>RE</c>-<c>RE7</c>
 En la hora de mi muerte, llámame,
   <c>SOL</c>          <c>RE</c>
 y mándame ir a Ti
@@ -7222,7 +7226,7 @@ Tu quae genuísti,
 natúra miránte,
      <c>FA</c>              <c>LAm</c>
 tuum sanctum Genitórem:
-<c>FA</c>    <c>MIm</c>         LAm-SOL
+<c>FA</c>    <c>MIm</c>         <c>LAm</c>-<c>SOL</c>
 Virgo prius ac postérius,
 <c>FA</c>            <c>LAm</c>
 Gabriélis ab ore
@@ -7661,7 +7665,7 @@ Amén, amén, amén.  (x3)</b>
 
           <c>MIm</c>         <c>RE</c>
 Honor y poder, y fortaleza,
-          <c>MIm</c>         RE-RE7
+          <c>MIm</c>         <c>RE</c>-<c>RE7</c>
 honor y poder demos a Dios.
             <c>SOL</c>           <c>LAm</c>
 Bendición y gloria, sabiduría,
@@ -8480,7 +8484,7 @@ Aquí esta este corazón
 que quiere serte fiel
             <c>SIm</c>     <c>MI</c>            <c>FA#m</c>
 mas ¿qué es eso, si no te tiene a Ti,
-<c>RE</c> <c>MI</c>            LA-MI
+<c>RE</c> <c>MI</c>            <c>LA</c>-<c>MI</c>
 si no te tiene a Ti?.
 <b>
     <c>LA</c>   <c>MI</c>   <c>FA#m</c>
@@ -8489,7 +8493,7 @@ Toma este corazón,
 toma cuanto tengo y cuanto soy,
 <c>RE</c>        <c>MI</c>          <c>FA#m</c>
 toma mi pasado, mi presente y mi futuro,
-<c>RE</c>          <c>MI</c>         LA-MI
+<c>RE</c>          <c>MI</c>         <c>LA</c>-<c>MI</c>
 todo cuando tengo, tómalo.</b>
 
    <c>LA</c>        <c>MI</c>         <c>FA#m</c>       <c>DO#m</c> 
@@ -8525,7 +8529,7 @@ si no te tiene a Ti?
 Aquí está este corazón
         <c>RE</c>          <c>LA</c>
 con mis panes y mis peces,
-     <c>SIm</c>      <c>MI</c>        LA-MI
+     <c>SIm</c>      <c>MI</c>        <c>LA</c>-<c>MI</c>
 toma todo y repártelo Señor.
 <b>
    <c>LA</c>   <c>MI</c>   <c>FA#m</c>
@@ -8753,7 +8757,7 @@ te alabo, te ala---bo en verdad.
 //Pues sólo a Ti te tengo,
      <c>SOL#</c>           <c>DO#m</c>
 pues Tú eres mi heredad,
-    FA#m      SI7        MI   (MI7)
+    <c>FA#m</c>      <c>SI7</c>        <c>MI</c>   (<c>MI7</c>)
 te alabo, te alabo en verdad. //</b>
 
 <c>MI</c>           <c>SI7</c>
@@ -8889,15 +8893,15 @@ ave, ave María, ave.</b>
         </div>
         <div class="flex flex-wrap gap-1 mb-3"><span class="text-xs bg-green-100 text-green-800 px-2 py-0.5 rounded-full font-medium">Marianos</span></div>
         <pre class="song-pre">
-LA    LA7  RE/LA  RE°/LA  LA
+<c>LA</c>    <c>LA7</c>  <c>RE/LA</c>  <c>RE°/LA</c>  <c>LA</c>
 
-LA-FA#m6-LA-MI7-FA#m
+<c>LA</c>-<c>FA#m6</c>-<c>LA</c>-<c>MI7</c>-<c>FA#m</c>
 Ave Maria
 <c>SIm</c>    <c>MI</c> <c>LA</c>
 gratia plena
-<c>LAaug</c>  <c>LA6</c>    SOL#sus4-SOL#
+<c>LAaug</c>  <c>LA6</c>    <c>SOL#sus4</c>-<c>SOL#</c>
 Maria, gratia plena
-FA°             FA#m
+<c>FA°</c>             <c>FA#m</c>
 Maria gratia plena
  <c>MI</c>  <c>FA#</c>     <c>MI</c>   <c>SI7</c>       <c>MI</c>
 Ave, Ave Dominus, Dominus tecum
@@ -8907,16 +8911,16 @@ Benedicta tu in mulieribus
 et benedictus
  <c>MI</c>    <c>DO#</c>            <c>SIm</c>
 et benedictus fructus ventris
-        RE#°   MI            
+        <c>RE#°</c>   <c>MI</c>            
 Ventris tui, Jesus.
  
-LA-FA#m6-LA-MI7-FA#m
+<c>LA</c>-<c>FA#m6</c>-<c>LA</c>-<c>MI7</c>-<c>FA#m</c>
 Sancta Maria
 <c>SIm</c>   <c>MI</c> <c>LA</c>
 Mater Dei
-<c>LAaug</c>  <c>LA6</c>        SOL#sus4-SOL#
+<c>LAaug</c>  <c>LA6</c>        <c>SOL#sus4</c>-<c>SOL#</c>
 ora pronobis peccatoribus
-FA°           FA#m
+<c>FA°</c>           <c>FA#m</c>
 ora, ora pronobis
  <c>MI</c>  <c>FA#</c>      <c>MI</c>  <c>SI7</c>      <c>MI</c>
 ora, ora pronobis peccatoribus.
@@ -8926,13 +8930,13 @@ Nunc et in hora mortis
 in hora mortis nostrae
    <c>MI</c>   <c>DO#</c>            <c>SIm</c>
 in hora mortis, mortis nostrae
-        RE#°      MI     
+        <c>RE#°</c>      <c>MI</c>     
 in hora mortis nostrae.
 
 <c>LA</c>  <c>FA#m6</c>  <c>LA</c>  <c>MI7</c>  <c>LA</c>
 Ave Maria.
 
-LA     LA7  RE/LA  RE°/LA  LA
+<c>LA</c>     <c>LA7</c>  <c>RE/LA</c>  <c>RE°/LA</c>  <c>LA</c>
 
 </pre>
         <div class="mt-4 pt-3 border-t border-stone-200 flex items-center justify-between text-xs text-gray-500 flex-wrap gap-2">
@@ -8969,15 +8973,15 @@ LA     LA7  RE/LA  RE°/LA  LA
 <c>DO</c>   <c>REm/DO</c>   <c>SOL7/SI</c>   <c>DO</c>
 
 
-DO-REm/DO-SOL7/SI-DO
+<c>DO</c>-<c>REm/DO</c>-<c>SOL7/SI</c>-<c>DO</c>
 Ave Maria
-LAm/DO-RE/DO
+<c>LAm/DO</c>-<c>RE/DO</c>
 gratia plena
 <c>SOL/SI</c>  <c>DO/SI</c>
 Dominus tecum;
-LAm-RE7   <c>SOL</c>
+<c>LAm</c>-<c>RE7</c>   <c>SOL</c>
 Benedicta tu in
-SOLdim7-REm/FA
+<c>SOLdim7</c>-<c>REm/FA</c>
 mulieribus,
 <c>FAdim</c>  <c>DO/MI</c>
 et benedictus
@@ -8994,13 +8998,13 @@ María,
 ora pronobis,
 <c>SOL7sus4</c>   <c>SOL7</c>
 nobis peccatoribus,
-LAdim7/SOL-DO/SOL
+<c>LAdim7/SOL</c>-<c>DO/SOL</c>
 Nunc et in hora,
-   SOL7sus4-SOL7    
+   <c>SOL7sus4</c>-<c>SOL7</c>    
 in hora mortis nostrae,
-DO7-FA/DO
+<c>DO7</c>-<c>FA/DO</c>
 Amen! 
-SOL7/DO-DO
+<c>SOL7/DO</c>-<c>DO</c>
 Amen!
 </pre>
         <div class="mt-4 pt-3 border-t border-stone-200 flex items-center justify-between text-xs text-gray-500 flex-wrap gap-2">
@@ -9274,7 +9278,7 @@ Santa Madre de Dios.
         </div>
         <div class="flex flex-wrap gap-1 mb-3"><span class="text-xs bg-green-100 text-green-800 px-2 py-0.5 rounded-full font-medium">Marianos</span></div>
         <pre class="song-pre">
-<c>RE</c>        <c>LA</c>   <c>RE</c>     SIm-LA
+<c>RE</c>        <c>LA</c>   <c>RE</c>     <c>SIm</c>-<c>LA</c>
 Bajo tu amparo nos acogemos,
 <c>RE</c>    <c>MIm</c>        <c>SIm</c>
 santa Madre de Dios,
@@ -9282,15 +9286,15 @@ santa Madre de Dios,
 no desprecies las súplicas
 <c>SOL</c>        <c>RE</c>
 que te dirigimos
-<c>LA</c>            RE-SOL-RE
+<c>LA</c>            <c>RE</c>-<c>SOL</c>-<c>RE</c>
 en nuestras necesidades;
 <c>DO</c>
 antes bien,
    <c>SOL</c>           <c>LAm</c>
 de todos los peligros
-<c>RE</c>       LAm-SOL
+<c>RE</c>       <c>LAm</c>-<c>SOL</c>
 líbranos siempre,
-<c>DO</c>             SOL-RE
+<c>DO</c>             <c>SOL</c>-<c>RE</c>
 oh Virgen gloriosa
 <c>MIm</c>  <c>RE</c>
 y bendita.
@@ -9676,7 +9680,7 @@ Glo-o-o-o-ria a Cristo el Señor.
 Él nos ofrece un camino de amor.
 <c>RE</c>     	<c>LA</c>      <c>SIm</c>         <c>FA#m</c>
 Glo-o-o-o-ria a Cristo el Señor
-<c>SOL</c>      <c>RE</c>        MI-LA  <c>RE</c>
+<c>SOL</c>      <c>RE</c>        <c>MI</c>-<c>LA</c>  <c>RE</c>
 Él nos ensena el camino mejor.</b>
 
 Bienaventurados los de corazón
@@ -9695,7 +9699,7 @@ Glo-o-o-o-ria a Cristo el Señor.
 Él nos ofrece un Camino de amor.
 <c>RE</c>     	<c>LA</c>      <c>SIm</c>         <c>FA#m</c>
 Glo-o-o-o-ria a Cristo el Señor
-<c>SOL</c>      <c>RE</c>        MI-LA  <c>RE</c>
+<c>SOL</c>      <c>RE</c>        <c>MI</c>-<c>LA</c>  <c>RE</c>
 Él nos ensena el camino mejor.</b>
 </pre>
         <div class="mt-4 pt-3 border-t border-stone-200 flex items-center justify-between text-xs text-gray-500 flex-wrap gap-2">
@@ -10307,7 +10311,7 @@ en una Cruz a esta hora, el niño va a padecer.
         </div>
         <div class="flex flex-wrap gap-1 mb-3"><span class="text-xs bg-green-100 text-green-800 px-2 py-0.5 rounded-full font-medium">Varios</span></div>
         <pre class="song-pre">
-SOL  RE/FA#m  MIm  MIm/RE  DO  LAm  RE
+<c>SOL</c>  <c>RE/FA#m</c>  <c>MIm</c>  <c>MIm/RE</c>  <c>DO</c>  <c>LAm</c>  <c>RE</c>
  
 <c>SOL</c>                     <c>SIm</c>
 Alberto, hoy resuena tu nombre,
@@ -10444,7 +10448,7 @@ tus brazos fueron cuna de sonrisa y algodón.
 <b>
 <c>SOL</c>              <c>SIm</c>
 Madre del mundo, virgen paciente,
-SIm7b5            MI            LAm
+<c>SIm7b5</c>            <c>MI</c>            <c>LAm</c>
 tímida umbral que abres paso al cielo,
               <c>DO</c>                        <c>RE</c>
 dicen que hoy muere en la Cruz tu hijo, Jesús.</b>
@@ -10467,13 +10471,13 @@ en la gloria del Reino celestial.
 <b>
 <c>SOL</c>              <c>SIm</c>
 Madre del mundo, virgen paciente,
-SIm7b5            MI            LAm
+<c>SIm7b5</c>            <c>MI</c>            <c>LAm</c>
 tímida umbral que abres paso al cielo,
               <c>DO</c>                          <c>RE</c>
 dicen que hoy muere en la Cruz tu hijo, Jesús.
 <c>SOL</c>              <c>SIm</c>
 Madre del mundo, virgen paciente,
-SIm7b5            MI            LAm
+<c>SIm7b5</c>            <c>MI</c>            <c>LAm</c>
 tímida umbral que abres paso al cielo,
               <c>DO</c>
 dicen que hoy muere en la Cruz 
@@ -10612,7 +10616,7 @@ Quiero hablar de un amor infinito,
 que se vuelve niño frágil;
 <c>SOL</c>    	<c>MI</c>         <c>LA</c>
 amor de hombre humillado.
-<c>SOL</c>      <c>DO</c>   <c>MIm</c>        LA-RE   <c>LA</c>
+<c>SOL</c>      <c>DO</c>   <c>MIm</c>        <c>LA</c>-<c>RE</c>   <c>LA</c>
 Quiero hablar de un amor apasionado.
 
 <c>RE</c>        <c>SOL</c>   <c>LA</c>        <c>RE</c>
@@ -10634,7 +10638,7 @@ quiero hablar del camino hacia la vida.
 corazón paciente, amor ardiente;
 <c>MI</c>       <c>LA</c>
 quiero hablar de aquél
-    <c>FA#</c>        SI7-MI-LA
+    <c>FA#</c>        <c>SI7</c>-<c>MI</c>-<c>LA</c>
 que vence a la muerte.</b>
 
 <c>RE</c>            <c>SOL</c>    <c>LA</c>      <c>RE</c>
@@ -10656,7 +10660,7 @@ quiero hablar del camino hacia la vida.
 corazón paciente, amor ardiente;
 <c>MI</c>       <c>LA</c>
 quiero hablar de aquél
-    <c>FA#</c>        SI7-MI-LA
+    <c>FA#</c>        <c>SI7</c>-<c>MI</c>-<c>LA</c>
 que vence a la muerte.</b>
 
 <c>RE</c>            <c>SOL</c>    <c>LA</c>      <c>RE</c>
@@ -10678,7 +10682,7 @@ quiero hablar del camino hacia la vida.
 corazón paciente, amor ardiente;
 <c>MI</c>       <c>LA</c>
 quiero hablar de aquél
-    <c>FA#</c>        SI7-MI-SI7
+    <c>FA#</c>        <c>SI7</c>-<c>MI</c>-<c>SI7</c>
 que vence a la muerte.
 <c>MI</c>                <c>SI7</c>
 Amor que abre sus brazos de acogida;
@@ -10690,11 +10694,11 @@ quiero hablar del camino hacia la vida.
 corazón paciente, amor ardiente;
 <c>FA#</c>      <c>SI7</c>
 quiero hablar de aquél
-    <c>SOL#</c>       DO#-FA#
+    <c>SOL#</c>       <c>DO#</c>-<c>FA#</c>
 que vence a la muerte;
          <c>SI7</c>
 quiero hablar de aquél
-    <c>SOL#</c>       DO#-FA#
+    <c>SOL#</c>       <c>DO#</c>-<c>FA#</c>
 que vence a la muerte.</b>
 </pre>
         <div class="mt-4 pt-3 border-t border-stone-200 flex items-center justify-between text-xs text-gray-500 flex-wrap gap-2">
@@ -10812,15 +10816,15 @@ de tu promesa mi misión.
 <b>
     <c>LA</c>        <c>SIm</c>    <c>MI</c>
 Con Cristo en el corazón
-<c>RE</c>       <c>MI</c>        <c>SIm</c> MI-LA
+<c>RE</c>       <c>MI</c>        <c>SIm</c> <c>MI</c>-<c>LA</c>
 y el corazón en el horizonte,
-<c>RE</c>     <c>MI</c>  FA#m-MI <c>SIm</c>    <c>MI</c> <c>LA</c> <c>MI</c>
+<c>RE</c>     <c>MI</c>  <c>FA#m</c>-<c>MI</c> <c>SIm</c>    <c>MI</c> <c>LA</c> <c>MI</c>
 no hay fronteras,  no hay confines;
-<c>RE</c>   MI-RE <c>MI</c>     <c>LA</c>
+<c>RE</c>   <c>MI</c>-<c>RE</c> <c>MI</c>     <c>LA</c>
 sólo Dios, mi esperanza.
-<c>RE</c>     <c>MI</c>  FA#m-MI <c>SIm</c>    <c>MI</c> <c>LA</c> <c>MI</c>
+<c>RE</c>     <c>MI</c>  <c>FA#m</c>-<c>MI</c> <c>SIm</c>    <c>MI</c> <c>LA</c> <c>MI</c>
 No hay fronteras,  no hay confines;
-<c>RE</c>   MI-RE <c>MI</c>     <c>LA</c>
+<c>RE</c>   <c>MI</c>-<c>RE</c> <c>MI</c>     <c>LA</c>
 sólo Dios, mi esperanza.</b>
 
 <c>LA</c>                  <c>FA#m</c>
@@ -10905,7 +10909,7 @@ Que hace tiempo guardo un lugar;
 que llevo dentro tantos deseos de conversar.
 <c>RE</c>       <c>SOL</c>          <c>LAm</c>
 Ven a mi casa, a mi hogar,
-            RE           RE#° SI7
+            <c>RE</c>           <c>RE#°</c> <c>SI7</c>
 que contigo se va a iluminar;
          <c>MIm</c>            <c>DO</c>
 y ese rincón oscuro y cerrado
@@ -11012,7 +11016,7 @@ ya no tengo pecado, te vuelvo a encontrar.
         </div>
         <div class="flex flex-wrap gap-1 mb-3"><span class="text-xs bg-green-100 text-green-800 px-2 py-0.5 rounded-full font-medium">Entrada</span></div>
         <pre class="song-pre">
-Intro: LA-MI-FA#m-DO#m-RE-LA-SIm-MI
+Intro: <c>LA</c>-<c>MI</c>-<c>FA#m</c>-<c>DO#m</c>-<c>RE</c>-<c>LA</c>-<c>SIm</c>-<c>MI</c>
 
 <c>LA</c>                 <c>MI</c>
 Señor queremos que mires Tú 
@@ -11500,7 +11504,7 @@ Sí, cantaré por siempre tu bondad, Señor.
 mamayé dobabarebá,
 <c>MI</c>  <c>SI7</c>        <c>LA</c>
 mamayé dobabarebá
- <c>MI</c> <c>SI7</c>        <c>LA</c>                  MI-SI7
+ <c>MI</c> <c>SI7</c>        <c>LA</c>                  <c>MI</c>-<c>SI7</c>
 mamayé dobabarebá shibambuerobabareá
          <c>FA#m</c>  <c>SI7</c>      <c>MI</c>
 Huremé babádabaiá dababará.
@@ -11546,7 +11550,7 @@ pues tu fidelidad es un canto a la vida;
 <c>SOL</c>   <c>FA#m</c> <c>MIm</c>    <c>LA</c>         <c>RE</c>
 tu perdón, la melodía de tu amor.
 
-RE-LA-SOL
+<c>RE</c>-<c>LA</c>-<c>SOL</c>
 
       <c>RE</c>       <c>LA</c>         <c>SOL</c>
 Despertar cada día y arraigarnos en Ti, 
@@ -11581,7 +11585,7 @@ Y cantaré por siempre tu bondad, Señor,
 <c>FA#m</c>                    <c>SI7</c>          <c>MI</c>
 Sí, cantaré por siempre tu bondad, Señor.
 
-MI-SI-LA    MI-SI-LA     <c>MI</c>
+<c>MI</c>-<c>SI</c>-<c>LA</c>    <c>MI</c>-<c>SI</c>-<c>LA</c>     <c>MI</c>
    
 </pre>
         <div class="mt-4 pt-3 border-t border-stone-200 flex items-center justify-between text-xs text-gray-500 flex-wrap gap-2">
@@ -12126,7 +12130,7 @@ como un guerrero Tú protegiste
      <c>SOL</c>             <c>RE</c>
 a tu pueblo, librándonos.
 
-DO-SOL  <c>RE</c>
+<c>DO</c>-<c>SOL</c>  <c>RE</c>
 ¡Oh, aleluya! x3
 
 <c>RE</c>                        <c>DO</c>  <c>RE</c>
@@ -12149,7 +12153,7 @@ por sobre la muerte
    <c>SOL</c>                      <c>RE</c>
 de quien los convirtió en esclavos.
 
-DO-SOL  <c>RE</c>
+<c>DO</c>-<c>SOL</c>  <c>RE</c>
 ¡Oh, aleluya! x3
 
 <c>RE#</c>                             <c>DO#</c>  <c>RE#</c>
@@ -12284,8 +12288,8 @@ alegría, gozo y paz, aleluya.
         </div>
         <div class="flex flex-wrap gap-1 mb-3"><span class="text-xs bg-green-100 text-green-800 px-2 py-0.5 rounded-full font-medium">Villancicos</span><span class="text-xs bg-blue-100 text-blue-800 px-2 py-0.5 rounded-full font-medium">Navidad</span></div>
         <pre class="song-pre">
-Intro:  REm---LAm---MI---LAm-LA7
-        REm---LAm---MI---LAm--MI-LAm--MI-LAm
+Intro:  <c>REm</c>---<c>LAm</c>---<c>MI</c>---<c>LAm</c>-<c>LA7</c>
+        <c>REm</c>---<c>LAm</c>---<c>MI</c>---<c>LAm</c>--<c>MI</c>-<c>LAm</c>--<c>MI</c>-<c>LAm</c>
  
   <c>LAm</c>
 //Carnavalito de noche buena
@@ -12294,7 +12298,7 @@ mañana es navidad yo quiero cantar//
  
   <c>REm</c>               <c>LAm</c>
 //Este lucero me ha dado
-          MI             LAm (LA7)
+          <c>MI</c>             <c>LAm</c> (<c>LA7</c>)
 todas las sendas para llegar//
  
           <c>SOL</c>              <c>DO</c>
@@ -12304,7 +12308,7 @@ Vengan, vengan todos a cantar.//
  
   <c>REm</c>                  <c>LAm</c>
 //Ven que ha nacido el Rey de los ángeles
-MI                LAm (LA7)
+<c>MI</c>                <c>LAm</c> (<c>LA7</c>)
 Vengan, vengan a orar.//
 </pre>
         <div class="mt-4 pt-3 border-t border-stone-200 flex items-center justify-between text-xs text-gray-500 flex-wrap gap-2">
@@ -12523,7 +12527,7 @@ del cielo y de la tierra y Chile entero.
 Señor, de norte a sur, de la pampa y el mar.
    <c>DO</c>        <c>RE</c>     <c>DO</c>     <c>RE</c>
 /: De las montañas, ríos y lagos,
-SOL    RE       DO         SI7     MIm (RE)
+<c>SOL</c>    <c>RE</c>       <c>DO</c>         <c>SI7</c>     <c>MIm</c> (<c>RE</c>)
 de los campos y valles, Tú eres, Señor. :/ 
 
 <c>MIm</c>                           <c>SOL</c> <c>MIm</c>
@@ -12534,7 +12538,7 @@ queremos ser testigos de tu presencia.
 El huaso, el militar, el siervo regidor.
    <c>DO</c>      <c>RE</c>    <c>DO</c>      <c>RE</c>
 /: El campesino, el industrial:
-SOL      RE    DO     SI7       MIm (RE)
+<c>SOL</c>      <c>RE</c>    <c>DO</c>     <c>SI7</c>       <c>MIm</c> (<c>RE</c>)
 todos hermanos en una mesa de amor. :/ 
 
 <c>MIm</c>                           <c>SOL</c> <c>MIm</c>
@@ -12545,7 +12549,7 @@ que en el monte Tabor nos diste gloria;
 Bendice nuestra tierra y al minero en ella.
    <c>DO</c>       <c>RE</c>    <c>DO</c>     <c>RE</c>
 /: Con su riqueza y su belleza
-SOL    RE        DO        SI7         MIm (RE)
+<c>SOL</c>    <c>RE</c>        <c>DO</c>        <c>SI7</c>         <c>MIm</c> (<c>RE</c>)
 transfigura esta tierra en gloria y bondad. :/ 
 
 <c>MIm</c>                        <c>SOL</c>  <c>MIm</c>
@@ -12556,7 +12560,7 @@ que sobre el agua inquieta Tú caminaste.
 Protege al pescador, bendice nuestro mar.
    <c>DO</c>       <c>RE</c>      <c>DO</c>        <c>RE</c>
 /: Produzca siempre pesca abundante,
-SOL      RE   DO     SI7       MIm (RE)
+<c>SOL</c>      <c>RE</c>   <c>DO</c>     <c>SI7</c>       <c>MIm</c> (<c>RE</c>)
 produzca vida en abundancia, Señor. :/ 
 
 <c>MIm</c>                          <c>SOL</c> <c>MIm</c>
@@ -12569,7 +12573,7 @@ Bendice nuestras manos,
 también nuestras familias.
    <c>DO</c>       <c>RE</c>  <c>DO</c>      <c>RE</c>
 /: Danos el pan de cada día,
-SOL   RE    DO       SI7     MIm (RE)
+<c>SOL</c>   <c>RE</c>    <c>DO</c>       <c>SI7</c>     <c>MIm</c> (<c>RE</c>)
 danos el sustento de vida, Señor. :/
 
 <c>MIm</c>                               <c>SOL</c> <c>MIm</c>
@@ -12580,7 +12584,7 @@ los hijos de la patria en Ti confiaron.
 Hombres llenos de fe, mujeres de esperanza.
    <c>DO</c>         <c>RE</c>   <c>DO</c>         <c>RE</c>
 /: Un pueblo unido en torno a Ti,
-SOL   RE        DO       SI7      MIm (RE)
+<c>SOL</c>   <c>RE</c>        <c>DO</c>       <c>SI7</c>      <c>MIm</c> (<c>RE</c>)
 compartiendo contigo una mesa de amor. :/ 
 
 <c>MIm</c>                             <c>SOL</c> <c>MIm</c>
@@ -12591,7 +12595,7 @@ te ofreciste en un altar de cruz.
 Nos diste redención en oblación y paz.
    <c>DO</c>       <c>RE</c>   <c>DO</c>         <c>RE</c>
 /: Cristo Jesús, mira a tu iglesia,
-SOL RE      DO         SI7     MIm (RE)
+<c>SOL</c> <c>RE</c>      <c>DO</c>         <c>SI7</c>     <c>MIm</c> (<c>RE</c>)
 asamblea reunida en la Cena Pascual. :/ 
 
 <c>MIm</c>                       <c>SOL</c> <c>MIm</c>
@@ -12602,7 +12606,7 @@ Señor de la esperanza y de la vida.
 Tus hijos rescataste de toda oscuridad.
    <c>DO</c>       <c>RE</c>   <c>DO</c>         <c>RE</c>
 /: Cristo Jesús, Dios de la paz,
-SOL RE       DO         SI7      MIm (RE)
+<c>SOL</c> <c>RE</c>       <c>DO</c>         <c>SI7</c>      <c>MIm</c> (<c>RE</c>)
 ilumina a tu pueblo que busca tu luz. :/ 
 
 <c>MIm</c>                              <c>SOL</c> <c>MIm</c>
@@ -12613,7 +12617,7 @@ reino de la justicia y la verdad,
 de gracia y libertad, de paz y santidad.
    <c>DO</c>       <c>RE</c>    <c>DO</c>        <c>RE</c>
 /: Reino de vida, reino de amor:
-SOL   RE  DO        SI7      MIm (RE)
+<c>SOL</c>   <c>RE</c>  <c>DO</c>        <c>SI7</c>      <c>MIm</c> (<c>RE</c>)
 venga a nosotros tu Reino, Señor. :/ 
 
 <c>MIm</c>                                 <c>SOL</c> <c>MIm</c>
@@ -12624,7 +12628,7 @@ Dios te escogió como madre de su hijo.
 Del Señor Jesús que trae amor y paz.
    <c>DO</c>         <c>RE</c>      <c>DO</c>       <c>RE</c>
 /: Virgen del Carmen, Reina de Chile,
-SOL   RE   DO         SI7     MIm (RE)
+<c>SOL</c>   <c>RE</c>   <c>DO</c>         <c>SI7</c>     <c>MIm</c> (<c>RE</c>)
 salva a tu pueblo que clama a ti. :/ 
 </pre>
         <div class="mt-4 pt-3 border-t border-stone-200 flex items-center justify-between text-xs text-gray-500 flex-wrap gap-2">
@@ -13054,7 +13058,7 @@ y agua en vino convirtió
 pero vino del más bueno, porque ella lo pidió.
 
 <b>
-<c>RE</c>         <c>MI</c>            DO#m-FA#m
+<c>RE</c>         <c>MI</c>            <c>DO#m</c>-<c>FA#m</c>
 Hagan todo lo que Él les diga,
 <c>SIm</c>       <c>SOL</c>            <c>MI</c> 
 hagan todo lo que Él les diga.
@@ -13074,7 +13078,7 @@ lo que falta para bien
     <c>SI</c>                                     <c>LA</c>
 y mirando a Dios le pide, por sus hijos óyele.
 <b>
-<c>RE</c>         <c>MI</c>            DO#m-FA#m
+<c>RE</c>         <c>MI</c>            <c>DO#m</c>-<c>FA#m</c>
 Hagan todo lo que Él les diga,
 <c>SIm</c>       <c>SOL</c>            <c>MI</c> 
 hagan todo lo que Él les diga.
@@ -13104,7 +13108,7 @@ y en sus manos déjate (y déjate)
     <c>SI</c>                                     <c>LA</c>
 y verás como de gracias colma lo que Tú le des.
 <b>
-  <c>RE</c>         <c>MI</c>            DO#m-FA#m
+  <c>RE</c>         <c>MI</c>            <c>DO#m</c>-<c>FA#m</c>
 Haremos todo lo que Él nos diga,
 (haremos todo lo que Él nos diga)
   <c>SIm</c>        <c>SOL</c>           <c>MI</c> 
@@ -13129,11 +13133,11 @@ por los siglos la más fiel (la más fiel)
          <c>SI</c>                                  <c>LA</c>
 desde el cielo nos anima a hacer lo que diga Él.
 <b>
-<c>RE</c>         <c>MI</c>         DO#m-FA#m
+<c>RE</c>         <c>MI</c>         <c>DO#m</c>-<c>FA#m</c>
 Hagan todo lo que les diga,
 <c>SIm</c>        <c>SOL</c>        <c>MI</c> 
 hagan todo lo que les diga. 
-  <c>RE</c>         <c>MI</c>         DO#m-FA#m
+  <c>RE</c>         <c>MI</c>         <c>DO#m</c>-<c>FA#m</c>
 Haremos todo lo que nos digas
   <c>SIm</c>        <c>SOL</c>        <c>MI</c> 
 haremos todo lo que nos digas
@@ -13239,56 +13243,56 @@ Cejillo 3er espacio
 Cómo quisiera
         <c>LAm</c>       <c>RE</c>          <c>SOL</c>
 en cada día ver nacer tu primavera
-        SIm7b5  MI     LAm
+        <c>SIm7b5</c>  <c>MI</c>     <c>LAm</c>
 en cada noche abrir tu puerta
        <c>RE</c>                      <c>SOL</c>
 a la mirada de la luna y las estrellas
-      SIm7b5  MI   LAm
+      <c>SIm7b5</c>  <c>MI</c>   <c>LAm</c>
 y al amor; cómo quisiera 
           <c>RE</c>                        <c>SOL</c>
 que tus palabras fueran luz de mediodía,
-       SIm7b5  MI    LAm  RE
+       <c>SIm7b5</c>  <c>MI</c>    <c>LAm</c>  <c>RE</c>
 de esperanza y de alegría.
     
         <c>SOL</c>
 Cómo quisiera
          <c>LAm</c>        <c>RE</c>   <c>SOL</c>    
 que entendieras que tu silencio 
-      SIm7b5     MI   LAm
+      <c>SIm7b5</c>     <c>MI</c>   <c>LAm</c>
 es poesía de un amor eterno,
       <c>RE</c>                     <c>SOL</c>
 que espera por tu música de aliento
-         SIm7b5   MI    LAm
+         <c>SIm7b5</c>   <c>MI</c>    <c>LAm</c>
 y por tu voz; cómo quisiera
         <c>RE</c>                   <c>SOL</c>
 que tus labios besaran tus heridas,
-     SIm7b5  MI   LAm  RE
+     <c>SIm7b5</c>  <c>MI</c>   <c>LAm</c>  <c>RE</c>
 los errores de tu vida.
  
         <c>SOL</c>
 Cómo quisiera
          <c>LAm</c>   <c>RE</c>          <c>SOL</c>
 poder llevarme todos tus temores
-         SIm7b5     MI     LAm
+         <c>SIm7b5</c>     <c>MI</c>     <c>LAm</c>
 y que volvieras a mirar de frente,
         <c>RE</c>                          <c>SOL</c>
 a las alturas de tus sueños y a tus nortes
-        SIm7b5  MI   LAm
+        <c>SIm7b5</c>  <c>MI</c>   <c>LAm</c>
 y a tu amor; cómo quisiera
         <c>RE</c>                   <c>SOL</c>
 que tus manos no tocaran una sombra,
-        SIm7b5  MI     LAm  RE
+        <c>SIm7b5</c>  <c>MI</c>     <c>LAm</c>  <c>RE</c>
 sino el nombre de la Aurora.
  
             <c>SOL</c>
 Y aunque no pueda
           <c>LAm</c>       <c>RE</c>           <c>SOL</c>
 seguir sembrando contigo esta historia,
-        SIm7b5  MI         LAm
+        <c>SIm7b5</c>  <c>MI</c>         <c>LAm</c>
 te librarás de todas tus barreras;
          <c>RE</c>                   <c>SOL</c>
 y aunque lejos, yo gritaré tu nombre
-  SIm7b5  MI        LAm     RE      SOL
+  <c>SIm7b5</c>  <c>MI</c>        <c>LAm</c>     <c>RE</c>      <c>SOL</c>
 y le hablaré a la aurora de tu victoria.
 </pre>
         <div class="mt-4 pt-3 border-t border-stone-200 flex items-center justify-between text-xs text-gray-500 flex-wrap gap-2">
@@ -13329,7 +13333,7 @@ Toma mi mano y ven,
 déjame tomarte también;
 <c>MIm</c>        <c>LAm</c>
 quiero que puedas saber
-DO         MI°     SOL      MI
+<c>DO</c>         <c>MI°</c>     <c>SOL</c>      <c>MI</c>
 cómo se vistió de amor para mí
 <c>LAm</c>       <c>RE</c>         <c>SOL</c>  <c>DO9</c>  <c>SOL</c>  <c>FA</c>
 el día en que te conocí.
@@ -13637,7 +13641,7 @@ ya ni el miedo me impide amar
 y en tu fuerza aprendí a seguir.
 <c>FA</c>         <c>SOL</c>
 Quiero recorrer tus pasos
-SIm7b5      MI7
+<c>SIm7b5</c>      <c>MI7</c>
 y aferrarme de tu mano,
 <c>LAm</c>        <c>SOL#</c>
 llévame donde pueda ser
@@ -13650,7 +13654,7 @@ cómo escribes con mis manos tu canción.
 Hoy mi corazón confía,
 <c>REm</c>     <c>LAm</c>     <c>FA</c>           <c>SIb</c>     <c>DO</c>
 no hay amor más firme que el tuyo, Señor,
-SIm7b5   MI    LAm                 RE/FA#
+<c>SIm7b5</c>   <c>MI</c>    <c>LAm</c>                 <c>RE/FA#</c>
 pues yo sé que mi descanso está en Ti
   <c>REm</c>         <c>MIm</c>
 y no habrá tormenta
@@ -13673,7 +13677,7 @@ que se funde en mi pecho Señor,
 Tu silencio acompaña la paz.
 <c>FA</c>         <c>SOL</c>
 Y si logro ver tu sombra,
-SIm7b5        MI7
+<c>SIm7b5</c>        <c>MI7</c>
 mi alma en tu luz se asombra.
 <c>LAm</c>         <c>SOL#</c>
 óyeme, cantaré por Ti
@@ -13899,7 +13903,7 @@ Hoy despierta un llamado a convertir
 nuestros pasos en huellas de verdad
 <c>RE</c>      <c>LA</c>      <c>SOL</c>        <c>RE</c>
 nacen miradas felices de seguir
-     SOL-SIm-DO        <c>LA</c>
+     <c>SOL</c>-<c>SIm</c>-<c>DO</c>        <c>LA</c>
 la tarea que se nos confió.
 
 <c>RE</c>           <c>LA</c>        <c>SOL</c>          <c>RE</c>
@@ -14158,7 +14162,7 @@ tendemos la mano
 <c>SOL</c>           <c>DO</c>
 para servir a Chile.</b>
  
-Intermedio: REm  SOL  MIm  LA7  REm  SOL  DO
+Intermedio: <c>REm</c>  <c>SOL</c>  <c>MIm</c>  <c>LA7</c>  <c>REm</c>  <c>SOL</c>  <c>DO</c>
  
 <c>DO</c>          <c>FA</c>    <c>SOL</c>       <c>DO</c>
 Yo soy el camino, dice el Señor
@@ -14241,7 +14245,7 @@ quieres encontrar una luz que alumbre
 tu caminar.
 <c>FA</c>            <c>SOL</c>          <c>DO</c>    <c>DO/SI</c>  <c>LAm</c>
 Tu alma busca donde puedas descansar en paz,
-      <c>FA</c>          <c>SOL</c>        DO-DO7
+      <c>FA</c>          <c>SOL</c>        <c>DO</c>-<c>DO7</c>
 donde puedas encontrar la verdad.
     <c>FA</c>     <c>SOL</c>        <c>DO</c>   <c>DO/SI</c> <c>LAm</c>
 Todavía no amas, pero amas el amar,
@@ -14271,7 +14275,7 @@ sino con la presunción
 de quien quiere criticar.
   <c>FA</c>         <c>SOL</c>         <c>DO</c>   <c>DO/SI</c> <c>LAm</c>
 Pero cansado de buscar y nada encontrar,
-        <c>FA</c>             <c>SOL</c>      DO-DO7
+        <c>FA</c>             <c>SOL</c>      <c>DO</c>-<c>DO7</c>
 piensas si en Dios estará la verdad
       <c>FA</c>        <c>SOL</c>    <c>DO</c>       <c>DO/SI</c> <c>LAm</c>
 y hoy brilla en ti una luz de seguridad;
@@ -14378,14 +14382,14 @@ abre mis oídos y di "Yo soy tu salvador".
 Cordero de Dios,
        <c>SOL</c>        <c>MI</c>        <c>LA</c>
 Tú que quitas el pecado del mundo,
-       <c>MIm</c>         LA-DO    <c>SIm</c>  <c>LA</c>
+       <c>MIm</c>         <c>LA</c>-<c>DO</c>    <c>SIm</c>  <c>LA</c>
 ten piedad, ten piedad de nosotros.
 
 <c>RE</c> <c>LA</c>      <c>SIm</c>
 Cordero de Dios,
        <c>SOL</c>         <c>MI</c>       <c>LA</c>
 Tú que quitas el pecado del mundo,
-       <c>MIm</c>         LA-DO    <c>SIm</c>   <c>LA</c>
+       <c>MIm</c>         <c>LA</c>-<c>DO</c>    <c>SIm</c>   <c>LA</c>
 ten piedad, ten piedad de nosotros.
 
 <c>RE</c> <c>LA</c>      <c>SIm</c>
@@ -14534,21 +14538,21 @@ danos la paz, danos la paz, danos la paz.
 Cordero de Dios,
     <c>SIb</c>         <c>LAm</c>      <c>SOLm</c>
 que quitas el pecado del mundo,
-       FA       MIm7b5  LA7
+       <c>FA</c>       <c>MIm7b5</c>  <c>LA7</c>
 ten piedad de nosotros.
 
    <c>REm</c>     <c>DO</c>
 Cordero de Dios,
     <c>SIb</c>         <c>LAm</c>      <c>SOLm</c>
 que quitas el pecado del mundo,
-       FA       MIm7b5  LA7
+       <c>FA</c>       <c>MIm7b5</c>  <c>LA7</c>
 ten piedad de nosotros.
 
    <c>REm</c>     <c>DO</c>
 Cordero de Dios
     <c>SIb</c>         <c>LAm</c>      <c>SOLm</c>
 que quitas el pecado del mundo
-DO       FA   SIb      MIm7b5
+<c>DO</c>       <c>FA</c>   <c>SIb</c>      <c>MIm7b5</c>
 Danos la paz, danos la paz, 
 <c>LA7</c>      <c>REm</c>
 danos la paz.
@@ -14634,21 +14638,21 @@ danos la paz, Señor danos la paz.
         <pre class="song-pre">
    <c>REm</c>              <c>SIb</c>
 Cordero de Dios que quitas
-     <c>REm</c>      SIb-LA
+     <c>REm</c>      <c>SIb</c>-<c>LA</c>
 el pecado del mundo,
-<c>FA</c>     <c>DO</c>       SOLm-REm
+<c>FA</c>     <c>DO</c>       <c>SOLm</c>-<c>REm</c>
 ten piedad de nosotros,
-<c>SIb</c>    <c>DO</c>       REm-LAm-REm
+<c>SIb</c>    <c>DO</c>       <c>REm</c>-<c>LAm</c>-<c>REm</c>
 <b>ten piedad de nosotros.</b>
 
 
    <c>REm</c>              <c>SIb</c>
 Cordero de Dios que quitas
-     <c>REm</c>      SIb-LA
+     <c>REm</c>      <c>SIb</c>-<c>LA</c>
 el pecado del mundo,
-<c>FA</c>     <c>DO</c>       SOLm-REm
+<c>FA</c>     <c>DO</c>       <c>SOLm</c>-<c>REm</c>
 ten piedad de nosotros,
-<c>SIb</c>    <c>DO</c>       REm-LAm-REm
+<c>SIb</c>    <c>DO</c>       <c>REm</c>-<c>LAm</c>-<c>REm</c>
 <b>ten piedad de nosotros.</b>
 
 
@@ -14656,9 +14660,9 @@ ten piedad de nosotros,
 Cordero de Dios que quitas
      <c>SOLm</c>        <c>LA</c>
 el pecado del mundo,
-FA-DO    SOLm-REm   
+<c>FA</c>-<c>DO</c>    <c>SOLm</c>-<c>REm</c>   
 danos la paz,
-SIb-DO   REm-LAm-REm
+<c>SIb</c>-<c>DO</c>   <c>REm</c>-<c>LAm</c>-<c>REm</c>
 <b>danos la paz.</b>
 </pre>
         <div class="mt-4 pt-3 border-t border-stone-200 flex items-center justify-between text-xs text-gray-500 flex-wrap gap-2">
@@ -14692,13 +14696,13 @@ SIb-DO   REm-LAm-REm
         </div>
         <div class="flex flex-wrap gap-1 mb-3"><span class="text-xs bg-green-100 text-green-800 px-2 py-0.5 rounded-full font-medium">Cordero</span><span class="text-xs bg-yellow-100 text-yellow-800 px-2 py-0.5 rounded-full font-medium">Misa a la Chilena</span></div>
         <pre class="song-pre">
-<c>LAm</c>                            LA7-REm
+<c>LAm</c>                            <c>LA7</c>-<c>REm</c>
 Cordero de Dios, que del mundo quitas
-            SOL-DO                 <c>MI</c> <c>LAm</c>
+            <c>SOL</c>-<c>DO</c>                 <c>MI</c> <c>LAm</c>
 todos los pecados, ten piedad de nosotros.
-           SOL-DO              LA7-REm
+           <c>SOL</c>-<c>DO</c>              <c>LA7</c>-<c>REm</c>
 Cordero de Dios, que del mundo quitas
-            SOL-DO                 <c>MI</c> <c>LA</c>
+            <c>SOL</c>-<c>DO</c>                 <c>MI</c> <c>LA</c>
 Todos los pecados, ten piedad de nosotros.
 <b>
   <c>LA</c>   <c>RE</c>    <c>LA</c>
@@ -14748,21 +14752,21 @@ Danos la paz, danos la paz,
 Cordero de Dios, Cordero de Dios
 <c>FA#</c>           <c>SIm</c>    <c>FA#</c>         <c>SIm</c>
 que del mundo quitas todos los pecados,
-<c>LA</c>         <c>RE</c>   <c>LA</c>            <c>RE</c>  FA#-SIm
+<c>LA</c>         <c>RE</c>   <c>LA</c>            <c>RE</c>  <c>FA#</c>-<c>SIm</c>
 Cordero de Dios ten piedad de mí. 
 
 <c>SIm</c>        <c>SOL</c>   <c>LA</c>         <c>RE</c>
 Cordero de Dios, Cordero de Dios
 <c>FA#</c>           <c>SIm</c>    <c>FA#</c>         <c>SIm</c>
 que del mundo quitas todos los pecados,
-<c>LA</c>         <c>RE</c>   <c>LA</c>            <c>RE</c>  FA#-SIm
+<c>LA</c>         <c>RE</c>   <c>LA</c>            <c>RE</c>  <c>FA#</c>-<c>SIm</c>
 Cordero de Dios ten piedad de mí. 
 
 <c>SIm</c>        <c>SOL</c>   <c>LA</c>         <c>RE</c>
 Cordero de Dios, Cordero de Dios,
 <c>FA#</c>           <c>SIm</c>    <c>FA#</c>         <c>SIm</c>
 que del mundo quitas todos los pecados
-<c>LA</c>         <c>RE</c>    <c>LA</c>       <c>RE</c>  FA#-SIm
+<c>LA</c>         <c>RE</c>    <c>LA</c>       <c>RE</c>  <c>FA#</c>-<c>SIm</c>
 Cordero de Dios, danos la paz.
 </pre>
         <div class="mt-4 pt-3 border-t border-stone-200 flex items-center justify-between text-xs text-gray-500 flex-wrap gap-2">
@@ -14966,8 +14970,8 @@ danos la paz.
         <pre class="song-pre">
 
 Intro: 
-LAm  RE7  SOL      SI7       MIm (x2)
-MIm       SOL      SI7       MIm (x2)
+<c>LAm</c>  <c>RE7</c>  <c>SOL</c>      <c>SI7</c>       <c>MIm</c> (x2)
+<c>MIm</c>       <c>SOL</c>      <c>SI7</c>       <c>MIm</c> (x2)
 
 <c>MIm</c>  <c>RE</c>    <c>MIm</c>
 Cordero de Dios
@@ -14978,7 +14982,7 @@ ten piedad de nosotros,
        <c>DO</c>  <c>RE</c>   <c>MIm</c>
 ten piedad de nosotros.
 
-MIm       SOL      SI7       MIm (x2)
+<c>MIm</c>       <c>SOL</c>      <c>SI7</c>       <c>MIm</c> (x2)
 
 <c>MIm</c>  <c>RE</c>    <c>MIm</c>
 Cordero de Dios
@@ -14989,7 +14993,7 @@ ten piedad de nosotros,
        <c>DO</c>  <c>RE</c>   <c>MIm</c>
 ten piedad de nosotros.
 
-MIm       SOL      SI7       MIm (x2)
+<c>MIm</c>       <c>SOL</c>      <c>SI7</c>       <c>MIm</c> (x2)
 
 <c>MIm</c>  <c>RE</c>    <c>MIm</c>
 Cordero de Dios
@@ -15105,7 +15109,7 @@ acoge a dios niño que ahí va nacer.
         </div>
         <div class="flex flex-wrap gap-1 mb-3"><span class="text-xs bg-green-100 text-green-800 px-2 py-0.5 rounded-full font-medium">Agustinianos</span></div>
         <pre class="song-pre">
-Intro:   DO   SOL  FA      (2 veces)
+Intro:   <c>DO</c>   <c>SOL</c>  <c>FA</c>      (2 veces)
 
 <c>DO</c>     <c>SOL</c>    <c>FA</c>       <c>DO</c>    <c>SOL</c>   <c>FA</c>
 Grande eres, Señor,  y digno de alabanza. 
@@ -15125,7 +15129,7 @@ y está inquieto el corazón
       <c>LAm</c>           <c>SOL</c>          <c>FA</c>
 hasta encontrarte y descansar en Ti.</b>
 
-DO   SOL  FA      (2 veces)
+<c>DO</c>   <c>SOL</c>  <c>FA</c>      (2 veces)
 
 <c>DO</c>     <c>SOL</c>    <c>FA</c>       <c>DO</c>    <c>SOL</c>   <c>FA</c>
 Grande eres, Señor,  y digno de alabanza. 
@@ -15154,7 +15158,7 @@ hasta el día en que podamos verte
   <c>REm</c>          <c>FA</c>   <c>SOL</c>      <c>DO</c>
 y descansar al encontrarte a Ti.</b>
 
-DO   SOL   FA      (2 veces)
+<c>DO</c>   <c>SOL</c>   <c>FA</c>      (2 veces)
 
 (a capella)
 <b>Nos has hecho para Ti
@@ -15298,7 +15302,7 @@ creo, aunque todo me diga que no,
 //porque he basado mi fe en un Dios inmutable,
 <c>LA</c>                <c>REm</c>
 en un Dios que no cambia,
-SOL                DO (DO7)
+<c>SOL</c>                <c>DO</c> (<c>DO7</c>)
 en un Dios que es amor.//
 
 <c>DO</c>                  <c>LAm</c> 
@@ -15311,7 +15315,7 @@ creo, aunque sienta muy solo el dolor.
 que tiene al Señor por amigo,
 <c>LA7</c>             <c>REm</c>
 no vacila en la duda,
-SOL               DO (DO7)
+<c>SOL</c>               <c>DO</c> (<c>DO7</c>)
 se mantiene en la Fe.//
  
 <c>DO</c>                  <c>LAm</c>
@@ -15322,7 +15326,7 @@ creo, aunque que ya ni quisiera vivir.
 //Porque he fundado mi vida
                <c>DO</c>
 en palabras sinceras,
-LA7             REm   SOL            DO (DO7)
+<c>LA7</c>             <c>REm</c>   <c>SOL</c>            <c>DO</c> (<c>DO7</c>)
 en palabras de amigo, en palabras de Dios.//
  
 <c>DO</c>                     <c>LAm</c>
@@ -15335,7 +15339,7 @@ creo, aunque vea a los niños llorar.
 que Él sale al encuentro
 <c>LA7</c>              <c>REm</c>
 en las horas más duras
-SOL              DO (DO7)
+<c>SOL</c>              <c>DO</c> (<c>DO7</c>)
 con su Amor y su Luz.//
 
 <c>DO</c>    <c>FA</c>     <c>SOL</c>      <c>DO</c>
@@ -15542,13 +15546,13 @@ aquí estoy, Señor, vuelvo a echar mi red
       <c>DO</c>         <c>LAm</c>       <c>RE</c>
 en tu misterioso mar sin final.
 <b>
-          SOL        RE#°  SI7        MIm
+          <c>SOL</c>        <c>RE#°</c>  <c>SI7</c>        <c>MIm</c>
 Y creo en Ti, Señor, firme estoy en tu amor
         <c>DO</c>                 <c>SIb</c>
 pues me dejo llevar por tu fiel voluntad,
        <c>LAm</c>             <c>RE</c>
 por tu gracia yo caminaré.
-          SOL        RE#°  SI7        MIm
+          <c>SOL</c>        <c>RE#°</c>  <c>SI7</c>        <c>MIm</c>
 Y creo en Ti, Señor, firme estoy en tu amor
      <c>DO</c>     <c>SIb</c>       <c>LAm</c>
 a mi fragilidad Tú le dices  
@@ -16211,7 +16215,7 @@ y alrededor de ustedes nos quedamos
 <c>MIm</c>                  <c>SOLm</c> <c>LA</c>
 todos los ángeles cantando:
 <b>
-  RE-SOL-LA FA#m-SOL <c>MIm</c> <c>LA</c>
+  <c>RE</c>-<c>SOL</c>-<c>LA</c> <c>FA#m</c>-<c>SOL</c> <c>MIm</c> <c>LA</c>
 //Gloria,   gloria,  gloria//
     <c>RE</c>     
 a Jesús".</b>
@@ -17020,11 +17024,11 @@ Descansaré en tus promesas,
         <c>SOL</c>   <c>RE</c>
 y esperaré en Ti.</b>
 
-<c>MIm</c>     <c>SIm</c>       <c>DO</c>       <c>RE</c>   LAm-LA7  <c>RE</c>
+<c>MIm</c>     <c>SIm</c>       <c>DO</c>       <c>RE</c>   <c>LAm</c>-<c>LA7</c>  <c>RE</c>
 Pacientemente invoqué al Señor, y Él me oyó.
 <c>SIm</c>               <c>MIm</c>     <c>RE</c>     <c>DO</c>
 Me concedió los deseos de mi corazón,
-        <c>LAm</c> <c>RE</c>   DO-RE
+        <c>LAm</c> <c>RE</c>   <c>DO</c>-<c>RE</c>
 en su fidelidad.
 <b>
 <c>SOL</c>     <c>RE</c> <c>MIm</c>      <c>SIm</c>
@@ -17549,7 +17553,7 @@ no hay por qué temer.
         <pre class="song-pre">
 <c>DO</c>     <c>SOL</c> <c>LAm</c> 	
 Dios está aquí (esta aquí)
-    <c>FA</c>                  <c>SOL</c>    DO-DO7
+    <c>FA</c>                  <c>SOL</c>    <c>DO</c>-<c>DO7</c>
 tan cierto como el aire que respiro,
     <c>FA</c>         	     <c>SOL</c>       <c>DO</c>  <c>DO/SI</c>  <c>LAm</c>
 tan cierto como la mañana se levanta,
@@ -17595,7 +17599,7 @@ Dios te espera en el altar,
 vamos todos hasta Él,
 <c>FA</c>                    <c>DO</c>  <c>LAm</c>
 llevemos nuestras sonrisas,
-         <c>FA</c>           <c>SOL</c>              DO-SOL
+         <c>FA</c>           <c>SOL</c>              <c>DO</c>-<c>SOL</c>
 la inquietud, nuestra hambre y nuestra sed.
  
 <c>DO</c>         <c>FA</c>       <c>DO</c>
@@ -17604,7 +17608,7 @@ Dios sobre todo es amor,
 quiere nuestra salvación,
 <c>FA</c>              <c>DO</c>   <c>LAm</c>
 que juntos nos amemos
-     <c>FA</c>       <c>SOL</c>        DO-SOL
+     <c>FA</c>       <c>SOL</c>        <c>DO</c>-<c>SOL</c>
 para ir de la mano hasta Dios.
  
 <c>DO</c>              <c>FA</c>      <c>DO</c>
@@ -17613,7 +17617,7 @@ Al entrar en la casa de Dios,
 libre de rencores he de entrar,
 <c>FA</c>                 <c>DO</c>   <c>LAm</c>
 llevar el alma tranquila 
-     <c>FA</c>           <c>SOL</c>            DO-SOL
+     <c>FA</c>           <c>SOL</c>            <c>DO</c>-<c>SOL</c>
 y pensar que al salir más he de amar.
  
 <c>DO</c>           <c>LAm</c>        <c>FA</c>           <c>DO</c>
@@ -17757,7 +17761,7 @@ Bendita Tú eres entre las mujeres
 <c>DO</c>   <c>LAm</c>  <c>REm</c>   <c>SOL</c>    <c>DO</c> <c>LAm</c> <c>SOL</c>       <c>DO</c> <c>DO7</c>
 y bendito es el fruto, de tu vientre, Jesús.
 <b>
-(DO7)   FA       SOL              DO
+(<c>DO7</c>)   <c>FA</c>       <c>SOL</c>              <c>DO</c>
 // Eres Tú (eres Tú), la madre de todos
              <c>LAm</c>
 (la madre de todos)
@@ -17912,12 +17916,12 @@ Al corazón de Jesús
 En nombre del Padre, en nombre del Hijo
               <c>LA</c>            <c>MI</c>
 en nombre del Santo Espíritu,
-         LA-LA7
+         <c>LA</c>-<c>LA7</c>
 estamos aquí.</b>
 
         <c>RE</c>          <c>MI</c>        <c>LA</c>       <c>FA#m</c>
 Para alabar y agradecer, bendecir y adorar
-         <c>SIm</c>       <c>MI</c>           LA-LA7
+         <c>SIm</c>       <c>MI</c>           <c>LA</c>-<c>LA7</c>
 estamos aquí Señor, a tu disposición
         <c>RE</c>          <c>MI</c>        <c>LA</c>       <c>FA#m</c>
 Para alabar y agradecer, bendecir y adorar
@@ -18721,8 +18725,8 @@ doy mi vida por amor.
         </div>
         <div class="flex flex-wrap gap-1 mb-3"><span class="text-xs bg-green-100 text-green-800 px-2 py-0.5 rounded-full font-medium">Villancicos</span><span class="text-xs bg-blue-100 text-blue-800 px-2 py-0.5 rounded-full font-medium">Navidad</span></div>
         <pre class="song-pre">
-Intro: RE7---SOL---SI7---MIm
-       RE7---SOL---SI7---MI--SI7-MI--SI7-MI
+Intro: <c>RE7</c>---<c>SOL</c>---<c>SI7</c>---<c>MIm</c>
+       <c>RE7</c>---<c>SOL</c>---<c>SI7</c>---<c>MI</c>--<c>SI7</c>-<c>MI</c>--<c>SI7</c>-<c>MI</c>
  
 <c>MI</c>                         <c>LA</c>           <c>MI</c>
 No llores más vida mía que llega la Navidad,
@@ -19120,61 +19124,61 @@ Cristo aquí tienes mi amor.</b>
         </div>
         <div class="flex flex-wrap gap-1 mb-3"><span class="text-xs bg-green-100 text-green-800 px-2 py-0.5 rounded-full font-medium">Marianos</span><span class="text-xs bg-blue-100 text-blue-800 px-2 py-0.5 rounded-full font-medium">Cuaresma</span></div>
         <pre class="song-pre">
-Intro: LAm  MI°  LA7  REm
+Intro: <c>LAm</c>  <c>MI°</c>  <c>LA7</c>  <c>REm</c>
        <c>SOL</c>  <c>SIb</c>  <c>MI</c>
  
-              LAm  MI°  LA7      REm
+              <c>LAm</c>  <c>MI°</c>  <c>LA7</c>      <c>REm</c>
 Te miro a los ojos y entre tanto llanto
-          SOL                  MI°  DO
+          <c>SOL</c>                  <c>MI°</c>  <c>DO</c>
 parece mentira que te hayan clavado.
               <c>FA</c>    <c>SOL</c>          <c>MIm</c>  <c>LAm</c>
 Que seas el pequeño al que he acunado,
-            REm FA  SOL           MI°  DO
+            <c>REm</c> <c>FA</c>  <c>SOL</c>           <c>MI°</c>  <c>DO</c>
 y que se dormía tan pronto en mis brazos,
             <c>FA</c> <c>SOL</c>         <c>MIm</c> <c>LAm</c>
 el que se reía al mirar el cielo
-           REm  FA   SOL DO   SIm7b5  MI
+           <c>REm</c>  <c>FA</c>   <c>SOL</c> <c>DO</c>   <c>SIm7b5</c>  <c>MI</c>
 y cuando rezaba se ponía serio.
  
-             LAm  MI°  LA7      REm
+             <c>LAm</c>  <c>MI°</c>  <c>LA7</c>      <c>REm</c>
 Sobre este madero veo a aquel pequeño
               <c>SOL</c>
 que entre los doctores
-              MI°  DO
+              <c>MI°</c>  <c>DO</c>
 hablaba en el templo,
               <c>FA</c>     <c>SOL</c>           <c>MIm</c> <c>LAm</c>
 que cuando pregunté, respondió con calma
-            REm    FA SOL          MI°  DO
+            <c>REm</c>    <c>FA</c> <c>SOL</c>          <c>MI°</c>  <c>DO</c>
 que de los asuntos de Dios se encargaba.
           <c>FA</c>    <c>SOL</c>               <c>MIm</c>  <c>LAm</c>
 Ese mismo niño, el que está en la cruz,
                <c>REm</c>      
 el  Rey de los hombres,
-FA SOL     DO  SIm7b5  MI
+<c>FA</c> <c>SOL</c>     <c>DO</c>  <c>SIm7b5</c>  <c>MI</c>
 se llama Jesús.
 
-          LAm    MI°  LA7     REm
+          <c>LAm</c>    <c>MI°</c>  <c>LA7</c>     <c>REm</c>
 Ese mismo hombre ya no era un niño
-              SOL              MI°  DO
+              <c>SOL</c>              <c>MI°</c>  <c>DO</c>
 cuando en esa boda le pedí más vino,
            <c>FA</c>    <c>SOL</c>            <c>MIm</c> <c>LAm</c>
 que dio de comer a un millar de gente
-               REm    FA    SOL   MI°  DO
+               <c>REm</c>    <c>FA</c>    <c>SOL</c>   <c>MI°</c>  <c>DO</c>
 y a pobres y enfermos los miró de frente;
          <c>FA</c>      <c>SOL</c>           <c>MIm</c> <c>LAm</c>
 rió con aquellos a quienes más quiso,
              <c>REm</c>
 y lloró en silencio
-FA   SOL     DO  SIm7b5  MI
+<c>FA</c>   <c>SOL</c>     <c>DO</c>  <c>SIm7b5</c>  <c>MI</c>
 al morir su amigo.
  
-          LAm    MI°  LA7      REm
+          <c>LAm</c>    <c>MI°</c>  <c>LA7</c>      <c>REm</c>
 Ya cae la tarde, se nublan los cielos,
-            SOL             MI°  DO
+            <c>SOL</c>             <c>MI°</c>  <c>DO</c>
 pronto volverás a tu Padre Eterno.
            <c>FA</c>      <c>SOL</c>         <c>MIm</c> <c>LAm</c>
 Duérmete pequeño,  duérmete mi niño,
-                  REm  FA   SOL  MI°  DO
+                  <c>REm</c>  <c>FA</c>   <c>SOL</c>  <c>MI°</c>  <c>DO</c>
 que yo te he entregado todo mi cariño
             <c>FA</c>   <c>SOL</c>       <c>MIm</c> <c>LAm</c>
 como en Nazaret, aquella mañana,
@@ -19971,7 +19975,7 @@ que se acerca a su hijo y me abraza feliz.</b>
 Y si ahora yo acepto esa cruz
 <c>MIm</c>           <c>LAm</c>
 es por esa persona ese Dios,
-FA-SOL          <c>DO</c>   <c>SOL</c>  <c>MIm</c>
+<c>FA</c>-<c>SOL</c>          <c>DO</c>   <c>SOL</c>  <c>MIm</c>
 es por Cristo Jesús. 
 <b>
 <c>LAm</c>     <c>FA</c>           <c>DO</c>
@@ -20370,7 +20374,7 @@ Tú preparas ante mí una mesa,
 frente a mis enemigos;
 <c>DO</c>                  <c>FA</c>
 unges con óleo mi cabeza
-     <c>DO</c>     FA-DO   
+     <c>DO</c>     <c>FA</c>-<c>DO</c>   
 y mi copa rebosa.
 
 <c>DO</c>                           <c>FA</c>
@@ -20379,7 +20383,7 @@ Tu bondad y tu gracia me acompañan
 a lo largo de mi vida;
                             <c>FA</c>
 y habitaré en la Casa del Señor,
-    <c>DO</c>        FA--DO
+    <c>DO</c>        <c>FA</c>--<c>DO</c>
 por muy largo tiempo.
 </pre>
         <div class="mt-4 pt-3 border-t border-stone-200 flex items-center justify-between text-xs text-gray-500 flex-wrap gap-2">
@@ -20414,9 +20418,9 @@ por muy largo tiempo.
         <div class="flex flex-wrap gap-1 mb-3"><span class="text-xs bg-green-100 text-green-800 px-2 py-0.5 rounded-full font-medium">Marianos</span></div>
         <pre class="song-pre">
 <b>
-     <c>MIm</c>         RE-DO--LAm-Si7
+     <c>MIm</c>         <c>RE</c>-<c>DO</c>--<c>LAm</c>-<c>Si7</c>
 El Señor hizo en mí maravillas,
-MIm-RE      <c>MIm</c>
+<c>MIm</c>-<c>RE</c>      <c>MIm</c>
 Santo es mi Dios.</b>
 
    <c>MIm</c>        <c>LAm</c>       <c>MIm</c>
@@ -20442,9 +20446,9 @@ Desplegó el poder de su brazo
      <c>DO</c>          <c>LAm</c>          <c>SIm</c>        <c>MIm</c>
 y deshizo los proyectos del soberbio corazón.
 <b>
-     <c>MIm</c>         RE-DO--LAm-Si7
+     <c>MIm</c>         <c>RE</c>-<c>DO</c>--<c>LAm</c>-<c>Si7</c>
 El Señor hizo en mí maravillas,
-MIm-RE      <c>MIm</c>
+<c>MIm</c>-<c>RE</c>      <c>MIm</c>
 Santo es mi Dios.</b>
 
      <c>MIm</c>      <c>LAm</c>         <c>MIm</c>
@@ -20469,9 +20473,9 @@ Gloria al Padre y a Cristo, el Señor
        <c>DO</c>           <c>LAm</c>              <c>SIm</c>     <c>MIm</c>
 y al Espíritu que habita en nuestras almas, amén.
 <b>
-     <c>MIm</c>         RE-DO--LAm-Si7
+     <c>MIm</c>         <c>RE</c>-<c>DO</c>--<c>LAm</c>-<c>Si7</c>
 El Señor hizo en mí maravillas,
-MIm-RE      <c>MIm</c>
+<c>MIm</c>-<c>RE</c>      <c>MIm</c>
 Santo es mi Dios.</b>
 
 </pre>
@@ -20506,7 +20510,7 @@ Santo es mi Dios.</b>
         </div>
         <div class="flex flex-wrap gap-1 mb-3"><span class="text-xs bg-green-100 text-green-800 px-2 py-0.5 rounded-full font-medium">Entrada</span><span class="text-xs bg-yellow-100 text-yellow-800 px-2 py-0.5 rounded-full font-medium">Misa a la Chilena</span></div>
         <pre class="song-pre">
-INTRO: SOL   RE   LA   RE
+INTRO: <c>SOL</c>   <c>RE</c>   <c>LA</c>   <c>RE</c>
        <c>SOL</c>   <c>RE</c>   <c>LA</c>   <c>RE</c>    
        <c>LA</c>  <c>RE</c>    <c>LA</c>  <c>RE</c>
 
@@ -20989,7 +20993,7 @@ Jesús, Señor, el Emmanuel,
 tu amor salva nuestra vida.</b>
 
 <c>RE</c> - <c>MIm</c> - <c>LA</c> ---  <c>SIm</c> - <c>SOL</c> - <c>DO</c> - <c>LA</c>
-<c>SOL</c> - <c>FA#m</c> -  MIm-LA-RE
+<c>SOL</c> - <c>FA#m</c> -  <c>MIm</c>-<c>LA</c>-<c>RE</c>
 <c>MIm</c> - <c>SOL</c> - <c>LA</c>
 
 <c>RE</c>               <c>DO</c>           <c>SOL</c>
@@ -21284,56 +21288,56 @@ hemos puesto nuestra fe. //</b>
  
           <c>RE</c>
 Ni en las armas, ni en la guerra,
-        <c>SIm</c>        <c>SOL</c>          <c>LA</c>      RE-LA
+        <c>SIm</c>        <c>SOL</c>          <c>LA</c>      <c>RE</c>-<c>LA</c>
 sino en Ti, Señor, hemos puesto nuestra fe.
          <c>RE</c>
 Ni en la fuerza, ni en la ciencia,
-        <c>SIm</c>        <c>SOL</c>          <c>LA</c>      RE-LA
+        <c>SIm</c>        <c>SOL</c>          <c>LA</c>      <c>RE</c>-<c>LA</c>
 sino en Ti, Señor, hemos puesto nuestra fe.
  
       <c>RE</c>
 Ni tampoco en nosotros,
-        <c>SIm</c>        <c>SOL</c>          <c>LA</c>      RE-LA
+        <c>SIm</c>        <c>SOL</c>          <c>LA</c>      <c>RE</c>-<c>LA</c>
 sino en Ti, Señor, hemos puesto nuestra fe.
       <c>RE</c>
 Entre crisis de esperanza
-        <c>SIm</c>        <c>SOL</c>          <c>LA</c>      RE-LA
+        <c>SIm</c>        <c>SOL</c>          <c>LA</c>      <c>RE</c>-<c>LA</c>
 sólo en Ti, Señor, hemos puesto nuestra fe.
 
      <c>RE</c>
 Servidores de los hombres,
-       <c>SIm</c>        <c>SOL</c>          <c>LA</c>      RE-LA
+       <c>SIm</c>        <c>SOL</c>          <c>LA</c>      <c>RE</c>-<c>LA</c>
 porque sólo en Ti hemos puesto nuestra fe.
    <c>RE</c>
 Alegrando las tristezas,
-       <c>SIm</c>        <c>SOL</c>          <c>LA</c>      RE-LA
+       <c>SIm</c>        <c>SOL</c>          <c>LA</c>      <c>RE</c>-<c>LA</c>
 porque sólo en Ti hemos puesto nuestra fe.
 
      <c>RE</c>
 Pregoneros de la vida,
-       <c>SIm</c>        <c>SOL</c>          <c>LA</c>      RE-LA
+       <c>SIm</c>        <c>SOL</c>          <c>LA</c>      <c>RE</c>-<c>LA</c>
 porque sólo en Ti hemos puesto nuestra fe.
       <c>RE</c>
 Sembradores de esperanza,
-       <c>SIm</c>        <c>SOL</c>          <c>LA</c>      RE-LA
+       <c>SIm</c>        <c>SOL</c>          <c>LA</c>      <c>RE</c>-<c>LA</c>
 porque sólo en Ti hemos puesto nuestra fe.
  
      <c>RE</c>
 Portadores de la luz,
-       <c>SIm</c>        <c>SOL</c>          <c>LA</c>      RE-LA
+       <c>SIm</c>        <c>SOL</c>          <c>LA</c>      <c>RE</c>-<c>LA</c>
 porque sólo en Ti hemos puesto nuestra fe.
     <c>RE</c>
 Levadura de las masas,
-       <c>SIm</c>        <c>SOL</c>          <c>LA</c>      RE-LA
+       <c>SIm</c>        <c>SOL</c>          <c>LA</c>      <c>RE</c>-<c>LA</c>
 porque sólo en Ti hemos puesto nuestra fe.
  
       <c>RE</c>
 En la libertad creemos,
-       <c>SIm</c>        <c>SOL</c>          <c>LA</c>      RE-LA
+       <c>SIm</c>        <c>SOL</c>          <c>LA</c>      <c>RE</c>-<c>LA</c>
 porque sólo en Ti hemos puesto nuestra fe.
      <c>RE</c>
 Del amor somos testigos,
-       <c>SIm</c>        <c>SOL</c>          <c>LA</c>      RE-LA
+       <c>SIm</c>        <c>SOL</c>          <c>LA</c>      <c>RE</c>-<c>LA</c>
 porque sólo en Ti hemos puesto nuestra fe.
 </pre>
         <div class="mt-4 pt-3 border-t border-stone-200 flex items-center justify-between text-xs text-gray-500 flex-wrap gap-2">
@@ -21800,7 +21804,7 @@ nos saciaremos del amor.
 Entremos con gozo a la fiesta, 
  <c>MIm</c>                   <c>LA</c>
 ¡esta es la cena del Señor!
-  RE     LA#°         SIm
+  <c>RE</c>     <c>LA#°</c>         <c>SIm</c>
 Dejemos afuera la tristeza, 
         <c>MIm</c>          <c>DO</c>         <c>LA</c>
 ¡esta herencia nos dejó el Redentor!
@@ -21828,7 +21832,7 @@ Hoy ocurrirá un milagro,
 Cristo llegará en el vino y en el pan;
                     <c>SOL</c> 
 el sacrificio de la Pascua
-<c>MIm</c>      <c>SIm</c>           MI-LA
+<c>MIm</c>      <c>SIm</c>           <c>MI</c>-<c>LA</c>
 hoy se renueva en el altar.
    <c>RE</c>         <c>LA</c>               <c>SIm</c>  <c>LA</c>
 Alabemos al Señor que es Uno y Trino,
@@ -21868,7 +21872,7 @@ del cielo al alma llegará.
         <pre class="song-pre">
     <c>DO</c>                 <c>LAm</c>
 //Envía tu Espíritu, Señor
-      FA       SOL       DO    (SOL)
+      <c>FA</c>       <c>SOL</c>       <c>DO</c>    (<c>SOL</c>)
 que renueve la faz de la Tierra//
 </pre>
         <div class="mt-4 pt-3 border-t border-stone-200 flex items-center justify-between text-xs text-gray-500 flex-wrap gap-2">
@@ -22079,7 +22083,7 @@ de creer en tu amor.
 Es Imposible no creer en Ti,
        <c>DO</c>                   <c>LAm</c>
 es imposible no escuchar tu voz,
-       REm               MI       LAm (LA7)
+       <c>REm</c>               <c>MI</c>       <c>LAm</c> (<c>LA7</c>)
 es imposible no hacer de Ti mi ideal.</b>
  
 Cuando de Ti hablo, siempre presente estás,
@@ -23100,7 +23104,7 @@ sea nuestra alegría y nuestro gozo
 Den gracias al Señor porque es bueno,
            <c>MIm</c>   <c>LAm</c>      <c>RE</c>
 porque es eterna su misericordia
-<c>SOL</c> <c>RE</c>   MIm-LA-RE
+<c>SOL</c> <c>RE</c>   <c>MIm</c>-<c>LA</c>-<c>RE</c>
 Aleluya, aleluya.</b>
  
 <c>RE</c>             <c>LA</c>          <c>RE</c>
@@ -23581,17 +23585,17 @@ recíbeme.</b>
 Recíbeme, indigno de estar ante Ti,
   <c>LA</c>         <c>MI</c>             <c>FA#m</c>
 confiado por siempre en tu amor,
-   <c>MI</c>         SIm-MI
+   <c>MI</c>         <c>SIm</c>-<c>MI</c>
 me quiero ofrecer.
   <c>LA</c> <c>MI</c> <c>FA#m</c> <c>RE</c>   <c>DO#m</c>    <c>SIm</c>
 Recíbeme y dame deseos de amar,
-   <c>LA</c>       <c>MI</c>         <c>FA#m</c> <c>MI</c>    SIm-MI
+   <c>LA</c>       <c>MI</c>         <c>FA#m</c> <c>MI</c>    <c>SIm</c>-<c>MI</c>
 cantar y alabar tu amistad, recíbeme.
 
  
   <c>LA</c> <c>MI</c> <c>FA#m</c> <c>RE</c>             <c>DO#m</c>      <c>SIm</c>
 Recíbeme, junto a otros que quieren andar
-    <c>LA</c>         <c>MI</c>        <c>FA#m</c> <c>MI</c>    SIm-MI
+    <c>LA</c>         <c>MI</c>        <c>FA#m</c> <c>MI</c>    <c>SIm</c>-<c>MI</c>
 las sendas del Reino y la fe, recíbeme.
    <c>LA</c> <c>MI</c>     <c>FA#m</c> <c>MI</c> <c>SIm</c>             <c>MI</c>
 Tu Gracia me basta   para poderte cantar.
@@ -23845,7 +23849,7 @@ Felices (felices).
 <b>
 <c>DO</c>      <c>SOL</c>           <c>LAm</c>
 Felices hombres del Señor,
-<c>MIm</c>       <c>LA7</c>        REm-SOL
+<c>MIm</c>       <c>LA7</c>        <c>REm</c>-<c>SOL</c>
 del mundo serán primavera;
 <c>DO</c>       <c>SOL</c>       <c>LAm</c>
 el hielo funde con amor
@@ -23935,7 +23939,7 @@ viento de amor que regenera.
         </div>
         <div class="flex flex-wrap gap-1 mb-3"><span class="text-xs bg-green-100 text-green-800 px-2 py-0.5 rounded-full font-medium">Villancicos</span><span class="text-xs bg-blue-100 text-blue-800 px-2 py-0.5 rounded-full font-medium">Navidad</span></div>
         <pre class="song-pre">
-Intro: REm-LAm-MI-LAm
+Intro: <c>REm</c>-<c>LAm</c>-<c>MI</c>-<c>LAm</c>
  
           <c>LAm</c>
 // Los pastores corren presurosos
@@ -24059,57 +24063,57 @@ vengo a pedir perdón.</pre>
         <div class="flex flex-wrap gap-1 mb-3"><span class="text-xs bg-green-100 text-green-800 px-2 py-0.5 rounded-full font-medium">Comunión</span><span class="text-xs bg-blue-100 text-blue-800 px-2 py-0.5 rounded-full font-medium">Cuaresma</span></div>
         <pre class="song-pre">
 
-Intro: DO#m - SI4 - LAsus2 - SOL#m(b13) (x2)
+Intro: <c>DO#m</c> - <c>SI4</c> - <c>LAsus2</c> - <c>SOL#m(b13)</c> (x2)
 
   <c>DO#m</c>         <c>SIsus4</c>
 Jesús, estás herido
-   SOL#m(b13)            DO#m
+   <c>SOL#m(b13)</c>            <c>DO#m</c>
 tu alma y tu cuerpo entregados
                     <c>SIsus4</c>
 tus ojos se cierran cansados
-     SOL#m(b13)         DO#m-SIsus4-LAsus2
+     <c>SOL#m(b13)</c>         <c>DO#m</c>-<c>SIsus4</c>-<c>LAsus2</c>
 y un grito lloró tu abandono
 <b>
-FA#m11  SOL#m(b13) LAsus2
+<c>FA#m11</c>  <c>SOL#m(b13)</c> <c>LAsus2</c>
 Frente a Ti, Oh Jesús
-FA#m11      SOL#m(b13) LAsus2
+<c>FA#m11</c>      <c>SOL#m(b13)</c> <c>LAsus2</c>
 frente a ese llanto de amor
        <c>SIsus4</c> <c>SOL#</c>    <c>DO#m</c>
 aquí estoy Jesús para Ti
-SIsus4   LAsus2   SOL#m(b13) DO#m7
+<c>SIsus4</c>   <c>LAsus2</c>   <c>SOL#m(b13)</c> <c>DO#m7</c>
 hoy te entrego mi vida y mi cruz</b>
 
-DO#m - SI4 - LAsus2 - SOL#m(b13)
+<c>DO#m</c> - <c>SI4</c> - <c>LAsus2</c> - <c>SOL#m(b13)</c>
  
   <c>DO#m</c>           <c>SIsus4</c>
 Jesús, un miedo envuelve
-   SOL#m(b13)   DO#m
+   <c>SOL#m(b13)</c>   <c>DO#m</c>
 mi corazón angustiado
                       <c>SIsus4</c>
 pues hoy te he negado tres veces
-  SOL#m(b13)         DO#m-SIsus4-LAsus2
+  <c>SOL#m(b13)</c>         <c>DO#m</c>-<c>SIsus4</c>-<c>LAsus2</c>
 y no he sabido acompañarte
 
-FA#m11    SOL#m(b13) LAsus2
+<c>FA#m11</c>    <c>SOL#m(b13)</c> <c>LAsus2</c>
 Me vuelves a perdonar
-FA#m11    SOL#m(b13) LAsus2
+<c>FA#m11</c>    <c>SOL#m(b13)</c> <c>LAsus2</c>
 yo te vuelvo a prometer
        <c>SIsus4</c> <c>SOL#</c>    <c>DO#m</c>
 aquí estoy Jesús para Ti
-SIsus4   LAsus2   SOL#m(b13) DO#m
+<c>SIsus4</c>   <c>LAsus2</c>   <c>SOL#m(b13)</c> <c>DO#m</c>
 hoy te entrego mi vida y mi cruz.
 <b>
-FA#m11  SOL#m(b13) LAsus2
+<c>FA#m11</c>  <c>SOL#m(b13)</c> <c>LAsus2</c>
 Frente a Ti, Oh Jesús
-FA#m11      SOL#m(b13) LAsus2
+<c>FA#m11</c>      <c>SOL#m(b13)</c> <c>LAsus2</c>
 frente a ese llanto de amor
        <c>SIsus4</c> <c>SOL#</c>    <c>DO#m</c>
 aquí estoy Jesús para Ti
-SIsus4   LAsus2   SOL#m(b13) DO#m7
+<c>SIsus4</c>   <c>LAsus2</c>   <c>SOL#m(b13)</c> <c>DO#m7</c>
 hoy te entrego mi vida y mi cruz
-SIsus4   LAsus2   SOL#m(b13) DO#m7
+<c>SIsus4</c>   <c>LAsus2</c>   <c>SOL#m(b13)</c> <c>DO#m7</c>
 hoy te entrego mi vida y mi cruz
-SIsus4   LAsus2   SOL#m(b13) DO#m7
+<c>SIsus4</c>   <c>LAsus2</c>   <c>SOL#m(b13)</c> <c>DO#m7</c>
 hoy te entrego mi vida y mi cruz</b>
 </pre>
         <div class="mt-4 pt-3 border-t border-stone-200 flex items-center justify-between text-xs text-gray-500 flex-wrap gap-2">
@@ -24160,7 +24164,7 @@ a un nuevo lugar.
 Abrir caminos sin fronteras,
 <c>MIm</c>      <c>RE</c>           <c>LA</c>
 darse la mano como hermanos.
-LA#°     SIm    SOL    RE/FA#
+<c>LA#°</c>     <c>SIm</c>    <c>SOL</c>    <c>RE/FA#</c>
 Ir a las plazas sin vergüenza,
 <c>MIm</c>       <c>RE/FA#</c>   <c>SOL</c>        <c>LA</c>
 gritar al mundo la vida hecha fiesta.
@@ -24168,7 +24172,7 @@ gritar al mundo la vida hecha fiesta.
 Abrir caminos al Crucificado,
 <c>MIm</c>       <c>RE/FA#</c>    <c>LA</c>
 juntos sembrando salvación.
-LA#°     SIm    SOL     RE/FA#
+<c>LA#°</c>     <c>SIm</c>    <c>SOL</c>     <c>RE/FA#</c>
 Vayan cantando, creando lazos,
 <c>MIm</c>     <c>LA</c>        <c>DO9</c>
 un solo pueblo de Dios.</b>
@@ -24188,7 +24192,7 @@ a un nuevo lugar.
 Abrir caminos sin fronteras,
 <c>MIm</c>      <c>RE</c>           <c>LA</c>
 darse la mano como hermanos.
-LA#°     SIm    SOL    RE/FA#
+<c>LA#°</c>     <c>SIm</c>    <c>SOL</c>    <c>RE/FA#</c>
 Ir a las plazas sin vergüenza,
 <c>MIm</c>       <c>RE/FA#</c>   <c>SOL</c>        <c>LA</c>
 gritar al mundo la vida hecha fiesta.
@@ -24196,7 +24200,7 @@ gritar al mundo la vida hecha fiesta.
 Abrir caminos al Crucificado,
 <c>MIm</c>       <c>RE/FA#</c>    <c>LA</c>
 juntos sembrando salvación.
-LA#°     SIm    SOL     RE/FA#
+<c>LA#°</c>     <c>SIm</c>    <c>SOL</c>     <c>RE/FA#</c>
 Vayan cantando, creando lazos,
 <c>MIm</c>     <c>LA</c>        <c>SIb</c>  <c>SOLm</c>  <c>RE</c>
 un solo pueblo de Dios.</b>
@@ -24234,7 +24238,7 @@ un solo pueblo de Dios.</b>
         <pre class="song-pre">
 Cejillo 1er espacio
 
-INTRO: LA RE  FA#m  RE  MI (2 veces)
+INTRO: <c>LA</c> <c>RE</c>  <c>FA#m</c>  <c>RE</c>  <c>MI</c> (2 veces)
 
 <c>LA</c>       
 Sopla Señor te lo pido, 
@@ -25407,7 +25411,7 @@ Te adoramos, te glorificamos
 y también te damos gracias
       <c>FA</c>            <c>DO</c>
 Señor Dios Rey Celestial,
-      <c>SOL</c>           <c>DO</c>  SOL-DO SOL-DO
+      <c>SOL</c>           <c>DO</c>  <c>SOL</c>-<c>DO</c> <c>SOL</c>-<c>DO</c>
 Señor Dios rey celestial.
 
 
@@ -25425,7 +25429,7 @@ atiende ya nuestras súplicas.
 Tú que estás sentado a la diestra
       <c>FA</c>              <c>DO</c>
 del Padre, Piedad, piedad,
-       <c>SOL</c>         <c>DO</c>    SOL-DO SOL-DO
+       <c>SOL</c>         <c>DO</c>    <c>SOL</c>-<c>DO</c> <c>SOL</c>-<c>DO</c>
 ten piedad Tú de nosotros.
 
 
@@ -25443,7 +25447,7 @@ con el Espíritu Santo
 en la Gloria de Dios Padre.
       <c>FA</c>               <c>DO</c>
 Por todos los siglos, Amén,
-      <c>SOL</c>              <c>DO</c>  SOL-DO
+      <c>SOL</c>              <c>DO</c>  <c>SOL</c>-<c>DO</c>
 por todos los siglos, Amén.
 </pre>
         <div class="mt-4 pt-3 border-t border-stone-200 flex items-center justify-between text-xs text-gray-500 flex-wrap gap-2">
@@ -26000,7 +26004,7 @@ por embriagarme en tu voluntad.
         </div>
         <div class="flex flex-wrap gap-1 mb-3"><span class="text-xs bg-green-100 text-green-800 px-2 py-0.5 rounded-full font-medium">Comunión</span></div>
         <pre class="song-pre">
-Intro: LA FA#m SIm MI (x2) LA
+Intro: <c>LA</c> <c>FA#m</c> <c>SIm</c> <c>MI</c> (x2) <c>LA</c>
  
 <c>LA</c>         <c>SIm</c>         <c>RE</c>   <c>MI</c>   <c>LA</c>
 Gracias, Señor, por la vida y el sol
@@ -26292,7 +26296,7 @@ por los ami-------gos.</b>
         </div>
         <div class="flex flex-wrap gap-1 mb-3"><span class="text-xs bg-green-100 text-green-800 px-2 py-0.5 rounded-full font-medium">Villancicos</span><span class="text-xs bg-blue-100 text-blue-800 px-2 py-0.5 rounded-full font-medium">Navidad</span></div>
         <pre class="song-pre">
-Intro/intermedio: RE-LA-MI-LA (x2)
+Intro/intermedio: <c>RE</c>-<c>LA</c>-<c>MI</c>-<c>LA</c> (x2)
 
 <c>LA</c>                                    <c>MI</c>
 Como habían dicho los profetas, ¡ha nacido!
@@ -26686,7 +26690,7 @@ hagan esto en memoria mía.
 Una palabra verdadera
       <c>SOL</c>      <c>MIm</c> <c>RE</c>
 que penetra el corazón
-SIm7b5 LAm     SIm    DO       SOL
+<c>SIm7b5</c> <c>LAm</c>     <c>SIm</c>    <c>DO</c>       <c>SOL</c>
 afirmando el Espíritu con valentía
 <c>LAm</c>       <c>RE</c>
 para amar con razón:
@@ -26719,7 +26723,7 @@ hagan esto en memoria mía.
 Un mundo de justicia y solidaridad
 <c>MIm</c>     <c>RE</c>
 con los pequeños
-SIm7b5 LAm     SIm             DO
+<c>SIm7b5</c> <c>LAm</c>     <c>SIm</c>             <c>DO</c>
 para saciar el hambre en la historia
   <c>SOL</c>         <c>LAm</c>      <c>RE</c>
 haciendo vida estos sueños: 
@@ -26953,7 +26957,7 @@ mi vida quiero entregar.
         </div>
         <div class="flex flex-wrap gap-1 mb-3"><span class="text-xs bg-green-100 text-green-800 px-2 py-0.5 rounded-full font-medium">Comunión</span></div>
         <pre class="song-pre">
-Intro: SIb-DO-MIb-REm
+Intro: <c>SIb</c>-<c>DO</c>-<c>MIb</c>-<c>REm</c>
  
 <b>BAJOS:</b>
 <c>REm</c>         <c>DO</c>       <c>FA</c>
@@ -26982,10 +26986,10 @@ hay que vendar las heridas,
 hay que abrazar el dolor.
 
 <b>Intermedio:</b>
-<c>MIm</c> - <c>RE</c> - SOL------- RE- <c>MIm</c>
-<c>LAm</c> - <c>RE</c> - <c>SOL</c> - DO- SOL- <c>RE</c>
+<c>MIm</c> - <c>RE</c> - <c>SOL</c>------- <c>RE</c>- <c>MIm</c>
+<c>LAm</c> - <c>RE</c> - <c>SOL</c> - <c>DO</c>- <c>SOL</c>- <c>RE</c>
 <c>REm</c> - <c>SOL</c> - <c>DO</c>
-<c>SIb</c> - <c>FA</c> - DO------ <c>SIb</c> - <c>FA</c> - <c>DO</c>
+<c>SIb</c> - <c>FA</c> - <c>DO</c>------ <c>SIb</c> - <c>FA</c> - <c>DO</c>
 <c>DOm</c> - <c>RE</c> - <c>SOLm</c>
 
 <b>CONTRALTOS:</b>
@@ -27256,7 +27260,7 @@ y nos enseña a todos la música de Dios.
         <pre class="song-pre">
 <c>SIm</c>
 Haz que vea Tu rostro, 
-<c>MIm</c>    <c>LA</c>       RE-SI7
+<c>MIm</c>    <c>LA</c>       <c>RE</c>-<c>SI7</c>
 no me alejes de Ti;
 <c>MIm</c>      <c>LA</c>  <c>RE</c>     <c>SIm</c>
 que Tu Espíritu me inunde
@@ -27426,37 +27430,37 @@ en tus brazos y te digo "te quiero".
         <div class="flex flex-wrap gap-1 mb-3"><span class="text-xs bg-green-100 text-green-800 px-2 py-0.5 rounded-full font-medium">Comunión</span></div>
         <pre class="song-pre">
 <b>
-<c>DO</c>    <c>SOL</c>  <c>REm</c>   <c>LAm</c>  FA-DO      <c>SOL</c>
+<c>DO</c>    <c>SOL</c>  <c>REm</c>   <c>LAm</c>  <c>FA</c>-<c>DO</c>      <c>SOL</c>
 Heme aquí, heme aquí, ante tu presencia.
 <c>LAm</c>   <c>MIm</c>  <c>FA</c>    <c>DO</c>
 Heme aquí, heme aquí,
-<c>REm</c>       <c>LAm</c>   REm-SOL-DO
+<c>REm</c>       <c>LAm</c>   <c>REm</c>-<c>SOL</c>-<c>DO</c>
 hágase en mí tu voluntad.</b>
 
 
-<c>DO</c>     <c>FA</c>        DO-MIm 
+<c>DO</c>     <c>FA</c>        <c>DO</c>-<c>MIm</c> 
 Yo esperaba al Señor, 
 <c>LAm</c>    <c>REm</c>      <c>SOL</c>
 Él escuchó mi lamento,
-<c>REm</c>        <c>SOL7</c>    <c>LAm</c> -MIm 
+<c>REm</c>        <c>SOL7</c>    <c>LAm</c> -<c>MIm</c> 
 puso en mi boca un canto, 
 <c>FA</c>       <c>RE7</c>             <c>SOL</c>
 un nuevo himno a nuestro Dios.
 
-<c>DO</c>          <c>FA</c>          DO-MIm 
+<c>DO</c>          <c>FA</c>          <c>DO</c>-<c>MIm</c> 
 Como está escrito en tu libro:
  <c>LAm</c>        <c>REm</c>     <c>SOL</c>
 "Para hacer tu voluntad",
-<c>REm</c>   <c>SOL7</c>       <c>LAm</c> -MIm 
+<c>REm</c>   <c>SOL7</c>       <c>LAm</c> -<c>MIm</c> 
 Oh, Señor, yo lo quiero,
 <c>FA</c>       <c>RE7</c>          <c>SOL</c>
 llevo tu ley en mis entrañas. 
 
-<c>DO</c>      <c>FA</c>            DO-MIm 
+<c>DO</c>      <c>FA</c>            <c>DO</c>-<c>MIm</c> 
 Tu salvación he proclamado
 <c>LAm</c>     <c>REm</c>      <c>SOL</c>
 ante la gran asamblea,
-<c>REm</c>     <c>SOL7</c>     <c>LAm</c> -MIm 
+<c>REm</c>     <c>SOL7</c>     <c>LAm</c> -<c>MIm</c> 
 no he cerrado mi boca,
 <c>FA</c>    <c>RE7</c>              <c>SOL</c>
 sí, Señor, ¡Tú bien lo sabes!
@@ -27634,7 +27638,7 @@ Qué alegría es poder compartirla otra vez;
 hermosa, hermosa es tu palabra.
        <c>LA</c>        <c>SI7</c>       <c>SOL#m</c>      <c>DO#m</c>
 Qué alegría es poder compartirla otra vez;
-   <c>MI</c>       <c>SI7</c>          LA-LAm-MI
+   <c>MI</c>       <c>SI7</c>          <c>LA</c>-<c>LAm</c>-<c>MI</c>
 hermosa, hermosa es tu palabra.
 </pre>
         <div class="mt-4 pt-3 border-t border-stone-200 flex items-center justify-between text-xs text-gray-500 flex-wrap gap-2">
@@ -27674,7 +27678,7 @@ Me levantaré e iré a mi Padre
 y le diré, le diré:
 <c>LAm</c>             <c>REm</c>     <c>LAm</c>
 Me levantaré e iré a mi Padre
-<c>MI</c>              LAm-LA7
+<c>MI</c>              <c>LAm</c>-<c>LA7</c>
 y le diré, le diré:
 <c>REm</c>                                      <c>LAm</c>
 Padre he pecado contra el cielo y contra Ti.
@@ -28111,7 +28115,7 @@ con tu azul mensaje de paz y de amor.
         <div class="flex flex-wrap gap-1 mb-3"><span class="text-xs bg-green-100 text-green-800 px-2 py-0.5 rounded-full font-medium">Comunión</span></div>
         <pre class="song-pre">
 <b>
-<c>LAm</c>   <c>MI</c>     <c>LAm</c> <c>FA</c>     <c>SOL</c>   DO-MI
+<c>LAm</c>   <c>MI</c>     <c>LAm</c> <c>FA</c>     <c>SOL</c>   <c>DO</c>-<c>MI</c>
 Danos un corazón grande para amar;
 <c>LAm</c>   <c>MI</c>     <c>LAm</c> <c>SOL</c>           <c>LAm</c>
 danos un corazón fuerte para luchar.</b>
@@ -28538,7 +28542,7 @@ hoy nos presentamos ante Ti, Señor.
         <div class="flex flex-wrap gap-1 mb-3"><span class="text-xs bg-green-100 text-green-800 px-2 py-0.5 rounded-full font-medium">Perdón</span><span class="text-xs bg-blue-100 text-blue-800 px-2 py-0.5 rounded-full font-medium">Cuaresma</span></div>
         <pre class="song-pre">
 <b>
-   DO-SOL <c>LAm</c>     <c>FA</c>      <c>SOL</c>
+   <c>DO</c>-<c>SOL</c> <c>LAm</c>     <c>FA</c>      <c>SOL</c>
 /: Hoy perdóname, hoy por siempre. :/</b>
 
       <c>DO</c>        <c>DO7</c>        <c>FA</c>
@@ -28546,7 +28550,7 @@ Sin mirar la mentira, el vacío en nuestras vidas,
         <c>DO</c>                  <c>SOL</c>
 nuestra falta de amor y caridad.
 <b>
-DO-SOL <c>LAm</c>     <c>FA</c>      <c>SOL</c>
+<c>DO</c>-<c>SOL</c> <c>LAm</c>     <c>FA</c>      <c>SOL</c>
 Hoy perdóname, hoy por siempre.</b>
 
       <c>DO</c>              <c>DO7</c>
@@ -29002,11 +29006,11 @@ testigo que voy a enviar.
 <b>
 <c>MI</c>          <c>LA</c>     <c>LA7</c>   <c>RE</c>             <c>LA</c>
 Id, amigos, por el mundo anunciando el amor
-<c>RE</c>             LA-FA#m-MI              <c>LA</c>
+<c>RE</c>             <c>LA</c>-<c>FA#m</c>-<c>MI</c>              <c>LA</c>
 mensajero de la vida, de la paz y el perdón.
 <c>MI</c>           <c>LA</c>     <c>LA7</c>   <c>RE</c>            <c>LA</c>
 Sed, amigos, los testigos de mi resurrección,
-<c>RE</c>                    LA-FA#m-MI          <c>LA</c>
+<c>RE</c>                    <c>LA</c>-<c>FA#m</c>-<c>MI</c>          <c>LA</c>
 id llevando mi presencia, ¡con vosotros estoy!</b>
  
 <c>LA</c>                 <c>FA#m</c>
@@ -29899,7 +29903,7 @@ así de par en par, eres mi mejor amigo.
 Me vuelves a salvar
   <c>SOL</c>                 <c>LA</c>
 como lo hiciste en la cruz,
-   <c>FA#</c>       <c>SIm</c>        <c>SOL</c>       LA-LA7
+   <c>FA#</c>       <c>SIm</c>        <c>SOL</c>       <c>LA</c>-<c>LA7</c>
 en cada misa Tú repites tu sacrificio.
                 <c>RE</c>    <c>SOL</c>           <c>LA</c>
 Hoy quiero comulgar, abrirte mi corazón,
@@ -29951,7 +29955,7 @@ sin hablar (sin hablar),
 como en la cruz (como en la cruz),
     <c>RE</c>          <c>SI7</c>         <c>MI</c>
 tus ojos buscan dónde descansar.
-      <c>LA</c>       <c>RE</c>          LA-LA7
+      <c>LA</c>       <c>RE</c>          <c>LA</c>-<c>LA7</c>
 Jesús mírame estoy junto a Ti.
 <b>
        <c>RE</c>          <c>DO#m</c>  
@@ -29960,7 +29964,7 @@ Aunque sólo soy un niño,
 yo lo quiero de verdad
     <c>RE</c>             <c>LA</c>      
 y le canto con los ángeles
-    <c>SIm</c>    <c>MI</c> LA-LA7
+    <c>SIm</c>    <c>MI</c> <c>LA</c>-<c>LA7</c>
 a Jesús en el altar.
        <c>RE</c>        <c>DO#m</c>         <c>RE</c>          <c>FA#m</c>
 Aunque sea muy poquito lo que yo le puedo dar,
@@ -30547,9 +30551,9 @@ te traigo el pan y el vino de amor
 <c>MI</c>             <c>LA</c>
 que se convertirán
 <b>
-      <c>RE</c>        <c>MI</c>  	     LA-MI-FA#m
+      <c>RE</c>        <c>MI</c>  	     <c>LA</c>-<c>MI</c>-<c>FA#m</c>
 en tu cuerpo (Señor) y en tu sangre,
-<c>SIm</c>        <c>MI</c>         LA-LA7
+<c>SIm</c>        <c>MI</c>         <c>LA</c>-<c>LA7</c>
 don de tu amor y santidad.
          <c>RE</c>          <c>MI</c>
 Frente a Ti estoy, Señor,
@@ -31029,14 +31033,14 @@ transforma nuestras vidas en nuestro hogar.
 ahí viene domesticá'//
         <c>SOL</c>        <c>RE</c>
 //no le teman a la burra
-    LA                 RE (RE7)
+    <c>LA</c>                 <c>RE</c> (<c>RE7</c>)
 que no es na burra maneá'//
 <b>
      <c>SOL</c>    <c>RE</c>      <c>LA</c>           <c>RE</c>
 //Ay sí, ay no, mariquita me regaló//
        <c>SOL</c>          <c>RE</c>
 //un canario que cantaba
-       LA           RE  (RE7)
+       <c>LA</c>           <c>RE</c>  (<c>RE7</c>)
 los cantos del niño Dios//</b>
  
     <c>RE</c>
@@ -31045,7 +31049,7 @@ los cantos del niño Dios//</b>
 que viene de Campajal//
          <c>SOL</c>            <c>RE</c>
 //y no había venido más antes
-    LA            RE (RE7)
+    <c>LA</c>            <c>RE</c> (<c>RE7</c>)
 por no tener un bozal//
 
      <c>RE</c>
@@ -31054,7 +31058,7 @@ por no tener un bozal//
 que no va a querer bailar//
       <c>SOL</c>        <c>RE</c>
 //Échele una Mariquita
-   LA          RE (RE7)
+   <c>LA</c>          <c>RE</c> (<c>RE7</c>)
 y aguáitela no más //  
 </pre>
         <div class="mt-4 pt-3 border-t border-stone-200 flex items-center justify-between text-xs text-gray-500 flex-wrap gap-2">
@@ -31576,7 +31580,7 @@ y reine en todos, siempre como nueva ley.
         </div>
         <div class="flex flex-wrap gap-1 mb-3"><span class="text-xs bg-green-100 text-green-800 px-2 py-0.5 rounded-full font-medium">Villancicos</span><span class="text-xs bg-blue-100 text-blue-800 px-2 py-0.5 rounded-full font-medium">Navidad</span></div>
         <pre class="song-pre">
-(LAm)-LA7         REm       SOL      DO
+(<c>LAm</c>)-<c>LA7</c>         <c>REm</c>       <c>SOL</c>      <c>DO</c>
 A la huella, a la huella, José y María,
 <c>LAm</c>                <c>REm</c>     <c>MI</c>        <c>LAm</c>
 por las pampas heladas, cardos y ortigas.
@@ -31874,7 +31878,7 @@ tu nombre gritaré, cantaré.
         </div>
         <div class="flex flex-wrap gap-1 mb-3"><span class="text-xs bg-green-100 text-green-800 px-2 py-0.5 rounded-full font-medium">Salida</span><span class="text-xs bg-yellow-100 text-yellow-800 px-2 py-0.5 rounded-full font-medium">Misa a la Chilena</span></div>
         <pre class="song-pre">
-(DO)   SOL7     DO     (4 veces)
+(<c>DO</c>)   <c>SOL7</c>     <c>DO</c>     (4 veces)
 
 <c>DO</c>              <c>SOL7</c>           <c>DO</c>
 La vida, te doy gracias por tu cena,
@@ -32040,7 +32044,7 @@ milagros de gracias en el corazón.
 Llegue hasta mí tu saludo, María
   <c>MIm</c>      <c>SIm</c>        <c>DO</c>  <c>RE</c>
 y colma mi alma del Espíritu;
-RE#°      MIm     SIm          DO      SOL
+<c>RE#°</c>      <c>MIm</c>     <c>SIm</c>          <c>DO</c>      <c>SOL</c>
 quién soy yo para que la madre de mi Señor
 <c>LAm</c>         <c>SOL</c>    <c>DO</c>            <c>LA</c>
 venga a visitarme, venga a proclamar
@@ -32085,7 +32089,7 @@ milagros de gracias en el corazón.
 // Llegue hasta mí tu saludo, María
   <c>MIm</c>      <c>SIm</c>        <c>DO</c>  <c>RE</c>
 y colma mi alma del Espíritu;
-RE#°      MIm     SIm          DO      SOL
+<c>RE#°</c>      <c>MIm</c>     <c>SIm</c>          <c>DO</c>      <c>SOL</c>
 quién soy yo para que la madre de mi Señor
 <c>LAm</c>         <c>SOL</c>    <c>DO</c>            <c>LA</c>
 venga a visitarme, venga a proclamar
@@ -32162,7 +32166,7 @@ luz en mi camino y mi verdad.
         <div class="flex flex-wrap gap-1 mb-3"><span class="text-xs bg-green-100 text-green-800 px-2 py-0.5 rounded-full font-medium">Liturgias Especiales</span><span class="text-xs bg-blue-100 text-blue-800 px-2 py-0.5 rounded-full font-medium">Cuaresma</span></div>
         <pre class="song-pre">
 
-Intro: RE  SOL  MIm  LA  RE  (2 veces)
+Intro: <c>RE</c>  <c>SOL</c>  <c>MIm</c>  <c>LA</c>  <c>RE</c>  (2 veces)
 <b>
 <c>RE</c>       <c>LA</c>      <c>MIm</c>          <c>RE</c>  <c>LA</c>
 Lava mis pies, Señor, lava mi alma;
@@ -32387,15 +32391,15 @@ Por el envío del Espíritu Santo/ líbranos Señor
 
 <c>LA</c>
 Nosotros que somos pecadores, te pedimos
-                           <c>RE</c>          MI-FA#m
+                           <c>RE</c>          <c>MI</c>-<c>FA#m</c>
                          / Te rogamos, óyenos
 
 <b>Si hay bautizandos
 <c>LA</c>
 Para que por la gracia del bautismo
-                               SIm-LA
+                               <c>SIm</c>-<c>LA</c>
 hagas renacer a estos elegidos tuyos
-                           <c>RE</c>          MI-FA#m
+                           <c>RE</c>          <c>MI</c>-<c>FA#m</c>
                          / Te rogamos, óyenos
 
 Si no hay bautizandos
@@ -32403,13 +32407,13 @@ Si no hay bautizandos
 Para que con tu gracia santifiques esta fuente
 
 en la que han de renacer tus hijos
-                           <c>RE</c>          MI-FA#m
+                           <c>RE</c>          <c>MI</c>-<c>FA#m</c>
                          / Te rogamos, óyenos</b>
 
-<c>LA</c>                           <c>RE</c>          MI-FA#m
+<c>LA</c>                           <c>RE</c>          <c>MI</c>-<c>FA#m</c>
 Jesús, hijo del Dios vivo  / Te rogamos, óyenos
 
-<c>FA#m</c>    DO#m-FA#m                   DO#m-FA#m
+<c>FA#m</c>    <c>DO#m</c>-<c>FA#m</c>                   <c>DO#m</c>-<c>FA#m</c>
 Cristo, óyenos            / Cristo, óyenos
 Cristo, escúchanos        / Cristo, escúchanos.
 </pre>
@@ -32511,7 +32515,7 @@ Por el envío del Espíritu Santo/ líbranos Señor
 
 <c>LA</c>
 Nosotros que somos pecadores, te pedimos
-                            <c>RE</c>          MI-FA#m
+                            <c>RE</c>          <c>MI</c>-<c>FA#m</c>
                           / Te rogamos, óyenos
 
 <b>Si hay bautizandos
@@ -32519,7 +32523,7 @@ Nosotros que somos pecadores, te pedimos
 Para que por la gracia del bautismo
 
 hagas renacer a estos elegidos tuyos
-                            <c>RE</c>          MI-FA#m
+                            <c>RE</c>          <c>MI</c>-<c>FA#m</c>
                           / Te rogamos, óyenos
 
 Si no hay bautizandos
@@ -32527,13 +32531,13 @@ Si no hay bautizandos
 Para que con tu gracia
 santifiques esta fuente
 en la que han de renacer tus hijos
-                            <c>RE</c>          MI-FA#m
+                            <c>RE</c>          <c>MI</c>-<c>FA#m</c>
                           / Te rogamos, óyenos</b>
 
-<c>LA</c>                           <c>RE</c>          MI-FA#m
+<c>LA</c>                           <c>RE</c>          <c>MI</c>-<c>FA#m</c>
 Jesús, hijo del Dios vivo  / Te rogamos, óyenos
 
-<c>FA#m</c>    DO#m-FA#m                   DO#m-FA#m
+<c>FA#m</c>    <c>DO#m</c>-<c>FA#m</c>                   <c>DO#m</c>-<c>FA#m</c>
 Cristo, óyenos            / Cristo, óyenos
 Cristo, escúchanos        / Cristo, escúchanos.
 </pre>
@@ -32632,7 +32636,7 @@ Por tu muerte y resurrección    / líbranos Señor
 Por el envío del Espíritu Santo / líbranos Señor
 
 
-<c>LA</c>                            <c>RE</c>          MI-FA#m
+<c>LA</c>                            <c>RE</c>          <c>MI</c>-<c>FA#m</c>
 Nosotros que somos pecadores /Te rogamos, óyenos
 
 <b>(* Votos solemnes *)</b>
@@ -32642,21 +32646,21 @@ Para que hagas más fecunda
 la vida de la Iglesia,
 con la oblación
 y el apostolado de tus hijos,
-                             <c>RE</c>          MI-FA#m
+                             <c>RE</c>          <c>MI</c>-<c>FA#m</c>
                            / Te rogamos, óyenos
 
 <c>LA</c>
 Para que ordenes la vida
 y el trabajo de los religiosos
 al progreso de la sociedad humana,
-                             <c>RE</c>          MI-FA#m
+                             <c>RE</c>          <c>MI</c>-<c>FA#m</c>
                            / Te rogamos, óyenos
 
 <c>LA</c>
 Para que concedas a la Familia Agustina
 ser siempre comunidad concorde
 de buscadores y anunciadores de Dios
-                             <c>RE</c>          MI-FA#m
+                             <c>RE</c>          <c>MI</c>-<c>FA#m</c>
                            / Te rogamos, óyenos
 
 <c>LA</c>
@@ -32664,7 +32668,7 @@ Para que compenses con tus dones
 el sacrificio que representa
 para los padres de este siervo tuyo
 la entrega de su hijo,
-                             <c>RE</c>          MI-FA#m
+                             <c>RE</c>          <c>MI</c>-<c>FA#m</c>
                            / Te rogamos, óyenos
 
 <b>(* Ordenación *)</b>
@@ -32672,57 +32676,57 @@ la entrega de su hijo,
 <c>LA</c>
 Para que gobiernes y conserves
 a tu Santa Iglesia,         
-                             <c>RE</c>          MI-FA#m
+                             <c>RE</c>          <c>MI</c>-<c>FA#m</c>
                            / Te rogamos, óyenos
 
 <c>LA</c>
 Para que asistas al Papa
 y a todos sus miembros del clero
 en tu santo servicio,
-                             <c>RE</c>          MI-FA#m
+                             <c>RE</c>          <c>MI</c>-<c>FA#m</c>
                            / Te rogamos, óyenos
 
 <c>LA</c>
 Para que bendigas a este elegido,
-                             <c>RE</c>          MI-FA#m
+                             <c>RE</c>          <c>MI</c>-<c>FA#m</c>
                            / Te rogamos, óyenos
 
 <c>LA</c>
 Para que bendigas
 y santifiques a este elegido,
-                             <c>RE</c>          MI-FA#m
+                             <c>RE</c>          <c>MI</c>-<c>FA#m</c>
                            / Te rogamos, óyenos
 
 <c>LA</c>
 Para que bendigas, santifiques
 y consagres a este elegido,
-                             <c>RE</c>          MI-FA#m
+                             <c>RE</c>          <c>MI</c>-<c>FA#m</c>
                            / Te rogamos, óyenos
 
 <c>LA</c>
 Para que concedas paz y concordia
 a todos los pueblos de la tierra,
-                             <c>RE</c>          MI-FA#m
+                             <c>RE</c>          <c>MI</c>-<c>FA#m</c>
                            / Te rogamos, óyenos
 
 <c>LA</c>
 Para que tengas misericordia
 de todos los que sufren 
-                             <c>RE</c>          MI-FA#m
+                             <c>RE</c>          <c>MI</c>-<c>FA#m</c>
                            / Te rogamos, óyenos
 
 <c>LA</c>
 Para que nos fortalezas y asistas
 en tu servicio santo
-                             <c>RE</c>          MI-FA#m
+                             <c>RE</c>          <c>MI</c>-<c>FA#m</c>
                            / Te rogamos, óyenos
 
 <b>(* Fin sección variable *)</b>
 
-<c>LA</c>                           <c>RE</c>          MI-FA#m
+<c>LA</c>                           <c>RE</c>          <c>MI</c>-<c>FA#m</c>
 Jesús, hijo del Dios vivo  / Te rogamos, óyenos
 
-<c>FA#m</c>    DO#m-FA#m                   DO#m-FA#m
+<c>FA#m</c>    <c>DO#m</c>-<c>FA#m</c>                   <c>DO#m</c>-<c>FA#m</c>
 Cristo, óyenos            / Cristo, óyenos
 Cristo, escúchanos        / Cristo, escúchanos.
 </pre>
@@ -33323,7 +33327,7 @@ engendraste a tu santo creador,
 y permaneces siempre virgen.
 <c>FA</c>            <c>LAm</c>
 Recibe el saludo
-REm-SOL     <c>MIm</c>    
+<c>REm</c>-<c>SOL</c>     <c>MIm</c>    
 del ángel Gabriel,
 <c>LAm</c>                      <c>REm</c>   <c>DO</c>
 y ten piedad de nosotros pecadores.
@@ -33679,7 +33683,7 @@ llega a sus fieles de generación
 <c>LA7</c>      <c>REm</c>
 en generación.
 <b>
-   <c>SIb</c>      DO-REm
+   <c>SIb</c>      <c>DO</c>-<c>REm</c>
 Proclama mi alma. (4 veces)</b>
 
 <c>REm</c>        <c>SIb</c>  <c>DO</c>        <c>REm</c>
@@ -33697,10 +33701,10 @@ y a los ricos los despide vacíos,
        <c>LA7</c>    <c>REm</c>
 los despide vacíos. 
 <b>
-   <c>SIb</c>      DO-REm
+   <c>SIb</c>      <c>DO</c>-<c>REm</c>
 Proclama mi alma. (4 veces)</b>
 
-<c>REm</c>           SIb-DO    <c>REm</c>
+<c>REm</c>           <c>SIb</c>-<c>DO</c>    <c>REm</c>
 Auxilia a Israel su siervo,
     <c>SIb</c>        <c>DO</c>       <c>REm</c>
 acordándose de su misericordia
@@ -33711,7 +33715,7 @@ en favor de Abraham y su descendencia,
 <c>LA7</c>     <c>REm</c>
 por siempre.
 <b>
-   <c>SIb</c>      DO-REm
+   <c>SIb</c>      <c>DO</c>-<c>REm</c>
 Proclama mi alma. (4 veces)</b>
 </pre>
         <div class="mt-4 pt-3 border-t border-stone-200 flex items-center justify-between text-xs text-gray-500 flex-wrap gap-2">
@@ -34031,7 +34035,7 @@ maravillas hizo en mí.
 // Maravilloso es,
   <c>DO</c>
 maravilloso es,
-       <c>SOL</c>        <c>RE</c>            SOL-DO-SOL
+       <c>SOL</c>        <c>RE</c>            <c>SOL</c>-<c>DO</c>-<c>SOL</c>
 Cuando pienso que Dios me ama a mí. //
 </pre>
         <div class="mt-4 pt-3 border-t border-stone-200 flex items-center justify-between text-xs text-gray-500 flex-wrap gap-2">
@@ -34243,7 +34247,7 @@ a ti para ser tu madre Dios te eligió
 te mandó un ángel
        <c>LA7</c>            <c>REm</c>
 para pedir tu consentimiento
-        SOL            DO     (DO7)
+        <c>SOL</c>            <c>DO</c>     (<c>DO7</c>)
 tú le dijiste "tu esclava soy". //
  
 <c>DO</c>
@@ -34254,14 +34258,14 @@ hasta que el pequeñito nació en Belén
 // y llegaron los pobres y peregrinos
         <c>LA7</c>              <c>REm</c>
 para adorarlo, y Él sonreía,
-           SOL            DO  (DO7)
+           <c>SOL</c>            <c>DO</c>  (<c>DO7</c>)
 Dios con nosotros, el Emmanuel. //
 <b>
 <c>SOL</c>                        <c>DO</c>  <c>DO7</c>
 Por eso voy a darte mi corazón
    <c>FA</c>           <c>DO</c>        <c>LA7</c>     
 // y cantando repetiré tu nombre,
-  REm  SOL   DO (DO7)
+  <c>REm</c>  <c>SOL</c>   <c>DO</c> (<c>DO7</c>)
 María de Nazaret.</b>
  
 <c>DO</c>
@@ -34272,7 +34276,7 @@ Dios aprendió el oficio del buen José,
 // y tú yendo y viniendo de la cocina
           <c>LA7</c>              <c>REm</c>
 guardabas cosas dentro del alma
-          SOL            DO  (DO7)
+          <c>SOL</c>            <c>DO</c>  (<c>DO7</c>)
 que te sirvieran para después //
  
 <c>DO</c>
@@ -34283,7 +34287,7 @@ te hiciste nuestra Madre junto a la cruz,
 // y quedaste esperando porque sabías
           <c>LA7</c>      <c>REm</c>
 que volvería resucitado
-             SOL                DO (DO7)
+             <c>SOL</c>                <c>DO</c> (<c>DO7</c>)
 de entre los muertos, tu buen Jesús. //
 
 <c>DO</c>
@@ -34294,7 +34298,7 @@ sentimos tu plegaria junto al Señor
 // y que vas caminando con el que surge,
            <c>LA7</c>               <c>REm</c>
 con el que llora, con el que sueña
-          SOL            DO (DO7)
+          <c>SOL</c>            <c>DO</c> (<c>DO7</c>)
 con la justicia, con el amor. //
 
 <b>Último estribillo:
@@ -34506,7 +34510,7 @@ como en el campo la flor.
 <b>
               <c>FA</c>
 Pero vi yo después,
-<c>SOL</c>          DO-LAm
+<c>SOL</c>          <c>DO</c>-<c>LAm</c>
 que María también,
           <c>FA</c>    <c>SOL</c>       <c>DO</c>
 vivió las cosas de toda mujer:
@@ -35192,7 +35196,7 @@ María, madre mía, yo te doy mi corazón,
        <c>RE</c>         <c>MI</c>         <c>LA</c>
 María, madre mía, yo te doy mi corazón.</b>
 
-LA - RE - MI - LA (x2)
+<c>LA</c> - <c>RE</c> - <c>MI</c> - <c>LA</c> (x2)
 </pre>
         <div class="mt-4 pt-3 border-t border-stone-200 flex items-center justify-between text-xs text-gray-500 flex-wrap gap-2">
             <button onclick="closeSong()" class="bg-verdeSanPatricio/10 hover:bg-verdeSanPatricio/20 text-verdeSanPatricio font-semibold px-3.5 py-2 rounded-xl transition flex items-center gap-1.5 cursor-pointer">
@@ -35725,7 +35729,7 @@ quiero ser de Ti tu hermano, amigo.
     <c>FA</c>            <c>MI</c>         <c>LAm</c>
 los pies del Mensajero de la Paz //</b>
 
-<c>LAm</c>          <c>MI</c>  <c>LAm</c>          <c>FA</c>  <c>SOL</c>   DO-LAm
+<c>LAm</c>          <c>MI</c>  <c>LAm</c>          <c>FA</c>  <c>SOL</c>   <c>DO</c>-<c>LAm</c>
 Al entrar en una casa hay que desear la paz.
 </pre>
         <div class="mt-4 pt-3 border-t border-stone-200 flex items-center justify-between text-xs text-gray-500 flex-wrap gap-2">
@@ -35995,14 +35999,14 @@ Amén.
         </div>
         <div class="flex flex-wrap gap-1 mb-3"><span class="text-xs bg-green-100 text-green-800 px-2 py-0.5 rounded-full font-medium">Marianos</span><span class="text-xs bg-blue-100 text-blue-800 px-2 py-0.5 rounded-full font-medium">Adviento</span></div>
         <pre class="song-pre">
-LAm   FA   MI7   LAm  (x2)
-LAm   FA   DO       LAm   MI7   LAm   (x2)
+<c>LAm</c>   <c>FA</c>   <c>MI7</c>   <c>LAm</c>  (x2)
+<c>LAm</c>   <c>FA</c>   <c>DO</c>       <c>LAm</c>   <c>MI7</c>   <c>LAm</c>   (x2)
 <b>
  <c>LAm</c>      <c>DO</c>     <c>FA</c>                      <c>DO</c>  <c>SOL</c>
 //Mi alma canta, canta la grandeza del Señor
 <c>LAm</c>    <c>SOL</c>    <c>LAm</c>             <c>SOL</c>     <c>LAm</c>
 y mi Espíritu se estremece de gozo en Dios,
-MI      LAm  (MI)
+<c>MI</c>      <c>LAm</c>  (<c>MI</c>)
 mi Salvador.  // </b>
  
    <c>DO</c>        <c>MIm</c>  <c>MI</c>  <c>LAm</c>
@@ -36295,7 +36299,7 @@ y acoges mi pequeñez.</b>
         </div>
         <div class="flex flex-wrap gap-1 mb-3"><span class="text-xs bg-green-100 text-green-800 px-2 py-0.5 rounded-full font-medium">Ofertorio</span></div>
         <pre class="song-pre">
-Intro:  MIm-LA-MIm
+Intro:  <c>MIm</c>-<c>LA</c>-<c>MIm</c>
  
 <c>MIm</c>                         <c>DO</c>
 Mis manos, esas manos y tus manos
@@ -36382,7 +36386,7 @@ el cielo nos regaló,
 ¡canten aleluya, Cristo resucitó!
 <c>MIm</c>          <c>SIm</c>       <c>LAm</c>    <c>SI7</c>       <c>MIm</c>
 Cruces y esperanzas de gloria se han vestido
-<c>SOL</c>       <c>LAm</c>       DO-RE-SOL
+<c>SOL</c>       <c>LAm</c>       <c>DO</c>-<c>RE</c>-<c>SOL</c>
 porque mi Dios está vivo.</b>
 
      <c>SOL</c>        <c>SIm</c>       <c>DO</c>           <c>RE</c>
@@ -36406,7 +36410,7 @@ el cielo nos regaló,
 ¡canten aleluya, Cristo resucitó!
 <c>MIm</c>          <c>SIm</c>       <c>LAm</c>    <c>SI7</c>       <c>MIm</c>
 Cruces y esperanzas de gloria se han vestido
-<c>SOL</c>       <c>LAm</c>       DO-RE-SOL
+<c>SOL</c>       <c>LAm</c>       <c>DO</c>-<c>RE</c>-<c>SOL</c>
 porque mi Dios está vivo.</b>
 
 <c>SOL</c>           <c>SIm</c>
@@ -36419,7 +36423,7 @@ Mueve Tú, Señor, las piedras
 que entorpecen nuestro camino.
 <c>MIm</c>                  <c>SIm</c>
 Porque en el mundo seremos
-    DO-RE      <c>SOL</c>
+    <c>DO</c>-<c>RE</c>      <c>SOL</c>
 anhelantes peregrinos
 <c>MIm</c>                   <c>SIm</c>
 hasta que tu Amor nos llame
@@ -36434,7 +36438,7 @@ el cielo nos regaló,
 ¡canten aleluya, Cristo resucitó!
 <c>MIm</c>          <c>SIm</c>       <c>LAm</c>    <c>SI7</c>       <c>MIm</c>
 Cruces y esperanzas de gloria se han vestido
-<c>SOL</c>       <c>LAm</c>       DO-RE-SOL
+<c>SOL</c>       <c>LAm</c>       <c>DO</c>-<c>RE</c>-<c>SOL</c>
 porque mi Dios está vivo.
 
 <c>SOL</c> - <c>SIm</c> - <c>MIm</c> - <c>RE</c> - <c>DO</c>
@@ -36442,9 +36446,9 @@ porque mi Dios está vivo.
 
 <c>MIm</c>          <c>SIm</c>       <c>LAm</c>    <c>SI7</c>       <c>MIm</c>
 Cruces y esperanzas de gloria se han vestido
-<c>SOL</c>       <c>LAm</c>       DO-RE-MIm
+<c>SOL</c>       <c>LAm</c>       <c>DO</c>-<c>RE</c>-<c>MIm</c>
 porque mi Dios está vivo;
-<c>SOL</c>       <c>LAm</c>       DO-RE-SOL
+<c>SOL</c>       <c>LAm</c>       <c>DO</c>-<c>RE</c>-<c>SOL</c>
 porque mi Dios está vivo.</b>
 </pre>
         <div class="mt-4 pt-3 border-t border-stone-200 flex items-center justify-between text-xs text-gray-500 flex-wrap gap-2">
@@ -37240,12 +37244,12 @@ Ave, ave, ave María.</b>
         <pre class="song-pre">
   <c>MI</c>           <c>MI7</c>         <c>LA</c>
 //Muéstrame, Señor, tus caminos
-   <c>SI7</c>                        MI-SI7
+   <c>SI7</c>                        <c>MI</c>-<c>SI7</c>
 haz que tus sendas pueda encontrar.//
  
        <c>MI</c>          <c>MI7</c>        <c>LA</c>
 Porque yo estoy cansado de lo mío,
-     <c>SI7</c>         MI-SI7
+     <c>SI7</c>         <c>MI</c>-<c>SI7</c>
 y no quiero ya luchar,
 <c>MI</c>           <c>MI7</c>        <c>LA</c>
 muéstrame, Señor, tus caminos
@@ -37377,11 +37381,11 @@ nada es imposible para Ti.
         <pre class="song-pre">
 <c>LAm</c>  	<c>REm</c>    <c>SOL</c>       <c>DO</c>
 Nada te turbe, nada te espante,
-FA           SI°   MI      LAm
+<c>FA</c>           <c>SI°</c>   <c>MI</c>      <c>LAm</c>
 quien a Dios tiene nada le falta.
 <c>LAm</c>     <c>REm</c>    <c>SOL</c>       <c>DO</c>
 Nada te turbe, nada te espante,
-FA   SI°  MI  LAm
+<c>FA</c>   <c>SI°</c>  <c>MI</c>  <c>LAm</c>
 sólo Dios basta.
 </pre>
         <div class="mt-4 pt-3 border-t border-stone-200 flex items-center justify-between text-xs text-gray-500 flex-wrap gap-2">
@@ -38036,21 +38040,21 @@ Señor.</b>
  
 <c>REm</c>                <c>FA</c>  <c>LA</c>     <c>REm</c>
 Hemos manchado tu amor con egoísmo
-                   MI°    LA    REm
+                   <c>MI°</c>    <c>LA</c>    <c>REm</c>
 hemos buscado triunfar lejos de Ti,
 <c>FA</c>               <c>SIb</c>           <c>LA</c>        
 hemos querido llorar sin tu consuelo.
  
 <c>REm</c>             <c>FA</c> <c>LA</c>      <c>REm</c>
 Hemos dudado de Ti en días grises,
-                MI°    LA       REm
+                <c>MI°</c>    <c>LA</c>       <c>REm</c>
 hemos querido luchar faltos de amor,
 <c>FA</c>             <c>SIb</c>             <c>LA</c>   
 hemos dejado morir nuestras canciones.
  
 <c>REm</c>              <c>FA</c>   <c>LA</c>           <c>REm</c>
 Han invadido sin Dios nuestras fronteras,
-                  MI°    LA      REm
+                  <c>MI°</c>    <c>LA</c>      <c>REm</c>
 han pretendido comprar nuestro clamor,
 <c>FA</c>                  <c>SIb</c>         <c>LA</c>   
 han enturbiado el mirar y la sonrisa.
@@ -38192,7 +38196,7 @@ en Él está
 nuestra salvación,
 <c>RE</c> <c>MIm</c>   <c>MI7</c>   <c>LA</c>
 vida y resurrección,
-<c>FA#m</c>   <c>SIm</c>  <c>MIm</c>     <c>LA</c>   RE-LA-RE
+<c>FA#m</c>   <c>SIm</c>  <c>MIm</c>     <c>LA</c>   <c>RE</c>-<c>LA</c>-<c>RE</c>
 Él nos ha salvado y libertado.
 </pre>
         <div class="mt-4 pt-3 border-t border-stone-200 flex items-center justify-between text-xs text-gray-500 flex-wrap gap-2">
@@ -38237,7 +38241,7 @@ y no se apaga nunca,
 Oh amor, Oh Dios mío, enciéndeme;
 <c>RE</c>          <c>MI</c>
 dame lo que mandas
-  <c>LA</c>    <c>FA#m</c>   SIm-MI-LA
+  <c>LA</c>    <c>FA#m</c>   <c>SIm</c>-<c>MI</c>-<c>LA</c>
 y manda lo que quieras.</b>
  
 <c>LA</c>        <c>FA#m</c>   <c>SIm</c>            <c>MI</c>
@@ -38399,7 +38403,7 @@ no me dejes sola que moriría.
 Oh María, madre mía
    <c>SI7</c>           <c>MIm</c>
 en ti confío mis penas y alegrías
-      DO           RE            SOL  (RE)
+      <c>DO</c>           <c>RE</c>            <c>SOL</c>  (<c>RE</c>)
 no me dejes que de ti depende mi vida. //</b>
 </pre>
         <div class="mt-4 pt-3 border-t border-stone-200 flex items-center justify-between text-xs text-gray-500 flex-wrap gap-2">
@@ -38901,8 +38905,8 @@ el que crea no tendrá sed.
         <pre class="song-pre">
 Cejillo 3er espacio
 
-Intro: SOL-RE-MIm-MIm/RE
-       DO-RE-SOL-RE
+Intro: <c>SOL</c>-<c>RE</c>-<c>MIm</c>-<c>MIm/RE</c>
+       <c>DO</c>-<c>RE</c>-<c>SOL</c>-<c>RE</c>
 
            <c>SOL</c>    <c>RE</c>        <c>MIm</c>
 Ante tu Presencia en mi corazón
@@ -38924,7 +38928,7 @@ qué injusticia cruel
             <c>RE</c>               <c>SOL</c>        <c>SOL7</c>
 y en plena agonía y tormento permaneces fiel.
 <b>
-<c>DO</c>       <c>RE</c>      SOL-RE      <c>MIm</c>
+<c>DO</c>       <c>RE</c>      <c>SOL</c>-<c>RE</c>      <c>MIm</c>
 Oh Misericordia, oh Verbo de Dios
 <c>DO</c>           <c>RE</c>
 Dulce Nombre de Jesús
@@ -38933,7 +38937,7 @@ Oh, Hijo de Dios, mi Salvador
 <c>DO</c>         <c>RE</c>         <c>SOL</c>
 Tú eres mi vida, tuyo soy.</b>
 
-SOL-RE-MIm-MIm/RE-DO-SOL-RE
+<c>SOL</c>-<c>RE</c>-<c>MIm</c>-<c>MIm/RE</c>-<c>DO</c>-<c>SOL</c>-<c>RE</c>
 
           <c>SOL</c>    <c>RE</c>              <c>MIm</c>
 Veo tus heridas, cuánto fue el dolor,
@@ -38956,13 +38960,13 @@ besar tu Preciosa Sangre derramada sin piedad
 adorar tu Cuerpo herido y tu sed de amor saciar.
 
 <b>
-<c>DO</c>       <c>RE</c>      SOL-RE      <c>MIm</c>
+<c>DO</c>       <c>RE</c>      <c>SOL</c>-<c>RE</c>      <c>MIm</c>
 Oh Misericordia, oh Verbo de Dios
 <c>DO</c>           <c>RE</c>
 Dulce Nombre de Jesús
 <c>RE#dim</c>      <c>MIm</c>           <c>LA</c>
 Oh, Hijo de Dios, mi Salvador
-<c>DO</c>         <c>RE</c>         SOL-RE
+<c>DO</c>         <c>RE</c>         <c>SOL</c>-<c>RE</c>
 Tú eres mi vida, tuyo soy.
 
 <c>DO</c>                 <c>RE</c>
@@ -38977,7 +38981,7 @@ este loco de amor, mi Salvador.
 Todo por ganar mi corazón
 <c>DO</c>         <c>RE</c>
 Tú eres mi vida, 
-     SOL-RE-MIm-MIm/RE-DO-RE-SOL
+     <c>SOL</c>-<c>RE</c>-<c>MIm</c>-<c>MIm/RE</c>-<c>DO</c>-<c>RE</c>-<c>SOL</c>
 tuyo soy.</b>
 </pre>
         <div class="mt-4 pt-3 border-t border-stone-200 flex items-center justify-between text-xs text-gray-500 flex-wrap gap-2">
@@ -39017,7 +39021,7 @@ Oh, Sagrado Corazón,
 nuestros sueños tómalos. 
 <c>MI7</c>   <c>LA</c>      <c>SIm</c> <c>LA</c> <c>RE</c>
 Danos fuerza, tu perdón,
-<c>LA</c>  <c>MI</c>     <c>FA#m</c> <c>MI</c> SIm-MI-LA
+<c>LA</c>  <c>MI</c>     <c>FA#m</c> <c>MI</c> <c>SIm</c>-<c>MI</c>-<c>LA</c>
 Cristo, en Ti   confiamos. 
 </pre>
         <div class="mt-4 pt-3 border-t border-stone-200 flex items-center justify-between text-xs text-gray-500 flex-wrap gap-2">
@@ -39330,66 +39334,66 @@ la llave santa de tu santa puerta.
 No hay nada imposible para Dios,
      <c>DO</c>  <c>FA</c>           <c>DO</c>
 nada hay fuera de su amor.
-<c>SOL</c>  <c>LAm</c>       <c>MIm</c>  <c>FA</c>        DO-SOL
+<c>SOL</c>  <c>LAm</c>       <c>MIm</c>  <c>FA</c>        <c>DO</c>-<c>SOL</c>
 Todo puedo en aquél que me conforta;
-  LAm-RE         <c>SOL</c>
+  <c>LAm</c>-<c>RE</c>         <c>SOL</c>
 Jesús, confío en Ti.
 
 <c>DO</c>          <c>FA</c>        <c>SOL</c> 
 No hay nada imposible para Dios,
      <c>DO</c>  <c>FA</c>           <c>DO</c>
 nada hay fuera de su amor.
-<c>SOL</c>  <c>LAm</c>       <c>MIm</c>  <c>FA</c>        DO-SOL
+<c>SOL</c>  <c>LAm</c>       <c>MIm</c>  <c>FA</c>        <c>DO</c>-<c>SOL</c>
 Todo puedo en aquél que me conforta;
-  LAm-RE   <c>FA</c>        <c>DO</c>
+  <c>LAm</c>-<c>RE</c>   <c>FA</c>        <c>DO</c>
 Jesús,     confío en Ti.</b>
 
-  <c>MIm</c>     LAm-FA         <c>DO</c>
+  <c>MIm</c>     <c>LAm</c>-<c>FA</c>         <c>DO</c>
 Espero en Ti, duermo tranquilo,
-<c>REm</c>        <c>MIm</c>         FA-RE-SOL
+<c>REm</c>        <c>MIm</c>         <c>FA</c>-<c>RE</c>-<c>SOL</c>
 confiado espero el día que vendrá.
-MI-LAm-REm    <c>DO</c>     <c>MI</c>
+<c>MI</c>-<c>LAm</c>-<c>REm</c>    <c>DO</c>     <c>MI</c>
 En Ti está la paz, Señor,
-   LAm-FA     <c>SOL</c>
+   <c>LAm</c>-<c>FA</c>     <c>SOL</c>
 en Ti mi alma puede descansar.
 <b>
 <c>DO</c>          <c>FA</c>        <c>SOL</c> 
 No hay nada imposible para Dios,
      <c>DO</c>  <c>FA</c>           <c>DO</c>
 nada hay fuera de su amor.
-<c>SOL</c>  <c>LAm</c>       <c>MIm</c>  <c>FA</c>        DO-SOL
+<c>SOL</c>  <c>LAm</c>       <c>MIm</c>  <c>FA</c>        <c>DO</c>-<c>SOL</c>
 Todo puedo en aquél que me conforta;
-  LAm-RE   <c>FA</c>        <c>DO</c>
+  <c>LAm</c>-<c>RE</c>   <c>FA</c>        <c>DO</c>
 Jesús,     confío en Ti.</b>
 
-   <c>MI</c>      LAm-FA         <c>DO</c>
+   <c>MI</c>      <c>LAm</c>-<c>FA</c>         <c>DO</c>
 Yo creo en Ti, Tú eres mi roca,
-<c>REm</c>     <c>DO</c>           FA-REm    <c>SOL</c>
+<c>REm</c>     <c>DO</c>           <c>FA</c>-<c>REm</c>    <c>SOL</c>
 refugio firme contra la tempestad.
-MI-LAm-REm     <c>DO</c>     <c>MI</c>
+<c>MI</c>-<c>LAm</c>-<c>REm</c>     <c>DO</c>     <c>MI</c>
 En Ti, está la paz, Señor,
-   LAm-FA      <c>SOL</c>              <c>LA</c>           
+   <c>LAm</c>-<c>FA</c>      <c>SOL</c>              <c>LA</c>           
 en Ti la noche brilla como el sol.
 <b>
 <c>RE</c>          <c>SOL</c>       <c>LA</c> 
 No hay nada imposible para Dios,
      <c>RE</c>  <c>SOL</c>          <c>RE</c>
 nada hay fuera de su amor.
-<c>LA</c>   <c>SIm</c>       FA#m-SOL       RE-LA
+<c>LA</c>   <c>SIm</c>       <c>FA#m</c>-<c>SOL</c>       <c>RE</c>-<c>LA</c>
 Todo puedo en aquél que me conforta;
-  SIm-MI         <c>LA</c>
+  <c>SIm</c>-<c>MI</c>         <c>LA</c>
 Jesús, confío en Ti.
 
 <c>RE</c>          <c>SOL</c>       <c>LA</c> 
 No hay nada imposible para Dios,
      <c>RE</c>  <c>SOL</c>          <c>RE</c>
 nada hay fuera de su amor.
-<c>LA</c>   <c>SIm</c>       FA#m-SOL       RE-LA
+<c>LA</c>   <c>SIm</c>       <c>FA#m</c>-<c>SOL</c>       <c>RE</c>-<c>LA</c>
 Todo puedo en aquél que me conforta;
-  SIm-MI         <c>LA</c>
+  <c>SIm</c>-<c>MI</c>         <c>LA</c>
 Jesús, confío en Ti.
 
-FA#-SIm-MI   <c>LA</c>        RE-SOL-RE-SOL-RE
+<c>FA#</c>-<c>SIm</c>-<c>MI</c>   <c>LA</c>        <c>RE</c>-<c>SOL</c>-<c>RE</c>-<c>SOL</c>-<c>RE</c>
 Jesús,       confío en Ti.</b>
 </pre>
         <div class="mt-4 pt-3 border-t border-stone-200 flex items-center justify-between text-xs text-gray-500 flex-wrap gap-2">
@@ -40411,8 +40415,8 @@ Padre Nuestro.
         </div>
         <div class="flex flex-wrap gap-1 mb-3"><span class="text-xs bg-green-100 text-green-800 px-2 py-0.5 rounded-full font-medium">Villancicos</span><span class="text-xs bg-blue-100 text-blue-800 px-2 py-0.5 rounded-full font-medium">Navidad</span></div>
         <pre class="song-pre">
-Intro: LA7---REm---SOL---DO-SIb
-       FA---DO---FA--DO-FA--DO-FA
+Intro: <c>LA7</c>---<c>REm</c>---<c>SOL</c>---<c>DO</c>-<c>SIb</c>
+       <c>FA</c>---<c>DO</c>---<c>FA</c>--<c>DO</c>-<c>FA</c>--<c>DO</c>-<c>FA</c>
  
   <c>FA</c>                <c>SIb</c>      
 //Del cielo viene bajando
@@ -40424,7 +40428,7 @@ Una palomita blanca
 y le trae al niño bueno
 <c>SIb</c>   <c>DO</c>     <c>FA</c>     
 Una palomita blanca
-             <c>DO</c>      <c>FA</c>  DO-FA---DO-FA
+             <c>DO</c>      <c>FA</c>  <c>DO</c>-<c>FA</c>---<c>DO</c>-<c>FA</c>
 y le trae al niño bueno.
 
   <c>FA</c>                <c>SIb</c> 
@@ -40437,7 +40441,7 @@ Al Mesías que ha nacido
 pa' que alumbre su sendero,
 <c>SIb</c>    <c>DO</c>          <c>FA</c>  
 al Mesías que ha nacido
-                <c>DO</c>      <c>FA</c>  DO-FA
+                <c>DO</c>      <c>FA</c>  <c>DO</c>-<c>FA</c>
 pa' que alumbre su sendero.
 <b>
          <c>LA7</c>
@@ -40467,7 +40471,7 @@ Para ofrendarle mi canto
 al niño Dios bendecido.
 <c>SIb</c>       <c>DO</c>       <c>FA</c>
 Para ofrendarle mi canto
-             <c>DO</c>     <c>FA</c>  DO-FA--DO-FA
+             <c>DO</c>     <c>FA</c>  <c>DO</c>-<c>FA</c>--<c>DO</c>-<c>FA</c>
 al niño Dios bendecido.
 
   <c>FA</c>              <c>SIb</c>
@@ -40480,7 +40484,7 @@ al Mesías prometido
 que en la pobreza ha llegado, 
 <c>SIb</c>    <c>DO</c>      <c>FA</c>
 al Mesías prometido
-               <c>DO</c>         <c>FA</c>  DO-FA
+               <c>DO</c>         <c>FA</c>  <c>DO</c>-<c>FA</c>
 que en la pobreza ha llegado. 
 </pre>
         <div class="mt-4 pt-3 border-t border-stone-200 flex items-center justify-between text-xs text-gray-500 flex-wrap gap-2">
@@ -40669,11 +40673,11 @@ Sacramento    del Altar.</b>
         <pre class="song-pre">
         <c>LA</c> 	    <c>RE</c>        <c>MI</c>  <c>RE</c>
 Por los niños que empiezan la vida,
-        <c>LA</c>          <c>RE</c>         MI-RE
+        <c>LA</c>          <c>RE</c>         <c>MI</c>-<c>RE</c>
 por los hombres sin techo ni hogar,
         <c>LA</c>          <c>RE</c>        <c>MI</c>    <c>RE</c>
 por los pueblos que sufren la guerra
-       <c>LA</c>       <c>MI</c>        LA-LA7
+       <c>LA</c>       <c>MI</c>        <c>LA</c>-<c>LA7</c>
 te ofrecemos el vino y el pan.
 <b>
 <c>RE</c>                    <c>MI</c>
@@ -40682,7 +40686,7 @@ Pan y vino sobre el altar
 son ofrendas de amor,
       <c>DO#m</c>   <c>FA#m</c>   <c>RE</c>
 pan y vino serán después
-   <c>MI</c>  	              LA-RE-MI-RE
+   <c>MI</c>  	              <c>LA</c>-<c>RE</c>-<c>MI</c>-<c>RE</c>
 tu cuerpo y sangre, Señor.</b>
 
         <c>LA</c> 	    <c>RE</c>     <c>MI</c>  <c>RE</c>
@@ -40700,7 +40704,7 @@ Por aquellos a quienes queremos,
 por nosotros y nuestra amistad,
         <c>LA</c>      <c>RE</c>        <c>MI</c>    <c>RE</c>
 por los vivos y por los difuntos,
-       <c>LA</c>       <c>MI</c>        LA-LA7
+       <c>LA</c>       <c>MI</c>        <c>LA</c>-<c>LA7</c>
 te ofrecemos el vino y el pan.
 </pre>
         <div class="mt-4 pt-3 border-t border-stone-200 flex items-center justify-between text-xs text-gray-500 flex-wrap gap-2">
@@ -40834,21 +40838,21 @@ aleluya, aleluya.</b>
 Para llegar al cielo Tú tienes que seguir
 <c>MI</c>              <c>LA</c>    <c>MI</c>                <c>LA</c>
 la voluntad del Padre en suelos donde estés,
-  SOL           RE    LA           RE  (RE7)
+  <c>SOL</c>           <c>RE</c>    <c>LA</c>           <c>RE</c>  (<c>RE7</c>)
 //y verás qué dichoso tu corazón será.//
  
 <c>RE</c>                   <c>LA</c>             <c>RE</c>
 Para llegar al cielo Tú debes tener fe,
 <c>MI</c>              <c>LA</c>      <c>MI</c>            <c>LA</c>
 porque si no la tienes, nunca lo lograrás
-  SOL            RE    LA              RE  (RE7)
+  <c>SOL</c>            <c>RE</c>    <c>LA</c>              <c>RE</c>  (<c>RE7</c>)
 //y verás que tu alma, tranquila no estará.//
  
 <c>RE</c>                   <c>LA</c>              <c>RE</c>
 Para llegar al cielo siempre debes amar,
 <c>MI</c>             <c>LA</c>  <c>MI</c>            <c>LA</c>
 nunca debe existir ni odio ni rencor,
-  SOL            RE    LA            RE  (RE7)
+  <c>SOL</c>            <c>RE</c>    <c>LA</c>            <c>RE</c>  (<c>RE7</c>)
 //y verás que el Padre a ti te premiará.//  
 </pre>
         <div class="mt-4 pt-3 border-t border-stone-200 flex items-center justify-between text-xs text-gray-500 flex-wrap gap-2">
@@ -40986,7 +40990,7 @@ tu legado de amor.
 Un solo corazón y alma orientados hacia Dios,
      <c>SOL</c>  <c>LA7</c> <c>RE</c>
 tu legado de amor.
-SOL-LA7 <c>RE</c>  <c>FA#m</c> <c>SIm</c>
+<c>SOL</c>-<c>LA7</c> <c>RE</c>  <c>FA#m</c> <c>SIm</c>
 hijos   de Agustín,
  <c>SOL</c>            <c>RE</c>           <c>MI</c>    <c>LA7</c>
 unamos nuestras vidas por un mundo mejor,
@@ -41419,7 +41423,7 @@ por lo que te he ofendido
 perdón, perdóname a mí.
   <c>DO</c>                     <c>SOL</c>
 Escucha mi plegaria, por lo que te ofendí.
-   <c>DO</c>     <c>SOL</c>      DO-SOL-DO         <c>SOL</c>    
+   <c>DO</c>     <c>SOL</c>      <c>DO</c>-<c>SOL</c>-<c>DO</c>         <c>SOL</c>    
 Perdón mi Dios, perdóname, perdón mi Dios, 
    <c>DO</c>  <c>SOL</c>
 perdóname. 
@@ -41888,7 +41892,7 @@ mis ojos conocerán al amigo de Emaús.
 Llama viva para mi esperanza,
          <c>SOL</c>   <c>MIm</c>          <c>LA</c>
 que este canto llegue hasta Ti,
-      RE    DO#°   FA#7 SIm  SOL
+      <c>RE</c>    <c>DO#°</c>   <c>FA#7</c> <c>SIm</c>  <c>SOL</c>
 seno eterno de infinita vida,
        <c>RE</c>    <c>MIm</c>   <c>LA7</c>    <c>REsus4</c>   <c>RE</c>
 me encamino, yo confío en Ti.</b>
@@ -42477,7 +42481,7 @@ pon tu gozo en el Señor.
 Pon tu gozo en el Señor,
 <c>SOL</c>              <c>FA</c>       <c>SOL</c> 
 Él te dará los deseos del alma;
-<c>DO</c>             FA-SOL <c>DO</c> 
+<c>DO</c>             <c>FA</c>-<c>SOL</c> <c>DO</c> 
 pon tu gozo en el   Señor. 
 </pre>
         <div class="mt-4 pt-3 border-t border-stone-200 flex items-center justify-between text-xs text-gray-500 flex-wrap gap-2">
@@ -42819,7 +42823,7 @@ el honor y el imperio.
 Y por la victoria de rey tan poderoso 
  <c>FA</c>                 <c>FAm</c>     <c>SOL</c>   <c>DO</c>
 ¡que las trompetas anuncien la salvación!
-SIm7b5   MI7
+<c>SIm7b5</c>   <c>MI7</c>
   ¡Goce también la tierra,
     <c>LAm</c>                <c>RE</c>
 inundada de tanta claridad,
@@ -42972,7 +42976,7 @@ en solemne ofrenda
         <c>LAm/SOL</c>        <c>RE</c>    <c>SOL</c>
 de este cirio, de este cirio.
  
-SI°  
+<c>SI°</c>  
 (X2343X) - (x5676x) - (xx6767) 
  
                  <c>LA</c>              <c>REm</c> 
@@ -43670,7 +43674,7 @@ Y aunque ese amor aún no lo comprendo,
 está presente, está vivo, y es real.
       <c>MIm</c>                      <c>SIm</c>
 No lo veo, no lo alcanzo ni lo siento,
-          DO                      RE RE#°
+          <c>DO</c>                      <c>RE</c> <c>RE#°</c>
 está escondido en el vino y en el pan.
        <c>MIm</c>           <c>RE</c>         <c>SOL</c>
 Cristo Rey perdona a este pobre pecador
@@ -43973,7 +43977,7 @@ en el palacio de David.
 Desead la paz a Jerusalén:
        	 <c>FA#</c>              <c>SI</c>
 ¡vivan seguros los que te aman,
-     MI-MI7            <c>LA</c>    <c>LAm</c>
+     <c>MI</c>-<c>MI7</c>            <c>LA</c>    <c>LAm</c>
 haya paz dentro de tus muros,  	
          <c>MI</c>       <c>SI7</c> <c>MI</c>
 en tus palacios seguridad!.
@@ -44050,7 +44054,7 @@ en el palacio de David.
 Desead la paz a Jerusalén:
        	 <c>FA#</c>              <c>SI</c>
 ¡vivan seguros los que te aman,
-     MI-MI7            <c>LA</c>    <c>LAm</c>
+     <c>MI</c>-<c>MI7</c>            <c>LA</c>    <c>LAm</c>
 haya paz dentro de tus muros,  	
          <c>MI</c>       <c>SI7</c> <c>MI</c>
 en tus palacios seguridad!.
@@ -44147,7 +44151,7 @@ hoy queremos cantar.
         <pre class="song-pre">
         <c>RE</c>     <c>LA</c>   <c>SIm</c>   <c>FA#m</c> 
 Que me aliente tu Espíritu,  
-    <c>SOL</c>         <c>MIm</c>         LA-LA7    
+    <c>SOL</c>         <c>MIm</c>         <c>LA</c>-<c>LA7</c>    
 necesito que me llenes de valor  
      <c>RE</c>              <c>FA#</c> 
 Desfallezco en la tormenta,  
@@ -44158,7 +44162,7 @@ Que me aliente tu Espíritu.
 
        <c>RE</c>    <c>LA</c>   <c>SIm</c>   <c>FA#m</c> 
 Que me hable tu palabra, 
-    <c>SOL</c>        <c>MIm</c>          LA-LA7  
+    <c>SOL</c>        <c>MIm</c>          <c>LA</c>-<c>LA7</c>  
 necesito hoy Señor de tu alimento 
      <c>RE</c>              <c>FA#</c> 
 Desfallezco en la tormenta, 
@@ -44713,7 +44717,7 @@ RE4/9:  x04030
 
 Cejillo 3er espacio
 
-MIm    LAm7  RE4/9     3 veces
+<c>MIm</c>    <c>LAm7</c>  <c>RE4/9</c>     3 veces
 <c>MIm</c>    <c>MI7</c>
 
 
@@ -44747,7 +44751,7 @@ cuando hable de Ti,
 <c>SOL</c>    <c>SIm</c>       <c>MIm</c> 
 cuando hable de Ti.</b>
 
-MIm    LAm7  RE4/9     3 veces
+<c>MIm</c>    <c>LAm7</c>  <c>RE4/9</c>     3 veces
 <c>MIm</c>    <c>MI7</c>
 
 <c>LAm</c>           <c>MIm</c>            <c>RE</c>        <c>LAm</c>
@@ -44778,7 +44782,7 @@ cuando te busque a Ti,
 <c>SOL</c>    <c>SIm</c>          <c>MIm</c>
 cuando te busque a Ti.</b>
 
-MIm    LAm7  RE4/9     3 veces
+<c>MIm</c>    <c>LAm7</c>  <c>RE4/9</c>     3 veces
 <c>MIm</c>
 
 </pre>
@@ -45065,7 +45069,7 @@ Cejillo 1er espacio
 Señor, regálanos tu paz
   <c>MI</c>     <c>LA</c>         <c>SI</c>
 Señor, regálanos tu paz
-  LA     DO°        DO#m   FA#
+  <c>LA</c>     <c>DO°</c>        <c>DO#m</c>   <c>FA#</c>
 Señor, regálanos tu paz
 <c>FA#m</c>         <c>LAm</c>       <c>MI</c>      <c>LA</c>
 esa que sólo Tú nos sabes dar.
@@ -45074,7 +45078,7 @@ esa que sólo Tú nos sabes dar.
 Señor, regálanos tu luz
   <c>MI</c>     <c>LA</c>         <c>SI</c>
 Señor, regálanos tu luz
-  LA     DO°        DO#m   FA#
+  <c>LA</c>     <c>DO°</c>        <c>DO#m</c>   <c>FA#</c>
 Señor, regálanos tu luz
 <c>FA#m</c>         <c>LAm</c>       <c>MI</c>      <c>LA</c>
 esa que sólo Tú nos sabes dar.
@@ -45083,7 +45087,7 @@ esa que sólo Tú nos sabes dar.
 Señor, regálanos tu paz
   <c>MI</c>     <c>LA</c>         <c>SI</c>
 Señor, regálanos tu luz
-  LA     DO°        DO#m   FA#
+  <c>LA</c>     <c>DO°</c>        <c>DO#m</c>   <c>FA#</c>
 Señor, regálanos tu amor
 <c>FA#m</c>         <c>LAm</c>       <c>MI</c>
 ese que sólo Tú nos sabes dar.
@@ -45829,7 +45833,7 @@ Dime niño de quién eres
 todo vestidito de blanco.
   <c>DO</c>                 <c>SOL</c>
 //Soy de la Virgen María
-      RE       SOL  (SOL7)
+      <c>RE</c>       <c>SOL</c>  (<c>SOL7</c>)
 y del Espíritu Santo//
 <b>
   <c>SOL</c>                   
@@ -45854,7 +45858,7 @@ Dime niño de quién eres
 y si te llamas Jesús.
   <c>DO</c>                <c>SOL</c>   
 //He nacido en un pesebre
-     RE             SOL (SOL7)
+     <c>RE</c>             <c>SOL</c> (<c>SOL7</c>)
 y he de morir en la cruz.//  
 <b>
   <c>SOL</c>                   
@@ -46611,7 +46615,7 @@ Tú preparas ante mí una mesa,
 frente a mis enemigos;
 <c>DO</c>                  <c>FA</c>
 unges con óleo mi cabeza
-     <c>DO</c>     FA-DO   
+     <c>DO</c>     <c>FA</c>-<c>DO</c>   
 y mi copa rebosa.
 
 <c>DO</c>                           <c>FA</c>
@@ -46620,7 +46624,7 @@ Tu bondad y tu gracia me acompañan
 a lo largo de mi vida;
                             <c>FA</c>
 y habitaré en la Casa del Señor,
-    <c>DO</c>        FA--DO
+    <c>DO</c>        <c>FA</c>--<c>DO</c>
 por muy largo tiempo.
 </pre>
         <div class="mt-4 pt-3 border-t border-stone-200 flex items-center justify-between text-xs text-gray-500 flex-wrap gap-2">
@@ -46688,7 +46692,7 @@ Tú preparas ante mí una mesa,
 frente a mis enemigos;
 <c>DO</c>                  <c>FA</c>
 unges con óleo mi cabeza
-     <c>DO</c>     FA-DO   
+     <c>DO</c>     <c>FA</c>-<c>DO</c>   
 y mi copa rebosa.
 
 <c>DO</c>                           <c>FA</c>
@@ -46697,7 +46701,7 @@ Tu bondad y tu gracia me acompañan
 a lo largo de mi vida;
                             <c>FA</c>
 y habitaré en la Casa del Señor,
-    <c>DO</c>        FA--DO
+    <c>DO</c>        <c>FA</c>--<c>DO</c>
 por muy largo tiempo.
 </pre>
         <div class="mt-4 pt-3 border-t border-stone-200 flex items-center justify-between text-xs text-gray-500 flex-wrap gap-2">
@@ -46739,7 +46743,7 @@ está la Reina!</b>
 
     <c>SIm</c>     <c>FA#m</c>    <c>SIb</c>   <c>FA</c>         <c>LA</c>
 Una hija de reyes está de pie a tu derecha:
-      <c>RE</c>  <c>DO</c>     RE-DO        RE-SIb
+      <c>RE</c>  <c>DO</c>     <c>RE</c>-<c>DO</c>        <c>RE</c>-<c>SIb</c>
 es la reina, adornada con tus joyas
       <c>FA</c>      <c>LA</c>
 y con oro de Ofir.
@@ -46748,7 +46752,7 @@ y con oro de Ofir.
 ¡Escucha, hija mía, mira y presta atención!
   <c>SIm</c>     <c>FA#m</c>   <c>SIb</c>  <c>FA</c>     <c>LA7</c>
 Olvida tu pueblo y tu casa paterna,
-     <c>RE</c>           <c>DO</c>            RE-DO
+     <c>RE</c>           <c>DO</c>            <c>RE</c>-<c>DO</c>
 y el rey se prendará de tu hermosura.
       <c>RE</c>   <c>SIb</c>    <c>FA</c>           <c>LA</c>
 Él es tu señor: inclínate ante él.
@@ -46757,7 +46761,7 @@ y el rey se prendará de tu hermosura.
 Las vírgenes van detrás, 
 <c>SIb</c>      <c>FA</c>       <c>LA</c>
 sus compañeras la guían,
-    RE-DO     RE-DO
+    <c>RE</c>-<c>DO</c>     <c>RE</c>-<c>DO</c>
 con gozo y alegría 
 <c>RE</c>          <c>SIb</c>     <c>LA</c>
 entran al palacio real.
@@ -47226,7 +47230,7 @@ y endereza a los que están encorvados
         <div class="flex flex-wrap gap-1 mb-3"><span class="text-xs bg-green-100 text-green-800 px-2 py-0.5 rounded-full font-medium">Salmos</span></div>
         <pre class="song-pre">
 <b>
-     <c>LA</c>      <c>RE</c>           <c>LA</c>    <c>RE</c>     FA#m-MI
+     <c>LA</c>      <c>RE</c>           <c>LA</c>    <c>RE</c>     <c>FA#m</c>-<c>MI</c>
 La semilla cayó en tierra fértil y dio fruto.</b>
 
 <c>LA</c>                          <c>RE</c>
@@ -47658,7 +47662,7 @@ y guías a las naciones de la tierra.
 
  <c>RE</c>      <c>LA</c>             <c>SIm</c>
 ¡Que los pueblos te den gracias, 
-  <c>SOL</c>            MIm-SIm            <c>LA</c>
+  <c>SOL</c>            <c>MIm</c>-<c>SIm</c>            <c>LA</c>
 Señor, que todos los pueblos te den gracias!
 <c>RE</c>           <c>LA</c>
 Que Dios nos bendiga,
@@ -48107,7 +48111,7 @@ y enseña su camino a los pobres.
         <div class="flex flex-wrap gap-1 mb-3"><span class="text-xs bg-green-100 text-green-800 px-2 py-0.5 rounded-full font-medium">Salmos</span></div>
         <pre class="song-pre">
 <b>
-   <c>FA</c>         REm-SIb   <c>FA</c>     <c>DO</c>
+   <c>FA</c>         <c>REm</c>-<c>SIb</c>   <c>FA</c>     <c>DO</c>
 La viña del Señor es su pueblo.</b>
 
      <c>SIb</c>                 <c>FA</c>
@@ -48655,7 +48659,7 @@ Me conduce a las aguas tranquilas
 y repara mis fuerzas;
                         <c>FA</c>
 me guía por el recto sendero,  
-<c>DO</c>             FA-DO
+<c>DO</c>             <c>FA</c>-<c>DO</c>
 por amor de su Nombre.
 
 <c>DO</c>                      <c>FA</c>
@@ -48664,7 +48668,7 @@ Tú preparas ante mí una mesa,
 frente a mis enemigos;
 <c>DO</c>                  <c>FA</c>
 unges con óleo mi cabeza
-     <c>DO</c>     FA-DO   
+     <c>DO</c>     <c>FA</c>-<c>DO</c>   
 y mi copa rebosa.
 
 <c>DO</c>                           <c>FA</c>
@@ -48673,7 +48677,7 @@ Tu bondad y tu gracia me acompañan
 a lo largo de mi vida;
                             <c>FA</c>
 y habitaré en la Casa del Señor,
-    <c>DO</c>        FA--DO
+    <c>DO</c>        <c>FA</c>--<c>DO</c>
 por muy largo tiempo.
 </pre>
         <div class="mt-4 pt-3 border-t border-stone-200 flex items-center justify-between text-xs text-gray-500 flex-wrap gap-2">
@@ -49106,7 +49110,7 @@ todos los que esperan en el Señor.
         <div class="flex flex-wrap gap-1 mb-3"><span class="text-xs bg-green-100 text-green-800 px-2 py-0.5 rounded-full font-medium">Salmos</span></div>
         <pre class="song-pre">
 <b>
-<c>MI</c>   <c>FA#m</c>  <c>SOL#m</c>   LA-FA#m   <c>SI7</c>
+<c>MI</c>   <c>FA#m</c>  <c>SOL#m</c>   <c>LA</c>-<c>FA#m</c>   <c>SI7</c>
 Este es el día que hizo el Señor:
    <c>RE</c>               <c>SI7</c>        <c>MI</c>
 alegrémonos y regocijémonos en él.</b>
@@ -49170,7 +49174,7 @@ y es admirable a nuestros ojos.
         <div class="flex flex-wrap gap-1 mb-3"><span class="text-xs bg-blue-100 text-blue-800 px-2 py-0.5 rounded-full font-medium">Pascua</span></div>
         <pre class="song-pre">
 <b>
-<c>MI</c>   <c>FA#m</c>  <c>SOL#m</c>   LA-FA#m   <c>SI7</c>
+<c>MI</c>   <c>FA#m</c>  <c>SOL#m</c>   <c>LA</c>-<c>FA#m</c>   <c>SI7</c>
 Este es el día que hizo el Señor:
    <c>RE</c>               <c>SI7</c>        <c>MI</c>
 alegrémonos y regocijémonos en él.</b>
@@ -49453,7 +49457,7 @@ Vengan a contemplar las obras del Señor,
 <b>
 <c>FA#m</c>        <c>RE</c>           <c>LA</c>    <c>MI</c>
 Canten al Señor un canto nuevo,
-          FA#m-RE  LA-MI
+          <c>FA#m</c>-<c>RE</c>  <c>LA</c>-<c>MI</c>
 porque él hizo maravillas.</b>
 
 <c>FA#m</c>
@@ -49586,7 +49590,7 @@ y mi boca proclamará tu alabanza.
         <div class="flex flex-wrap gap-1 mb-3"><span class="text-xs bg-green-100 text-green-800 px-2 py-0.5 rounded-full font-medium">Salmos</span></div>
         <pre class="song-pre">
 <b>
-     <c>LAm</c>      <c>MIm</c>       <c>FA</c>   REm-DO
+     <c>LAm</c>      <c>MIm</c>       <c>FA</c>   <c>REm</c>-<c>DO</c>
 Cantaré eternamente tu amor, Señor.</b>
 
      <c>MIm</c>     <c>FA</c>           <c>DO</c>
@@ -49598,11 +49602,11 @@ para que mi mano esté siempre con él
      <c>SIb</c>               <c>SOL</c>
 y mi brazo lo haga poderoso.
 
-     MIm-FA        <c>DO</c>         MIm-FA-SOL
+     <c>MIm</c>-<c>FA</c>        <c>DO</c>         <c>MIm</c>-<c>FA</c>-<c>SOL</c>
 Mi fidelidad y mi amor lo acompañarán,
      <c>REm</c>           <c>LAm</c>
 su poder crecerá a causa de mi Nombre:
-FA-SOL-LAm              <c>FA</c>
+<c>FA</c>-<c>SOL</c>-<c>LAm</c>              <c>FA</c>
 El me dirá: «Tú eres mi padre,
    <c>SIb</c>                <c>SOL</c>
 mi Dios, mi Roca salvadora.» 
@@ -50249,7 +50253,7 @@ de todos sus pecados.
         <div class="flex flex-wrap gap-1 mb-3"><span class="text-xs bg-green-100 text-green-800 px-2 py-0.5 rounded-full font-medium">Salmos</span></div>
         <pre class="song-pre">
 <b>
-<c>RE</c>            <c>SOL</c>        <c>RE</c>          LA-RE
+<c>RE</c>            <c>SOL</c>        <c>RE</c>          <c>LA</c>-<c>RE</c>
 Señor, que descienda tu amor sobre nosotros.</b>
 
 <c>RE</c>                    <c>LA</c>
@@ -50698,7 +50702,7 @@ en el país de la vida.
         <div class="flex flex-wrap gap-1 mb-3"><span class="text-xs bg-green-100 text-green-800 px-2 py-0.5 rounded-full font-medium">Salmos</span></div>
         <pre class="song-pre">
 <b>
-  <c>MI</c>               LA-SI7     <c>MI</c>
+  <c>MI</c>               <c>LA</c>-<c>SI7</c>     <c>MI</c>
 A ti, eternamente, gloria y honor.</b>
 
 <c>MI</c>                                    <c>LA</c>
@@ -50768,7 +50772,7 @@ aclamado y glorificado eternamente.
         <div class="flex flex-wrap gap-1 mb-3"><span class="text-xs bg-green-100 text-green-800 px-2 py-0.5 rounded-full font-medium">Salmos</span></div>
         <pre class="song-pre">
 <b>
-<c>RE</c>                  <c>FA#m</c>  SOL-LA      <c>RE</c>
+<c>RE</c>                  <c>FA#m</c>  <c>SOL</c>-<c>LA</c>      <c>RE</c>
 Quien se apiada del pobre presta al Señor.</b>
 
 <c>RE</c>                      <c>MIm</c>
@@ -50834,7 +50838,7 @@ y alzará la frente con dignidad.
 <b>
  <c>MI</c>               <c>LA</c>            <c>MI</c>
 ¡Te cantaré en presencia de los ángeles,
-FA#m-SI7-MI
+<c>FA#m</c>-<c>SI7</c>-<c>MI</c>
 Señor!</b>
 
 <c>MI</c>                                 <c>SI7</c>
@@ -51176,7 +51180,7 @@ ni le dio a conocer sus mandamientos.
         <div class="flex flex-wrap gap-1 mb-3"><span class="text-xs bg-green-100 text-green-800 px-2 py-0.5 rounded-full font-medium">Salmos</span></div>
         <pre class="song-pre">
 <b>
-  DO-SOL     <c>DO</c>  <c>FA</c>      <c>SOL</c>
+  <c>DO</c>-<c>SOL</c>     <c>DO</c>  <c>FA</c>      <c>SOL</c>
 ¡Aclame al Señor toda la tierra!</b>
 
   <c>DO</c>
@@ -51632,7 +51636,7 @@ a lo largo de las generaciones.
         <div class="flex flex-wrap gap-1 mb-3"><span class="text-xs bg-green-100 text-green-800 px-2 py-0.5 rounded-full font-medium">Salmos</span></div>
         <pre class="song-pre">
 <b>
-(FA#m)   RE                  MI
+(<c>FA#m</c>)   <c>RE</c>                  <c>MI</c>
 Cuando escuchen la voz del Señor,
        <c>DO#m</c>          <c>FA#m</c>
 no endurezcan el corazón.</b>
@@ -52205,9 +52209,9 @@ de felicidad eterna a tu derecha.
         </div>
         <div class="flex flex-wrap gap-1 mb-3"><span class="text-xs bg-green-100 text-green-800 px-2 py-0.5 rounded-full font-medium">Salmos</span></div>
         <pre class="song-pre">
-Intro: DO-SOL-LAm-FA---SOL
+Intro: <c>DO</c>-<c>SOL</c>-<c>LAm</c>-<c>FA</c>---<c>SOL</c>
 <b>
-     FA-SOL  <c>LAm</c>
+     <c>FA</c>-<c>SOL</c>  <c>LAm</c>
 Cantaré al Señor,
             <c>FA</c>        <c>SOL</c>
 que se ha cubierto de gloria.</b>
@@ -52297,9 +52301,9 @@ que fundaron tus manos.
         </div>
         <div class="flex flex-wrap gap-1 mb-3"><span class="text-xs bg-blue-100 text-blue-800 px-2 py-0.5 rounded-full font-medium">Pascua</span></div>
         <pre class="song-pre">
-Intro: DO-SOL-LAm-FA---SOL
+Intro: <c>DO</c>-<c>SOL</c>-<c>LAm</c>-<c>FA</c>---<c>SOL</c>
 <b>
-     FA-SOL  <c>LAm</c>
+     <c>FA</c>-<c>SOL</c>  <c>LAm</c>
 Cantaré al Señor,
             <c>FA</c>        <c>SOL</c>
 que se ha cubierto de gloria.</b>
@@ -52395,7 +52399,7 @@ Te glorifico, mi Señor, porque Tú me libraste.</b>
 
 <c>FA#m</c>                              <c>MI</c>   <c>LA</c>
 Yo te glorifico, Señor, porque Tú me libraste
-        <c>RE</c>                                 LA-MI
+        <c>RE</c>                                 <c>LA</c>-<c>MI</c>
 y no quisiste que mis enemigos se rieran de mí.
       <c>FA#m</c>
 Tú, Señor, me levantaste del Abismo 
@@ -52463,7 +52467,7 @@ Te glorifico, mi Señor, porque Tú me libraste.</b>
 
 <c>FA#m</c>                              <c>MI</c>   <c>LA</c>
 Yo te glorifico, Señor, porque Tú me libraste
-        <c>RE</c>                                 LA-MI
+        <c>RE</c>                                 <c>LA</c>-<c>MI</c>
 y no quisiste que mis enemigos se rieran de mí.
       <c>FA#m</c>
 Tú, Señor, me levantaste del Abismo 
@@ -52958,7 +52962,7 @@ Señor, Dios mío.
         <div class="flex flex-wrap gap-1 mb-3"><span class="text-xs bg-green-100 text-green-800 px-2 py-0.5 rounded-full font-medium">Salmos</span></div>
         <pre class="song-pre">
 <b>
-<c>FA</c>      <c>SOLm</c>  <c>DO</c>  <c>FA</c>  DO-FA
+<c>FA</c>      <c>SOLm</c>  <c>DO</c>  <c>FA</c>  <c>DO</c>-<c>FA</c>
 Aleluia, aleluia, aleluia.</b>
 
  <c>FA</c>               <c>SIb</c>            <c>FA</c>
@@ -53020,7 +53024,7 @@ y es admirable a nuestros ojos.
         <div class="flex flex-wrap gap-1 mb-3"><span class="text-xs bg-blue-100 text-blue-800 px-2 py-0.5 rounded-full font-medium">Pascua</span></div>
         <pre class="song-pre">
 <b>
-<c>FA</c>      <c>SOLm</c>  <c>DO</c>  <c>FA</c>  DO-FA
+<c>FA</c>      <c>SOLm</c>  <c>DO</c>  <c>FA</c>  <c>DO</c>-<c>FA</c>
 Aleluia, aleluia, aleluia.</b>
 
  <c>FA</c>               <c>SIb</c>            <c>FA</c>
@@ -53429,7 +53433,7 @@ Santa María va.
 <b>
   <c>RE</c>                 <c>LA</c>  <c>FA#m</c>
 //Ven con nosotros a caminar,
-MI          LA  (LA7)
+<c>MI</c>          <c>LA</c>  (<c>LA7</c>)
 Santa Maria ven. //</b>
 
 <c>LA</c>                 <c>RE</c>  <c>LA</c>
@@ -53668,7 +53672,7 @@ Santo, santo, santo es nuestro rey Yahvéh.
 Santo, santo, santo es el que nos redime.
                      <c>REm</c>
 // Porque mi Dios es santo,
-          LA                 REm (RE7)
+          <c>LA</c>                 <c>REm</c> (<c>RE7</c>)
 la tierra llena de su gloria es //
 <b>
 <c>REm</c>                <c>LA</c>
@@ -53694,7 +53698,7 @@ la gloria a Jesucristo, el hijo de David.
 Hosanna en las alturas a nuestro Salvador.
                      <c>REm</c>
 // Bendito es el que viene
-      LA           REm  (RE7)
+      <c>LA</c>           <c>REm</c>  (<c>RE7</c>)
 en el nombre del Señor. //
 </pre>
         <div class="mt-4 pt-3 border-t border-stone-200 flex items-center justify-between text-xs text-gray-500 flex-wrap gap-2">
@@ -53848,7 +53852,7 @@ en el nombre del Señor.
 
   <c>DO</c>       <c>LAm</c>   <c>FA</c>    <c>SOL</c>
 Hosanna, Hosanna en el cielo;
-  <c>DO</c>       <c>LAm</c>   <c>FA</c>    SOL#-DO
+  <c>DO</c>       <c>LAm</c>   <c>FA</c>    <c>SOL#</c>-<c>DO</c>
 Hosanna, Hosanna en el cielo.
 </pre>
         <div class="mt-4 pt-3 border-t border-stone-200 flex items-center justify-between text-xs text-gray-500 flex-wrap gap-2">
@@ -54013,7 +54017,7 @@ buscando y sembrando la verdad.
 Los cielos y la tierra 
   <c>MI</c>               <c>LA</c>
 están llenos de su gloria,
-    SOL             RE    LA         RE(RE7)
+    <c>SOL</c>             <c>RE</c>    <c>LA</c>         <c>RE</c>(<c>RE7</c>)
 //Hosanna en lo más alto, Rey del cielo//
 
 <c>RE</c>  <c>MI</c>  <c>LA</c>       <c>RE</c>  <c>MI</c>  <c>LA</c>
@@ -54025,7 +54029,7 @@ Hosanna (Hosanna en las alturas).
 <c>RE</c> <c>MI</c> <c>LA</c>
 Hosanna (Hosanna en las alturas).
 
-RE-MI-LA(x2)
+<c>RE</c>-<c>MI</c>-<c>LA</c>(x2)
 
 <c>RE</c> <c>MI</c> <c>LA</c> <c>RE</c> <c>MI</c> <c>LA</c>
 Hosanna, hosanna
@@ -54034,7 +54038,7 @@ Hosanna (Bendito sea el que viene)
 <c>RE</c> <c>MI</c> <c>LA</c>
 Hosanna (en el nombre del Señor).
 
-RE-MI-LA(x2)
+<c>RE</c>-<c>MI</c>-<c>LA</c>(x2)
 
 <c>RE</c> <c>MI</c> <c>LA</c>  <c>RE</c> <c>MI</c> <c>LA</c>
 Hosanna, hosanna
@@ -54183,18 +54187,18 @@ hosanna en el cielo.
         <pre class="song-pre">
 <c>DO</c>     <c>LAm</c>    <c>MIm</c>      <c>FA</c>   <c>DO</c> 
 Santo, Santo, Santo es el Señor 
-<c>LAm</c>         DO-SOL-DO
+<c>LAm</c>         <c>DO</c>-<c>SOL</c>-<c>DO</c>
 Dios del universo.
 <c>DO</c>       <c>LAm</c>    <c>REm</c>        <c>SOL</c>
 Llenos están el cielo y la tierra 
-      MIm-FA -SOL
+      <c>MIm</c>-<c>FA</c> -<c>SOL</c>
 de Tu Gloria.
-  <c>DO</c>            SOL-DO
+  <c>DO</c>            <c>SOL</c>-<c>DO</c>
 Hosanna en el cielo.
 
    <c>DO</c>                   <c>REm</c>          <c>MIm</c>
 Bendito el que viene en nombre del Señor.
-  <c>DO</c>            SOL-DO
+  <c>DO</c>            <c>SOL</c>-<c>DO</c>
 Hosanna en el cielo.
 </pre>
         <div class="mt-4 pt-3 border-t border-stone-200 flex items-center justify-between text-xs text-gray-500 flex-wrap gap-2">
@@ -54245,7 +54249,7 @@ con todos los santos cantamos para Él.
 <b>
   <c>MIm</c>      <c>RE</c>       <c>DO</c>      <c>LAm</c>  <c>SI7</c>
 Hosanna, hosanna, hosanna, ¡oh Señor!
-  <c>MIm</c>      <c>RE</c>       <c>DO</c>      <c>LAm</c>  SI7-MIm
+  <c>MIm</c>      <c>RE</c>       <c>DO</c>      <c>LAm</c>  <c>SI7</c>-<c>MIm</c>
 Hosanna, hosanna, hosanna, ¡oh Señor!</b>
 </pre>
         <div class="mt-4 pt-3 border-t border-stone-200 flex items-center justify-between text-xs text-gray-500 flex-wrap gap-2">
@@ -54452,7 +54456,7 @@ Santo es su nombre, y a los hombres da su paz.
         <div class="flex flex-wrap gap-1 mb-3"><span class="text-xs bg-green-100 text-green-800 px-2 py-0.5 rounded-full font-medium">Santo</span><span class="text-xs bg-yellow-100 text-yellow-800 px-2 py-0.5 rounded-full font-medium">Misa a la Chilena</span></div>
         <pre class="song-pre">
 <b>
-  SOL    RE     LA            RE (RE7)
+  <c>SOL</c>    <c>RE</c>     <c>LA</c>            <c>RE</c> (<c>RE7</c>)
 //Santo, santo, santo es el Señor.//</b>
 
 <c>RE</c>            <c>RE7</c>  <c>SOL</c>         <c>RE</c>
@@ -54474,7 +54478,7 @@ bendito es el que viene
       <c>LA</c>           <c>RE</c>  <c>RE7</c>
 en el nombre del Señor. 
 <b>
-  SOL    RE     LA            RE (RE7)
+  <c>SOL</c>    <c>RE</c>     <c>LA</c>            <c>RE</c> (<c>RE7</c>)
 //Santo, santo, santo es el Señor.//</b>
 </pre>
         <div class="mt-4 pt-3 border-t border-stone-200 flex items-center justify-between text-xs text-gray-500 flex-wrap gap-2">
@@ -54690,13 +54694,13 @@ Pan de hijos, don tan fino,
 <c>RE</c>       <c>LAm</c>              <c>RE</c>
 no a los perros se ha de echar.
 
-<c>RE</c>              DO-RE
+<c>RE</c>              <c>DO</c>-<c>RE</c>
 Por figuras anunciado,
 <c>SIm</c> <c>LAm</c>        <c>RE</c>
 en Isaac inmolado.
 <c>LAm</c>
 Maná del cielo bajado,
-RE-DO              <c>RE</c>
+<c>RE</c>-<c>DO</c>              <c>RE</c>
 Cordero sobre el altar.
 
         <c>DO</c>     <c>SIm</c>    <c>LAm</c>
@@ -54714,7 +54718,7 @@ haznos ver tu gloria, ¡oh Dios!
 Tú, que lo sabes y puedes, 
          <c>MIm</c>          <c>LAm</c>
 y que al mortal lo sostienes,
-<c>RE</c>             SOL-RE
+<c>RE</c>             <c>SOL</c>-<c>RE</c>
 por comensales perennes, 
 <c>LAm</c>   <c>MIm</c>     <c>DO</c>     <c>RE</c>
 al festín de eternos bienes, 
@@ -55061,7 +55065,7 @@ un rayo de tu luz.
 Ven, Padre de los pobres,
              <c>FA</c>
 ven a darnos tus dones,
-             DO-REm
+             <c>DO</c>-<c>REm</c>
 ven a darnos tu luz.
 
 <c>REm</c>              <c>DO</c>    <c>REm</c>
@@ -55085,7 +55089,7 @@ en lo más íntimo
 <c>SOLm</c>           <c>LAm</c>    <c>REm</c>
 del corazón de tus fieles.
 
-<c>REm</c>     <c>DO</c>     REm-LAm
+<c>REm</c>     <c>DO</c>     <c>REm</c>-<c>LAm</c>
 Sin tu ayuda divina
 <c>FA</c>                   <c>REm</c>
 no hay nada en el hombre,
@@ -55094,7 +55098,7 @@ nada que sea inocente.
 
 <c>LAm</c>           <c>DO</c>
 Lava nuestras manchas,
-<c>FA</c>            MIm-REm
+<c>FA</c>            <c>MIm</c>-<c>REm</c>
 riega nuestra aridez,
 <c>LAm</c>
 sana nuestras heridas.
@@ -55170,7 +55174,7 @@ veni, lumen cordium.
 
 <c>REm</c>        <c>DO</c>  <c>REm</c>
 Consolator optime,
-<c>FA</c>     <c>DO</c>     FA-LAm
+<c>FA</c>     <c>DO</c>     <c>FA</c>-<c>LAm</c>
 dulcis hospes animae,
 <c>DO</c>             <c>REm</c>
 dulce refrigerium.
@@ -55182,23 +55186,23 @@ in aestu temperies,
 <c>DO</c>             <c>REm</c>
 in fletu solatium.
 
-<c>REm</c>   DO-REm  <c>LAm</c>
+<c>REm</c>   <c>DO</c>-<c>REm</c>  <c>LAm</c>
 O lux beatissima,
 <c>FA</c>               <c>REm</c>
 reple cordis intima
-<c>SOLm</c>     LAm-REm
+<c>SOLm</c>     <c>LAm</c>-<c>REm</c>
 tuorum fidelium.
 
-<c>REm</c>  <c>DO</c>  REm-LAm
+<c>REm</c>  <c>DO</c>  <c>REm</c>-<c>LAm</c>
 Sine tuo numine
 <c>FA</c>               <c>REm</c>
 nihil est in homine,
-<c>SOLm</c>        LAm-REm
+<c>SOLm</c>        <c>LAm</c>-<c>REm</c>
 nihil est innoxium.
 
 <c>LAm</c>           <c>DO</c>
 Lava quod est sordidum,
-<c>FA</c>            MIm-REm
+<c>FA</c>            <c>MIm</c>-<c>REm</c>
 riga quod est aridum,
 <c>LAm</c>
 sana quod est saucium.
@@ -55308,21 +55312,21 @@ Señor, ten piedad, de nosotros ten piedad.
 //Señor, 
   <c>SIm</c> <c>LA</c>
   Señor, 
-  SOL    LA     RE   (LA)
+  <c>SOL</c>    <c>LA</c>     <c>RE</c>   (<c>LA</c>)
   Señor, ten piedad.//
 
   <c>RE</c>  <c>LA</c>
 //Cristo,
   <c>SIm</c> <c>LA</c>
   Cristo,
-  SOL     LA     RE   (LA)
+  <c>SOL</c>     <c>LA</c>     <c>RE</c>   (<c>LA</c>)
   Cristo, ten piedad.//
 
   <c>RE</c> <c>LA</c>
 //Señor, 
   <c>SIm</c> <c>LA</c>
   Señor, 
-  SOL    LA     RE   (LA)
+  <c>SOL</c>    <c>LA</c>     <c>RE</c>   (<c>LA</c>)
   Señor, ten piedad.//
 
 </pre>
@@ -55443,7 +55447,7 @@ Señor, ten piedad de nosotros.
         </div>
         <div class="flex flex-wrap gap-1 mb-3"><span class="text-xs bg-green-100 text-green-800 px-2 py-0.5 rounded-full font-medium">Perdón</span></div>
         <pre class="song-pre">
-Introducción: DO  SOL  RE7  SOL
+Introducción: <c>DO</c>  <c>SOL</c>  <c>RE7</c>  <c>SOL</c>
               <c>DO</c>  <c>SOL</c>  <c>RE7</c>  <c>SOL</c>
  
 <c>SOL</c>           <c>DO</c>   <c>RE7</c>             <c>SOL</c>
@@ -55533,13 +55537,13 @@ Señor, ten piedad, ten piedad de nosotros.
         </div>
         <div class="flex flex-wrap gap-1 mb-3"><span class="text-xs bg-green-100 text-green-800 px-2 py-0.5 rounded-full font-medium">Perdón</span></div>
         <pre class="song-pre">
-  SIm         FA#      SIm  DO#m7b5  FA#
+  <c>SIm</c>         <c>FA#</c>      <c>SIm</c>  <c>DO#m7b5</c>  <c>FA#</c>
 Señor, ten piedad de nosotros,
   <c>SIm</c>         <c>LA</c>       <c>RE</c>
 Señor, ten piedad de nosotros,
   <c>SOL</c>         <c>LA</c>     <c>RE</c>          <c>MI</c>
 Señor, ten piedad; Señor, ten piedad,
-  SIm         DO#m7b5  FA#
+  <c>SIm</c>         <c>DO#m7b5</c>  <c>FA#</c>
 Señor, ten piedad    
      <c>SOL</c>
 de nosotros.
@@ -55551,11 +55555,11 @@ Cristo ten piedad de nosotros,
        <c>SOL</c>      <c>FA#</c>
 ten piedad de nosotros.//
 
-  SIm         FA#      SIm DO#m7b5  FA#
+  <c>SIm</c>         <c>FA#</c>      <c>SIm</c> <c>DO#m7b5</c>  <c>FA#</c>
 Señor, ten piedad de nosotros,
-  SIm         DO#m7b5  FA#
+  <c>SIm</c>         <c>DO#m7b5</c>  <c>FA#</c>
 Señor, ten piedad             
-     SIm  DO#m7b5  FA#
+     <c>SIm</c>  <c>DO#m7b5</c>  <c>FA#</c>
 de nosotros;
   <c>SIm</c>         <c>LA</c>          <c>SOL</c> <c>FA#</c>  <c>SIm</c>
 Señor, ten piedad, ten piedad de nosotros.
@@ -55648,12 +55652,12 @@ Señor, ten piedad de nosotros,
 Señor, piedad, piedad
 
 Señor, ten piedad de nosotros,
-  <c>LA</c>              RE-RE7
+  <c>LA</c>              <c>RE</c>-<c>RE7</c>
 Señor, piedad, piedad.
 
 <c>SOL</c>                     <c>RE</c>
 Cristo, ten piedad de nosotros,
-<c>LA</c>                         RE-RE7
+<c>LA</c>                         <c>RE</c>-<c>RE7</c>
 Cristo, ten piedad, ten piedad.
 <c>SOL</c>                     <c>RE</c>
 Cristo, ten piedad de nosotros,
@@ -55693,7 +55697,7 @@ Señor, piedad, piedad.
         <pre class="song-pre">
 Intro: <c>RE</c> - <c>SOL</c> - <c>RE</c> - <c>LA</c>
 <b>
-(LA)            RE
+(<c>LA</c>)            <c>RE</c>
 Señor, a quién iremos
 <c>SOL</c>                <c>MIm</c> <c>LA</c>
 si Tú eres nuestra vida;
@@ -55968,7 +55972,7 @@ que lloran en su soledad.
         </div>
         <div class="flex flex-wrap gap-1 mb-3"><span class="text-xs bg-green-100 text-green-800 px-2 py-0.5 rounded-full font-medium">Leccionales</span></div>
         <pre class="song-pre">
-<c>MI</c>        <c>LA</c> <c>SI7</c>  FA#m-SI7 
+<c>MI</c>        <c>LA</c> <c>SI7</c>  <c>FA#m</c>-<c>SI7</c> 
 Señor escúchanos. 
 <b>
 <c>MI</c>       <c>LA</c>               <c>SI7</c> 
@@ -56140,7 +56144,7 @@ tu Espíritu Santo inunda mi ser. :/
         </div>
         <div class="flex flex-wrap gap-1 mb-3"><span class="text-xs bg-green-100 text-green-800 px-2 py-0.5 rounded-full font-medium">Perdón</span></div>
         <pre class="song-pre">
-Intro: MIm-LAm-SI7
+Intro: <c>MIm</c>-<c>LAm</c>-<c>SI7</c>
 
   <c>DO</c>   <c>LAm</c>    <c>MIm</c>
 Señor, ten piedad.
@@ -56188,7 +56192,7 @@ Señor, ten piedad.
         </div>
         <div class="flex flex-wrap gap-1 mb-3"><span class="text-xs bg-green-100 text-green-800 px-2 py-0.5 rounded-full font-medium">Perdón</span></div>
         <pre class="song-pre">
-(RE) SOL         RE
+(<c>RE</c>) <c>SOL</c>         <c>RE</c>
 // Señor, ten piedad. //
    <c>RE</c>      <c>MIm</c>    <c>LA</c>
 // Cristo, ten piedad. //
@@ -56264,11 +56268,11 @@ Señor, ten piedad.
         </div>
         <div class="flex flex-wrap gap-1 mb-3"><span class="text-xs bg-green-100 text-green-800 px-2 py-0.5 rounded-full font-medium">Leccionales</span></div>
         <pre class="song-pre">
-Inicio: FA   DO7
+Inicio: <c>FA</c>   <c>DO7</c>
 
                 <c>FA</c>
 Señor, Tú me llamaste 
-MI°    LA7        REm   DO  SIb 
+<c>MI°</c>    <c>LA7</c>        <c>REm</c>   <c>DO</c>  <c>SIb</c> 
   a limpiar las heridas,
                 <c>FA</c> 
 a cantar en tus plazas 
@@ -56277,7 +56281,7 @@ que eres Tú fuente de vida.
 
                    <c>FA</c>
 A romper con las cadenas,
-MI°  LA7            REm  DO  SIb 
+<c>MI°</c>  <c>LA7</c>            <c>REm</c>  <c>DO</c>  <c>SIb</c> 
 a luchar por la esperanza,
                    <c>FA</c>
 sin importar las caídas 
@@ -56286,7 +56290,7 @@ porque siempre habrá un nuevo día.
 
                    <c>FA</c>
 A romper con las cadenas,
-MI°  LA7            REm  DO  SIb 
+<c>MI°</c>  <c>LA7</c>            <c>REm</c>  <c>DO</c>  <c>SIb</c> 
 a luchar por la esperanza,
                    <c>FA</c>
 sin importar las caídas
@@ -57607,7 +57611,7 @@ permanecer y estar en Ti, hallarse firme.
 Dios darte la espalda es morir,
 <c>MI</c>            <c>LA</c>        <c>FA#m</c>
 convertirse a Ti es revivir
-        <c>RE</c>        <c>LA</c>   SI7-MI
+        <c>RE</c>        <c>LA</c>   <c>SI7</c>-<c>MI</c>
 y morar en Ti, es vivir
 <b>
 <c>LA</c>           <c>MI</c>
@@ -58216,7 +58220,7 @@ qué es lo que debo esperar, cambiar y aceptar.
     <c>SIb</c>              <c>FA</c>
     a su eterna gloria.
 
-FA-DO-FA
+<c>FA</c>-<c>DO</c>-<c>FA</c>
 Amén.
 
 </pre>
@@ -58390,7 +58394,7 @@ Amén.
     <c>SIb</c>           <c>FA</c>
     Paradísi glória.
 
-FA-DO-FA
+<c>FA</c>-<c>DO</c>-<c>FA</c>
 Amén.
 
 </pre>
@@ -58449,7 +58453,7 @@ Eres Tú, suave brisa de mi alma
 la fuerza de mi andar
    <c>DO#m</c>        <c>FA#m</c> <c>SI7</c>
 consuelo de mi alma.
-     MI          RE#m7b5  SOL#  DO#m
+     <c>MI</c>          <c>RE#m7b5</c>  <c>SOL#</c>  <c>DO#m</c>
 Eres Tú, Santo Espíritu del cielo
       <c>LA</c>            <c>MI</c>           <c>FA#m</c>  <c>SI7</c>
 no me dejes, no te apartes Tú de mí.
@@ -58460,7 +58464,7 @@ Eres Tú, suave brisa de mi alma
 la fuerza de mi andar
    <c>DO#m</c>        <c>FA#m</c>  <c>SI7</c>
 consuelo de mi alma.
-     MI          RE#m7b5  SOL#  DO#m
+     <c>MI</c>          <c>RE#m7b5</c>  <c>SOL#</c>  <c>DO#m</c>
 Eres Tú, Santo Espíritu del cielo
       <c>LA</c>            <c>MI</c>             <c>FA#m</c>  <c>SI7</c>
 no me dejes, no te apartes Santo Espíritu
@@ -58506,15 +58510,15 @@ Sub tuum praesídium confú-----gimus,
 sancta Dei Génitrix:
 <c>RE</c>               <c>LA</c>  <c>RE</c>
 nostras deprecatiónes
-<c>SOL</c>       <c>RE</c>  <c>LA</c>   RE-SOL   <c>RE</c>
+<c>SOL</c>       <c>RE</c>  <c>LA</c>   <c>RE</c>-<c>SOL</c>   <c>RE</c>
 ne despícias  in necessitátibus:
 <c>DO</c>      <c>SOL</c>         <c>LAm</c>
 sed a perículis cunctis
-<c>RE</c>         LAm-SOL
+<c>RE</c>         <c>LAm</c>-<c>SOL</c>
 líbera nos semper,
 <c>DO</c>         <c>SOL</c>  <c>RE</c>
 Virgo gloriósa
-<c>MIm</c>  RE-SOL-RE
+<c>MIm</c>  <c>RE</c>-<c>SOL</c>-<c>RE</c>
 et benedícta.
 </pre>
         <div class="mt-4 pt-3 border-t border-stone-200 flex items-center justify-between text-xs text-gray-500 flex-wrap gap-2">
@@ -58637,7 +58641,7 @@ Todos unidos cantemos con alegría:
 Vengan a contemplar,
     <c>RE</c> <c>SOL</c> <c>LA</c>       <c>RE</c>
 y escuchen la dulce voz
-      SOL-LA   <c>SIm</c>
+      <c>SOL</c>-<c>LA</c>   <c>SIm</c>
 del coro angelical;
 <c>DO</c>
 Anunciando están: ¡El Señor nació!
@@ -58816,7 +58820,7 @@ grato perfume yo quiero ser, Señor//</b>
         <div class="flex flex-wrap gap-1 mb-3"><span class="text-xs bg-green-100 text-green-800 px-2 py-0.5 rounded-full font-medium">Comunión</span></div>
         <pre class="song-pre">
 <b>
-<c>DO</c>  <c>SOL</c>      DO-DO7
+<c>DO</c>  <c>SOL</c>      <c>DO</c>-<c>DO7</c>
 Tan cerca de mí,
 <c>FA</c>           <c>SOL</c>
 tan cerca de mí,
@@ -59125,29 +59129,29 @@ belleza siempre antigua y siempre nueva.</b>
 
     <c>SOLm</c>    <c>DO</c>         <c>FA</c>               <c>SIb</c>
 Mas yo no sabía que en mi interior tú estabas
-     MIm7b5     LA
+     <c>MIm7b5</c>     <c>LA</c>
 pues yo estaba afuera
 <c>SOLm</c>         <c>DO</c>       <c>FA</c>           <c>SIb</c>
 Pero en mi desorden gozaba de la belleza 
-MIm7b5    LA
+<c>MIm7b5</c>    <c>LA</c>
 de tu creación.
 <c>SOLm</c>          <c>DO</c>       <c>FA</c>          <c>SIb</c>
 Tú estabas conmigo, en cambio yo Señor
-     MIm7b5  LA
+     <c>MIm7b5</c>  <c>LA</c>
 no estaba contigo
 <c>SOLm</c>           <c>DO</c>         <c>FA</c>         <c>SIb</c>
 porque tus creaturas me retenían muy lejos,
-    MIm7b5   LA
+    <c>MIm7b5</c>   <c>LA</c>
 muy lejos de Ti. 
 
 
    <c>SOLm</c>     <c>DO</c>          <c>FA</c>         <c>SIb</c>
 El dulce perfume que en mí Tú derramaste
-   MIm7b5     LA
+   <c>MIm7b5</c>     <c>LA</c>
 me dio sed de Ti,
 <c>SOLm</c>    <c>DO</c>        <c>FA</c>       <c>SIb</c>  
 Tú me tocaste y entonces anhelé
-  MIm7b5    LA
+  <c>MIm7b5</c>    <c>LA</c>
 gozar de tu paz. 
 </pre>
         <div class="mt-4 pt-3 border-t border-stone-200 flex items-center justify-between text-xs text-gray-500 flex-wrap gap-2">
@@ -59316,11 +59320,11 @@ Hasta que me miraste y viví.
         <pre class="song-pre">
 <c>LA</c>                           <c>FA#m</c>
 Yo me lanzaba hacia cosas hermosas
-          SIm-RE      <c>MI</c>
+          <c>SIm</c>-<c>RE</c>      <c>MI</c>
 que sin Ti, nada serían.
 <c>LA</c>                       <c>FA#m</c>
 y Tú estabas, conmigo quedabas
-          SIm-RE     <c>MI</c>
+          <c>SIm</c>-<c>RE</c>     <c>MI</c>
 pero yo no, contigo no.
 <c>FA#m</c>                 <c>DO#m</c>
 Llamaste y clamaste, rompiste mi sordera
@@ -59340,11 +59344,11 @@ tan dentro de mí. //</b>
 
 <c>LA</c>                       <c>FA#m</c>
 Me retenían las cosas preciosas
-        SIm-RE       <c>MI</c>
+        <c>SIm</c>-<c>RE</c>       <c>MI</c>
 que sin Ti, nada serían. 
 <c>LA</c>                       <c>FA#m</c>
 y Tú estabas, conmigo quedabas
-          SIm-RE    <c>MI</c>
+          <c>SIm</c>-<c>RE</c>    <c>MI</c>
 pero yo no, contigo no.
 <c>FA#m</c>                <c>DO#m</c>
 Exhalaste perfume y lo he respirado
@@ -59413,13 +59417,13 @@ y suspiro por Ti.
         <div class="flex flex-wrap gap-1 mb-3"><span class="text-xs bg-green-100 text-green-800 px-2 py-0.5 rounded-full font-medium">Comunión</span></div>
         <pre class="song-pre">
 <b>
-(RE)    SOL           LA
+(<c>RE</c>)    <c>SOL</c>           <c>LA</c>
 Señor Jesús, te adoro con fe
       <c>DO</c>                     <c>SOL</c>
 y me ofrezco a Ti como instrumento,
        <c>SIb</c>
 nada retengo para mí,
-         RE°
+         <c>RE°</c>
 tu honra es mi felicidad
        <c>FA</c>                      <c>DO</c>  <c>RE</c>
 sólo a Ti quiero consagrar mi amor.</b>
@@ -60002,7 +60006,7 @@ Tú que has consagrado el corazón
 a los que en tu rostro vieron la verdad,
       <c>SOLm</c>                   <c>RE</c>
 compartiendo la belleza del amor
-         LA            RE°         LA
+         <c>LA</c>            <c>RE°</c>         <c>LA</c>
 que se entrega en el dolor a los demás.
 
 <c>RE</c>                          <c>LA</c>
@@ -60011,26 +60015,26 @@ Tú que has preparado este lugar,
 que has traído contigo el vino y el pan
     <c>SOLm</c>                       <c>RE</c>
 celebrando la alegría de estar hoy
-        LA            RE°            LA
+        <c>LA</c>            <c>RE°</c>            <c>LA</c>
 junto a Ti, oh buen Jesús, en este altar.
-LA#°     SIm                     MI
+<c>LA#°</c>     <c>SIm</c>                     <c>MI</c>
 Porque humildemente vienes hacia mí, Señor
   <c>MIm</c>             <c>RE</c>          <c>SOL</c>  <c>LA</c>
 y limpias con tus ojos mi interior.
 <b>
 <c>RE</c>               <c>LA</c>
 Es el pan, es tu cuerpo
-            LA#°         SIm
+            <c>LA#°</c>         <c>SIm</c>
 que hoy nos quieres entregar,
-      SOL         FA°       RE
+      <c>SOL</c>         <c>FA°</c>       <c>RE</c>
 es la vida que queremos regalar
-       MI°            SIm SOL      LA
+       <c>MI°</c>            <c>SIm</c> <c>SOL</c>      <c>LA</c>
 a los que escuchan tu voz y buscan paz.
-RE              LA         LA#°          SIm
+<c>RE</c>              <c>LA</c>         <c>LA#°</c>          <c>SIm</c>
 Y también, este vino es la sangre a derramar
-       SOL            FA°        RE
+       <c>SOL</c>            <c>FA°</c>        <c>RE</c>
 para, así, nuestros pecados perdonar
-      MI°      SIm  FA#m  MIm
+      <c>MI°</c>      <c>SIm</c>  <c>FA#m</c>  <c>MIm</c>
 y volverte a mirar 
 <c>LA</c>       <c>RE</c>
 con humildad.</b>
@@ -60041,9 +60045,9 @@ Tú que sabes lo que ha de venir
 y aún así nos quieres dar tu bendición,
          <c>SOLm</c>                       <c>RE</c>
 pues tu amor ve más allá de nuestro ser
-       LA             RE°        LA
+       <c>LA</c>             <c>RE°</c>        <c>LA</c>
 frágil que vuelve a caer una vez más.
-LA#°   SIm                       MI
+<c>LA#°</c>   <c>SIm</c>                       <c>MI</c>
 Porque te haces mas pequeño por amor, Jesús
        <c>MIm</c>            <c>RE</c>        <c>SOL</c>  <c>LA</c>
 para entrar más fácil en el corazón.
@@ -60273,7 +60277,7 @@ la alegría y el amor.
         <div class="flex flex-wrap gap-1 mb-3"><span class="text-xs bg-green-100 text-green-800 px-2 py-0.5 rounded-full font-medium">Comunión</span></div>
         <pre class="song-pre">
 
-Intro: SOL  DO  RE  DO (x2)   SOL
+Intro: <c>SOL</c>  <c>DO</c>  <c>RE</c>  <c>DO</c> (x2)   <c>SOL</c>
  
 <c>SOL</c>     <c>DO</c>        <c>SOL</c>        <c>RE</c>       <c>MIm</c>
 Dame tu fuerza, Señor para hacer mi deber
@@ -60427,7 +60431,7 @@ pan compartido, vino de fiesta
 <c>LA7</c>                  <c>REm</c>
 tu cuerpo y sangre serán.
 
-Intermedio: REm     SOLm  REm  LA  REm (x2)
+Intermedio: <c>REm</c>     <c>SOLm</c>  <c>REm</c>  <c>LA</c>  <c>REm</c> (x2)
 
 
 <b>FINAL:</b>
@@ -60473,7 +60477,7 @@ tu cuerpo y sangre serán. x 3 veces
 <b>
 <c>SOL</c>     <c>RE</c>    <c>MIm</c>              <c>DO</c>
 Te seguiré, Señor, seguiré tus pasos
-SOL-RE    <c>SI7</c>     <c>MIm</c>    <c>DO</c>    <c>SOL</c>
+<c>SOL</c>-<c>RE</c>    <c>SI7</c>     <c>MIm</c>    <c>DO</c>    <c>SOL</c>
 y siempre por tus sendas caminaré.</b>
 
 <c>SOL</c>     <c>RE</c>        <c>MIm</c>        <c>DO</c> 
@@ -60580,11 +60584,11 @@ Ten piedad de mí ¡Oh, Dios!
 conforme a tu misericordia,
    <c>FA</c>         <c>SOL</c>  <c>DO</c>            <c>LA</c>
 conforme a la multitud de tus piedades
-DO    SOL     DO    (DO7)
+<c>DO</c>    <c>SOL</c>     <c>DO</c>    (<c>DO7</c>)
 borra mis rebeliones.
   <c>FA</c>     <c>SOL</c>   <c>DO</c>           <c>LA</c>
 //Lávame más y más de mi maldad
-  FA       SOL      DO (DO7)
+  <c>FA</c>       <c>SOL</c>      <c>DO</c> (<c>DO7</c>)
 y límpiame de mis pecados.//
 </pre>
         <div class="mt-4 pt-3 border-t border-stone-200 flex items-center justify-between text-xs text-gray-500 flex-wrap gap-2">
@@ -60673,7 +60677,7 @@ ten piedad de mí.
         <pre class="song-pre">
 <c>LAm</c>   <c>RE</c>     <c>LAm</c>
 Tengo sed de Ti,
-    <c>FA</c>    <c>SOL</c>   DO-MI
+    <c>FA</c>    <c>SOL</c>   <c>DO</c>-<c>MI</c>
 oh, fuente del amor.
 <c>LAm</c>   <c>RE</c>     <c>LAm</c>
 Tengo sed de Ti,
@@ -61097,11 +61101,11 @@ Por Cristo, con Él y en Él,
 a Ti, Dios Padre Omnipotente, 
          <c>SIb</c>       <c>FA</c>     <c>SOL</c> 
 en la unidad del Espíritu Santo, 
-       <c>LAm</c>   <c>REm</c>  MIm-DO 
+       <c>LAm</c>   <c>REm</c>  <c>MIm</c>-<c>DO</c> 
 todo honor y toda gloria 
         <c>LAm</c>    <c>REm</c>    <c>SOL</c> 
 por los siglos de los siglos, 
-DO-FA <c>MIm</c>  FA-SOL <c>DO</c> 
+<c>DO</c>-<c>FA</c> <c>MIm</c>  <c>FA</c>-<c>SOL</c> <c>DO</c> 
 A-----mén, A------mén.
 </pre>
         <div class="mt-4 pt-3 border-t border-stone-200 flex items-center justify-between text-xs text-gray-500 flex-wrap gap-2">
@@ -61215,13 +61219,13 @@ tómame, Señor.
 Mas tómame y húndeme en Ti,
                <c>RE</c>
 que olvide mi ayer,
-       	        SIm-MI
+       	        <c>SIm</c>-<c>MI</c>
 que vuelva a creer;
          <c>FA#m</c>  <c>DO#m</c>     <c>RE</c>
 y así podré volver a gritar
              <c>SIm</c>
 que vivo tu amor,
-    MI    LA    (MI)
+    <c>MI</c>    <c>LA</c>    (<c>MI</c>)
 que voy hacia Ti. (bis)</b>
 </pre>
         <div class="mt-4 pt-3 border-t border-stone-200 flex items-center justify-between text-xs text-gray-500 flex-wrap gap-2">
@@ -61426,7 +61430,7 @@ toma y lee.</pre>
 Tomad Señor y recibid,
     <c>FA#m</c>       <c>SOL</c>
 la ofrenda que traigo,
-      <c>MIm</c>       LA-LA7
+      <c>MIm</c>       <c>LA</c>-<c>LA7</c>
 pan y vino al altar.
 <c>RE</c>         <c>LA</c>         <c>SIm</c>
 Que pronto se convertirán
@@ -61450,7 +61454,7 @@ a esta fiesta de amor.</b>
 Tomad Señor y recibid,
     <c>FA#m</c>       <c>SOL</c>
 la ofrenda que traigo,
-      <c>MIm</c>       LA-LA7
+      <c>MIm</c>       <c>LA</c>-<c>LA7</c>
 pan y vino al altar.
 <c>RE</c>         <c>LA</c>         <c>SIm</c>
 Que pronto se convertirán
@@ -61886,7 +61890,7 @@ y su dicha el mundo invadirá.
         </div>
         <div class="flex flex-wrap gap-1 mb-3"><span class="text-xs bg-green-100 text-green-800 px-2 py-0.5 rounded-full font-medium">Leccionales</span><span class="text-xs bg-blue-100 text-blue-800 px-2 py-0.5 rounded-full font-medium">Adviento</span></div>
         <pre class="song-pre">
-<c>DO</c>             <c>SOL</c>     DO-DO7 
+<c>DO</c>             <c>SOL</c>     <c>DO</c>-<c>DO7</c> 
 Tú has venido, Tú volverás  
        <c>FA</c>     <c>SOL</c>  <c>DO</c> 
 te esperamos, Oh Jesús 
@@ -62175,7 +62179,7 @@ mi alfarero.</b>
 Porque tuve hambre, porque tuve sed
            <c>SOL</c>             <c>DO</c>
 y me diste pan y agua de beber,
-              FA                  SIm7b5
+              <c>FA</c>                  <c>SIm7b5</c>
 porque anduve solo y me viniste a ver,
            <c>MI</c>             <c>LAm</c>
 un poco de cielo pude conocer.
@@ -62188,20 +62192,20 @@ porque me sanaste cuando anduve herido
                 <c>LAm</c>       <c>MI</c>     <c>LAm</c>
 yo sentí en tus manos las de Jesucristo.
 <b>
-LAm SIm7b5 MI         LAm LA7
+<c>LAm</c> <c>SIm7b5</c> <c>MI</c>         <c>LAm</c> <c>LA7</c>
 Yo te digo eres mi hermano, 
 <c>REm</c>       <c>SOL</c>      <c>DO</c> <c>LAm</c>
 tú porque supiste amar, 
 <c>REm</c>             <c>SOL</c>   <c>DO</c>     <c>MI</c>     <c>LAm</c> 
 no es tiempo perdido, tiempo que se da;
-REm             SIm7b5 MI           LAm
+<c>REm</c>             <c>SIm7b5</c> <c>MI</c>           <c>LAm</c>
 no es tiempo perdido, tiempo que se da.</b>
  
 <c>LAm</c>                               <c>REm</c>
 Porque al niño solo llevas a tu hogar
              <c>SOL</c>               <c>DO</c>
 y pan de los hijos Tú le sabes dar,
-                   FA               SIm7b5
+                   <c>FA</c>               <c>SIm7b5</c>
 porque a quien te ofende sabes perdonar,
              <c>MI</c>                     <c>LAm</c>
 la bondad de Dios me has hecho encontrar.
@@ -62538,7 +62542,7 @@ en Ti, mi Dios, yo pongo mi confianza!.</b>
 que busca destruirte
      <c>DO</c>            <c>SOL</c>
 y te cubre con sus alas,
-    REm      SIm7b5    MI
+    <c>REm</c>      <c>SIm7b5</c>    <c>MI</c>
 y será su plumaje tu refugio.
        <c>DO</c>                   <c>SOL</c>
 No temerás los miedos de la noche
@@ -62546,7 +62550,7 @@ No temerás los miedos de la noche
 ni la flecha disparada de día,
       <c>DO</c>                        <c>SOL</c>
 ni la peste que avanza en las tinieblas,
-      REm         SIm7b5      MI
+      <c>REm</c>         <c>SIm7b5</c>      <c>MI</c>
 ni la plaga que azota a pleno sol.
 
      <c>DO</c>                   <c>SOL</c>
@@ -62555,7 +62559,7 @@ No podrá la desgracia dominarte,
 ni la plaga acercarse a tu morada
      <c>DO</c>                   <c>SOL</c>
 pues ha dado a sus ángeles la orden
-    REm      SIm7b5      MI
+    <c>REm</c>      <c>SIm7b5</c>      <c>MI</c>
 de protegerte en todos tus caminos.
        <c>DO</c>                      <c>SOL</c>
 En sus manos te habrán de sostener
@@ -62563,7 +62567,7 @@ En sus manos te habrán de sostener
 para que no tropiece tu pie en alguna piedra,
     <c>DO</c>                  <c>SOL</c>
 andarás sobre víboras y leones
-      REm   SIm7b5       MI
+      <c>REm</c>   <c>SIm7b5</c>       <c>MI</c>
 y pisarás cachorros y dragones.
 
        <c>LA</c>               <c>MI</c>
@@ -63482,7 +63486,7 @@ Una espiga dorada por el sol,
 el racimo que corta el viñador,
         <c>LA</c>                     <c>MI</c>
 //se convierten ahora en pan y vino de amor,
-      SI7                      MI  (MI7)
+      <c>SI7</c>                      <c>MI</c>  (<c>MI7</c>)
 en el cuerpo y la sangre del Señor.//
 
 <c>MI</c>             <c>LA</c>        <c>MI</c>  <c>LA</c>  <c>MI</c>
@@ -63491,16 +63495,16 @@ Compartimos la misma Comunión;
 somos trigo del mismo sembrador
        <c>LA</c>                    <c>MI</c>
 //un molino, la vida, nos tritura con dolor,
-         SI7                    MI  (MI7)
+         <c>SI7</c>                    <c>MI</c>  (<c>MI7</c>)
 Dios nos hace Eucaristía en el amor.//
 
-<c>MI</c>                  <c>LA</c>             MI-LA-MI
+<c>MI</c>                  <c>LA</c>             <c>MI</c>-<c>LA</c>-<c>MI</c>
 Como granos que han hecho el mismo pan,
                            <c>SI7</c>
 como notas que tejen un cantar,
        <c>LA</c>                   <c>MI</c>
 //como gotas de agua que se funden en el mar,
-        SI7                   MI  (MI7)
+        <c>SI7</c>                   <c>MI</c>  (<c>MI7</c>)
 los cristianos un cuerpo formarán.//
 </pre>
         <div class="mt-4 pt-3 border-t border-stone-200 flex items-center justify-between text-xs text-gray-500 flex-wrap gap-2">
@@ -63682,7 +63686,7 @@ y el mundo se llenará de amor y de paz.
         </div>
         <div class="flex flex-wrap gap-1 mb-3"><span class="text-xs bg-green-100 text-green-800 px-2 py-0.5 rounded-full font-medium">Villancicos</span><span class="text-xs bg-blue-100 text-blue-800 px-2 py-0.5 rounded-full font-medium">Navidad</span></div>
         <pre class="song-pre">
-Intro: FA-DO-SOL-DO (bis)
+Intro: <c>FA</c>-<c>DO</c>-<c>SOL</c>-<c>DO</c> (bis)
  
 <c>DO</c>                                    <c>SOL</c>
 Viene silbando la loica una bella melodía
@@ -63718,7 +63722,7 @@ Vienen de todas las partes
 al reino del ser divino,
                       <c>DO</c>
 // las aves cantan su gloria
-       SOL           DO (DO7)
+       <c>SOL</c>           <c>DO</c> (<c>DO7</c>)
 por el niño que ha nacido. //
 </pre>
         <div class="mt-4 pt-3 border-t border-stone-200 flex items-center justify-between text-xs text-gray-500 flex-wrap gap-2">
@@ -63901,7 +63905,7 @@ Yo quiero ser, Señor amado,
 como el barro en manos del alfarero;
             <c>DO7</c>        <c>FA</c>  <c>FAm</c>
 Toma mi vida, hazla de nuevo,
-          DO-SOL      <c>DO</c>   <c>SOL</c>
+          <c>DO</c>-<c>SOL</c>      <c>DO</c>   <c>SOL</c>
 yo quiero ser un vaso nuevo.</b>
  
 <c>DO</c>     <c>LAm</c>      <c>FA</c>  <c>SOL</c>
@@ -64019,9 +64023,9 @@ vayamos a adorarlo, es nuestro Dios.
         </div>
         <div class="flex flex-wrap gap-1 mb-3"><span class="text-xs bg-green-100 text-green-800 px-2 py-0.5 rounded-full font-medium">Leccionales</span></div>
         <pre class="song-pre">
-REm SOLm(6) 
+<c>REm</c> <c>SOLm(6)</c> 
 Velaré 
-   REm     SOLm(6)
+   <c>REm</c>     <c>SOLm(6)</c>
 contigo, Señor
 <c>REm</c>  <c>DO</c>     <c>FA</c> <c>DO</c>
 mientras yo viva, 
@@ -64760,7 +64764,7 @@ Ven con lo poco que tienes,
 ven con lo mucho que eres,
 <c>RE</c>                <c>LA</c>
 ven con tu fragilidad,
-SIm              MI        FA°
+<c>SIm</c>              <c>MI</c>        <c>FA°</c>
 ven con tu amor, con tu verdad. 
 <c>FA#m</c>    <c>DO#m</c>   <c>RE</c>          <c>LA</c>
 Hijo escogido, ven como un niño,
@@ -64786,7 +64790,7 @@ Tu voz escuché y te seguí
 ven con lo mucho que eres,
 <c>RE</c>                <c>LA</c>
 ven con tu fragilidad,
-SIm              MI        FA°
+<c>SIm</c>              <c>MI</c>        <c>FA°</c>
 ven con tu amor, con tu verdad. 
 <c>FA#m</c>    <c>DO#m</c>   <c>RE</c>          <c>LA</c>
 Hijo escogido, ven como un niño,
@@ -64828,13 +64832,13 @@ Yo te llevaré de la mano conmigo //
         </div>
         <div class="flex flex-wrap gap-1 mb-3"><span class="text-xs bg-green-100 text-green-800 px-2 py-0.5 rounded-full font-medium">Matrimonio</span></div>
         <pre class="song-pre">
-LAm                             SIm7b5  MI
+<c>LAm</c>                             <c>SIm7b5</c>  <c>MI</c>
 En la noche busqué al amor de mi alma
 <c>LAm</c>            <c>LA7</c>              <c>REm</c>
 en mi árido jardín el hizo su morada;
 <c>SOL</c>                                <c>DO</c>
 con perlas de rocío cubrió Él mi cabeza,
-SIm7b5                            MI
+<c>SIm7b5</c>                            <c>MI</c>
 mi alma esta bella, mi bien amado llega.
 <b>
 <c>LA</c>        <c>MI</c>   <c>SIm</c>    <c>DO#7</c>  <c>FA#m</c>
@@ -64846,13 +64850,13 @@ y las viñas en flor exhalan su frescor;
 <c>LA</c>  <c>MI</c>      <c>LA</c>  <c>MI</c>
 ven a mi jardín.</b>
  
-LAm                                  SIm7b5  MI
+<c>LAm</c>                                  <c>SIm7b5</c>  <c>MI</c>
 Habla mi bien amado, atisba en la ventana,
 <c>LAm</c>             <c>LA7</c>                <c>REm</c>
 el fruto está maduro, mi alma está presta;
 <c>SOL</c>                           <c>DO</c>
 espero su llamado pidiéndome abrir,
-SIm7b5                           MI
+<c>SIm7b5</c>                           <c>MI</c>
 arrulla la paloma, mi bien amado llega.
 </pre>
         <div class="mt-4 pt-3 border-t border-stone-200 flex items-center justify-between text-xs text-gray-500 flex-wrap gap-2">
@@ -65481,7 +65485,7 @@ Tú que has hecho historia entre los hombres.
 <b>
          <c>LA</c>                       <c>SOL</c>
 Desde el fondo de mi ser su Santo Nombre
-   LA        SIb°   SIm SOL LA
+   <c>LA</c>        <c>SIb°</c>   <c>SIm</c> <c>SOL</c> <c>LA</c>
 bendice alma mía al Señor.
 <c>RE</c>                  <c>SOL</c>
 Ven Jesús entre mil voces,
@@ -65618,7 +65622,7 @@ tienes tanto para dar y ser feliz.
         </div>
         <div class="flex flex-wrap gap-1 mb-3"><span class="text-xs bg-green-100 text-green-800 px-2 py-0.5 rounded-full font-medium">Comunión</span><span class="text-xs bg-blue-100 text-blue-800 px-2 py-0.5 rounded-full font-medium">Adviento</span></div>
         <pre class="song-pre">
-(SOL)        DO
+(<c>SOL</c>)        <c>DO</c>
 Ven, Señor Jesús,
            <c>SOL</c>             <c>LAm</c>
 porque sin Ti ya no hay paisaje.
@@ -66808,7 +66812,7 @@ intento ser tu hijo amado.
         </div>
         <div class="flex flex-wrap gap-1 mb-3"><span class="text-xs bg-green-100 text-green-800 px-2 py-0.5 rounded-full font-medium">Comunión</span></div>
         <pre class="song-pre">
-Intro: DO  FA  DO  SOL (x2)
+Intro: <c>DO</c>  <c>FA</c>  <c>DO</c>  <c>SOL</c> (x2)
  
 <c>DO</c>         <c>SOL</c>      <c>FA</c>
 Hay que cantar algo nuevo,
@@ -66859,7 +66863,7 @@ y así juntos poder alabar
 a ese Dios que regala la paz.
 <c>FA</c>          <c>SOL</c>    <c>DO</c>            <c>LAm</c>
 Porque si estamos aquí es para traer
-  FA         FAm     [DO   FA   DO   SOL (x2)]
+  <c>FA</c>         <c>FAm</c>     [<c>DO</c>   <c>FA</c>   <c>DO</c>   <c>SOL</c> (x2)]
 a Cristo que te hace crecer.</b>
  
 <c>DO</c>         <c>SOL</c>         <c>FA</c>
@@ -67740,7 +67744,9 @@ const nL=['Do','Do#','Re','Re#','Mi','Fa','Fa#','Sol','Sol#','La','La#','Si'];
 const nA=['C','C#','D','D#','E','F','F#','G','G#','A','A#','B'];
 const eq={'Dob':'Si','Reb':'Do#','Mib':'Re#','Fab':'Mi','Solb':'Fa#','Lab':'Sol#','Sib':'La#','Cb':'B','Db':'C#','Eb':'D#','Fb':'E','Gb':'F#','Ab':'G#','Bb':'A#'};
 function pN(s){
-  let slashIdx = s.indexOf('/');
+  let slashIdx = s.lastIndexOf('/');
+  // Solo es bajo si después de "/" viene una nota (en "RE4/9" el "/9" es parte del acorde)
+  if (slashIdx > 0 && !/^(Do|Re|Mi|Fa|Sol|La|Si|C|D|E|F|G|A|B)/i.test(s.substring(slashIdx + 1))) slashIdx = -1;
   let main = slashIdx > 0 ? s.substring(0, slashIdx) : s;
   let bass = slashIdx > 0 ? s.substring(slashIdx + 1) : null;
   let m = main.match(/^(Do|Re|Mi|Fa|Sol|La|Si|C|D|E|F|G|A|B)(#|b)?(.*)/i);
@@ -67750,32 +67756,33 @@ function pN(s){
   if(eq[fn]) fn = eq[fn];
   let i = nL.indexOf(fn), tp = 'lat';
   if(i === -1){ i = nA.indexOf(fn); tp = 'ang'; }
-  let bassIdx = -1;
+  let bassIdx = -1, bassMod = '';
   if(bass){
-    let bm = bass.match(/^(Do|Re|Mi|Fa|Sol|La|Si|C|D|E|F|G|A|B)(#|b)?/i);
+    let bm = bass.match(/^(Do|Re|Mi|Fa|Sol|La|Si|C|D|E|F|G|A|B)(#|b)?(.*)/i);
     if(bm){
       let bb = bm[1].charAt(0).toUpperCase() + bm[1].slice(1).toLowerCase();
       let bfn = bb + (bm[2]||'');
       if(eq[bfn]) bfn = eq[bfn];
       bassIdx = nL.indexOf(bfn);
       if(bassIdx === -1) bassIdx = nA.indexOf(bfn);
+      bassMod = bm[3] || '';
     }
   }
-  return {idx: i, type: tp, mod: m[3]||'', bassIdx: bassIdx, hasBass: bass !== null};
+  return {idx: i, type: tp, mod: m[3]||'', bassIdx: bassIdx, hasBass: bass !== null, bassMod: bassMod};
 }
-function fN(i, tp, mo, bassIdx){
+function fN(i, tp, mo, bassIdx, bassMod){
   i = (i % 12 + 12) % 12;
   let result = (tp === 'ang' ? nA[i] : nL[i]) + mo;
   if(bassIdx !== undefined && bassIdx !== -1){
     bassIdx = (bassIdx % 12 + 12) % 12;
-    result += '/' + (tp === 'ang' ? nA[bassIdx] : nL[bassIdx]);
+    result += '/' + (tp === 'ang' ? nA[bassIdx] : nL[bassIdx]) + (bassMod || '');
   }
   return result;
 }
 function toggleChords(b){let c=b.closest('.card'),p=c.querySelector('pre'),bt=b.querySelector('.btn-text'),ic=b.querySelector('i');if(p.classList.contains('acordes-ocultos')){p.classList.remove('acordes-ocultos');bt.innerText='Ocultar Acordes';ic.className='fas fa-eye-slash mr-1';c.querySelectorAll('c').forEach(x=>x.style.display='');}else{p.classList.add('acordes-ocultos');bt.innerText='Mostrar Acordes';ic.className='fas fa-eye mr-1';c.querySelectorAll('c').forEach(x=>x.style.display='none');}}
-function toggleNotation(b){let c=b.closest('.card'),sp=c.querySelectorAll('c span'),isA=c.dataset.notation==='anglo',tt=isA?'lat':'ang';c.dataset.notation=tt==='ang'?'anglo':'latina';b.querySelector('.btn-text').innerText=isA?'Do / C':'C / Do';sp.forEach(s=>{let p=pN(s.innerText);if(p&&p.idx!==-1)s.innerText=fN(p.idx,tt,p.mod,p.hasBass?p.bassIdx:undefined);});}
-function transpose(b,st){let c=b.closest('.card');let cur=parseInt(c.dataset.transSteps||'0');cur+=st;c.dataset.transSteps=cur;let disp=c.querySelector('.tono-display');if(disp){if(cur===0){disp.textContent='Tono';disp.style.color='';}else{disp.textContent=(cur>0?'+':'')+cur;disp.style.color=cur!==0?'#dc2626':'';}}c.querySelectorAll('c span').forEach(s=>{let p=pN(s.innerText);if(p&&p.idx!==-1)s.innerText=fN(p.idx+st,p.type,p.mod,p.hasBass?p.bassIdx+st:undefined);});}
-function resetTranspose(b){let c=b.closest('.card');let cur=parseInt(c.dataset.transSteps||'0');if(cur===0)return;let rev=-cur;c.dataset.transSteps='0';b.textContent='Tono';b.style.color='';c.querySelectorAll('c span').forEach(s=>{let p=pN(s.innerText);if(p&&p.idx!==-1)s.innerText=fN(p.idx+rev,p.type,p.mod,p.hasBass?p.bassIdx+rev:undefined);});}
+function toggleNotation(b){let c=b.closest('.card'),sp=c.querySelectorAll('c span'),isA=c.dataset.notation==='anglo',tt=isA?'lat':'ang';c.dataset.notation=tt==='ang'?'anglo':'latina';b.querySelector('.btn-text').innerText=isA?'Do / C':'C / Do';sp.forEach(s=>{let p=pN(s.innerText);if(p&&p.idx!==-1)s.innerText=fN(p.idx,tt,p.mod,p.hasBass?p.bassIdx:undefined,p.bassMod);});}
+function transpose(b,st){let c=b.closest('.card');let cur=parseInt(c.dataset.transSteps||'0');cur+=st;c.dataset.transSteps=cur;let disp=c.querySelector('.tono-display');if(disp){if(cur===0){disp.textContent='Tono';disp.style.color='';}else{disp.textContent=(cur>0?'+':'')+cur;disp.style.color=cur!==0?'#dc2626':'';}}c.querySelectorAll('c span').forEach(s=>{let p=pN(s.innerText);if(p&&p.idx!==-1)s.innerText=fN(p.idx+st,p.type,p.mod,p.hasBass?p.bassIdx+st:undefined,p.bassMod);});}
+function resetTranspose(b){let c=b.closest('.card');let cur=parseInt(c.dataset.transSteps||'0');if(cur===0)return;let rev=-cur;c.dataset.transSteps='0';b.textContent='Tono';b.style.color='';c.querySelectorAll('c span').forEach(s=>{let p=pN(s.innerText);if(p&&p.idx!==-1)s.innerText=fN(p.idx+rev,p.type,p.mod,p.hasBass?p.bassIdx+rev:undefined,p.bassMod);});}
 
 // ── Filtering & Advanced Search ──
 let activeFilters = { momento: null, tiempo: null, chilena: null };
