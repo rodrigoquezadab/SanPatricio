@@ -91,6 +91,11 @@ node tools/build_cantos.js        # Genera cantos.html desde los datos
 
 ## 📋 Registro de Cambios (Changelog)
 
+### [2026-11-15] - Curso «El Año Litúrgico»
+- **Contenido** (`cursos.html#ano-liturgico`): cuándo comienza y termina el año litúrgico; los tiempos (Adviento, Navidad, Tiempo Ordinario, Cuaresma, Triduo Pascual, Pascua) con barra de colores; fechas fijas (calendario solar) y móviles (calendario lunar, Pascua) con un ejemplo calculado para 2026–2027; colores litúrgicos y paño del ambón; cuándo se dicen el Gloria, el Santo y el Aleluya; Viernes y Sábado Santo sin Misa; cantos y oraciones propios de cada tiempo. Los ciclos de lecturas se remiten al Curso para Lectores.
+- **Fuentes**: Normas universales sobre el Año Litúrgico y el Calendario, IGMR. Tarjeta nueva en el listado de cursos.
+- **Quiz** (`quiz-ano-liturgico.html`): 20 preguntas con explicación y cortes de puntaje proporcionales. Agregado al `sitemap.xml`.
+
 ### [2026-11-15] - Curso de la Misa: aclaración pastoral y quiz de 24 preguntas
 - **Contenido** (`cursos.html#partes-misa`): Recuadro «Un curso pastoral, no un tratado doctrinal». Las posturas y gestos son signos, no obligaciones morales (no hacerlos por desconocimiento, salud, edad o espacio no es pecado); los preceptos de la Iglesia (Misa dominical, c. 1247; ayuno eucarístico, c. 919) sí son obligatorios, con sus excepciones; dudas de conciencia, con un sacerdote.
 - **Quiz** (`quiz-misa.html`): de 16 a 24 preguntas (colecta, silencio tras el «Oremos», ofrenda fuera del altar, «Bendito seas por siempre, Señor», cuándo ponerse de pie, bendición final, Misa dominical y de semana, y posturas no son pecado). Los cortes de puntaje ahora son proporcionales al total de preguntas.

@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz: El Año Litúrgico - Parroquia San Patricio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>tailwind.config = { theme: { extend: { colors: { arena: '#F3E5DC', verdeSanPatricio: '#16A34A', negro: '#000000' } } } }</script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png">
+    <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+
+    <meta name="description" content="Quiz interactivo sobre el año litúrgico: tiempos, fechas fijas y móviles, colores litúrgicos, Gloria y Aleluya, Viernes Santo y oraciones de cada tiempo.">
+    <link rel="canonical" href="https://parroquiasanpatricio.cl/quiz-ano-liturgico.html">
+    <meta property="og:title" content="Quiz: El Año Litúrgico - Parroquia San Patricio">
+    <meta property="og:description" content="Pon a prueba lo que sabes sobre los tiempos y los colores del año litúrgico.">
+    <meta property="og:type" content="website">
+</head>
+<body>
+<!-- BARRA SUPERIOR FIJA EXCLUSIVA DEL QUIZ -->
+<header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md shadow-sm border-b-2 border-verdeSanPatricio py-2.5 px-4">
+    <div class="container mx-auto max-w-4xl flex items-center justify-between gap-3">
+        <!-- Botón fijo arriba a la izquierda para volver a estudiar buen trato -->
+        <a href="cursos.html#ano-liturgico" class="inline-flex items-center gap-2 px-3.5 py-2 bg-verdeSanPatricio hover:bg-green-700 text-white rounded-xl text-xs sm:text-sm font-bold shadow-sm transition transform hover:-translate-y-0.5" title="Volver al curso El Año Litúrgico">
+            <i class="fas fa-arrow-left text-xs"></i>
+            <i class="fas fa-book-open"></i>
+            <span>Volver al Año Litúrgico</span>
+        </a>
+
+        <!-- Identidad Parroquia -->
+        <div class="flex items-center gap-2.5 sm:gap-3 text-right">
+            <div class="hidden sm:block">
+                <span class="block font-bold text-sm text-gray-900 leading-tight">Parroquia San Patricio</span>
+                <span class="text-[11px] text-gray-500 font-medium">Quiz: Año Litúrgico</span>
+            </div>
+            <img src="assets/logo-san-patricio.jpg" alt="Logo Parroquia San Patricio" class="h-9 w-auto rounded-lg object-contain shadow-sm border border-gray-200">
+        </div>
+    </div>
+</header>
+
+<main class="container mx-auto px-4 py-8 max-w-4xl">
+    <!-- Tarjeta Principal del Quiz -->
+    <section class="card transition-opacity duration-300 shadow-lg border border-green-100 p-6 md:p-10">
+        <!-- Encabezado del Quiz -->
+        <div class="border-b pb-6 mb-8 flex flex-col md:flex-row md:items-center justify-between gap-4">
+            <div>
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold bg-green-100 text-verdeSanPatricio mb-3">
+                    <i class="fas fa-church"></i> Formación Litúrgica
+                </div>
+                <h1 class="text-2xl md:text-3xl font-extrabold text-verdeSanPatricio flex items-center">
+                    <i class="fas fa-clipboard-check mr-3"></i>Quiz: ¿Cuánto sabes del Año Litúrgico?
+                </h1>
+                <p class="text-sm md:text-base text-gray-600 mt-2">
+                    Pon a prueba lo que sabes sobre los tiempos litúrgicos, las fechas fijas y móviles, los colores, el Gloria y el Aleluya, el Viernes Santo y las oraciones de cada tiempo. Son 20 preguntas formativas.
+                </p>
+            </div>
+            <div class="flex items-center gap-3 self-start md:self-center">
+                <span id="quiz-counter-badge" class="text-xs font-bold px-3.5 py-1.5 bg-green-50 text-verdeSanPatricio border border-green-200 rounded-lg whitespace-nowrap shadow-sm">
+                    Pregunta <span id="quiz-q-current">1</span> de <span id="quiz-q-total">20</span>
+                </span>
+            </div>
+        </div>
+
+        <!-- Barra de progreso -->
+        <div class="w-full bg-gray-200 h-2.5 rounded-full mb-8 overflow-hidden">
+            <div id="quiz-progress-bar" class="bg-verdeSanPatricio h-full transition-all duration-300" style="width: 16.6%;"></div>
+        </div>
+
+        <!-- Contenedor de la Pregunta Dinámica -->
+        <div id="quiz-question-container">
+            <!-- Recordatorio siempre visible para consultar la materia -->
+            <div class="flex items-center justify-between bg-green-50/90 border border-green-200 rounded-xl px-4 py-2.5 text-xs sm:text-sm mb-6">
+                <span class="text-gray-700 font-medium flex items-center gap-2">
+                    <i class="fas fa-graduation-cap text-verdeSanPatricio text-base"></i>
+                    <span>¿Dudas con la materia?</span>
+                </span>
+                <a href="cursos.html#ano-liturgico" target="_blank" rel="noopener noreferrer" class="font-bold text-verdeSanPatricio hover:underline inline-flex items-center gap-1.5">
+                    <span>Abrir el curso</span>
+                    <i class="fas fa-arrow-up-right-from-square text-[11px]"></i>
+                </a>
+            </div>
+
+            <h2 id="quiz-question-title" class="text-lg md:text-xl font-bold text-gray-900 mb-6 leading-snug"></h2>
+            
+            <div id="quiz-options-container" class="space-y-3.5 mb-8"></div>
+
+            <!-- Feedback formativo -->
+            <div id="quiz-feedback-box" class="hidden p-4 md:p-5 rounded-xl border text-sm md:text-base transition-all duration-300 mb-8"></div>
+
+            <!-- Botón Siguiente -->
+            <div class="flex justify-end pt-2">
+                <button id="quiz-btn-next" class="hidden px-6 py-3 bg-verdeSanPatricio hover:bg-green-700 text-white font-bold rounded-xl shadow-md transition transform hover:-translate-y-0.5 text-sm md:text-base items-center gap-2">
+                    <span id="quiz-btn-next-text">Siguiente pregunta</span>
+                    <i class="fas fa-arrow-right text-xs"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Pantalla de Resultados Finales -->
+        <div id="quiz-results-container" class="hidden text-center py-8">
+            <div id="quiz-result-icon-wrapper" class="w-24 h-24 mx-auto mb-5 rounded-full flex items-center justify-center text-4xl shadow-md"></div>
+            <h2 id="quiz-result-heading" class="text-2xl md:text-3xl font-extrabold text-gray-800 mb-2"></h2>
+            <p id="quiz-result-score" class="text-lg md:text-xl font-bold text-verdeSanPatricio mb-4"></p>
+            <p id="quiz-result-message" class="text-gray-700 max-w-xl mx-auto text-sm md:text-base leading-relaxed mb-8"></p>
+            
+            <div class="flex flex-wrap justify-center gap-4">
+                <button id="quiz-btn-restart" class="px-6 py-3 bg-verdeSanPatricio hover:bg-green-700 text-white font-bold rounded-xl shadow transition text-sm md:text-base flex items-center gap-2">
+                    <i class="fas fa-rotate-right"></i>
+                    <span>Volver a intentar</span>
+                </button>
+                <a href="cursos.html#ano-liturgico" class="px-6 py-3 bg-green-50 border border-green-200 hover:bg-green-100 text-verdeSanPatricio font-semibold rounded-xl transition text-sm md:text-base flex items-center gap-2">
+                    <i class="fas fa-book-open"></i>
+                    <span>Volver al Año Litúrgico</span>
+                </a>
+            </div>
+        </div>
+    </section>
+</main>
+
+<div id="footer-container">
+    <div class="btn-flotante-container">
+        <button id="btnSubir" class="btn-flotante btn-subir hidden" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" title="Subir"><i class="fas fa-chevron-up"></i></button>
+    </div>
+
+    <footer class="py-6 text-center text-xs text-gray-500">
+        <p>&copy; 2026 Parroquia San Patricio &middot; Quiz Formativo: El Año Litúrgico</p>
+    </footer>
+</div>
+<script src="components.js?v=7"></script>
+
+<!-- SCRIPT DEL QUIZ -->
+<script>
+(function() {
+    const quizData = [
+        {
+            question: "1. ¿Cuándo comienza el año litúrgico?",
+            options: [
+                "El 1 de enero.",
+                "El 1.er domingo de Adviento.",
+                "El Miércoles de Ceniza."
+            ],
+            correct: 1,
+            explanation: "📅 <strong>¡Correcto!</strong> Comienza el 1.<sup>er</sup> domingo de Adviento, el cuarto domingo antes de Navidad, entre el 27 de noviembre y el 3 de diciembre. Por eso no coincide con el año civil."
+        },
+        {
+            question: "2. ¿Con qué solemnidad culmina el año litúrgico?",
+            options: [
+                "Jesucristo, Rey del Universo.",
+                "Pentecostés.",
+                "Todos los Santos."
+            ],
+            correct: 0,
+            explanation: "👑 <strong>¡Muy bien!</strong> Cristo Rey es el último domingo del Tiempo Ordinario; la semana siguiente cierra el año."
+        },
+        {
+            question: "3. ¿Cuál es el centro de todo el año litúrgico?",
+            options: [
+                "La Navidad.",
+                "El Tiempo Ordinario.",
+                "El Triduo Pascual: la muerte y resurrección de Cristo."
+            ],
+            correct: 2,
+            explanation: "✝️ <strong>¡Exacto!</strong> Todo el año gira en torno a la Pascua; y cada domingo es una pequeña Pascua semanal."
+        },
+        {
+            question: "4. ¿Qué color se usa en Adviento y en Cuaresma?",
+            options: [
+                "Morado.",
+                "Verde.",
+                "Blanco."
+            ],
+            correct: 0,
+            explanation: "🟣 <strong>¡Correcto!</strong> El morado expresa penitencia y espera."
+        },
+        {
+            question: "5. ¿Qué domingos se puede usar el color rosado?",
+            options: [
+                "Todos los domingos de Adviento.",
+                "El Domingo de Ramos.",
+                "El 3.er domingo de Adviento («Gaudete») y el 4.º de Cuaresma («Laetare»)."
+            ],
+            correct: 2,
+            explanation: "🌸 <strong>¡Muy bien!</strong> El rosado expresa alegría en medio de la espera: «Gaudete» y «Laetare» significan «alégrense» y «alégrate»."
+        },
+        {
+            question: "6. ¿Cuánto dura el tiempo de Pascua?",
+            options: [
+                "Una semana, la octava de Pascua.",
+                "Cincuenta días, desde el Domingo de Resurrección hasta Pentecostés.",
+                "Cuarenta días, hasta la Ascensión."
+            ],
+            correct: 1,
+            explanation: "🕊️ <strong>¡Exacto!</strong> Son cincuenta días celebrados como «un gran domingo», hasta Pentecostés."
+        },
+        {
+            question: "7. ¿Qué color se usa en Pentecostés y en el Domingo de Ramos?",
+            options: [
+                "Rojo.",
+                "Blanco.",
+                "Morado."
+            ],
+            correct: 0,
+            explanation: "🔥 <strong>¡Correcto!</strong> El rojo recuerda el fuego del Espíritu Santo (Pentecostés) y la Pasión del Señor (Ramos y Viernes Santo)."
+        },
+        {
+            question: "8. ¿Qué color se usa en el Tiempo Ordinario?",
+            options: [
+                "Morado.",
+                "Rosado.",
+                "Verde."
+            ],
+            correct: 2,
+            explanation: "🟢 <strong>¡Muy bien!</strong> El verde expresa esperanza y crecimiento."
+        },
+        {
+            question: "9. Si en pleno Tiempo Ordinario se celebra una fiesta de la Virgen María, ¿qué color se usa?",
+            options: [
+                "Verde, porque es Tiempo Ordinario.",
+                "Blanco, el color de la fiesta.",
+                "Rojo."
+            ],
+            correct: 1,
+            explanation: "🤍 <strong>¡Correcto!</strong> Cuando hay una fiesta o solemnidad, se usa su color aunque el tiempo sea otro."
+        },
+        {
+            question: "10. ¿Qué color debe tener el paño del ambón?",
+            options: [
+                "Siempre blanco.",
+                "Siempre el color de la parroquia.",
+                "El mismo color del día o del tiempo litúrgico."
+            ],
+            correct: 2,
+            explanation: "🎨 <strong>¡Exacto!</strong> El paño del ambón (y el frontal del altar, si lo hay) acompaña el color de las vestiduras del día."
+        },
+        {
+            question: "11. ¿Por qué la Navidad tiene fecha fija?",
+            options: [
+                "Porque sigue el calendario solar: siempre es el 25 de diciembre.",
+                "Porque depende de la luna llena.",
+                "Porque cada parroquia la fija."
+            ],
+            correct: 0,
+            explanation: "☀️ <strong>¡Muy bien!</strong> El ciclo de Navidad sigue el calendario solar; solo cambia el día de la semana en que cae."
+        },
+        {
+            question: "12. ¿Cómo se determina la fecha de la Pascua?",
+            options: [
+                "Es siempre el primer domingo de abril.",
+                "Es el domingo siguiente a la primera luna llena de primavera (hemisferio norte), desde el 21 de marzo.",
+                "Es 100 días después de Navidad."
+            ],
+            correct: 1,
+            explanation: "🌕 <strong>¡Correcto!</strong> Por eso la Pascua es móvil y cae entre el 22 de marzo y el 25 de abril."
+        },
+        {
+            question: "13. ¿Cuál de estas fechas depende de la fecha de Pascua?",
+            options: [
+                "Navidad.",
+                "Santa María, Madre de Dios (1 de enero).",
+                "El Miércoles de Ceniza."
+            ],
+            correct: 2,
+            explanation: "📆 <strong>¡Exacto!</strong> El Miércoles de Ceniza, Ramos, la Ascensión, Pentecostés y otras solemnidades se mueven junto con la Pascua."
+        },
+        {
+            question: "14. ¿Cuándo NO se dice el Gloria en la Misa del domingo?",
+            options: [
+                "En los domingos de Adviento y de Cuaresma.",
+                "En los domingos de Pascua.",
+                "En los domingos del Tiempo Ordinario."
+            ],
+            correct: 0,
+            explanation: "🎶 <strong>¡Correcto!</strong> En esos tiempos se omite, aunque sí se dice en las solemnidades, como San José o la Anunciación."
+        },
+        {
+            question: "15. ¿Cuál de estos cantos se dice en todas las Misas del año, sin excepción?",
+            options: [
+                "El Gloria.",
+                "El Santo.",
+                "El Aleluya."
+            ],
+            correct: 1,
+            explanation: "🙌 <strong>¡Muy bien!</strong> El Santo es parte de la Plegaria Eucarística y nunca se omite."
+        },
+        {
+            question: "16. ¿Cuándo vuelve a cantarse el Aleluya después de la Cuaresma?",
+            options: [
+                "El Domingo de Ramos.",
+                "El Jueves Santo.",
+                "En la Vigilia Pascual, de forma solemne."
+            ],
+            correct: 2,
+            explanation: "🎺 <strong>¡Exacto!</strong> Calla durante toda la Cuaresma y vuelve en la Vigilia Pascual. Por eso en Cuaresma no se eligen cantos con «aleluya»."
+        },
+        {
+            question: "17. ¿Qué ocurre el Viernes Santo?",
+            options: [
+                "No se celebra la Misa, pero sí se comulga con hostias consagradas el Jueves Santo.",
+                "Se celebra una Misa solemne a las 15:00.",
+                "No hay ninguna celebración en el templo."
+            ],
+            correct: 0,
+            explanation: "✝️ <strong>¡Correcto!</strong> Es el único día sin Misa: se celebra la Pasión del Señor (Palabra, adoración de la Cruz y Comunión)."
+        },
+        {
+            question: "18. ¿Qué pasa con las campanas desde el Gloria del Jueves Santo?",
+            options: [
+                "Suenan cada hora del Viernes Santo.",
+                "Callan hasta el Gloria de la Vigilia Pascual.",
+                "Suenan solo al terminar la Misa."
+            ],
+            correct: 1,
+            explanation: "🔔 <strong>¡Muy bien!</strong> El silencio de las campanas acompaña la Pasión; vuelven a sonar en la Vigilia Pascual."
+        },
+        {
+            question: "19. ¿Qué oración reemplaza al Ángelus durante el tiempo de Pascua?",
+            options: [
+                "El Te Deum.",
+                "El Magníficat.",
+                "El Regina Caeli."
+            ],
+            correct: 2,
+            explanation: "👑 <strong>¡Exacto!</strong> Desde Pascua hasta Pentecostés se reza el Regina Caeli («Reina del cielo, alégrate»)."
+        },
+        {
+            question: "20. ¿Qué himno se canta tradicionalmente el 31 de diciembre en acción de gracias por el año?",
+            options: [
+                "El Te Deum.",
+                "El Veni Creator.",
+                "El Pregón Pascual."
+            ],
+            correct: 0,
+            explanation: "🙏 <strong>¡Correcto!</strong> El 31 de diciembre se canta el Te Deum; y el 1 de enero, el Veni Creator, pidiendo la luz del Espíritu para el nuevo año."
+        }
+    ];
+
+    let currentQuestion = 0;
+    let score = 0;
+    let answered = false;
+
+    const qContainer = document.getElementById('quiz-question-container');
+    const rContainer = document.getElementById('quiz-results-container');
+    const qTitle = document.getElementById('quiz-question-title');
+    const qOptions = document.getElementById('quiz-options-container');
+    const feedbackBox = document.getElementById('quiz-feedback-box');
+    const btnNext = document.getElementById('quiz-btn-next');
+    const btnNextText = document.getElementById('quiz-btn-next-text');
+    const progressBar = document.getElementById('quiz-progress-bar');
+    const qCurrent = document.getElementById('quiz-q-current');
+    const qTotal = document.getElementById('quiz-q-total');
+    const btnRestart = document.getElementById('quiz-btn-restart');
+
+    if (!qContainer || !qTitle) return;
+
+    qTotal.textContent = quizData.length;
+
+    function loadQuestion(index) {
+        answered = false;
+        const item = quizData[index];
+        
+        qCurrent.textContent = index + 1;
+        progressBar.style.width = ((index + 1) / quizData.length * 100) + '%';
+        
+        qTitle.textContent = item.question;
+        qOptions.innerHTML = '';
+        
+        feedbackBox.className = 'hidden p-4 md:p-5 rounded-xl border text-sm md:text-base transition-all duration-300 mb-8';
+        feedbackBox.innerHTML = '';
+        
+        btnNext.classList.add('hidden');
+        btnNext.classList.remove('inline-flex');
+        if (index === quizData.length - 1) {
+            btnNextText.textContent = 'Ver resultados finales';
+        } else {
+            btnNextText.textContent = 'Siguiente pregunta';
+        }
+
+        item.options.forEach((optText, optIndex) => {
+            const optBtn = document.createElement('button');
+            optBtn.type = 'button';
+            optBtn.className = 'w-full text-left p-4 md:p-5 rounded-xl border-2 border-gray-200 bg-white hover:border-verdeSanPatricio hover:bg-green-50/50 transition-all duration-200 text-sm md:text-base text-gray-800 flex items-start gap-3.5 shadow-sm focus:outline-none';
+            
+            const letterSpan = document.createElement('span');
+            letterSpan.className = 'w-7 h-7 rounded-full bg-gray-100 text-gray-700 text-xs font-bold flex items-center justify-center flex-shrink-0 mt-0.5';
+            letterSpan.textContent = String.fromCharCode(65 + optIndex);
+
+            const textSpan = document.createElement('span');
+            textSpan.className = 'flex-grow leading-relaxed';
+            textSpan.textContent = optText;
+
+            optBtn.appendChild(letterSpan);
+            optBtn.appendChild(textSpan);
+
+            optBtn.addEventListener('click', () => selectOption(optIndex));
+            qOptions.appendChild(optBtn);
+        });
+    }
+
+    function selectOption(selectedIndex) {
+        if (answered) return;
+        answered = true;
+
+        const item = quizData[currentQuestion];
+        const optionButtons = qOptions.querySelectorAll('button');
+
+        optionButtons.forEach((btn, idx) => {
+            btn.disabled = true;
+            btn.classList.remove('hover:border-verdeSanPatricio', 'hover:bg-green-50/50', 'cursor-pointer');
+            btn.classList.add('cursor-default');
+
+            const badge = btn.querySelector('span:first-child');
+
+            if (idx === item.correct) {
+                btn.classList.remove('border-gray-200', 'bg-white');
+                btn.classList.add('border-green-500', 'bg-green-50', 'text-green-950', 'font-medium');
+                badge.className = 'w-7 h-7 rounded-full bg-verdeSanPatricio text-white text-xs font-bold flex items-center justify-center flex-shrink-0 mt-0.5';
+                badge.innerHTML = '<i class="fas fa-check text-xs"></i>';
+            } else if (idx === selectedIndex) {
+                btn.classList.remove('border-gray-200', 'bg-white');
+                btn.classList.add('border-red-400', 'bg-red-50', 'text-red-950');
+                badge.className = 'w-7 h-7 rounded-full bg-red-500 text-white text-xs font-bold flex items-center justify-center flex-shrink-0 mt-0.5';
+                badge.innerHTML = '<i class="fas fa-times text-xs"></i>';
+            } else {
+                btn.classList.add('opacity-50');
+            }
+        });
+
+        const isCorrect = (selectedIndex === item.correct);
+        const studyLinkHtml = '<div class="mt-2.5 pt-2 border-t border-black/10 text-xs"><a href="cursos.html#ano-liturgico" target="_blank" rel="noopener noreferrer" class="text-verdeSanPatricio hover:underline font-bold inline-flex items-center gap-1.5"><i class="fas fa-book-open"></i> Repasar este tema en el curso <i class="fas fa-arrow-up-right-from-square text-[10px]"></i></a></div>';
+        
+        if (isCorrect) {
+            score++;
+            feedbackBox.className = 'p-4 md:p-5 rounded-xl border border-green-300 bg-green-50 text-green-900 text-sm md:text-base mb-8 flex items-start gap-3.5 shadow-sm';
+            feedbackBox.innerHTML = '<i class="fas fa-circle-check text-verdeSanPatricio text-xl mt-0.5 flex-shrink-0"></i><div class="flex-grow">' + item.explanation + studyLinkHtml + '</div>';
+        } else {
+            feedbackBox.className = 'p-4 md:p-5 rounded-xl border border-amber-300 bg-amber-50 text-amber-900 text-sm md:text-base mb-8 flex items-start gap-3.5 shadow-sm';
+            feedbackBox.innerHTML = '<i class="fas fa-circle-info text-amber-600 text-xl mt-0.5 flex-shrink-0"></i><div class="flex-grow"><strong>Respuesta a reflexionar:</strong> La opción más acertada era la <strong>' + String.fromCharCode(65 + item.correct) + '</strong>.<br><br>' + item.explanation + studyLinkHtml + '</div>';
+        }
+        feedbackBox.classList.remove('hidden');
+
+        btnNext.classList.remove('hidden');
+        btnNext.classList.add('inline-flex');
+    }
+
+    btnNext.addEventListener('click', () => {
+        currentQuestion++;
+        if (currentQuestion < quizData.length) {
+            loadQuestion(currentQuestion);
+        } else {
+            showResults();
+        }
+    });
+
+    function showResults() {
+        qContainer.classList.add('hidden');
+        rContainer.classList.remove('hidden');
+        progressBar.style.width = '100%';
+
+        const scoreHeading = document.getElementById('quiz-result-heading');
+        const scoreText = document.getElementById('quiz-result-score');
+        const scoreMsg = document.getElementById('quiz-result-message');
+        const iconWrapper = document.getElementById('quiz-result-icon-wrapper');
+
+        scoreText.textContent = 'Obtuviste ' + score + ' de ' + quizData.length + ' respuestas correctas (' + Math.round((score / quizData.length) * 100) + '%)';
+
+        if (score === quizData.length) {
+            iconWrapper.className = 'w-24 h-24 mx-auto mb-5 rounded-full flex items-center justify-center text-4xl shadow-md bg-green-100 text-verdeSanPatricio';
+            iconWrapper.innerHTML = '<i class="fas fa-award"></i>';
+            scoreHeading.textContent = '¡Extraordinario! Conoces muy bien el Año Litúrgico';
+            scoreMsg.textContent = '¡Puntaje perfecto! Conoces los tiempos, las fechas y los colores del año de la Iglesia. Que te ayude a vivir cada tiempo con más sentido.';
+        } else if (score >= Math.ceil(quizData.length * 0.8)) {
+            iconWrapper.className = 'w-24 h-24 mx-auto mb-5 rounded-full flex items-center justify-center text-4xl shadow-md bg-emerald-100 text-emerald-600';
+            iconWrapper.innerHTML = '<i class="fas fa-star"></i>';
+            scoreHeading.textContent = '¡Muy Buen Desempeño!';
+            scoreMsg.textContent = 'Tienes una comprensión sólida del año litúrgico. Repasa los detalles en que dudaste para dominarlo por completo.';
+        } else if (score >= Math.ceil(quizData.length * 0.55)) {
+            iconWrapper.className = 'w-24 h-24 mx-auto mb-5 rounded-full flex items-center justify-center text-4xl shadow-md bg-amber-100 text-amber-600';
+            iconWrapper.innerHTML = '<i class="fas fa-book-open-reader"></i>';
+            scoreHeading.textContent = '¡Buen Esfuerzo de Aprendizaje!';
+            scoreMsg.textContent = 'Conoces lo esencial, pero algunos tiempos, fechas o colores aún generan dudas. Te recomendamos repasar el curso.';
+        } else {
+            iconWrapper.className = 'w-24 h-24 mx-auto mb-5 rounded-full flex items-center justify-center text-4xl shadow-md bg-orange-100 text-orange-600';
+            iconWrapper.innerHTML = '<i class="fas fa-book-open"></i>';
+            scoreHeading.textContent = 'Te invitamos a repasar la guía';
+            scoreMsg.textContent = 'El año litúrgico se aprende viviéndolo. Te invitamos a leer el curso con calma y volver a intentar el quiz.';
+        }
+    }
+
+    btnRestart.addEventListener('click', () => {
+        currentQuestion = 0;
+        score = 0;
+        rContainer.classList.add('hidden');
+        qContainer.classList.remove('hidden');
+        loadQuestion(0);
+    });
+
+    loadQuestion(0);
+})();
+</script>
+</body>
+</html>
