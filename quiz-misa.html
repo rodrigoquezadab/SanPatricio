@@ -53,12 +53,12 @@
                     <i class="fas fa-clipboard-check mr-3"></i>Quiz: ¿Cuánto sabes de la Misa?
                 </h1>
                 <p class="text-sm md:text-base text-gray-600 mt-2">
-                    Pon a prueba lo que sabes sobre las partes de la Misa, las respuestas de la asamblea, los gestos y las posturas, según la Instrucción General del Misal Romano (IGMR) y el Misal aprobado para Chile. Son 16 preguntas formativas.
+                    Pon a prueba lo que sabes sobre las partes de la Misa, las respuestas de la asamblea, los gestos y las posturas, según la Instrucción General del Misal Romano (IGMR) y el Misal aprobado para Chile. Son 24 preguntas formativas.
                 </p>
             </div>
             <div class="flex items-center gap-3 self-start md:self-center">
                 <span id="quiz-counter-badge" class="text-xs font-bold px-3.5 py-1.5 bg-green-50 text-verdeSanPatricio border border-green-200 rounded-lg whitespace-nowrap shadow-sm">
-                    Pregunta <span id="quiz-q-current">1</span> de <span id="quiz-q-total">16</span>
+                    Pregunta <span id="quiz-q-current">1</span> de <span id="quiz-q-total">24</span>
                 </span>
             </div>
         </div>
@@ -285,7 +285,87 @@
             explanation: "🍞 <strong>¡Correcto!</strong> La mano forma un «trono» para el Señor y se comulga de inmediato, frente al ministro."
         },
         {
-            question: "16. Al despedirnos («Pueden ir en paz»), ¿qué respondemos y qué hacemos?",
+            question: "16. ¿Qué significa la palabra «colecta» en la oración colecta?",
+            options: [
+                "Es el momento en que se recoge la ofrenda en dinero.",
+                "Es una oración que solo se reza en las fiestas.",
+                "Viene del latín «reunida»: el sacerdote recoge en una sola oración las intenciones de todos."
+            ],
+            correct: 2,
+            explanation: "📿 <strong>¡Correcto!</strong> En la colecta el sacerdote reúne las intenciones que cada uno presentó en silencio y las eleva a Dios en nombre de la comunidad (IGMR 54)."
+        },
+        {
+            question: "17. ¿Para qué sirve el silencio que sigue al «Oremos» antes de la colecta?",
+            options: [
+                "Para que cada uno presente a Dios su propia intención.",
+                "Para que el sacerdote busque la página en el Misal.",
+                "Para esperar a que todos se sienten."
+            ],
+            correct: 0,
+            explanation: "🤫 <strong>¡Muy bien!</strong> Ese silencio es nuestro momento personal: ahí ponemos la intención que el sacerdote luego recogerá en la oración."
+        },
+        {
+            question: "18. ¿Dónde se coloca la ofrenda en dinero que se recoge en la presentación de los dones?",
+            options: [
+                "Sobre el altar, junto al pan y el vino.",
+                "En un lugar adecuado, fuera del altar.",
+                "En el ambón."
+            ],
+            correct: 1,
+            explanation: "🪙 <strong>¡Exacto!</strong> Sobre el altar se colocan el pan y el vino; la ofrenda en dinero para la Iglesia y los pobres se deja en otro lugar adecuado (IGMR 73)."
+        },
+        {
+            question: "19. ¿Cuándo responde la asamblea «Bendito seas por siempre, Señor»?",
+            options: [
+                "Siempre, durante la presentación de los dones.",
+                "Al terminar la homilía.",
+                "Solo cuando no hay canto y el sacerdote dice en voz alta las oraciones sobre el pan y el vino."
+            ],
+            correct: 2,
+            explanation: "🍇 <strong>¡Correcto!</strong> Normalmente el sacerdote dice esas oraciones en voz baja mientras se canta; solo si no hay canto puede decirlas en voz alta y respondemos (IGMR 142)."
+        },
+        {
+            question: "20. ¿En qué momento nos ponemos de pie al comenzar la Liturgia Eucarística?",
+            options: [
+                "Al «Levantemos el corazón».",
+                "Al «Oren, hermanos…»; en el «Levantemos el corazón» ya debemos estar de pie.",
+                "Al comenzar el Santo."
+            ],
+            correct: 1,
+            explanation: "🧍 <strong>¡Muy bien!</strong> La invitación a orar es la señal: nos ponemos de pie al «Oren, hermanos…». El «Levantemos el corazón» eleva el corazón, no el cuerpo."
+        },
+        {
+            question: "21. En la bendición final, ¿cuándo inclinamos la cabeza?",
+            options: [
+                "Cuando se nos invita: «Inclínense para recibir la bendición», antes de una bendición solemne u oración sobre el pueblo.",
+                "Siempre, en toda bendición, como obligación.",
+                "Nunca: en la bendición solo nos persignamos."
+            ],
+            correct: 0,
+            explanation: "🙇 <strong>¡Correcto!</strong> En la bendición sencilla no es obligatorio; cuando el diácono o el sacerdote invita a inclinarse, lo hacemos hasta la bendición final (IGMR 185)."
+        },
+        {
+            question: "22. ¿Qué elementos tiene la Misa del domingo que normalmente no tiene la Misa de semana?",
+            options: [
+                "El Padre Nuestro y la Comunión.",
+                "La oración colecta y la bendición final.",
+                "El Credo y la segunda lectura (y el Gloria, salvo en Adviento y Cuaresma)."
+            ],
+            correct: 2,
+            explanation: "📅 <strong>¡Exacto!</strong> La estructura es la misma; el domingo se agregan el Credo, la segunda lectura y el Gloria (fuera de Adviento y Cuaresma), y la homilía es obligatoria."
+        },
+        {
+            question: "23. Una persona no se arrodilla en la consagración porque le duelen las rodillas. ¿Comete pecado?",
+            options: [
+                "Sí, porque arrodillarse es obligatorio para todos.",
+                "No: las posturas son signos, no obligaciones morales; puede hacer una inclinación profunda.",
+                "Sí, y debe confesarse antes de comulgar."
+            ],
+            correct: 1,
+            explanation: "💚 <strong>¡Así es!</strong> Este es un curso pastoral: no hacer un gesto por salud, edad o falta de espacio no es pecado. Quien no puede arrodillarse hace una inclinación profunda (IGMR 43)."
+        },
+        {
+            question: "24. Al despedirnos («Pueden ir en paz»), ¿qué respondemos y qué hacemos?",
             options: [
                 "«Demos gracias a Dios», y esperamos a que el sacerdote se retire antes de salir.",
                 "«Amén», y salimos de inmediato.",
@@ -430,12 +510,12 @@
             iconWrapper.innerHTML = '<i class="fas fa-award"></i>';
             scoreHeading.textContent = '¡Extraordinario! Conoces muy bien la Misa';
             scoreMsg.textContent = '¡Puntaje perfecto! Conoces las partes de la Misa, sus respuestas y sus gestos. Te invitamos a ayudar a otros a vivirla con la misma atención.';
-        } else if (score >= 13) {
+        } else if (score >= Math.ceil(quizData.length * 0.8)) {
             iconWrapper.className = 'w-24 h-24 mx-auto mb-5 rounded-full flex items-center justify-center text-4xl shadow-md bg-emerald-100 text-emerald-600';
             iconWrapper.innerHTML = '<i class="fas fa-star"></i>';
             scoreHeading.textContent = '¡Muy Buen Desempeño!';
             scoreMsg.textContent = 'Tienes una comprensión sólida de la celebración. Repasa los detalles en que dudaste para participar con aún más conciencia.';
-        } else if (score >= 9) {
+        } else if (score >= Math.ceil(quizData.length * 0.55)) {
             iconWrapper.className = 'w-24 h-24 mx-auto mb-5 rounded-full flex items-center justify-center text-4xl shadow-md bg-amber-100 text-amber-600';
             iconWrapper.innerHTML = '<i class="fas fa-book-open-reader"></i>';
             scoreHeading.textContent = '¡Buen Esfuerzo de Aprendizaje!';

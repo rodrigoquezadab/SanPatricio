@@ -91,6 +91,10 @@ node tools/build_cantos.js        # Genera cantos.html desde los datos
 
 ## 📋 Registro de Cambios (Changelog)
 
+### [2026-11-15] - Curso de la Misa: aclaración pastoral y quiz de 24 preguntas
+- **Contenido** (`cursos.html#partes-misa`): Recuadro «Un curso pastoral, no un tratado doctrinal». Las posturas y gestos son signos, no obligaciones morales (no hacerlos por desconocimiento, salud, edad o espacio no es pecado); los preceptos de la Iglesia (Misa dominical, c. 1247; ayuno eucarístico, c. 919) sí son obligatorios, con sus excepciones; dudas de conciencia, con un sacerdote.
+- **Quiz** (`quiz-misa.html`): de 16 a 24 preguntas (colecta, silencio tras el «Oremos», ofrenda fuera del altar, «Bendito seas por siempre, Señor», cuándo ponerse de pie, bendición final, Misa dominical y de semana, y posturas no son pecado). Los cortes de puntaje ahora son proporcionales al total de preguntas.
+
 ### [2026-11-13] - Curso para Lectores
 - **Contenido** (`cursos.html#lectores`): Nuevo curso con los distintos Leccionarios (dominical A/B/C, ferial I/II, santoral, de la Virgen María, rituales, diversas necesidades/votivas/difuntos) y cómo calcular el ciclo; preparación de la lectura; ubicación cerca del ambón y reverencia al altar; qué se lee (negro) y qué no (rojo), sin agregar nada hasta «Palabra de Dios»; el Salmo responsorial sin «repitamos todos»; segunda lectura y oración de los fieles; lista rápida del lector.
 - **Fuentes**: IGMR y Ordenación de las Lecturas de la Misa. Tarjeta nueva en el listado de cursos.
