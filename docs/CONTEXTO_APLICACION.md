@@ -91,6 +91,9 @@ node tools/build_cantos.js        # Genera cantos.html desde los datos
 
 ## 📋 Registro de Cambios (Changelog)
 
+### [2026-11-17] - Aviso pastoral en Cursos
+- **`cursos.html`**: recuadro `#cursos-aviso` bajo el título «Cursos» (visible en el listado y dentro de cada curso) que indica que son cursos de carácter general, que el párroco, el sacerdote que preside o el obispo y la Conferencia Episcopal pueden tener orientaciones pastorales propias, y que se recomienda conversar con el párroco de la parroquia correspondiente.
+
 ### [2026-11-17] - Versión de `styles.css` en todas las páginas (caché)
 - **Problema**: Hostinger sirve `styles.css` con caché de 7 días (`max-age=604800`). La portada cargaba `styles.css?v=7` y los navegadores seguían usando la copia antigua, sin la separación entre logo y menú; 27 páginas no tenían versión.
 - **Solución**: todas las páginas (y las plantillas de `tools/build_cantos.js` y `tools/build_components.js`) usan `styles.css?v=8` y `components.js?v=8`. `tools/bust_cache.js` ahora también actualiza esas plantillas.
