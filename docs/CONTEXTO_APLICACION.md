@@ -91,6 +91,11 @@ node tools/build_cantos.js        # Genera cantos.html desde los datos
 
 ## 📋 Registro de Cambios (Changelog)
 
+### [2026-11-16] - Curso «El Catecismo de la Iglesia Católica»
+- **Contenido** (`cursos.html#catecismo`): curso básico: qué es el Catecismo (Fidei depositum, 11/10/1992); cifras (4 partes, 2.865 números, Compendio de 598 preguntas de 2005); los cuatro pilares con sus rangos de números; lo esencial de cada parte (fe y Credo; liturgia y siete sacramentos; vida moral, virtudes y mandamientos; oración y Padre Nuestro) con referencias al CEC; cómo usar el Catecismo; enlaces a los cursos de la Misa y los Mandamientos.
+- **Fuentes verificadas** en vatican.va: índice del Catecismo, Fidei depositum y Compendio. Tarjeta ubicada antes de Buen Trato.
+- **Quiz** (`quiz-catecismo.html`): 20 preguntas con explicación y cortes de puntaje proporcionales. Agregado al `sitemap.xml`.
+
 ### [2026-11-16] - Curso «Las Estaciones del Vía Crucis»
 - **Contenido** (`cursos.html#via-crucis`): qué es el Vía Crucis; su historia (peregrinos a Jerusalén, forma de 14 estaciones en el siglo XVII, san Leonardo de Porto Maurizio); las 14 estaciones tradicionales con su cita bíblica, marcando las que provienen de la tradición; el Vía Crucis bíblico (1991) y la estación de la Resurrección; cómo se reza (aclamación «Te adoramos, oh Cristo…»); cuándo se reza; nota sobre la indulgencia.
 - **Fuentes verificadas**: Directorio sobre la piedad popular y la liturgia (nn. 131–135) y la página de la Santa Sede sobre el Vía Crucis. Tarjeta ubicada antes de Buen Trato.
