@@ -91,6 +91,11 @@ node tools/build_cantos.js        # Genera cantos.html desde los datos
 
 ## 📋 Registro de Cambios (Changelog)
 
+### [2026-11-16] - Curso «Las Estaciones del Vía Crucis»
+- **Contenido** (`cursos.html#via-crucis`): qué es el Vía Crucis; su historia (peregrinos a Jerusalén, forma de 14 estaciones en el siglo XVII, san Leonardo de Porto Maurizio); las 14 estaciones tradicionales con su cita bíblica, marcando las que provienen de la tradición; el Vía Crucis bíblico (1991) y la estación de la Resurrección; cómo se reza (aclamación «Te adoramos, oh Cristo…»); cuándo se reza; nota sobre la indulgencia.
+- **Fuentes verificadas**: Directorio sobre la piedad popular y la liturgia (nn. 131–135) y la página de la Santa Sede sobre el Vía Crucis. Tarjeta ubicada antes de Buen Trato.
+- **Quiz** (`quiz-via-crucis.html`): 20 preguntas con explicación y cortes de puntaje proporcionales. Agregado al `sitemap.xml`.
+
 ### [2026-11-16] - Curso «Los Misterios del Santo Rosario»
 - **Contenido** (`cursos.html#rosario`): cómo se reza; distribución semanal de los misterios (lunes y sábado gozosos, martes y viernes dolorosos, miércoles y domingo gloriosos, jueves luminosos) con un recurso para recordarla; los 20 misterios con su cita bíblica y la fecha del año en que se contemplan especialmente; fechas del Rosario (7 de octubre, octubre, Mes de María en Chile).
 - **Fuentes verificadas**: Rosarium Virginis Mariae (nn. 21, 29–38) y la página de misterios del Rosario en vatican.va; fechas según el Calendario Romano General. Se aclara que la distribución semanal no es rígida (RVM 38); no se presenta como norma una asignación por tiempos litúrgicos porque los documentos no la establecen. Tarjeta ubicada antes de Buen Trato.
