@@ -91,6 +91,18 @@ node tools/build_cantos.js        # Genera cantos.html desde los datos
 
 ## 📋 Registro de Cambios (Changelog)
 
+### [2026-11-16] - Seis cursos nuevos con su quiz
+- **Cursos** (en `cursos.html`, antes de Buen Trato), cada uno con fuentes de la Iglesia y su quiz de 16 preguntas:
+  - `#confesion` **Cómo confesarse**: pasos, examen de conciencia, paso a paso, acto de contrición, dudas frecuentes (CEC 1422–1498) y horarios de la parroquia.
+  - `#biblia` **Cómo leer la Biblia y la Lectio Divina**: los 73 libros, cómo leer una cita, consejos y los pasos de la Lectio Divina (CEC, Dei Verbum, Verbum Domini 87).
+  - `#sacramentos` **Los Sacramentos**: los siete, qué son, quién los recibe, requisitos de padrinos (CIC 872–874, 892–893) y cómo pedirlos en la parroquia.
+  - `#ministros-comunion` **Ministros de la Comunión**: quién puede serlo, distribución en la Misa y Comunión a los enfermos (CIC 230 §3, 910 §2; IGMR 160–162, 279).
+  - `#acolitos` **Monaguillos y acólitos**: objetos litúrgicos, servicio antes y durante la Misa y actitudes (IGMR).
+  - `#oraciones-basicas` **Oraciones básicas del católico**: texto completo de las oraciones esenciales y oraciones para cada momento del día.
+- **Herramienta**: los cursos y quiz se generaron con un script común (tarjeta + sección + quiz a partir de `quiz-buen-trato.html`), con cortes de puntaje proporcionales.
+- **Pendiente**: curso de Historia de la Parroquia y de la Congregación, cuando se suban los libros de la parroquia y del P. José Frassinetti.
+- `sitemap.xml` con los 6 quiz nuevos y descripción general de la página de cursos actualizada.
+
 ### [2026-11-16] - Curso «El Catecismo de la Iglesia Católica»
 - **Contenido** (`cursos.html#catecismo`): curso básico: qué es el Catecismo (Fidei depositum, 11/10/1992); cifras (4 partes, 2.865 números, Compendio de 598 preguntas de 2005); los cuatro pilares con sus rangos de números; lo esencial de cada parte (fe y Credo; liturgia y siete sacramentos; vida moral, virtudes y mandamientos; oración y Padre Nuestro) con referencias al CEC; cómo usar el Catecismo; enlaces a los cursos de la Misa y los Mandamientos.
 - **Fuentes verificadas** en vatican.va: índice del Catecismo, Fidei depositum y Compendio. Tarjeta ubicada antes de Buen Trato.
