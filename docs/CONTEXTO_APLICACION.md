@@ -91,6 +91,11 @@ node tools/build_cantos.js        # Genera cantos.html desde los datos
 
 ## 📋 Registro de Cambios (Changelog)
 
+### [2026-11-16] - Curso «Los Misterios del Santo Rosario»
+- **Contenido** (`cursos.html#rosario`): cómo se reza; distribución semanal de los misterios (lunes y sábado gozosos, martes y viernes dolorosos, miércoles y domingo gloriosos, jueves luminosos) con un recurso para recordarla; los 20 misterios con su cita bíblica y la fecha del año en que se contemplan especialmente; fechas del Rosario (7 de octubre, octubre, Mes de María en Chile).
+- **Fuentes verificadas**: Rosarium Virginis Mariae (nn. 21, 29–38) y la página de misterios del Rosario en vatican.va; fechas según el Calendario Romano General. Se aclara que la distribución semanal no es rígida (RVM 38); no se presenta como norma una asignación por tiempos litúrgicos porque los documentos no la establecen. Tarjeta ubicada antes de Buen Trato.
+- **Quiz** (`quiz-rosario.html`): 20 preguntas con explicación y cortes de puntaje proporcionales. Agregado al `sitemap.xml`.
+
 ### [2026-11-16] - Curso «Los Diez Mandamientos»
 - **Contenido** (`cursos.html#mandamientos`): curso básico desde la fe católica: origen del Decálogo (Éx 20, Dt 5) y su resumen en Jesús (Mt 22,37-40), las dos tablas, la fórmula catequética, una tarjeta por mandamiento (qué pide, qué va en contra y referencia al Catecismo) y un recuadro pastoral sobre el perdón (examen de conciencia, pecado grave y leve según CEC 1857, Reconciliación).
 - **Fuentes**: Sagrada Escritura y Catecismo de la Iglesia Católica (nn. 2052–2557). Tarjeta ubicada antes de Buen Trato.
