@@ -91,6 +91,11 @@ node tools/build_cantos.js        # Genera cantos.html desde los datos
 
 ## 📋 Registro de Cambios (Changelog)
 
+### [2026-11-16] - Curso «Los Diez Mandamientos»
+- **Contenido** (`cursos.html#mandamientos`): curso básico desde la fe católica: origen del Decálogo (Éx 20, Dt 5) y su resumen en Jesús (Mt 22,37-40), las dos tablas, la fórmula catequética, una tarjeta por mandamiento (qué pide, qué va en contra y referencia al Catecismo) y un recuadro pastoral sobre el perdón (examen de conciencia, pecado grave y leve según CEC 1857, Reconciliación).
+- **Fuentes**: Sagrada Escritura y Catecismo de la Iglesia Católica (nn. 2052–2557). Tarjeta ubicada antes de Buen Trato.
+- **Quiz** (`quiz-mandamientos.html`): 20 preguntas con explicación y cortes de puntaje proporcionales. Agregado al `sitemap.xml`.
+
 ### [2026-11-15] - Curso «El Año Litúrgico»
 - **Contenido** (`cursos.html#ano-liturgico`): cuándo comienza y termina el año litúrgico; los tiempos (Adviento, Navidad, Tiempo Ordinario, Cuaresma, Triduo Pascual, Pascua) con barra de colores; fechas fijas (calendario solar) y móviles (calendario lunar, Pascua) con un ejemplo calculado para 2026–2027; colores litúrgicos y paño del ambón; cuándo se dicen el Gloria, el Santo y el Aleluya; Viernes y Sábado Santo sin Misa; cantos y oraciones propios de cada tiempo. Los ciclos de lecturas se remiten al Curso para Lectores.
 - **Fuentes**: Normas universales sobre el Año Litúrgico y el Calendario, IGMR. Tarjeta nueva en el listado de cursos.
