@@ -91,6 +91,11 @@ node tools/build_cantos.js        # Genera cantos.html desde los datos
 
 ## 📋 Registro de Cambios (Changelog)
 
+### [2026-11-17] - Versión de `styles.css` en todas las páginas (caché)
+- **Problema**: Hostinger sirve `styles.css` con caché de 7 días (`max-age=604800`). La portada cargaba `styles.css?v=7` y los navegadores seguían usando la copia antigua, sin la separación entre logo y menú; 27 páginas no tenían versión.
+- **Solución**: todas las páginas (y las plantillas de `tools/build_cantos.js` y `tools/build_components.js`) usan `styles.css?v=8` y `components.js?v=8`. `tools/bust_cache.js` ahora también actualiza esas plantillas.
+- **Regla**: cada vez que cambie `styles.css` o `components.js`, ejecutar `node tools/bust_cache.js` antes de publicar.
+
 ### [2026-11-16] - Seis cursos nuevos con su quiz
 - **Cursos** (en `cursos.html`, antes de Buen Trato), cada uno con fuentes de la Iglesia y su quiz de 16 preguntas:
   - `#confesion` **Cómo confesarse**: pasos, examen de conciencia, paso a paso, acto de contrición, dudas frecuentes (CEC 1422–1498) y horarios de la parroquia.

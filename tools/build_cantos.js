@@ -140,7 +140,7 @@ const html = `<!DOCTYPE html>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>tailwind.config = { theme: { extend: { colors: { arena: '#F3E5DC', verdeSanPatricio: '#16A34A', negro: '#000000' } } } }</script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css?v=8">
     <link rel="icon" href="/favicon.ico" sizes="any">
     <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png">
     <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
@@ -252,7 +252,7 @@ ${s.momentos.length || s.tiempos.length || s.misaChilena ? `        <div class="
 <div id="footer-container">
 ${footerHtml}
 </div>
-<script src="components.js?v=4"></script>
+<script src="components.js?v=8"></script>
 <script>
 // ── Audio ──
 let audioCtx;

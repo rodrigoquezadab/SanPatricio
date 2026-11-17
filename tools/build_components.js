@@ -51,7 +51,7 @@ function processFile(file) {
 
         // Replace inline styles
         if (stylesRegex.test(content)) {
-            content = content.replace(stylesRegex, '<link rel="stylesheet" href="styles.css">');
+            content = content.replace(stylesRegex, '<link rel="stylesheet" href="styles.css?v=8">');
         }
 
         fs.writeFileSync(filePath, content, 'utf8');
@@ -80,7 +80,7 @@ function processFile(file) {
 
     // Replace styles
     if (stylesRegex.test(content)) {
-        content = content.replace(stylesRegex, '<link rel="stylesheet" href="styles.css">');
+        content = content.replace(stylesRegex, '<link rel="stylesheet" href="styles.css?v=8">');
     }
 
     // Add Meta Tags if not present
