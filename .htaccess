@@ -18,4 +18,20 @@ ErrorDocument 404 /404.html
 
     # 3. Página renombrada
     RewriteRule ^congregacion\.html$ /parroquia.html [R=301,L]
+
+    # 4. Archivos internos del proyecto (documentación, herramientas, notas): no se sirven
+    RewriteRule ^(docs|tools|\.claude)(/|$) - [R=404,L]
+    RewriteRule \.md$ - [R=404,L]
+</IfModule>
+
+# Cabeceras de seguridad
+<IfModule mod_headers.c>
+    # Usar siempre HTTPS durante 1 año (sin includeSubDomains ni preload)
+    Header always set Strict-Transport-Security "max-age=31536000"
+    # Impedir que otros sitios muestren estas páginas dentro de un iframe
+    Header always set X-Frame-Options "SAMEORIGIN"
+    # No adivinar el tipo de archivo
+    Header always set X-Content-Type-Options "nosniff"
+    # Enviar solo el dominio al seguir enlaces externos
+    Header always set Referrer-Policy "strict-origin-when-cross-origin"
 </IfModule>

@@ -91,6 +91,14 @@ node tools/build_cantos.js        # Genera cantos.html desde los datos
 
 ## 📋 Registro de Cambios (Changelog)
 
+### [2026-11-18] - Seguridad en `.htaccess`
+- Las carpetas `docs/`, `tools/`, `.claude/` y todos los archivos `.md` responden 404 en el sitio (siguen en el repositorio).
+- Cabeceras: `Strict-Transport-Security` (1 año, sin subdominios), `X-Frame-Options: SAMEORIGIN`, `X-Content-Type-Options: nosniff`, `Referrer-Policy: strict-origin-when-cross-origin`.
+
+### [2026-11-18] - Archivo histórico privado (`docs/archivo/`)
+- Carpeta local para guardar documentos de la parroquia como **memoria de consulta** (índice en `docs/archivo/README.md`). Está en `.gitignore`: no se publica, porque el repositorio es público y `docs/` se sirve en el sitio.
+- **Regla**: su información puede estar desactualizada o sin contexto; no se usa para modificar la web salvo pedido expreso del usuario con datos confirmados.
+
 ### [2026-11-17] - Aviso pastoral en Cursos
 - **`cursos.html`**: recuadro `#cursos-aviso` bajo el título «Cursos» (visible en el listado y dentro de cada curso) que indica que son cursos de carácter general, que el párroco, el sacerdote que preside o el obispo y la Conferencia Episcopal pueden tener orientaciones pastorales propias, y que se recomienda conversar con el párroco de la parroquia correspondiente.
 
