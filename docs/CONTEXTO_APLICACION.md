@@ -91,6 +91,11 @@ node tools/build_cantos.js        # Genera cantos.html desde los datos
 
 ## 📋 Registro de Cambios (Changelog)
 
+### [2026-11-18] - Afiches sin depender de GitHub
+- `assets/flyers/.htaccess` (`Options +Indexes`) permite que Hostinger liste los afiches de esa carpeta y sus subcarpetas.
+- `index.html`, `noticia.html` y `noticias.html` leen ese listado directamente; se eliminó la consulta a la API de GitHub (`api.github.com`), que además tenía límite de 60 consultas por hora por visitante.
+- Para agregar un afiche histórico basta con subir la imagen a `assets/flyers/historicos/` (por GitHub o desde el Administrador de archivos de hPanel).
+
 ### [2026-11-18] - Seguridad en `.htaccess`
 - Las carpetas `docs/`, `tools/`, `.claude/` y todos los archivos `.md` responden 404 en el sitio (siguen en el repositorio).
 - Cabeceras: `Strict-Transport-Security` (1 año, sin subdominios), `X-Frame-Options: SAMEORIGIN`, `X-Content-Type-Options: nosniff`, `Referrer-Policy: strict-origin-when-cross-origin`.

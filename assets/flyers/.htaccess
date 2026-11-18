@@ -1,0 +1,4 @@
+# Permite listar los afiches de esta carpeta (y sus subcarpetas).
+# index.html, noticia.html y noticias.html leen este listado para mostrar los afiches
+# sin depender de GitHub: basta con subir la imagen a la carpeta desde hPanel.
+Options +Indexes
