@@ -89,7 +89,37 @@ node tools/build_cantos.js        # Genera cantos.html desde los datos
 
 ---
 
+## 📅 Fechas periódicas de la parroquia
+
+Registro de celebraciones que se repiten cada año (tomado de las noticias archivadas y del calendario 2026). Las marcadas con ✅ están en `data/eventos_parroquiales.json` → `recurring.annual` y el calendario las muestra solas cada año.
+
+**Cómo funciona `recurring.annual`**: `month`/`day` = fecha fija; `easter` = días desde el Domingo de Pascua (móviles); `days` = días seguidos; `since` = año de origen (`{n}` = años cumplidos); `{d}` = número de día del rango; `match` = si ese día ya hay un evento puntual (`oneTime`) cuyo título contiene ese texto, no se repite (así el evento con horarios del año tiene prioridad).
+
+| Fecha | Celebración | Datos | Calendario |
+|---|---|---|---|
+| Miércoles de Ceniza (Pascua −46) | Inicio Cuaresma de Fraternidad (Cáritas) | La parroquia entrega el 100% de lo recaudado (2026: $1.974.700) | ✅ |
+| 17 de marzo | **Fiesta de San Patricio, patrono** | Se celebra como fiesta parroquial (no como Solemnidad) | ✅ |
+| Semana Santa (Ramos a Pascua) | Domingo de Ramos (Plaza Manquehue), Jueves Santo, Viernes Santo (Vía Crucis por el barrio), Vigilia Pascual | Ya están en el calendario litúrgico; horarios parroquiales cada año en noticias | (litúrgico) |
+| II Domingo de Pascua (Pascua +7) | **Fiesta de Cuasimodo** | Comunión a enfermos y adultos mayores del sector (2026: 12 de abril) | ✅ |
+| 6–14 de mayo y 15 de mayo | Novena y fiesta del Venerable P. José Frassinetti (fundador HSMI) | | ✅ |
+| Sábado antes de Pentecostés (Pascua +48) | Vigilia de Pentecostés | 2026: 18:00 a 20:00, Misa y adoración con música sacra | ✅ |
+| 22 de junio | **Aniversario de la Consagración del Altar** (1997) | Consagró el Cardenal Carlos Oviedo Cavada, párroco P. José Sozzi. **Solo el altar**, no el templo | ✅ |
+| 7 de julio / 16 de julio | Novena y solemnidad de la Virgen del Carmen | El 16 ya está en el calendario litúrgico | ✅ (inicio) |
+| 15 de julio | Aniversario de ordenación del P. Samuel Ladrón de Guevara (2015) | Quitar de `annual` si cambia el clero | ✅ |
+| 14 de agosto | Aniversario de ordenación del P. Roberto Cancian (1982) | Quitar de `annual` si cambia el clero | ✅ |
+| 17 de agosto | **Aniversario de la erección de la Parroquia** (1956) | 70° en 2026: Misa 19:00 presidida por el Cardenal Chomali | ✅ |
+| Septiembre | Mes de la Biblia | Charlas y retiro (Lectio Divina, Vicaría Cordillera) | ✅ (inicio) |
+| 8 nov – 8 dic | Mes de María | Rosario diario y en plazas del sector | ✅ (inicio y término) |
+| 8 de diciembre | Inmaculada Concepción, término del Mes de María | Tradición: procesión a Plaza Ñanco con Parroquia Las Nieves (confirmar cada año) | ✅ |
+| 24 dic / 3 ene | Misa de Nochebuena; visita de los Reyes Magos | Según compendio 2026; no está en `annual` | — |
+
+**Pendiente para 2027**: el calendario sigue fijo en 2026 (`assets/calendar-2026.ics`, `"year": 2026` y `currentYear = 2026` en `calendario.html`). Al pasar a 2027 hay que cambiar el `.ics` litúrgico y el año; las fechas de `annual` aparecerán solas.
+
 ## 📋 Registro de Cambios (Changelog)
+
+### [2026-11-18] - Fechas periódicas en el calendario
+- `data/eventos_parroquiales.json`: nueva sección `recurring.annual` con 14 fechas que se repiten cada año (ver «Fechas periódicas de la parroquia»). El 70° aniversario quedó en el **17 de agosto** (antes figuraba «13 o 16»).
+- `calendario.html`: genera esas fechas para el año del calendario y calcula las móviles desde la Pascua (`easterSunday`).
 
 ### [2026-11-18] - Afiches sin depender de GitHub
 - `assets/flyers/.htaccess` (`Options +Indexes`) permite que Hostinger liste los afiches de esa carpeta y sus subcarpetas.

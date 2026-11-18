@@ -290,6 +290,39 @@ document.addEventListener("DOMContentLoaded", function () {
                 }
             });
         }
+
+        // 4. Fechas periódicas (cada año): fijas (month/day) o móviles (easter = días desde el Domingo de Pascua).
+        //    No se repiten si ese día ya hay un evento puntual cuyo título contiene "match".
+        if (data.recurring && data.recurring.annual) {
+            const year = data.year;
+            const oneTime = data.oneTime || [];
+            const keyOf = d => d.getFullYear().toString() + (d.getMonth() + 1).toString().padStart(2, '0') + d.getDate().toString().padStart(2, '0');
+            data.recurring.annual.forEach(rule => {
+                const first = rule.easter !== undefined
+                    ? (() => { const e = easterSunday(year); e.setDate(e.getDate() + rule.easter); return e; })()
+                    : new Date(year, rule.month - 1, rule.day);
+                const n = rule.since ? year - rule.since : null;
+                for (let i = 0; i < (rule.days || 1); i++) {
+                    const d = new Date(first);
+                    d.setDate(d.getDate() + i);
+                    const dateKey = keyOf(d);
+                    if (rule.match && oneTime.some(ev => ev.start === dateKey && ev.summary.includes(rule.match))) continue;
+                    const fill = text => (text || '').replace(/\{n\}/g, n).replace(/\{d\}/g, i + 1);
+                    localEvents.push({ start: dateKey, summary: fill(rule.summary), description: fill(rule.description) });
+                }
+            });
+        }
+    }
+
+    // Domingo de Pascua (calendario gregoriano, algoritmo anónimo de Meeus/Jones/Butcher)
+    function easterSunday(year) {
+        const a = year % 19, b = Math.floor(year / 100), c = year % 100;
+        const d = Math.floor(b / 4), e = b % 4, f = Math.floor((b + 8) / 25);
+        const g = Math.floor((b - f + 1) / 3), h = (19 * a + b - d - g + 15) % 30;
+        const i = Math.floor(c / 4), k = c % 4, l = (32 + 2 * e + 2 * i - h - k) % 7;
+        const m = Math.floor((a + 11 * h + 22 * l) / 451);
+        const month = Math.floor((h + l - 7 * m + 114) / 31), day = ((h + l - 7 * m + 114) % 31) + 1;
+        return new Date(year, month - 1, day);
     }
 
     function parseICS(icsText) {

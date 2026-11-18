@@ -157,19 +157,14 @@
       "description": "Visita pastoral del Vicario Zona Cordillera (horario por definir)."
     },
     {
-      "start": "20260813",
-      "summary": "🔵 [P] Conmemoración del 70° Aniversario de la Parroquia",
-      "description": "70° Aniversario de la Constitución Canónica de la Parroquia San Patricio. Se celebrará la conmemoración el día 13 o el 16 de agosto con una invitación y visita del Obispo."
-    },
-    {
       "start": "20260814",
       "summary": "🔵 [P] 44° Aniversario Ordenación P. Roberto Cancian",
       "description": "44° Aniversario de Ordenación Sacerdotal y Profesión de Fe del Párroco, Padre Roberto Daniel Cancian Carletti (14 de agosto de 1982)."
     },
     {
-      "start": "20260816",
+      "start": "20260817",
       "summary": "🔵 [P] Conmemoración del 70° Aniversario de la Parroquia",
-      "description": "70° Aniversario de la Constitución Canónica de la Parroquia San Patricio. Se celebrará la conmemoración el día 13 o el 16 de agosto con una invitación y visita del Obispo."
+      "description": "19:00 hrs: Misa de acción de gracias por los 70 años de la Parroquia San Patricio (erigida el 17 de agosto de 1956), presidida por S. E. Mons. Fernando Chomali, Cardenal Arzobispo de Santiago."
     },
     {
       "start": "20260905",
@@ -369,6 +364,108 @@
         "endDate": "20260613",
         "summary": "🔵 [P] Ausencia del Padre Roberto",
         "description": "El Padre Roberto estará ausente de la parroquia desde el 30 de mayo hasta el 13 de junio."
+      }
+    ],
+    "annual": [
+      {
+        "month": 3,
+        "day": 17,
+        "match": "San Patricio",
+        "summary": "🔵 [P] Fiesta de San Patricio, patrono de la parroquia",
+        "description": "Fiesta parroquial de San Patricio, obispo, patrono de nuestra parroquia."
+      },
+      {
+        "easter": -46,
+        "match": "Cuaresma de Fraternidad",
+        "summary": "🔵 [P] Inicio de la Cuaresma de Fraternidad",
+        "description": "Comienza la campaña Cuaresma de Fraternidad de la Pastoral Social Cáritas. Lo recaudado en la parroquia se entrega en su totalidad a la campaña."
+      },
+      {
+        "easter": 7,
+        "match": "Cuasimodo",
+        "summary": "🔵 [P] Fiesta de Cuasimodo",
+        "description": "Tradicional celebración de Cuasimodo: se lleva la Santa Comunión a los enfermos y adultos mayores del sector parroquial."
+      },
+      {
+        "month": 5,
+        "day": 6,
+        "days": 9,
+        "match": "Frassinetti",
+        "summary": "🔵 [P] Novena al Padre José Frassinetti - Día {d}",
+        "description": "Día {d} de la Novena al Venerable Padre José Frassinetti, fundador de la Congregación de los Hijos de Santa María Inmaculada."
+      },
+      {
+        "month": 5,
+        "day": 15,
+        "match": "Frassinetti",
+        "summary": "🔵 [P] Novena al Padre José Frassinetti - Día de la Fiesta (Término)",
+        "description": "Fiesta y término de la Novena al Venerable Padre José Frassinetti."
+      },
+      {
+        "easter": 48,
+        "match": "Vigilia de Pentecostés",
+        "summary": "🔵 [P] Vigilia de Pentecostés",
+        "description": "Vigilia parroquial de Pentecostés: oración comunitaria para pedir los dones del Espíritu Santo. Horario en las noticias de la parroquia."
+      },
+      {
+        "month": 6,
+        "day": 22,
+        "since": 1997,
+        "match": "Consagración del Altar",
+        "summary": "🔵 [P] {n}° Aniversario de la Consagración del Altar",
+        "description": "El altar de nuestro templo fue consagrado el 22 de junio de 1997 por el Cardenal Carlos Oviedo Cavada, siendo Cura Párroco el P. José Sozzi."
+      },
+      {
+        "month": 7,
+        "day": 7,
+        "match": "Virgen del Carmen",
+        "summary": "🔵 [P] Inicio de la Novena a la Virgen del Carmen",
+        "description": "Novena a Nuestra Señora del Carmen, Madre y Reina de Chile, hasta su solemnidad el 16 de julio."
+      },
+      {
+        "month": 7,
+        "day": 15,
+        "since": 2015,
+        "match": "Ordenación Padre Samuel",
+        "summary": "🔵 [P] {n}° Aniversario Ordenación Padre Samuel",
+        "description": "Aniversario de la ordenación sacerdotal del Vicario parroquial, P. Samuel Ladrón de Guevara."
+      },
+      {
+        "month": 8,
+        "day": 14,
+        "since": 1982,
+        "match": "Ordenación P. Roberto",
+        "summary": "🔵 [P] {n}° Aniversario Ordenación P. Roberto Cancian",
+        "description": "Aniversario de la ordenación sacerdotal del Párroco, P. Roberto Daniel Cancian Carletti (14 de agosto de 1982)."
+      },
+      {
+        "month": 8,
+        "day": 17,
+        "since": 1956,
+        "match": "Aniversario de la Parroquia",
+        "summary": "🔵 [P] {n}° Aniversario de la Parroquia",
+        "description": "Aniversario de la erección de la Parroquia San Patricio, el 17 de agosto de 1956."
+      },
+      {
+        "month": 9,
+        "day": 1,
+        "match": "Mes de la Biblia",
+        "summary": "🔵 [P] Inicio del Mes de la Biblia",
+        "description": "Septiembre es el Mes de la Biblia: un tiempo para profundizar, compartir y celebrar la Palabra de Dios. Actividades en las noticias de la parroquia."
+      },
+      {
+        "month": 11,
+        "day": 8,
+        "match": "Mes de María",
+        "summary": "🔵 [P] Inicio del Mes de María",
+        "description": "Comienza el Mes de María (8 de noviembre al 8 de diciembre). Horarios del Santo Rosario en las noticias de la parroquia."
+      },
+      {
+        "month": 12,
+        "day": 8,
+        "match": "Mes de María",
+        "summary": "🔵 [P] Término del Mes de María",
+        "description": "Solemnidad de la Inmaculada Concepción de la Virgen María y término del Mes de María."
       }
     ]
   }
